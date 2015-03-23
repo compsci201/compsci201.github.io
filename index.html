@@ -1,23 +1,15 @@
 ---
 layout: default
+title: "Duke - CompSci 201"
 ---
 
-<div class="home">
+<h1>Duke - CompSci 201</h1>
+<hr>
+<p>Welcome to the home of Duke's CompSci 201 assignments.</p>
+<ul>
+	<li><a href="{{  site.baseurl }}/dna">DNA</a></li>
 
-  <h1 class="page-heading">Posts</h1>
+	<!-- <li><a href="{{  site.baseurl }}/boggle">Boggle</a></li> -->
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
-</div>
+	<!-- <li><a href="{{  site.baseurl }}/huffman">Huffman</a></li> -->
+</ul>
