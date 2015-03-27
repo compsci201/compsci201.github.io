@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Boggle"
+title: "Boggle - Intro"
 categories: Boggle
 ---
 # DNA
