@@ -1,15 +1,16 @@
 ---
 layout: default
 title: "Duke - CompSci 201"
+assignment: "none"
 ---
 
 <h1>Duke - CompSci 201</h1>
 <hr>
 <p>Welcome to the home of Duke's CompSci 201 assignments.</p>
 <ul>
-	<li><a href="{{  site.baseurl }}/dna">DNA</a></li>
+	{% for assgn in site.assignments %}
+    	<li><a href="{{ site.baseurl }}/{{ assgn.title  }}"> {{ assgn.title }} </li>
+	{% endfor %}
 
-	<!-- <li><a href="{{  site.baseurl }}/boggle">Boggle</a></li> -->
 
-	<!-- <li><a href="{{  site.baseurl }}/huffman">Huffman</a></li> -->
 </ul>

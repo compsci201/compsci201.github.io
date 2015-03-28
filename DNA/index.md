@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "DNA"
-categories: DNA
+assignment: "dna"
 ---
 # DNA
 ---

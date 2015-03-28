@@ -15,12 +15,26 @@
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Assignments <span class="caret"></span></a>
                       <ul class="dropdown-menu" role="menu">
-                        {% for c in page.categories %}
-                            <li><a href="{{ site.baseurl }}/{{ c }}">{{ c }}</a></li>
+                        {% for assignment in site.assignments %}
+                            <li><a href="{{ site.baseurl }}/{{ assignment.title }}">{{ assignment.title }}</a></li>
                         {% endfor %}
                       </ul>
                     </li>
-                    <li><a href="">1</a></li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Navigation <span class="caret"></span></a>
+                      <ul class="dropdown-menu" role="menu">
+                      {% comment %} This has the index.html code always start first. {% endcomment %}
+                        <li><a href="{{ site.baseurl }}/{{ page.assignment }}">Overview</a></li> 
+                        {% for p in site.pages %}
+                            {% if p.assignment == page.assignment %}
+                              {% if !(p.url contains 'index') %} {% comment %} Don't do anything if index.html {% endcomment %}
+                              {% else %}
+                                  <li><a href="{{ p.url }}">{{ p.title }}</a></li>
+                              {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                      </ul>
+                    </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="http://cs.duke.edu">Duke CS</a></li>            
