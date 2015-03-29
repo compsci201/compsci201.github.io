@@ -20,12 +20,12 @@ You should write this class implementing the **IWordOnBoardFinder** interface. Y
 
 Your recursive helper method should search for the word beginning at a specified cell (row, column) on the board. The code for *cellsForWord* starts as follows: 
 
-<code>public List<BoardCell> cellsForWord(BoggleBoard board, String word) {
+<pre><code>public List<BoardCell> cellsForWord(BoggleBoard board, String word) {
 	&nbsp;List<BoardCell> list = new ArrayList<BoardCell>();
 	&nbsp;for(int r = 0; r < board.size(); r++) {
 		&nbsp;&nbsp;&nbsp;&nbsp;for(int c = 0; c < board.size(); c++) {
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(helper(board, r, c, list, ....)) {
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//not shown.. <code>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//not shown.. <code></pre>
 
 This code will call the helper method with every possible (row, column) as a starting point. The helper method will do most of the work. 
 
