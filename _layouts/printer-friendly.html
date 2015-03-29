@@ -13,7 +13,7 @@ layout: default
 
 {% for p in site.pages %}
 	{% if p.assignment == page.assignment %}
-		{% if !(p.url contains 'index') %} {% comment %} Don't do anything if index.html {% endcomment %}
+		{% if !(p.url contains 'index') or !(p.url contains 'printer-friendly') %} {% comment %} Don't do anything if index.html or printer-friendly page {% endcomment %}
 		{% else %}
 			<h1>{{ p.title }}</h1>
 			{{ p.content }}
