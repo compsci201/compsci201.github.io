@@ -24,15 +24,16 @@ You can see how the regular trie works by examining the code in the **TrieLexico
 For example, in the tries shown above the string "toaster" would result in the code following the "t" link, then the "o", then would fail because there's no "a" link from the "o" node. 
 
 You'll need to create a new method compress to perform this one-child compression, you'll call this method in the load method you override as below:
-<code> public class CompressedTrieLexicon extends TrieLexicon {
- // some code not shown
- &nbsp;&nbsp;@Override
-&nbsp;&nbsp;&nbsp; public void load(ArrayList<String> list) {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; super.load(list);
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;compress();
-&nbsp;&nbsp; }
- &nbsp;// more code not shown
-}<code>
+
+	public class CompressedTrieLexicon extends TrieLexicon {
+	 // some code not shown
+	 @Override
+	public void load(ArrayList<String> list) {
+		super.load(list);
+		 compress();
+		}
+	 // more code not shown
+	}
 
 In a trie, determining whether a string is a word or prefix is an O(w) operation where W is the length of the string. (This is independent of N- the number of entries stored in the trie). 
 

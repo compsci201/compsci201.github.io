@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "GoodWordOnBoardFinder"
+title: "1 - GoodWordOnBoardFinder"
 assignment: "boggle"
 
 ---
@@ -20,18 +20,12 @@ You should write this class implementing the **IWordOnBoardFinder** interface. Y
 
 Your recursive helper method should search for the word beginning at a specified cell (row, column) on the board. The code for *cellsForWord* starts as follows: 
 
-
-<code>public List<BoardCell> cellsForWord(BoggleBoard board, String word) { 
-
-	List<BoardCell> list = new ArrayList<BoardCell>(); 
-	
-	for(int r = 0; r < board.size(); r++) { 
-	
+	public List<BoardCell> cellsForWord(BoggleBoard board, String word) {
+	List<BoardCell> list = new ArrayList<BoardCell>();
+	for(int r = 0; r < board.size(); r++) {
 		for(int c = 0; c < board.size(); c++) {
-		
 			if(helper(board, r, c, list, ....)) {
-			
-			   //not shown.. </code>
+			//not shown..
 
 This code will call the helper method with every possible (row, column) as a starting point. The helper method will do most of the work. 
 
@@ -49,18 +43,13 @@ After the base cases we know that we are in a word and the current character mat
 
 You could explicitly write out the eight recursive calls, but please don't do that. Your implementation should be cleaner than that. Consider using two arrays like so: 
 
-<code>int[] rdelta = {-1,-1,-1, 0, 0, 1, 1, 1};
+	int[] rdelta = {-1,-1,-1, 0, 0, 1, 1, 1};
+	int[] cdelta = {-1, 0, 1,-1, 1,-1, 0, 1};
+	 for(int k=0; k < rdelta.length; k++){
+		 if (helper(board, row+rdelta[k], col+cdelta[k], ...) 
+			 return true; 
+	 }
 
- int[] cdelta = {-1, 0, 1,-1, 1,-1, 0, 1};
- 
- for(int k=0; k < rdelta.length; k++){
- 
-	if (helper(board, row+rdelta[k], col+cdelta[k], ...) 
-	
-		return true;
-		
-}
-</code>
 
 In our fourth base case we indicated that keeping a list of the used BoardCells. This list really has two purposes:
 
