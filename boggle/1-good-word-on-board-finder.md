@@ -63,5 +63,5 @@ If you don't find the word being looked for you need to backtrack and undo what 
 There are no 'Q' cells on a BoggleBoard, instead there is a 'Qu' cell. Consider the implications of this, the index parameter will not increase by one, but instead by two. If your code isn't working make sure all of your code would work for a normal cell and a 'Qu' cell, this is where a lot of issues will arise. 
 
 
-##**Testing:**
+####**Testing:**
 You're given a JUnit test, **TestWordFinder** for testing your **GoodWordOnBoardFinder**. Hopefully passing the unit tests will be enough for your code to work in the Boggle game, but consider special cases. For example what if the tester doesn't test with a board containing a 'Qu' cell? You can additionally change **BoggleMain** to use **GoodWordOnBoardFinder** and play the game to see if the game works properly. 

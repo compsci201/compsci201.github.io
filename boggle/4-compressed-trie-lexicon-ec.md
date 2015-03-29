@@ -13,7 +13,6 @@ The **TrieLexicon** implementation has been provided for you, we discussed the c
 Your **CompressedTrieLexicon** should be a *subclass* of **TrieLexicon.** You'll write code to remove nodes with only one child as described below. A chain of nodes pointed to by one link can be compressed into a node storing a suffix rather than a single character. The picture below shows the result of compressing a trie, you should be familiar with this from recitation. 
 
 ####![Regular Trie](https://www.cs.duke.edu/courses/fall12/compsci201/assignments/boggle/trie.jpg)
-
 ####![Compressed Trie](https://www.cs.duke.edu/courses/fall12/compsci201/assignments/boggle/compressedtrie.jpg)
 
 The red dots in the diagram indicate that the path from the root to the node represents a word. 
