@@ -1,10 +1,8 @@
 ---
 layout: page
-title: "0 - Boggle - Intro"
+title: "Boggle Overview"
 assignment: "boggle"
 
----
-# Boggle
 ---
 
 ## Boggle - Overview

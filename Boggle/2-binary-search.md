@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Boggle"
+title: "BinarySearchLexicon"
 assignment: "boggle"
 
 ---

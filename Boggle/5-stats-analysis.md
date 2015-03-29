@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Boggle"
+title: "Stats/Analysis"
 assignment: "boggle"
 
 ---

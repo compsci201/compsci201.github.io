@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Boggle"
+title: "Lexicon Benchmarking"
 assignment: "boggle"
 
 ---
