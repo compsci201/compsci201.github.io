@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Lexicon Benchmarking"
+title: "Introduction to Players"
 assignment: "boggle"
 
 ---
