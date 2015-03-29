@@ -5,7 +5,4 @@ assignment: "boggle"
 
 ---
 
-## Boggle - Overview
----
-
 Welcome to Boggle.

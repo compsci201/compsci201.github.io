@@ -1,12 +1,7 @@
 ---
 layout: page
-title: "Huffman"
+title: "Huffman Overview"
 assignment: "huffman"
----
-# Huffman
----
-
-## Huffman - Overview
 ---
 
 Welcome to Huffman.

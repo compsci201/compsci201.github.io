@@ -3,8 +3,6 @@ layout: page
 title: "DNA"
 assignment: "dna"
 ---
-# DNA
----
 
 ## DNA - Overview
 ---
@@ -17,7 +15,7 @@ Before we get started, we need the starting skeleton code. It's is available thr
 
 ### Introduction to DNA
 
-In this assignment, we will be simulating genetic experiments using code. To understand the theory behind everything we are doing, it is recommended (but not required) to read [this](/theory).
+In this assignment, we will be simulating genetic experiments using code. To understand the theory behind everything we are doing, it is recommended (but not required) to read [this](/dna/theory.html).
 
 We are modeling DNA strands using classes implementing the interface IDNAStrand. You are given a naive implementation called SimpleStrand, which stores the DNA strand as a String. We will implement our more sophisticated version in LinkStrand. We can test the correctness of our implementation using LinkStrand using the JUnit tests. We will also benchmark these implementations using the class DNABenchmark.
 

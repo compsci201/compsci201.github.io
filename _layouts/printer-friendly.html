@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<div class="printer-friendly">
+{% for p in site.pages %}
+	{% if p.assignment == page.assignment %}
+		{% if !(p.url contains 'index') %}
+			<h1>{{ p.title }}</h1>
+			{{ p.content }}
+		{% endif %}
+	{% endif %}
+{% endfor %}
+
+{% for p in site.pages %}
+	{% if p.assignment == page.assignment %}
+		{% if !(p.url contains 'index') %} {% comment %} Don't do anything if index.html {% endcomment %}
+		{% else %}
+			<h1>{{ p.title }}</h1>
+			{{ p.content }}
+		{% endif %}
+	{% endif %}
+{% endfor %}
+</div>
