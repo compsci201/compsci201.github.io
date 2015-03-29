@@ -2,26 +2,29 @@
 This should contain links to all the Duke CS201 assignments.
 
 ## Creating new assignments
----
 To create new assignments, create a folder named that assignment in lowercase, e.g. "dna".
 
 Then add it in the _config.yml file, under assignments: e.g. "- title: dna".
 
 Put an index.md file: this will be the first page that it goes to. Pages should have the following frontmatter:
 
-> ---
-> layout: page
-> title: "Title of Page"
-> assignment: "name-of-assignment"
-> ---
+<div>
+---
+layout: page
+title: "Title of Page"
+assignment: "name-of-assignment"
+---
+</div>
 
 Then, put the following in a file named printer-friendly.md:
 
-> ---
-> layout: printer-friendly
-> title: "-name of assignment- - Printer friendly"
-> assignment: "-name of assignment-"
-> ---
+<div>
+---
+layout: printer-friendly
+title: "-name of assignment- - Printer friendly"
+assignment: "-name of assignment-"
+---
+</div>
 
 Your additional new assignment pages should be numbered: e.g. "2-dna-second-page.md".
 
