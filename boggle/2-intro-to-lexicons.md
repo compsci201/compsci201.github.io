@@ -6,8 +6,6 @@ assignment: "boggle"
 ---
 
 
-##**Lexicons Introduction**
-
 For this part of the assignment you'll design code for one class (with an optional extra class for extra credit) and you'll analyze the performance of several classes empirically by using LexiconBenchmark. 
 
 In Boggle, legal words are those found in the *lexicon* associated with a game. A lexicon is simply a list of words, it's not a dictionary because it doesn't have associated definitions for each word. 

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "1 - GoodWordOnBoardFinder"
+title: "GoodWordOnBoardFinder"
 assignment: "boggle"
 
 ---

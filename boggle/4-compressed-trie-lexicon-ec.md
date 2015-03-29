@@ -6,8 +6,6 @@ assignment: "boggle"
 ---
 
 
-##**CompressedTrieLexicon**
-
 For extra credit you must implement a lexicon based on a compressed trie data structure. The compressed trie trades space for time: it is slightly slower than a trie, but it requires less space/storage. 
 
 The **TrieLexicon** implementation has been provided for you, we discussed the concepts in recitation, and is described below. Before you attempt the CompressedTrieLexicon make sure you understand how **TrieLexicon** works.

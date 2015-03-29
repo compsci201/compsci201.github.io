@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "BoardFirstAutoplayer"
+title: "AutoPlayer Implementations"
 assignment: "boggle"
 
 ---

@@ -6,8 +6,6 @@ assignment: "boggle"
 ---
 
 
-##**Benchmarking Lexicons**
-
 You're given a class **LexiconBenchmark** you can use to analyze the empirical performance of your implementations. This class facilitates evaluating the efficiency of different implementations as well as correctness. Confidence in an implementation's correctness is increased if it returns the same  results as other implementations. 
 
 If you completed the extra credit, you should benchmark your **CompressedTrieLexicon** class by determining how many nodes are stored/saved compared to the non-compressed trie and by determining how much more time the new, compressed version takes. Two methods in the **TrieLexicon** class for counting nodes are provided, *nodeCount* and *oneWayCount*. These may prove useful in benchmarking your class. 
