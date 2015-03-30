@@ -34,10 +34,10 @@ You can write the helper method however you want, here is a suggested implementa
 Give the helper method an int parameter representing an index indicating which character in the string we are currently trying to match to our current (row, column). The first call to this helper method will start the index at zero indicating the first character of the string should be matched to our current cell. 
 
 There are several base cases in this helper method:
-<li> 1. If the index of string is too large, the word has been found. </li>
-<li> 2. If the row and column are out of bounds, stop the search. </li>
-<li> 3. If the current character (at index) does not match the string on the current board cell, you should stop. </li>
-<li> 4. If the boardcell has already been used, you should stop. Consider creating a list to keep track of which cells you have used. You will have to pass this list as a parameter in each recursive call. </li>
+<li> If the index of string is too large, the word has been found. </li>
+<li> If the row and column are out of bounds, stop the search. </li>
+<li>  If the current character (at index) does not match the string on the current board cell, you should stop. </li>
+<li> If the boardcell has already been used, you should stop. Consider creating a list to keep track of which cells you have used. You will have to pass this list as a parameter in each recursive call. </li>
 
 After the base cases we know that we are in a word and the current character matches the string on our current board cell. Now up to eight recursive calls will have to be made to find the next letter in the string. You will have to update your index, add to the list of used BoardCells, and change the row and column. 
 
