@@ -5,7 +5,7 @@ assignment: "boggle"
 
 ---
 
-If you went to recitation on March 30th you should have most of this part completed. Read through just to be sure. Recitation slides are a good resource to look at if you are confused. We did not write code to account for the 'Qu' cell so make sure you do that. 
+If you went to recitation on March 30th you should have most of this part completed. Read through just to be sure. Recitation slides are a good resource to look at if you are confused. We did not write code to account for the 'Qu' cell in recitation so make sure you do that. 
 
 ####![Boggle Board](https://www.cs.duke.edu/courses/fall12/compsci201/assignments/boggle/bogglemountain.jpg)
 
@@ -34,10 +34,10 @@ You can write the helper method however you want, here is a suggested implementa
 Give the helper method an int parameter representing an index indicating which character in the string we are currently trying to match to our current (row, column). The first call to this helper method will start the index at zero indicating the first character of the string should be matched to our current cell. 
 
 There are several base cases in this helper method:
-1. If the index of string is too large, the word has been found.
-2. If the row and column are out of bounds, stop the search. 
-3. If the current character (at index) does not match the string on the current board cell, you should stop. 
-4. If the boardcell has already been used, you should stop. Consider creating a list to keep track of which cells you have used. You will have to pass this list as a parameter in each recursive call. 
+<li> 1. If the index of string is too large, the word has been found. </li>
+<li> 2. If the row and column are out of bounds, stop the search. </li>
+<li> 3. If the current character (at index) does not match the string on the current board cell, you should stop. </li>
+<li> 4. If the boardcell has already been used, you should stop. Consider creating a list to keep track of which cells you have used. You will have to pass this list as a parameter in each recursive call. </li>
 
 After the base cases we know that we are in a word and the current character matches the string on our current board cell. Now up to eight recursive calls will have to be made to find the next letter in the string. You will have to update your index, add to the list of used BoardCells, and change the row and column. 
 
