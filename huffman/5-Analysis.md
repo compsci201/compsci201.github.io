@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Pre-process"
+title: "Analysis"
 assignment: "huffman"
 
 ---

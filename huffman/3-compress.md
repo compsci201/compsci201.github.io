@@ -9,31 +9,37 @@ In this method you will use the information (counts and encodings) you created i
 
 
 1. ##Forcing Compression
-You should only proceed with compression if the compressed file will have fewer bits than the uncompressed file.  For many shorter files, compression will not save bits but will still be useful for debugging.  In order to compress these files, you must force compression using the boolean force taken in as a parameter of the compress methood.  You can set this boolean to true by going to options -> force compression in the GUI.  If force is false and compression won't save bits, then you want to throw an error and provide an informative message for the user.
+You should only proceed with compression if the compressed file will have fewer bits than the uncompressed file.  For many shorter files, compression will not save bits but will still be useful for debugging.  In order to compress these files, you must force compression using the boolean force taken in as a parameter of the compress method.  You can set this boolean to true by going to options -> force compression in the GUI.  If force is false and compression won't save bits, then you want to throw an error and provide an informative message for the user.
 
 
-2. ##Magic Numer
+2. ##Magic Number
 Write a magic number at the beginning of the compressed file. Use the **IHuffConstants.MAGIC_NUMBER** to do this. When you uncompress, you'll read this number to ensure you're reading a file your program compressed. Your program should be able to uncompress files it creates.
 
 For example, if my program only works with files I've compressed, not other standard formats, I would have the following code: 
 	
 	//write out the magic number
-     	out.writeBits(BITS_PER_INT, MAGIC_NUMBER);
-     
+		out.writeBits(BITS_PER_INT, MAGIC_NUMBER);
+	 
 
 3. ##Header Information
-There are two header types, specified by the **STORE_COUNTS** and **STORE_TREE**. These are both magic numbers in the IHuffConstants interface. In uncompression, this number will tell you how to reconstruct the huffman tree from the header information.
+There are two header types, specified by the **STORE_COUNTS** and **STORE_TREE**. These are both magic numbers in the IHuffConstants interface. In decompression, this number will tell you how to reconstruct the Huffman tree from the header information.
 
-#STORE_COUNTS: Standard Count Format (SCF)
+#SCF
+
+###STORE_COUNTS: Standard Count Format (SCF)
+
 Using SCF is likely the simplest way to store the encoded information in your header. To write this type of header, write out the counts for each of the  **ALPH_SIZE** (256) characters as a 32-bit int value. Thus, there should be one 32-bit value for each 8-bit chunk. You do not need to write a count for pseudo_EOF since you are guaranteed that its frequency will be 1 for any file.
 
 In my non-saving-space code using SCF, my header is written by the following code. Note that **BITS_PER_INT** is 32 in Java.
 
 	for(int k=0; k < ALPH_SIZE; k++){
-          out.writeBits(BITS_PER_INT, myCounts[k]);
-      }
+		  out.writeBits(BITS_PER_INT, myCounts[k]);
+	  }
 
-#STORE_TREE
+#Tree header
+
+###STORE_TREE
+
 Another way to write the header is by writing out the information of the tree you created during pre-process. This header format omits data about characters that do not appear in the file and thus is space saving relative to the **STORE_COUNTS** header style.
 
 One way to write the tree information would be to use a 0 or 1 bit to differentiate between internal nodes and leaves. The leaves must store character values (in the general case using 9-bits because of the pseudo-EOF character). *Standard Tree* Format in the Huff program/suite uses a pre-order traversal, a single zero-bit for internal nodes, a single one-bit for a leaf, and nine bits for the value stored in a leaf.
