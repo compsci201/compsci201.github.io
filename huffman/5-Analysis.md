@@ -18,5 +18,4 @@ Which compresses more, binary or text files? (Use the calgary files and the wate
 
 How much additional compression do you get by compressing an already compressed file? When does this become ineffective?
 
-
 Can a file be designed that should compress a lot? When is it no longer worthwhile to keep compressing that file?

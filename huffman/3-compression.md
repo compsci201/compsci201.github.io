@@ -56,4 +56,5 @@ Your program should write these bits using a standard pre-order traversal. You c
 
 
 ###Pseudo_EOF:
-Finally, write out the encoding of the pseudo_EOF file character. This way, your uncompression algorithm will know when to stop reading bits since files tend to have a small number of buffer bits at the end which don't actually express any information. To make sure that the entire bit-encoding of the pseudo_EOF gets written out to the file, you also need to flush the BitOutputStream since it only writes 8 bits at a time. The psedo_EOF will be elaborated upon in **Uncompress**. 
+Finally, write out the encoding of the pseudo_EOF file character. This way, your uncompression algorithm will know when to stop reading bits since files tend to have a small number of buffer bits at the end which don't actually express any information. You will need to explicitly write out the bits for the psuedo_EOF so that they will be able to be recognized when you uncompress the file. To make sure that the entire bit-encoding of the pseudo_EOF gets written out to the file, you also need to flush the BitOutputStream since it only writes 8 bits at a time. 
+
