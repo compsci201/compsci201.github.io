@@ -10,9 +10,9 @@ Welcome to Huffman, your final programming assignment. It will be imperative tha
 
 We cannot stress enough how important it is to develop your program a few steps at a time. At each step, you should have a functioning program, although it may not do everything the first time it's run. By developing in stages, you may find it easier to isolate bugs and you will be more likely to get a program working faster. In other words, do not write hundreds of lines of code before compiling and testing
 
-Before we get started, we need the starting skeleton code. It's is available through Snarf (using [Ambient](https://www.cs.duke.edu/csed/ambient/)), as well as the course webpage.
+Before we get started, we need the starting skeleton code. It's is available through Snarf (using [Ambient](https://www.cs.duke.edu/csed/ambient/)), as well as at [the course webpage](https://www.cs.duke.edu/courses/spring15/compsci201/snarf/).
 
-This is a partner project. When submitting, please only submit one project, but include both net-ids in your **README.txt**.
+This is a partner project. When submitting, please only submit one project, but include both net-ids in your **README.txt**. Also submit your partner name  [on the google form](http://goo.gl/forms/rVVQ4VFn6k) so that we can automate transfer of your grades.
 
 ##Background
 
