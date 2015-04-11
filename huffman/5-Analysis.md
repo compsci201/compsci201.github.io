@@ -20,4 +20,3 @@ How much additional compression do you get by compressing an already compressed 
 
 Can a file be designed that should compress a lot? When is it no longer worthwhile to keep compressing that file?
 
-Can a file be designed that should compress a lot? When is it no longer worthwhile to keep compressing that file?
