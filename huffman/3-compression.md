@@ -14,7 +14,7 @@ You should only proceed with compression if the compressed file will have fewer 
 	throw new IOException("Compression does not save any space");
 
 
-###Magic Numer:
+###Magic Number:
 Write a magic number at the beginning of the compressed file. Use the `IHuffConstants.MAGIC_NUMBER` to do this. When you uncompress, you'll read this number to ensure you're reading a file your program compressed. Your program should be able to uncompress files it creates.
 
 For example, if my program only works with files I've compressed, not other standard formats, I would have the following code: 

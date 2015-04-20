@@ -7,9 +7,9 @@
 
 // Our variables
 $base-font-family: Lato, Helvetica, Arial, sans-serif;
-$base-font-size:   11pt;
+$base-font-size:   12pt;
 $small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
+$base-line-height: 1.7;
 $duke-blue-color: #001A57;
 
 html {
@@ -21,7 +21,10 @@ html {
 }
 body {
 	font-family: $base-font-family;
-	margin: 6%;
+  margin-top:6%;
+  margin-left: 10%;
+  margin-right: 35%;
+  margin-bottom:4%;
 }
 li {
 	list-style-type:none;
@@ -39,7 +42,7 @@ li {
   font-weight:100 !important;
 }
 .section h1 {
-  font-size:72pt;
+  font-size:62pt;
   text-align: center;
 }
 .section h2 {
@@ -47,13 +50,13 @@ li {
 }
 
 .section ul {
-	margin-left: 12%;
-	margin-right: 12%;
+	margin-left: 0%;
+	margin-right: 0%;
 }
 
 .section li {
-	margin-left: 12%;
-	margin-right: 12%;
+	margin-left: 0%;
+	margin-right: 0%;
 	list-style: disc;
 }
 
