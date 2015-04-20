@@ -24,7 +24,9 @@ For example, if my program only works with files I've compressed, not other stan
      
 
 ###Header Information:
-There are two header types, specified by `STORE_COUNTS` and `STORE_TREE`. These are both magic numbers in the `IHuffConstants` interface. In uncompression, this number will tell you how to reconstruct the huffman tree from the header information.
+There are two header types, specified by `STORE_COUNTS` and `STORE_TREE`. These are both magic numbers in the `IHuffConstants` interface. In uncompression, this number will tell you how to reconstruct the Huffman tree from the header information.
+
+**You will need to implement both SCF and the tree header.**
 
 ####STORE_COUNTS- Standard Count Format (SCF)
 Using SCF is likely the simplest way to store the encoded information in your header. To write this type of header, write out the counts for each of the  `ALPH_SIZE` (256) characters as a 32-bit int value. Thus, there should be one 32-bit value for each 8-bit chunk. You do not need to write a count for pseudo_EOF since you are guaranteed that its frequency will be 1 for any file.
