@@ -7,12 +7,14 @@ assignment: "huffman"
 **Coding correctness**
 
 - Precompress: 5 points
-- Compress: 10 points
-- Uncompress: 10 points
+- Compress: 6 points
+- Uncompress: 6 points
 
-Total: 25 points.
+Total: 17 points.
 
 **Analysis**
 
-Accurate and well-reasoned arguments for the questions: 20 points.
+Accurate and well-reasoned arguments for the questions: 10 points.
+
+**Extra credit**
 
