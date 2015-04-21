@@ -24,7 +24,10 @@ For example, if my program only works with files I've compressed, not other stan
      
 
 ###Header Information:
-There are two header types, specified by `STORE_COUNTS` and `STORE_TREE`. These are both magic numbers in the `IHuffConstants` interface. In uncompression, this number will tell you how to reconstruct the Huffman tree from the header information.
+
+For this assignment, you will make two headers, a frequency header and a tree header. To differentiate between those two, you need to write a number at the beginning of the file to signify this: hence, the two magic numbers. These are 'STORE_COUNTS' and 'STORE_TREE', which are constants defined in the IHuffConstants interface.
+
+Implement these in two different classes - you should write a SimpleHuffProcessor class that uses count headers, and a TreeHuffProcessor class that uses tree headers.
 
 **You will need to implement both SCF and the tree header.**
 
