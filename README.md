@@ -25,3 +25,11 @@ Then, put the following in a file named printer-friendly.md:
 Your additional new assignment pages should be numbered: e.g. "2-dna-second-page.md".
 
 The printer-friendly page, navbar, and titles will all be taken care of automatically.
+
+---
+
+## TODO
+
+-Pagination
+-Fix styles
+
