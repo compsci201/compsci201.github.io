@@ -34,6 +34,10 @@ private long mySize; //# nucleotides in DNA <br>
 </p>
 
 <p>
+Since the purpose of this assignment is to utilize Linked Lists, your LinkStrand should not use, nor should you need any global variables besides Nodes and primitive types. Using an unnecessary global data structure, such as an array, a StringBuilder, or an ArrayList, may cost you almost all to all of your correctness and engineering points.
+</p>
+
+<p>
 The diagram below shows the results of cutting an original strand of DNA at three points and then splicing-in the strand “GTGATAATTC” at each of the locations at which the original strand was cut. Since splicing into a linked list is a constant-time, O(1) operation this implementation should be more efficient in time and space when compared to the String implementation.
 <br>
 <img src="img/splicediagram.jpg" alt="Node">
