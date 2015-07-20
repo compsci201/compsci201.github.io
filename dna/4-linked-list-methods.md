@@ -31,7 +31,7 @@ ToString:
 
 <ul>
 CutandSplice:
-<li> This method is NOT a mutator - the LinkStrand cutAndSplice is called from should be unchanged, and the method should be returning a new instance of LinkStrand.
+<li> This method is NOT a mutator - the LinkStrand cutAndSplice is called from should be unchanged, and the method should be returning a new instance of LinkStrand. </li>
 <li> You may assume there is only one node (though it may contain a huge String of DNA). If there is more than one node throw an exception, ex. <code>
 if(myFirst.next != null)) {throw new RuntimeException("link strand has more than one node")}; </code> </li>
 <li> The implementation of this method should be virtually identical to the code in SimpleStrand except you'll be creating LinkStrand objects and calling LinkStrand.append to create the recombinant strand.</li>
