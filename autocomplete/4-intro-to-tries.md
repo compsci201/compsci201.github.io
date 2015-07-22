@@ -13,20 +13,25 @@ A trie is simply a special version of a tree. In some trees, each node has a def
 So, while a node in a Java binary tree might be defined as 
 
 <code>
+
 >public class Node{
 
 >>Node myLeft, myRight;
 
 >}
+
 </code>
 
 A node in a Java trie might look like
 
 <code>
+
 >public class Node{
+
 >> Map<Character, Node> children;
 
 >}
+
 </code>
 
 (Note that the Node class given to you has much more information than this)
@@ -34,6 +39,7 @@ A node in a Java trie might look like
 The keys of the map will also correspond to some value. For example, for a trie that stores many Strings (as we wish to in this assignment), the keys will be characters. In order to reach the node representing a word in a trie, we simply follow the series of pointers corresponding to the characters in the String. Below is a drawing of a sample word trie: 
 
 <img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Trie_example.svg/400px-Trie_example.svg.png">
+
 >######From the [Wikipedia page on Tries](https://en.wikipedia.org/wiki/Trie)
 
 The top node is the root. It has three children, and to get to these children we have to use the keys t, A, and i. The word each node represents is the concatenation of the keys of pointers you have to take from the root to get to that node. So, to get to "tea" from the root, we have to follow the root's t pointer, then the e pointer, then the a pointer. 
@@ -41,12 +47,15 @@ The top node is the root. It has three children, and to get to these children we
 More generally, to get to a node representing a word in the String str, given a root pointer we might use the following code loop:
 
 <code>
+
 >Node curr = root;
 
 >for (int i = 0; i < str.length(); i++){
+
 >>curr = curr.children.get(str.charAt(i));
 
 >}
+
 </code>
 
 ###Trie Functionality And Utility
@@ -54,6 +63,7 @@ More generally, to get to a node representing a word in the String str, given a 
 In creating a trie, we will of course have to add values to it. Adding a value to a trie is very similar to navigating to it. To add a value, simply try navigating to that value, but anytime a node on the path to that value is missing, create that node yourself. The code for adding the word in str to a trie might look like this:
 
 <code>
+
 >Node curr = root;
 
 >for (int i = 0; i < str.length(); i++){
@@ -65,8 +75,9 @@ In creating a trie, we will of course have to add values to it. Adding a value t
 >>}
 
 >>curr = curr.children.get(str.charAt(i));
->
+
 >}
+
 </code>
 
 (Again, please note that the Node class given to you is more detailed and this code alone is not a solution to this assignment)

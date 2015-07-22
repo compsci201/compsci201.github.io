@@ -34,41 +34,43 @@ To help you understand what all your add method should be doing, here's an examp
 
 We start with just a root:
 
-<img src="img/trie_example_1.png" alt="Splice" style="width:100px;height:100px">
+<img src="img/trie_example_1.png" alt="Splice" style="width:50px;height:50px">
 
 We call add("all", 3). Notice how since the only word at this point has weight 3, all nodes have mySubtreeMaxWeight 3.
 
-<img src="img/trie_example_2.png" alt="Splice" style="width:380px;height:568px">
+<img src="img/trie_example_2.png" alt="Splice" style="width:190px;height:284px">
 
 We call add("bat", 2). Only the nodes in the right subtree have mySubtreeMaxWeight 2, because the largest weight is still 3. 
 
-<img src="img/trie_example_3.png" alt="Splice" style="width:520px;height:568px">
+<img src="img/trie_example_3.png" alt="Splice" style="width:260px;height:284px">
 
 We call add("apes", 5). This time, we don't create a node for the first letter. We update the mySubtreeMaxWeight of the root and the "a" node.
 
-<img src="img/trie_example_4.png" alt="Splice" style="width:520px;height:720px">
+<img src="img/trie_example_4.png" alt="Splice" style="width:260px;height:360px">
 
 We call add("ape", 1). Notice how we create no new nodes, simply modify the values of an existing node.
 
-<img src="img/trie_example_5.png" alt="Splice" style="width:520px;height:720px">
+<img src="img/trie_example_5.png" alt="Splice" style="width:260px;height:360px">
 
 Lastly we call add("bay", 4). Notice the changes in red numbers, and that we only created one new node here.
 
-<img src="img/trie_example_6.png" alt="Splice" style="width:660px;height:720px">
+<img src="img/trie_example_6.png" alt="Splice" style="width:330px;height:360px">
 
-Also note how in the final tree, any word which has no larger-weight words below it (every word but apes) has the same red and blue values. This is true of any trie we construct in this project, if the values of nodes are updated correctly - having the same myWeight and mySubtreeMaxWeight means no children. 
+Also note how in the final tree, any word which has no larger-weight words below it (every word but apes) has the same red and blue values. This is true of any trie we construct in this project, if the parameters of nodes are updated correctly - a node with the same myWeight and mySubtreeMaxWeight has no children with a larger weight.
 
 Most importantly, notice how on the path from a node representing a prefix to the largest weighted word in the subtree rooted at that node, all the red values are the same, and this value is also the weight of the largest weighted word. We will take advantage of this fact when writing topMatch().
 
 This example of constructing a trie using add is a more simple one - we never added a word below an existing word, or a word which already exists. Your add should be able to handle any series of calls on word-weight pairs appropriately, including corner cases.
 
-The most notable corner case is adding a word that already in the trie, but with a lower weight - for example, if we were to call add("apes", 1). In this case, we would have to update the weight of apes, and then the mySubtreeMaxWeight of all its ancestors. This is especially tricky because not all the ancestors would not have the same new value. 
+The most notable corner case is adding a word that already in the trie, but with a lower weight - for example, if we were to call add("apes", 1). In this case, we would have to update the weight of apes, and then the mySubtreeMaxWeight of all its ancestors. This is especially tricky because not all the ancestors would not have the same new value. Be sure to take advantage of parent pointers when writing code specific to this case.
 
 ###TopMatch
 Fortunately, once add is written topMatch() becomes very simple. As noted in the above example, the mySubtreeMaxWeight of every node from a prefix node to the node under the prefix node with the highest weight will be the same as that highest weight. Thus, the algorithm to find the top match is simply:
 
 <li>Navigate to the node corresponding to the prefix</li>
-<li>From the prefix, until you find a node whose mySubtreeMaxWeight is equal to its weight, go to the child whose mySubtreeMaxWeight is equal to the current node's</li>
+<li>Use the mySubtreeMaxWeight of the prefix node to navigate down the tree until you find the Node with the max weight</li>
 
 ###TopKMatches
-topKMatches() is similar, but not quite the same as topMatch(). We will still be taking advantage of mySubtreeMaxWeight to quickly navigate to high-weight nodes, 
+topKMatches() is similar, but not quite the same as topMatch(). We will still be taking advantage of mySubtreeMaxWeight to quickly navigate to high-weight nodes, but this time, we will have to go down multiple branches instead of just one.
+
+To find the top k matches as quickly as possible, we suggest you use a modified version of breadth-first-search, starting from the root. However, instead of using a queue to track what nodes to visit next, use a priority queue sorted by mySubtreeMaxWeight (see Node's built-in Comparators). Whenever a visited node is a word, add it to a weight-sorted list of words. When this list has k words with weight greater than the largest mySubtreeMaxWeight in our priority queue, we know none of the nodes we have yet to explore can have a larger weight than the k words we have found. At that point, we can stop searching and return those k words.

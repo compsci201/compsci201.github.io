@@ -29,16 +29,20 @@ Since only the first r letters of any word are relevant in PrefixOrder(r), for f
 PrefixOrder may seem arbitrary and maybe even useless at first, but when we implement BinarySearchAutocomplete, it will prove rather useful.
 
 ###After Term Is Written
-Once Term is written, the provided BruteAutocomplete class should be fully functional. Try setting AUTOCOMPLETE\_CLASS\_NAME to BRUTE_AUTOCOMPLETE in AutocompleteMain and running it. If you load words-333333.txt and type in "auto" you should get the following result:
+Once Term is written, the provided BruteAutocomplete class should be fully functional. Try setting AUTOCOMPLETOR\_CLASS\_NAME to BRUTE_AUTOCOMPLETE in AutocompleteMain and running it. If you load words-333333.txt and type in "auto" you should get the following result:
 
 <img src="img/gui_example.png" alt="Splice">
 
-BruteAutocomplete only uses Term.WeightOrder however, so getting the above result does not necessarily mean all your Comparators are working correctly.
+BruteAutocomplete only uses Term.WeightOrder, so getting the above result does not necessarily mean all your Comparators are working correctly.
 
 Since the Comparators are inner classes, to initialize them in other classes, use the following syntax:
 
 <code>
+
 new Term.WeightOrder();
+
 new Term.ReverseWeightOrder();
+
 new Term.PrefixOrder(r);
+
 </code>
