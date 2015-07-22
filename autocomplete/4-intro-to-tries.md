@@ -13,21 +13,17 @@ A trie is simply a special version of a tree. In some trees, each node has a def
 So, while a node in a Java binary tree might be defined as 
 
 <code>
->public class Node{
-
->>Node myLeft, myRight;
-
->}
+public class Node{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Node myLeft, myRight;<br>
+}
 </code>
 
 A node in a Java trie might look like
 
 <code>
->public class Node{
-
->> Map<Character, Node> children;
-
->}
+public class Node{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Map<Character, Node> children;<br>
+}
 </code>
 
 (Note that the Node class given to you has much more information than this)
@@ -43,13 +39,10 @@ The top node is the root. It has three children, and to get to these children we
 More generally, to get to a node representing a word in the String str, given a root pointer we might use the following code loop:
 
 <code>
->Node curr = root;
-
->for (int i = 0; i < str.length(); i++){
-
->>curr = curr.children.get(str.charAt(i));
-
->}
+&nbsp;&nbsp;&nbsp;&nbsp;Node curr = root;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for (int i = 0; i < str.length(); i++){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;curr = curr.children.get(str.charAt(i));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
 </code>
 
 ###Trie Functionality And Utility
@@ -57,27 +50,17 @@ More generally, to get to a node representing a word in the String str, given a 
 In creating a trie, we will of course have to add values to it. Adding a value to a trie is very similar to navigating to it. To add a value, simply try navigating to that value, but anytime a node on the path to that value is missing, create that node yourself. The code for adding the word in str to a trie might look like this:
 
 <code>
->Node curr = root;
-
->for (int i = 0; i < str.length(); i++){
-
->>if (!curr.containsKey(str.charAt(i)){
-
->>>curr.children.put(str.charAt(i), new Node());
-
->>}
-
->>curr = curr.children.get(str.charAt(i));
-
->}
+&nbsp;&nbsp;&nbsp;&nbsp;Node curr = root;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for (int i = 0; i < str.length(); i++){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!curr.containsKey(str.charAt(i)){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;curr.children.put(str.charAt(i), new Node());<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;curr = curr.children.get(str.charAt(i));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
 </code>
 
 (Again, please note that the Node class given to you is more detailed and this code alone is not a solution to this assignment)
 
 We use tries because they have some useful properties, which we will take advantage of in this project:
-<li>The time it takes to find an entry in a trie is independent of how many entries are in that trie - more specifically, to navigate to a node corresponding to a word of length w in a n-element trie takes O(w) time as opposed to O(f(n)) for some f(n). </li>
-><li>This is because every navigation to the same word passes through the same set of nodes, and thus takes the same time regardless of what other nodes exist.</li>
-
-<li>All words representing in the subtrie rooted at the node representing the word str start with str. That is, the node representing "apple" will always be below the node representing "app" or more generally, every node below the node representing "app" represents a word starting with "app"</li>
-><li>For this reason, tries are sometimes called prefix trees. </li>
-><li>Given that the autocomplete algorithm is searching for words starting with a given prefix, this structure proves very useful in perform autocomplete.</li>
+<li>The time it takes to find an entry in a trie is independent of how many entries are in that trie - more specifically, to navigate to a node corresponding to a word of length w in a n-element trie takes O(w) time as opposed to O(f(n)) for some f(n). This is because every navigation to the same word passes through the same set of nodes, and thus takes the same time regardless of what other nodes exist.</li>
+<li>All words represented in the subtrie rooted at the node representing the word str start with str. That is, the node representing "apple" will always be below the node representing "app" or more generally, every node below the node representing "app" represents a word starting with "app". For this reason, tries are sometimes called prefix trees. Given that the autocomplete algorithm is searching for words starting with a given prefix, this structure proves very useful in performing autocomplete.</li>

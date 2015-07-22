@@ -11,7 +11,7 @@ Welcome to the Autocomplete assignment. In this assignment, you will be implemen
 
 As always, before starting be sure to snarf the assignment via Ambient so you can read along.
 
-[Here](printer-friendly.html) is a printer friendly version of this assignment.
+[Here](/autocomplete/printer-friendly.html) is a printer friendly version of this assignment.
 
 ###Introduction
 
