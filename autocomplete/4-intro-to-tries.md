@@ -13,25 +13,21 @@ A trie is simply a special version of a tree. In some trees, each node has a def
 So, while a node in a Java binary tree might be defined as 
 
 <code>
-
 >public class Node{
 
 >>Node myLeft, myRight;
 
 >}
-
 </code>
 
 A node in a Java trie might look like
 
 <code>
-
 >public class Node{
 
 >> Map<Character, Node> children;
 
 >}
-
 </code>
 
 (Note that the Node class given to you has much more information than this)
@@ -47,7 +43,6 @@ The top node is the root. It has three children, and to get to these children we
 More generally, to get to a node representing a word in the String str, given a root pointer we might use the following code loop:
 
 <code>
-
 >Node curr = root;
 
 >for (int i = 0; i < str.length(); i++){
@@ -55,7 +50,6 @@ More generally, to get to a node representing a word in the String str, given a 
 >>curr = curr.children.get(str.charAt(i));
 
 >}
-
 </code>
 
 ###Trie Functionality And Utility
@@ -63,7 +57,6 @@ More generally, to get to a node representing a word in the String str, given a 
 In creating a trie, we will of course have to add values to it. Adding a value to a trie is very similar to navigating to it. To add a value, simply try navigating to that value, but anytime a node on the path to that value is missing, create that node yourself. The code for adding the word in str to a trie might look like this:
 
 <code>
-
 >Node curr = root;
 
 >for (int i = 0; i < str.length(); i++){
@@ -77,7 +70,6 @@ In creating a trie, we will of course have to add values to it. Adding a value t
 >>curr = curr.children.get(str.charAt(i));
 
 >}
-
 </code>
 
 (Again, please note that the Node class given to you is more detailed and this code alone is not a solution to this assignment)
