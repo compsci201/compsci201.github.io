@@ -47,6 +47,7 @@ Here is the Java code implementation of this brute-force approach to generate nu
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seed = seed.substring(1) + ch;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;}<br>
 &nbsp;&nbsp;&nbsp;&nbsp;return build.toString();<br>
-&nbsp;&nbsp;}</code>
+&nbsp;&nbsp;}
+</code>
 
 The code above works, but to generate N letters in a text of size T the code does O(NT) work since it rescans the text for each generated character. 

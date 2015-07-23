@@ -8,6 +8,7 @@ assignment: "markov"
 ---
 
 <img src="img/whatwouldisay_example.png" alt="Splice">
+
 ######Markov text generated at [what-would-i-say](http:\\www.what-would-i-say.com) using the Duke Facebook page as a training source
 
 Welcome to the Markov assignment. In this assignment, you will be using the Markovian Text Generation algorithm to generate random text modelled after some source. In doing so, you will learn how data structures like maps can make code more efficient, and get experience writing and implementing your own class in Java.
