@@ -33,11 +33,11 @@ bbb -> bba -> bab -> abb -> bba -> bab -> abb ->bbb -> bbb -> bba -> bab -> aba
 
 This can be represented as a map of each possible 3gram to the 3grams that follow it (or EOF if the 3gram is at the end): 
 
-<img src="img/abmap_example.png" alt="Splice">
+<img src="img/abmap_example.png" alt="3gram table">
 
 Or as a state diagram:
 
-<img src="img/abgraph_example.png" alt="Splice" style="width:520px;height:265px">
+<img src="img/abgraph_example.png" alt="3gram state diagram" style="width:520px;height:265px">
 
 ####Your Code
 

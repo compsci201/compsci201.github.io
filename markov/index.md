@@ -7,7 +7,7 @@ assignment: "markov"
 ##Markov - Overview
 ---
 
-<img src="img/whatwouldisay_example.png" alt="Splice">
+<img src="img/whatwouldisay_example.png" alt="what-would-i-say.com">
 
 ######Markov text generated at [what-would-i-say](http:\\www.what-would-i-say.com) using the Duke Facebook page as a training source
 

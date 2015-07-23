@@ -22,13 +22,13 @@ To test your WordNgram class you’re given testing code. This code tests indivi
 
 To choose Run as JUnit test first use the Run As option in the Run menu as shown on the left below. You have to select the JUnit option as shown on the right below. Most of you will have that as the only option.
 
-<img src="img/junit_example1.png" alt="Splice">
+<img src="img/junit_example1.PNG" alt="Run as JUnit">
 
 There are two tests in WordNgramTest.java: one for the correctness of .equals and one for the “performance” of the .hashCode method.
 
 If the JUnit tests pass, you’ll get all green as shown on the left below. Otherwise you’ll get red — on the right below — and an indication of the first test to fail. Fix that, go on to more tests. The red was obtained from the code you’re given. You’ll work to make the testing all green.
 
-<img src="img/junit_example2.png" alt="Splice">
+<img src="img/junit_example2.PNG" alt="All green vs red">
 
 ####The WordMarkovModel class
 
