@@ -73,7 +73,7 @@ To test that your code is doing things faster and not differently you can use th
 It’s hard enough to debug code without random effects making it harder. In the MarkovModel class you’re given the Random object used for random-number generation is constructed thusly: 
 
 <code>
-myRandom = new Random(RANDOM\_SEED); 
+myRandom = new Random(RANDOM_SEED); 
 </code>
 
 RANDOM_SEED is defined to be 1234. Using the same seed to initialize the random number stream ensures that the same random numbers are generated each time you run the program. Removing RANDOM_SEED and using new Random() will result in a different set of random numbers, and thus different text, being generated each time you run the program. This is more amusing, but harder to debug. If you use a seed of RANDOM_SEED in your smart/Map model you should get the same random text as when the brute-force method is used. This will help you debug your program because you can check your results with those of the code you’re given which you can rely on as being correct. 
