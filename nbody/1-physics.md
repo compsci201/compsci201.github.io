@@ -25,13 +25,20 @@ We review the equations governing the motion of the particles according to Newto
 
 We use the<i> leapfrog finite difference approximation scheme</i> to numerically integrate the above equations: this is the basis for most astrophysical simulations of gravitational systems. In the leapfrog scheme, we discretize time, and update the time variable t in increments of the time quantum Δt. We maintain the position (p<sub>x</sub>, p<sub>y</sub>) and velocity (v<sub>x</sub>, v<sub>y</sub>) of each particle at each time step. The steps below illustrate how to evolve the positions and velocities of the particles.
 
-<ol>
-<li>For each particle: Calculate the net force (F<sub>x</sub>, F<sub>y</sub>) at the current time t acting on that particle using Newton's law of gravitation and the principle of superposition.</li>
-<li><p>For each particle:</p>
-<p>a. Calculate its acceleration (a<sub>x</sub>, a<sub>y</sub>) at time t using the net force computed in Step 1 and Newton's second law of motion: a<sub>x</sub> = F<sub>x</sub> / m, a<sub>y</sub> = F<sub>y</sub> / m.</p>
-<p>b. Calculate its new velocity (v<sub>x</sub>, v<sub>y</sub>) at the next time step by using the acceleration computed in Step 2a and the velocity from the old time step: Assuming the acceleration remains constant in this interval, the new velocity is (v<sub>x</sub> + Δt * a<sub>x</sub>, v<sub>y</sub> + Δt * a<sub>y</sub>).</p>
-<p>c. Calculate its new position (p<sub>x</sub>, p<sub>y</sub>) at time t + Δt by using the velocity computed in Step 2b and its old position at time t: Assuming the velocity remains constant in this interval, the new position is (p<sub>x</sub> + Δt * v<sub>x</sub>, p<sub>y</sub> + Δt * v<sub>y</sub>).</p></li>
-<li>For each particle: Draw it using the position computed in Step 2.</li>
-</ol>
 
-The simulation is more accurate when Δt is very small, but this comes at the price of more computation. The default Δt is 25,000 in this assignment, which achieves a reasonable balance.
+For each particle: 
+
+<ul><li>Calculate the net force (F<sub>x</sub>, F<sub>y</sub>) at the current time t acting on that particle using Newton's law of gravitation and the principle of superposition.</ul></li>
+
+For each particle:
+
+<ul><li> Calculate its acceleration (a<sub>x</sub>, a<sub>y</sub>) at time t using the net force computed in Step 1 and Newton's second law of motion: a<sub>x</sub> = F<sub>x</sub> / m, a<sub>y</sub> = F<sub>y</sub> / m.</li>
+
+<li> Calculate its new velocity (v<sub>x</sub>, v<sub>y</sub>) at the next time step by using the acceleration computed in Step 2a and the velocity from the old time step: Assuming the acceleration remains constant in this interval, the new velocity is (v<sub>x</sub> + Δt * a<sub>x</sub>, v<sub>y</sub> + Δt * a<sub>y</sub>).</li>
+
+<li>Calculate its new position (p<sub>x</sub>, p<sub>y</sub>) at time t + Δt by using the velocity computed in Step 2b and its old position at time t: Assuming the velocity remains constant in this interval, the new position is (p<sub>x</sub> + Δt * v<sub>x</sub>, p<sub>y</sub> + Δt * v<sub>y</sub>).</li></ul>
+
+For each particle: 
+<ul><li>Draw it using the position computed in the previous step.</ul></li>
+
+The simulation is more accurate when Δt is very small, but this comes at the price of more computation. The default Δt we use is 25,000, which achieves a reasonable balance.
