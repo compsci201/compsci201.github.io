@@ -23,9 +23,9 @@ To obtain an accurate estimate of the percolation threshold, repeat the experime
 
 Assuming T is sufficiently large (say, at least 30), the following provides a 95% confidence interval for the percolation threshold:
 
-<img src = "img/interval_formula.png" alt = "Mean and standard deviation formulas">
+<img src = "img/interval_formula.PNG" alt = "Mean and standard deviation formulas">
 
-Write a client program <code>[PercolationStats](http://www.cs.duke.edu/courses/compsci201/fall14/assign/percolation/code/PercolationStats.html)</code> that prompts the user for <i>N</i> and <i>T</i>, performs <i>T</i> independent experiments on an <i>N</i>-by-<i>N</i> grid, and prints out the 95% confidence interval for the percolation threshold. Use <code>[java.util.Random](http://docs.oracle.com/javase/8/docs/api/java/util/Random.html)</code> to generate random numbers and follow steps above to compute the sample mean and standard deviation. Below is an example run with <i>N</i>=200 and <i>T</i>=100.
+Write a client program [PercolationStats](http://www.cs.duke.edu/courses/compsci201/fall14/assign/percolation/code/PercolationStats.html) that prompts the user for <i>N</i> and <i>T</i>, performs <i>T</i> independent experiments on an <i>N</i>-by-<i>N</i> grid, and prints out the 95% confidence interval for the percolation threshold. Use [java.util.Random](http://docs.oracle.com/javase/8/docs/api/java/util/Random.html) to generate random numbers and follow steps above to compute the sample mean and standard deviation. Below is an example run with <i>N</i>=200 and <i>T</i>=100.
 
 <code>
 mean percolation threshold = 0.5921<br>

@@ -60,7 +60,7 @@ sites</li>
 
 You need to write code for the following classes:
 
-<code>[PercolationDFS.java](http://www.cs.duke.edu/courses/compsci201/fall14/assign/percolation/code/PercolationDFS.html)</code>: This class implements the brute force method for
+[PercolationDFS.java](http://www.cs.duke.edu/courses/compsci201/fall14/assign/percolation/code/PercolationDFS.html): This class implements the brute force method for
 percolation. <b>Please refer to [Section 2.4](http://introcs.cs.princeton.edu/java/24percolation) in the <i>Introduction to Programming in
 Java.</i></b> You will complete the following methods: 
 <ul>
@@ -71,11 +71,11 @@ Java.</i></b> You will complete the following methods:
 implementing recursive scheme depth-first search as discussed in class and
 the textbook  </li></ul>
 
-<code>[PercolationVisualizer.java](http://www.cs.duke.edu/courses/compsci201/fall14/assign/percolation/code/PercolationVisualizer.html)</code>: complete main so that it repeatedly calls a
+[PercolationVisualizer.java](http://www.cs.duke.edu/courses/compsci201/fall14/assign/percolation/code/PercolationVisualizer.html): complete main so that it repeatedly calls a
 percolator (i.e., something that implements `IPercolate` like `PercolationDFS`) to
 declare sites open, draw, and pause until the system percolates 
 
-<code>[PercolationUF.java](http://www.cs.duke.edu/courses/compsci201/fall14/assign/percolation/code/PercolationUF.html)</code>: You will implement a more efficient solution that can use
+[PercolationUF.java](http://www.cs.duke.edu/courses/compsci201/fall14/assign/percolation/code/PercolationUF.html): You will implement a more efficient solution that can use
 any union-find algorithm that implements `IUnionFind` (e.g., `QuickFind.java`). You will complete the following methods:
 
 <ul>
@@ -88,10 +88,10 @@ grid square can be in its own set at the beginning</li>
 same component)</li>
 </ul>
 
-`QuickUWPC.java`: A class that implements the weighted quick union with path
+QuickUWPC.java: A class that implements the weighted quick union with path
 compression data structure. See the Sedgewick & Wayne [case study](http://algs4.cs.princeton.edu/15uf/) or the [following
 reading](http://www.cs.princeton.edu/courses/archive/fall09/cos226/handouts/Algs3Ch1.pdf) for more information. You will need to create this file by adapting
 [WeightedQuickUnionUF.java](http://algs4.cs.princeton.edu/15uf/WeightedQuickUnionUF.java.html) to implement the IUnionFind interface. 
 
-<code>[PercolationStats.java](http://www.cs.duke.edu/courses/compsci201/fall14/assign/percolation/code/PercolationStats.html)</code>: A class that prompts for *N* and *T*, performs *T* experiments on an <i>N</i>x<i>N</i>
+[PercolationStats.java](http://www.cs.duke.edu/courses/compsci201/fall14/assign/percolation/code/PercolationStats.html): A class that prompts for *N* and *T*, performs *T* experiments on an <i>N</i>x<i>N</i>
 grid, and prints the mean, standard deviation, and confidence interval of the percolation threshold, and timings of percolation simulations.
