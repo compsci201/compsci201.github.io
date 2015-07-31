@@ -28,7 +28,7 @@ We use the<i> leapfrog finite difference approximation scheme</i> to numerically
 
 For each particle: 
 
-<ul><li>Calculate the net force (F<sub>x</sub>, F<sub>y</sub>) at the current time t acting on that particle using Newton's law of gravitation and the principle of superposition.</ul></li>
+<ul><li>Calculate the net force (F<sub>x</sub>, F<sub>y</sub>) at the current time t acting on that particle using Newton's law of gravitation and the principle of superposition.</li></ul>
 
 For each particle:
 
@@ -39,6 +39,6 @@ For each particle:
 <li>Calculate its new position (p<sub>x</sub>, p<sub>y</sub>) at time t + Δt by using the velocity computed in Step 2b and its old position at time t: Assuming the velocity remains constant in this interval, the new position is (p<sub>x</sub> + Δt * v<sub>x</sub>, p<sub>y</sub> + Δt * v<sub>y</sub>).</li></ul>
 
 For each particle: 
-<ul><li>Draw it using the position computed in the previous step.</ul></li>
+<ul><li>Draw it using the position computed in the previous step.</li></ul>
 
 The simulation is more accurate when Δt is very small, but this comes at the price of more computation. The default Δt we use is 25,000, which achieves a reasonable balance.

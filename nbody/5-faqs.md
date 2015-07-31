@@ -8,7 +8,7 @@ assignment: "nbody"
 
 Use StdDraw.show(30) to turn on the animation mode of standard draw. Call it once at the end of each time step, not after each each drawing command.
 
-####Can I combine Steps 1, 2, and 3 into one massive loop? 
+####Can I combine all the steps from the [Equations Behind NBody](/nbody/1-physics) page into one large for loop?
 
 No! This will simultaneously screw up the physics and make your code harder to understand and debug.
 
@@ -19,6 +19,10 @@ Use StdDraw.setXscale() and StdDraw.setYscale() to change the coordinate system 
 ####My planets don't move. 
 
 Make sure that you are using a large enough value of Δt (we specify 25000, but you might want a smaller one when debugging).
+
+####My planets move, but leave images of themselves behind.
+
+Make sure you draw starfield.jpg once per loop before drawing all your planets, instead of once for the entire simulation.
 
 ####I'm confused about all of the Δt / 2 terms. Do I need to worry about them to get the physics right? 
 
@@ -32,9 +36,13 @@ The leapfrog method is more stable for integrating Hamiltonian systems than conv
 
 Make sure that you get the sign right when you apply Newton's law of gravitation: (x[j] - x[i]) vs. (x[i] - x[j]). Note that Δx and Δy can be positive or negative so do not use Math.abs(). Do not consider changing the universal gravitational constant G to patch your code!
 
-####How should I compute x2? 
+####How should I compute x<sup>2</sup>? 
 
-The simplest way is x*x. In Java, the ^ operator means XOR (not exponentiation).
+The simplest way is <code>x*x</code>. In Java, the ^ operator means XOR (not exponentiation).
+
+####How should I compute x<sup>.5</sup>/the square root of x? 
+
+Use the built in <code>Math.pow</code>. The return value of <code>Math.pow(a, b)</code> is a<sup>b</sup>.
 
 ####What is Δx? 
 

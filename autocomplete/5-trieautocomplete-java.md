@@ -17,7 +17,7 @@ For this entire page, it may be useful to have the Node.java class given to you 
 The Node class comes with several class variables for your use in completing TrieAutocomplete:
 <li>isWord - Set to true if the current node corresponds to a word in the set of words represented by this trie. We need this because in creating the nodes representing words, we create nodes representing words that do not exist (e.g. in creating a node for "apple" we will create a node for "appl"). Thus, we need some way to distinguish between intermediary nodes (nodes between the root and word nodes that don't represent words) and word nodes.</li>
 <li>myWord - A convenience variable, which contains the word this node represents. Should be null if isWord is false</li>
-<li>myInfo - A convenience variable, which contains the </li>
+<li>myInfo - A convenience variable, which contains the character this node corresponds to</li>
 <li>myWeight - The weight of the word this node corresponds to. -1 if this node does not correspond to a word. </li>
 <li>mySubtreeMaxWeight - The maximum weight of a word in the subtree rooted at this node (the subtree includes the root node). Useful for navigating quickly to high-weight nodes. Tracking this extra piece of information will heavily speed up our autocomplete algorithm. </li>
 <li>children - The map from characters to the corresponding children nodes</li>
