@@ -7,10 +7,14 @@ assignment: "percolation"
 ####What should I read prior to writing code: 
 
 Most of the code in this assignment comes from discussion in the text and supplementary reading. Please review the following:
-<li>[Section 2.4](http://introcs.cs.princeton.edu/24percolation/) in Introduction to Programming in Java by Robert Sedgewick & Kevin Wayne</li>
-<li>Sedgewick & Wayne's [union-find case study](http://algs4.cs.princeton.edu/15uf/) or the [following excerpt](http://www.cs.princeton.edu/courses/archive/fall09/cos226/handouts/Algs3Ch1.pdf) from Algorithms, 3rd Edition.</li>
-<li>API documentation for [princeton.StdDraw](http://introcs.cs.princeton.edu/java/stdlib/javadoc/StdDraw.html)</li>
-<li>Optional: If you'd like to understand the theory behind the complexity of union-find operations in detail, read [these notes](http://www.cs.princeton.edu/courses/archive/fall10/cos226/precepts/15UnionFind-Tarjan.pdf) from Robert Tarjan.</li>
+
+[Section 2.4](http://introcs.cs.princeton.edu/24percolation/) in Introduction to Programming in Java by Robert Sedgewick & Kevin Wayne
+
+Sedgewick & Wayne's [union-find case study](http://algs4.cs.princeton.edu/15uf/) or the [following excerpt](http://www.cs.princeton.edu/courses/archive/fall09/cos226/handouts/Algs3Ch1.pdf) from Algorithms, 3rd Edition
+
+API documentation for [princeton.StdDraw](http://introcs.cs.princeton.edu/java/stdlib/javadoc/StdDraw.html)
+
+Optional: If you'd like to understand the theory behind the complexity of union-find operations in detail, read [these notes](http://www.cs.princeton.edu/courses/archive/fall10/cos226/precepts/15UnionFind-Tarjan.pdf) from Robert Tarjan
 
 ####What should stddev() return if T equals 1? 
 
@@ -22,7 +26,9 @@ The sample standard deviation is undefined. We recommend returning <code>Double.
 
 Yes, we won't deduct for that for PercolationUF (PercolationDFS should not have backwash, if it does there's a major error). You can think of the water as filling back up from the bottom. 
 
-If you finish early, you can try to eliminate backwash without using a second union-find structure for extra credit. Your solution to eliminate backwash should be isolated within PercolationUF - that is, it should be independent of the IUnionFind implementation used and the visualizer. In addition, your order of growth should not increase as a result of implementing backwash removal.
+If you finish early, you can try to eliminate backwash without using a second union-find structure or worsening the runtime's order of growth for extra credit.  Our tests for PercolationUF compare your grid to both an IPercolate implementation which removes backwash and one which does not. Thus, whether or not you implement backwash should not affect your correctness score.
+
+Your solution to eliminate backwash should be isolated within PercolationUF - that is, it should be independent of the IUnionFind implementation used and the visualizer. In addition, the Big-Oh runtime of every method should not increase as a result of implementing backwash removal, otherwise you will fail the engineering tests.
 
 ####How efficient should the methods in PercolationUF be?
 
@@ -49,8 +55,7 @@ You can add a method in your PercolationVisualizer to read cells to open from a 
 10, 15, 17, 10, 14, 14, 16, 15, 17, 17,  2,  6,  9, 13, 16,  0, 17,  6, 15,
 5, 10, 11, 11,  6,  1, 12,  0, 14, 12, 16, 12, 14,  7, 18,  4,  0, 13,  5,
 11,  6, 19,  8,  2, 15, 19,  6, 19,  6,  8,  7,  2,  2,  2,  4, 18, 15, 19,
-4,  5,  7, 11,  1, 15,  0, 15,  0};  
-
+4,  5,  7, 11,  1, 15,  0, 15,  0}; <br>
 colIndices = { 10, 10,  4,  4,  8,  0,  0,  3, 18, 12, 13,  3, 10,  2,  1,
 16, 19, 10,  2, 16,  3, 17,  3, 14,  4,  6, 19, 17,  0, 10,  9, 14,  0, 12,
 11, 12,  9, 10,  0, 16, 14,  5,  4, 16,  8,  5,  9, 11, 15,  1, 10, 15, 12,

@@ -51,7 +51,3 @@ It's the change in x-coordinate between two bodies (not between a body at time t
 ####When I compile NBody.java, it says "cannot resolve symbol StdDraw." Any thoughts? 
 
 Make sure that you import princeton.* and add princeton.jar to your library build path.
-
-####How do I submit the extra credit? 
-
-Submit the files as usual using Ambient. Document what you did in your README file.

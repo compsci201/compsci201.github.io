@@ -12,7 +12,7 @@ Also, consider comparing "ab" and "abc" and how that might translate to WordNgra
 
 ####Do we need to account for the case where k doesn't change but myString does?
 
-Yes, absolutely. If I use k = 3 and the training text "ababab", and then k = 3 and the training text "aaaaaa", it won't make sense for me to receive Markov text with a 'b' in it for the second case. 
+Yes, absolutely. If I use k = 3 and the training text "ababab", and then k = 3 and the training text "aaaaaa", it won't make sense for me to receive Markov text with a 'b' in it for the second case, but that's what will happen if changes to myString but not to k do not rebuild the map.
 
 ####When writing MapMarkovModel, should I start from scratch or use MarkovModel?
 
@@ -50,13 +50,13 @@ If you're using Java 8, one method you could use is [String.join()](http://docs.
 
 ####How should I handle punctuation in WordMarkovModel?
 
-There's no need to treat them specially, just treat them like any other character. So, "end" and "end." should be different words just like "end" and "ends" are. The only characters you need to worry about are whitespace characters, which <code>.split("\\s+")</code> will handle for you.
+There's no need to treat punctuation characters specially, just treat them like any other character. This means that "end" and "end." should be different words just like "end" and "ends" are. The only characters you need to worry about are whitespace characters, which <code>.split("\\s+")</code> will handle for you.
 
 ####Why do I get a ArrayIndexOutOfBoundsException?
 
 You're attempting to access an element outside the bounds of an array. e.g. For a 10-element array, <code>arr</code>, <code>arr[x]</code> will trigger this exception for x <u><</u> -1 and x <u>></u> 10. 
 
-When students get this exception in this project, it is usually a result of an off-by-one error in a for loop. It also often occurs as a result of initializing WordNgram, which uses arrays in its constructor - reading that constructor may help you avoid this error.
+When students get this exception in this project, it is usually a result of an off-by-one error in a for loop. It also often occurs as a result of initializing WordNgram, which uses arrays in its constructor, without understanding how the arguments to the constructor are used - reading that constructor may help you avoid this error.
 
 ####Why do I get a NullPointerException?
 

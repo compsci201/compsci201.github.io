@@ -7,7 +7,7 @@ assignment: "percolation"
 ##Percolation - Overview
 ---
 
-Welcome to the Percolation assignment. In this assignment, you will you will write a program to estimate the value of the [percolation threshold](http://en.wikipedia.org/wiki/Percolation_thresholds) via [Monte Carlo](http://en.wikipedia.org/wiki/Monte_Carlo_method) simulation. In doing so, you will better understand depth-first-search, union-find structures, and the use of simulations for statistical inquiries.
+Welcome to the Percolation assignment. In this assignment, you will write a program to estimate the value of the [percolation threshold](http://en.wikipedia.org/wiki/Percolation_thresholds) via [Monte Carlo](http://en.wikipedia.org/wiki/Monte_Carlo_method) simulation. In doing so, you will better understand depth-first-search, union-find structures, and the use of computer simulations for statistical inquiry.
 
 [Here](/percolation/printer-friendly) is a printer friendly version of this assignment.
 

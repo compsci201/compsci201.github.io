@@ -65,7 +65,7 @@ You should be making union calls in this method or in a helper method called by 
 
 ####isOpen and isFull
 
-These should both be one-line, O(1) methods. <b> Unlike PercolationDFS, for our solution, cells which are considered full by isFull are also considered open by isOpen. That is, if isFull(i, j) is true, then isOpen(i, j) must be true.</b>. 
+These should both be one-line, O(1) methods. <b> Unlike PercolationDFS, for our solution, cells which are considered full by isFull are also considered open by isOpen. That is, if isFull(i, j) is true, then isOpen(i, j) must be true.</b> 
 
 This may seem confusing, but it makes writing PercolationDFS and PercolationUF respectively much easier - for DFS, not being able to consider cells open and full at the same time is more convenient, but for union-find, the opposite is more convenient.
 

@@ -4,7 +4,7 @@ title: "The Equations Behind NBody"
 assignment: "nbody"
 ---
 
-####The physics
+###The physics
 
 We review the equations governing the motion of the particles according to Newton's laws of motion and gravitation. Don't worry if your grounding in physics is a bit rusty or even nonexistent; all of the necessary formulas are included below. We'll assume for now that the position <i>(p<sub>x</sub>, p<sub>y</sub>)</i> and velocity <i>(v<sub>x</sub>, v<sub>y</sub>)</i> of each particle is known. In order to model the dynamics of the system, we must know the net force exerted on each particle.
 
@@ -21,7 +21,7 @@ We review the equations governing the motion of the particles according to Newto
 <li><p>Acceleration</p>
 <p>Newton's second law of motion postulates that the accelerations in the x and y directions are given by: a<sub>x</sub> = F<sub>x</sub> / m, a<sub>y</sub> = F<sub>y</sub> / m. </p></li>
 
-####The numerics
+###The numerics
 
 We use the<i> leapfrog finite difference approximation scheme</i> to numerically integrate the above equations: this is the basis for most astrophysical simulations of gravitational systems. In the leapfrog scheme, we discretize time, and update the time variable t in increments of the time quantum Δt. We maintain the position (p<sub>x</sub>, p<sub>y</sub>) and velocity (v<sub>x</sub>, v<sub>y</sub>) of each particle at each time step. The steps below illustrate how to evolve the positions and velocities of the particles.
 

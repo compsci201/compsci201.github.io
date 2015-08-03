@@ -46,4 +46,4 @@ The diagram below shows the results of cutting an original strand of DNA at thre
 <h2> How to Test Your Code </h2>
 <p>
 To test your LinkStrand class a JUnit tester has been provided for you. The tester will test individual methods in your class. If you need a refresher on JUnit refer to Recitation 5 Slides and Code. <br>
-Note: Passing these tests doesn't gaurantee full credit since the tests are about correctness, not efficieny. <br>Implementing LinkStrand is the bulk of the coding work for this assignment. You’ll need to implement every method and use the JUnit tests to help determine if your methods are correctly implemented. </p>
+Note: Passing these tests doesn't guarantee full credit since the tests are about correctness, not efficiency. <br>Implementing LinkStrand is the bulk of the coding work for this assignment. You’ll need to implement every method and use the JUnit tests to help determine if your methods are correctly implemented. </p>

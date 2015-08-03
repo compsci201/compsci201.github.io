@@ -8,23 +8,21 @@ The analysis has two parts.
 
 ####Part A
 
-Answer these questions in the provided README template:
+1. Answer these questions in the provided README template:
+How long does it take using the provided, brute force code to generate text if you vary the following? Why?
 
-<ol>
-<li>How long does it take using the provided, brute force code to generate text if you vary the following? Why?
+	<p>A. Order of Model (e.g. order-1 vs. order-5 vs. order-10) </p>
 
-<p>A. Order of Model (e.g. order-1 vs. order-5 vs. order-10) </p>
+	<p>B. Length of training text (e.g., Alice’s Adventures in Wonderland (alice.txt) vs. The Scarlet Letter  (hawthorne.txt)) </p>
 
-<p>B. Length of training text (e.g., Alice’s Adventures in Wonderland (alice.txt) vs. The Scarlet Letter  (hawthorne.txt))  </p>
+	<p>C. Number of characters generated (e.g. 100, 200, 400, 800, 1600 characters)  </p>
 
-<p>C. Number of characters generated (e.g. 100, 200, 400, 800, 1600 characters)  </p>
+	Do empirical results match what you expect? How long do you think it will take to generate 1600 random characters using an order-5 Markov model when the The Complete Works of William Shakespeare is used as the training text — our online copy of this text contains roughly 5.5 million characters. Justify your answer — don’t test empirically, use reasoning.
 
-<li>Do empirical results match what you expect? How long do you think it will take to generate 1600 random characters using an order-5 Markov model when the The Complete Works of William Shakespeare is used as the training text — our online copy of this text contains roughly 5.5 million characters. Justify your answer — don’t test empirically, use reasoning. </li>
+2. Provide timings using your Map/Smart model for both creating the map and generating 200, 400, 800, and 1600 character random texts with an order-5 Model and alice.txt. Provide some explanation for the timings you observe.
 
-<li>Provide timings using your Map/Smart model for both creating the map and generating 200, 400, 800, and 1600 character random texts with an order-5 Model and alice.txt. Provide some explanation for the timings you observe. </li>
+3. Provide timings for the WordMarkovModel with different hashcode methods. Time the method you are given and compare the results that you achieve with the better hashcode method that you developed.
 
-<li>Provide timings for the WordMarkovModel with different hashcode methods. Time the method you are given and compare the results that you achieve with the better hashcode method that you developed. </li>
-</ol>
 
 ####Part B
 

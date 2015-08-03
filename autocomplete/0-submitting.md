@@ -43,4 +43,4 @@ You also must submit your README in order to receive any credit.
 
 If you create any new classes which are required for the above classes to compile, you should submit those as well.
 
-The following classes should be considered "read-only" - if you submit them, the grader will replace them with the unmodified version you snarfed. Thus, you are free to modify them for testing, but the classes you submit should not depend on those modifications in order to be compile/have the correct return values:
+Any other classes we provide you should be considered "read-only" - if you submit them, the grader will replace them with the unmodified version you snarfed. Thus, you are free to modify them for testing, but the classes you submit should not depend on those modifications in order to be compile/have the correct return values:

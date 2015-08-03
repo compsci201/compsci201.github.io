@@ -25,10 +25,10 @@ The nbody project contains the planets.txt file, images of the planets, and many
 
 ####Creating an animation
 
-Draw each particle at its current position using standard draw <code>[princeton.StdDraw](http://www.cs.princeton.edu/introcs/stdlib/javadoc/StdDraw.html)</code>, and repeat this process at each time step. By displaying this sequence of snapshots (or frames) in rapid succession, you will create the illusion of movement. After each time step:
+Draw each particle at its current position using [princeton.StdDraw](http://www.cs.princeton.edu/introcs/stdlib/javadoc/StdDraw.html), and repeat this process at each time step. By displaying this sequence of snapshots (or frames) in rapid succession, you will create the illusion of movement. After each time step:
 <li>draw the background image starfield.jpg, </li>
 <li>redraw all the bodies in their new positions, and </li>
-<li>control the animation speed using <code>[StdDraw.show()](http://www.cs.princeton.edu/introcs/stdlib/javadoc/StdDraw.html#show(int)).</code> </li>
+<li>control the animation speed using [StdDraw.show()](http://www.cs.princeton.edu/introcs/stdlib/javadoc/StdDraw.html#show(int)). </li>
 
 ####Your program
 Write the method <code>nBodyPositions()</code> in NBody.java, which reads in the universe from a Scanner <code>info</code> and simulates its dynamics using the leapfrog scheme described above with Δt = <code>timeStep</code>, and animates it using <code>StdDraw</code>. To plot the simulation, write a for loop which runs until <code>totalTime</code> has passed and updates/plots the positions/velocities of the particles each iteration as described above. When plotting, use <code>StdDraw.setXscale(-R, R)</code> and <code>StdDraw.setYscale(-R, R)</code>. 

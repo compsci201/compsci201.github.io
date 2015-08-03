@@ -10,3 +10,5 @@ percolation process starting with a N-by-N grid of sites (initially all blocked 
 <img src = "img/visualizer_example.png" alt = "Percolation example">
 
 #####Going from 50 to 100 to 150 to 204 to 250 open sites in a 20x20 grid.
+
+When drawing the grid, the animation will be smoothest if you do not call StdDraw on a specific cell more than once per iteration. Otherwise, some cells may flash white before appearing blue if your IPercolate implementation allows for a cell to be open and full at the same time.

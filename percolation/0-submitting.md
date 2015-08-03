@@ -14,28 +14,28 @@ The following classes must be submitted in order to be graded:
 Make sure when you submit, all of the following are present and functional:
 
 <code>
-Class: PercolationDFS
- Constructor: PercolationDFS(int)
- Method: public void open(int, int)
- Method: public boolean isOpen(int, int)
- Method: public boolean percolates()
- Method: public boolean isFull(int, int)
-Class: PercolationUF
- Constructor: PercolationUF(int, IUnionFind)
- Method: public void open(int, int)
- Method: public boolean isOpen(int, int)
- Method: public boolean percolates()
- Method: public boolean isFull(int, int)
-Class: PercolationStats
- Method: public static void main(String[])
-Class: PercolationVisualizer
- Method: public static void main(String[])
-Class: QuickUWPC
- Method: public void initialize(int)
- Method: public int components()
- Method: public int find(int)
- Method: public boolean connected(int, int)
- Method: public void union(int, int)
+Class: PercolationDFS<br>
+ Constructor: PercolationDFS(int)<br>
+ Method: public void open(int, int)<br>
+ Method: public boolean isOpen(int, int)<br>
+ Method: public boolean percolates()<br>
+ Method: public boolean isFull(int, int)<br>
+Class: PercolationUF<br>
+ Constructor: PercolationUF(int, IUnionFind)<br>
+ Method: public void open(int, int)<br>
+ Method: public boolean isOpen(int, int)<br>
+ Method: public boolean percolates()<br>
+ Method: public boolean isFull(int, int)<br>
+Class: PercolationStats<br>
+ Method: public static void main(String[])<br>
+Class: PercolationVisualizer<br>
+ Method: public static void main(String[])<br>
+Class: QuickUWPC<br>
+ Method: public void initialize(int)<br>
+ Method: public int components()<br>
+ Method: public int find(int)<br>
+ Method: public boolean connected(int, int)<br>
+ Method: public void union(int, int)<br>
 </code>
 
 You also must submit your README in order to receive any credit.

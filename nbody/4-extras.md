@@ -20,7 +20,8 @@ Challenges for the bored. There are limitless opportunities for additional excit
 <li>make the simulation three-dimensional by doing calculations for x-, y-, and z-coordinates, then using the z coordinate to vary the sizes of the planets</li>
 <li>add a rocket ship that launches from one planet and has to land on another. Allow the rocket ship to exert force with consumption of fuel</li>
 <li>make the solution more efficient</li>
-<li>implement [Barnes-Hut](http://en.wikipedia.org/wiki/Barnes-Hut_simulation)</li>
+
+In addition, or a more algorithmic challenge, try implementing [Barnes-Hut](http://en.wikipedia.org/wiki/Barnes-Hut_simulation), which approximates the N-body problem using substantially fewer calculations.
 
 ####Work others have done with Nbody
 

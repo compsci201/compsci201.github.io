@@ -32,6 +32,8 @@ If the JUnit tests pass, you’ll get all green as shown on the left below. Othe
 
 <img src="img/junit_example2.PNG" alt="All green vs red">
 
+Remember, JUnit tests <b>are not a guarantee of correctness</b>. While failing a correctly written JUnit test indicates your class is incorrect, the opposite is not always true.
+
 ####The WordMarkovModel class
 
 You’ll implement a class named WordMarkovModel that extends the abstract class AbstractModel class. This should be very similar to the MapMarkovModel class you wrote, but this class uses words rather than characters. 

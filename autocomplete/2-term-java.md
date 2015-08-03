@@ -4,7 +4,7 @@ title: "Term Overview/Methods"
 assignment: "autocomplete"
 ---
 
-The Term class serves two purposes. The more trivial is to allow us to encapsulate a term-weight pair. More importantly, it allows us to use Comparable and Comparator to sort terms in a variety of ways, which we will implement within this class. We will be sorting Terms extensively in our Autocompletor implementations, so you'll need to complete this class first.
+The Term class serves two purposes. The more trivial is to allow us to encapsulate a term-weight pair. More importantly, it allows us to use Comparable and Comparator to sort terms in a variety of ways, which will make Autocompletor implementations much simpler. It is very difficult to write our Autocompletor implementations without having Term written, so you should complete this class first.
 
 Within this class, you should:
 <li> Implement the constructor </li>
@@ -20,7 +20,7 @@ The constructor simply needs to take the input arguments and store them to the c
 For these comparators, all you need to do is write the compare method for each of them. Remember, compare(a, b) should return a negative value when a comes before b in the desired order.
 
 ###PrefixOrder
-PrefixOrder is a bit more interesting, PrefixOrder is initialized with an integer argument r. PrefixOrder should sort terms lexicographically, **but only using the first r letters**. So, while “beeswax” comes after “beekeeper” using lexicographical sorting, the two words would be considered equal using PrefixOrder with r = 3.
+PrefixOrder is a bit more interesting. PrefixOrder is initialized with an integer argument r. PrefixOrder should sort terms lexicographically, **but only using the first r letters**. So, while “beeswax” comes after “beekeeper” using lexicographical sorting, the two words would be considered equal using PrefixOrder with r = 3.
 
 For words shorter than r letters, we still use lexicographical ordering. So, “bee” still comes before “beeswax” using PrefixOrder(4), since “bee” would come before “bees” and similarly “bug” would come after “beeswax” using PrefixOrder(4) since “bees” would come before “bug” in lexicographic order.
 
