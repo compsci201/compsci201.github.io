@@ -1,0 +1,140 @@
+<html>
+<head>
+<title>LinkStrand.java</title>
+</head>
+<body>
+Link to code: <a href="../highlighted/LinkStrand.java">LinkStrand.java</a><br>
+<hr>
+<!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">util</font><font color="#000000">.</font><font color="#000000">ArrayList</font><font color="#000000">;</font>
+
+
+<b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">class</font></b><font color="#000000"> </font><font color="#000000">LinkStrand</font><font color="#000000"> </font><b><font color="#7f0055">implements</font></b><font color="#000000"> IDnaStrand </font><font color="#000000">{</font>
+<font color="#000000">    </font>
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Create a strand representing an empty DNA strand, length of zero.</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">LinkStrand</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">    	</font><font color="#717ab3">//TODO: Implement this method</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Create a strand representing s. No error checking is done to </font>
+<font color="#717ab3">     * see if s represents valid genomic/DNA data.</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> s is the source of cgat data for this strand</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">LinkStrand</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> s</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">    	</font><font color="#717ab3">//TODO: Implement this method</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Cut this strand at every occurrence of enzyme, essentially replacing</font>
+<font color="#717ab3">     * every occurrence of enzyme with splicee.</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> enzyme is the pattern/strand searched for and replaced</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> splicee is the pattern/strand replacing each occurrence of enzyme</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@return</font></b><font color="#717ab3"> the new strand leaving the original strand unchanged.</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    @Override</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">IDnaStrand</font><font color="#000000"> </font><font color="#000000">cutAndSplice</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> enzyme</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">String</font><font color="#000000"> splicee</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">    	</font><font color="#717ab3">//TODO: Implement this method</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Initialize this strand so that it represents the value of source.</font>
+<font color="#717ab3">     * No error checking is performed.</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> source is the source of this enzyme</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    @Override</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">initializeFrom</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> source</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">    	</font><font color="#717ab3">//TODO: Implement this method</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Returns the number of nucleotides/base-pairs in this strand.</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    @Override</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">long</font></b><font color="#000000"> </font><font color="#000000">size</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">    	</font><font color="#717ab3">//TODO: Implement this method</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Returns the sequence of DNA this object represents as a String</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@return</font></b><font color="#717ab3"> the sequence of DNA this represents</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    @Override</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">String</font><font color="#000000"> </font><font color="#000000">toString</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">    	</font><font color="#717ab3">//TODO: Implement this method</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Return some string identifying this class.</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@return</font></b><font color="#717ab3"> a string representing this strand and its characteristics</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    @Override</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">String</font><font color="#000000"> </font><font color="#000000">strandInfo</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">    	</font><font color="#717ab3">//TODO: Implement this method</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Append a strand of DNA to this strand. If the strand being appended</font>
+<font color="#717ab3">     * is represented by a LinkStrand object then an efficient append is</font>
+<font color="#717ab3">     * performed.</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> dna is the strand being appended</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    @Override</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">IDnaStrand</font><font color="#000000"> </font><font color="#000000">append</font><font color="#000000">(</font><font color="#000000">IDnaStrand</font><font color="#000000"> dna</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">    	</font><font color="#717ab3">//TODO: Implement this method</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Simply append a strand of dna data to this strand.</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> dna is the String appended to this strand</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    @Override</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">IDnaStrand</font><font color="#000000"> </font><font color="#000000">append</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> dna</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">    	</font><font color="#717ab3">//TODO: Implement this method</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Returns an IDnaStrand that is the reverse of this strand,</font>
+<font color="#717ab3">     * e.g., for "CGAT" returns "TAGC"</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@return</font></b><font color="#717ab3"> reverse strand</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    @Override</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">IDnaStrand</font><font color="#000000"> </font><font color="#000000">reverse</font><font color="#000000">()</font><font color="#000000">{</font>
+<font color="#000000">    	</font><font color="#717ab3">//TODO: Implement this method</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Returns a string that can be printed</font>
+<font color="#717ab3">     * to reveal information about what this</font>
+<font color="#717ab3">     * object has encountered as it is manipulated</font>
+<font color="#717ab3">     * by append and cutAndSplice.</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@return</font></b>
+<font color="#717ab3">     */</font>
+<font color="#000000">    @Override</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">String</font><font color="#000000"> </font><font color="#000000">getStats</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">    	</font><font color="#717ab3">//TODO: Implement this method</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+<font color="#000000">    </font>
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Returns an ArrayList of Strings corresponding to</font>
+<font color="#717ab3">     * the nodes in the linked list this class contains.</font>
+<font color="#717ab3">     * That is, the first value of the list should be the info within</font>
+<font color="#717ab3">     * the head of the linked list, the second value should be the info</font>
+<font color="#717ab3">     * within the node the head points to, etc.</font>
+<font color="#717ab3">     * The ArrayList returned should be generated at the time the method</font>
+<font color="#717ab3">     * is called. That is, the ArrayList should have a scope of only this</font>
+<font color="#717ab3">     * method (i.e. not global)</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@return</font></b><font color="#717ab3"> </font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">ArrayList&lt;String&gt;</font><font color="#000000"> </font><font color="#000000">nodeList</font><font color="#000000">()</font><font color="#000000">{</font>
+<font color="#000000">    	</font><font color="#717ab3">//TODO: Implement this method    	</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+<font color="#000000">}</font>
+</tt></pre>
+</body>
+</html>

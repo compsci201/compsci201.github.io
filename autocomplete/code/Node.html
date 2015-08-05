@@ -1,0 +1,125 @@
+<html>
+<head>
+<title>Node.java</title>
+</head>
+<body>
+Link to code: <a href="../highlighted/Node.java">Node.java</a><br>
+<hr>
+<!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">util</font><font color="#000000">.</font><font color="#000000">Comparator</font><font color="#000000">;</font>
+<font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">util</font><font color="#000000">.</font><font color="#000000">HashMap</font><font color="#000000">;</font>
+<font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">util</font><font color="#000000">.</font><font color="#000000">Map</font><font color="#000000">;</font>
+
+<font color="#717ab3">/**</font>
+<font color="#717ab3"> * Node in a general trie, each representing a character. Each node will keep track of additional</font>
+<font color="#717ab3"> * valid state if it is the last character of a word.</font>
+<font color="#717ab3"> * </font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">@author</font></b><font color="#717ab3"> Austin Lu</font>
+<font color="#717ab3"> *</font>
+<font color="#717ab3"> */</font>
+<b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">class</font></b><font color="#000000"> </font><font color="#000000">Node</font><font color="#000000"> </font><b><font color="#7f0055">implements</font></b><font color="#000000"> Comparable</font><font color="#000000">&lt;</font><font color="#000000">Node</font><font color="#000000">&gt;</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">  </font><font color="#717ab3">/**</font>
+<font color="#717ab3">   * The character this Node represents</font>
+<font color="#717ab3">   */</font>
+<font color="#000000">  </font><font color="#000000">String</font><font color="#000000"> myInfo</font><font color="#000000">;</font>
+
+<font color="#000000">  </font><font color="#717ab3">/**</font>
+<font color="#717ab3">   * Whether or not this node represents the last character in a Node</font>
+<font color="#717ab3">   */</font>
+<font color="#000000">  </font><b><font color="#7f0055">boolean</font></b><font color="#000000"> isWord</font><font color="#000000">;</font>
+
+<font color="#000000">  </font><font color="#717ab3">/**</font>
+<font color="#717ab3">   * Only non-null/interpretable if isWord is true. Holds the entire word ending at this Node.</font>
+<font color="#717ab3">   */</font>
+<font color="#000000">  </font><font color="#000000">String</font><font color="#000000"> myWord</font><font color="#000000">;</font>
+
+<font color="#000000">  </font><font color="#717ab3">/**</font>
+<font color="#717ab3">   * Only positive/interpretable if isWord is true. Represents the weight of myWord.</font>
+<font color="#717ab3">   */</font>
+<font color="#000000">  </font><b><font color="#7f0055">double</font></b><font color="#000000"> myWeight </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">-</font><font color="#000000">1</font><font color="#000000">;</font>
+
+<font color="#000000">  </font><font color="#717ab3">/**</font>
+<font color="#717ab3">   * The maximum weight of any Node rooted at this Node (i.e. in this Nodes subtrie, including this</font>
+<font color="#717ab3">   * Node itself).</font>
+<font color="#717ab3">   */</font>
+<font color="#000000">  </font><b><font color="#7f0055">double</font></b><font color="#000000"> mySubtreeMaxWeight</font><font color="#000000">;</font>
+
+<font color="#000000">  </font><font color="#000000">Map&lt;Character, Node&gt;</font><font color="#000000"> children</font><font color="#000000">;</font>
+<font color="#000000">  </font><font color="#000000">Node</font><font color="#000000"> parent</font><font color="#000000">;</font>
+
+<font color="#000000">  </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">Node</font><font color="#000000">(</font><b><font color="#7f0055">char</font></b><font color="#000000"> character</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">Node</font><font color="#000000"> parentNode</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">double</font></b><font color="#000000"> subtreeMaximumWeight</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">    myInfo </font><font color="#000000">=</font><font color="#000000"> </font><font color="#0000ff">""</font><font color="#000000"> </font><font color="#000000">+</font><font color="#000000"> character</font><font color="#000000">;</font>
+<font color="#000000">    isWord </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">false</font></b><font color="#000000">;</font>
+<font color="#000000">    children </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> HashMap</font><font color="#000000">&lt;</font><font color="#000000">Character</font><font color="#000000">,</font><font color="#000000"> Node</font><font color="#000000">&gt;();</font>
+<font color="#000000">    parent </font><font color="#000000">=</font><font color="#000000"> parentNode</font><font color="#000000">;</font>
+<font color="#000000">    mySubtreeMaxWeight </font><font color="#000000">=</font><font color="#000000"> subtreeMaximumWeight</font><font color="#000000">;</font>
+<font color="#000000">  </font><font color="#000000">}</font>
+
+<font color="#000000">  </font><font color="#717ab3">/**</font>
+<font color="#717ab3">   * Set the word that this node is the last character of. Only do this if the Node's character ends</font>
+<font color="#717ab3">   * a word.</font>
+<font color="#717ab3">   */</font>
+<font color="#000000">  </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">setWord</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> word</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">    myWord </font><font color="#000000">=</font><font color="#000000"> word</font><font color="#000000">;</font>
+<font color="#000000">  </font><font color="#000000">}</font>
+
+<font color="#000000">  </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">String</font><font color="#000000"> </font><font color="#000000">getWord</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">    </font><b><font color="#7f0055">return</font></b><font color="#000000"> myWord</font><font color="#000000">;</font>
+<font color="#000000">  </font><font color="#000000">}</font>
+
+<font color="#000000">  </font><font color="#717ab3">/**</font>
+<font color="#717ab3">   * Set the weight corresponding to the word that this node is the last character of.</font>
+<font color="#717ab3">   */</font>
+<font color="#000000">  </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">setWeight</font><font color="#000000">(</font><b><font color="#7f0055">double</font></b><font color="#000000"> w</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">    myWeight </font><font color="#000000">=</font><font color="#000000"> w</font><font color="#000000">;</font>
+<font color="#000000">  </font><font color="#000000">}</font>
+
+<font color="#000000">  </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">double</font></b><font color="#000000"> </font><font color="#000000">getWeight</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">    </font><b><font color="#7f0055">return</font></b><font color="#000000"> myWeight</font><font color="#000000">;</font>
+<font color="#000000">  </font><font color="#000000">}</font>
+
+<font color="#000000">  </font><font color="#717ab3">/**</font>
+<font color="#717ab3">   * Returns null if key is not a valid child.</font>
+<font color="#717ab3">   */</font>
+<font color="#000000">  </font><font color="#000000">Node</font><font color="#000000"> </font><font color="#000000">getChild</font><font color="#000000">(</font><b><font color="#7f0055">char</font></b><font color="#000000"> ch</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">    </font><b><font color="#7f0055">return</font></b><font color="#000000"> children</font><font color="#000000">.</font><font color="#000000">get</font><font color="#000000">(</font><font color="#000000">ch</font><font color="#000000">);</font>
+<font color="#000000">  </font><font color="#000000">}</font>
+
+<font color="#000000">  @Override</font>
+<font color="#000000">  </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">String</font><font color="#000000"> </font><font color="#000000">toString</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">    </font><b><font color="#7f0055">return</font></b><font color="#000000"> myInfo </font><font color="#000000">+</font><font color="#000000"> </font><font color="#0000ff">" ("</font><font color="#000000"> </font><font color="#000000">+</font><font color="#000000"> myWeight </font><font color="#000000">+</font><font color="#000000"> </font><font color="#0000ff">")"</font><font color="#000000">;</font>
+<font color="#000000">  </font><font color="#000000">}</font>
+
+<font color="#000000">  @Override</font>
+<font color="#000000">  </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> </font><font color="#000000">compareTo</font><font color="#000000">(</font><font color="#000000">Node</font><font color="#000000"> o</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">    </font><font color="#717ab3">// Sort in weight ascending</font>
+<font color="#000000">    </font><b><font color="#7f0055">if</font></b><font color="#000000"> </font><font color="#000000">(</font><b><font color="#7f0055">this</font></b><font color="#000000">.</font><font color="#000000">myWeight </font><font color="#000000">&lt;</font><font color="#000000"> o</font><font color="#000000">.</font><font color="#000000">myWeight</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">      </font><b><font color="#7f0055">return</font></b><font color="#000000"> </font><font color="#000000">-</font><font color="#000000">1</font><font color="#000000">;</font>
+<font color="#000000">    </font><font color="#000000">}</font><font color="#000000"> </font><b><font color="#7f0055">else</font></b><font color="#000000"> </font><b><font color="#7f0055">if</font></b><font color="#000000"> </font><font color="#000000">(</font><b><font color="#7f0055">this</font></b><font color="#000000">.</font><font color="#000000">myWeight </font><font color="#000000">&gt;</font><font color="#000000"> o</font><font color="#000000">.</font><font color="#000000">myWeight</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">      </font><b><font color="#7f0055">return</font></b><font color="#000000"> </font><font color="#000000">1</font><font color="#000000">;</font>
+<font color="#000000">    </font><font color="#000000">}</font><font color="#000000"> </font><b><font color="#7f0055">else</font></b><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">      </font><b><font color="#7f0055">return</font></b><font color="#000000"> </font><font color="#000000">0</font><font color="#000000">;</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+<font color="#000000">  </font><font color="#000000">}</font>
+
+<font color="#000000">  </font><font color="#717ab3">/*</font>
+<font color="#717ab3">   * In reverse subtreeMaxWeight order to make the PriorityQueue (a min-heap) act as a max heap.</font>
+<font color="#717ab3">   */</font>
+<font color="#000000">  </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">class</font></b><font color="#000000"> </font><font color="#000000">ReverseSubtreeMaxWeightComparator</font><font color="#000000"> </font><b><font color="#7f0055">implements</font></b><font color="#000000"> Comparator</font><font color="#000000">&lt;</font><font color="#000000">Node</font><font color="#000000">&gt;</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">    @Override</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> </font><font color="#000000">compare</font><font color="#000000">(</font><font color="#000000">Node</font><font color="#000000"> o1</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">Node</font><font color="#000000"> o2</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">      </font><b><font color="#7f0055">if</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">o1</font><font color="#000000">.</font><font color="#000000">mySubtreeMaxWeight </font><font color="#000000">&lt;</font><font color="#000000"> o2</font><font color="#000000">.</font><font color="#000000">mySubtreeMaxWeight</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">        </font><b><font color="#7f0055">return</font></b><font color="#000000"> </font><font color="#000000">1</font><font color="#000000">;</font>
+<font color="#000000">      </font><font color="#000000">}</font><font color="#000000"> </font><b><font color="#7f0055">else</font></b><font color="#000000"> </font><b><font color="#7f0055">if</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">o1</font><font color="#000000">.</font><font color="#000000">mySubtreeMaxWeight </font><font color="#000000">&gt;</font><font color="#000000"> o2</font><font color="#000000">.</font><font color="#000000">mySubtreeMaxWeight</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">        </font><b><font color="#7f0055">return</font></b><font color="#000000"> </font><font color="#000000">-</font><font color="#000000">1</font><font color="#000000">;</font>
+<font color="#000000">      </font><font color="#000000">}</font>
+<font color="#000000">      </font><b><font color="#7f0055">return</font></b><font color="#000000"> </font><font color="#000000">0</font><font color="#000000">;</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+<font color="#000000">  </font><font color="#000000">}</font>
+<font color="#000000">}</font>
+</tt></pre>
+</body>
+</html>

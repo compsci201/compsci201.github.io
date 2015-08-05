@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>AutocompleteMain.java</title>
+</head>
+<body>
+Link to code: <a href="../highlighted/AutocompleteMain.java">AutocompleteMain.java</a><br>
+<hr>
+<!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">io</font><font color="#000000">.</font><font color="#000000">File</font><font color="#000000">;</font>
+<font color="#3f5fbf">import</font><font color="#000000"> javax</font><font color="#000000">.</font><font color="#000000">swing</font><font color="#000000">.</font><font color="#000000">JFileChooser</font><font color="#000000">;</font>
+<font color="#3f5fbf">import</font><font color="#000000"> javax</font><font color="#000000">.</font><font color="#000000">swing</font><font color="#000000">.</font><font color="#000000">SwingUtilities</font><font color="#000000">;</font>
+
+
+<font color="#717ab3">/**</font>
+<font color="#717ab3"> * Main class for the Autocomplete program.</font>
+<font color="#717ab3"> * </font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">@author</font></b><font color="#717ab3"> Austin Lu</font>
+<font color="#717ab3"> *</font>
+<font color="#717ab3"> */</font>
+<b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">class</font></b><font color="#000000"> </font><font color="#000000">AutocompleteMain</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000"> </font>
+<font color="#000000">  </font><font color="#717ab3">/* Modify K as necessary */</font>
+<font color="#000000">  </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> K </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">10</font><font color="#000000">;</font>
+<font color="#000000">  </font>
+<font color="#000000">  </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><font color="#000000">String</font><font color="#000000"> BRUTE_AUTOCOMPLETE </font><font color="#000000">=</font><font color="#000000"> </font><font color="#0000ff">"BruteAutocomplete"</font><font color="#000000">;</font>
+<font color="#000000">  </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><font color="#000000">String</font><font color="#000000"> BINARY_SEARCH_AUTOCOMPLETE </font><font color="#000000">=</font><font color="#000000"> </font><font color="#0000ff">"BinarySearchAutocomplete"</font><font color="#000000">;</font>
+<font color="#000000">  </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><font color="#000000">String</font><font color="#000000"> TRIE_AUTOCOMPLETE </font><font color="#000000">=</font><font color="#000000"> </font><font color="#0000ff">"TrieAutocomplete"</font><font color="#000000">;</font>
+<font color="#000000">  </font>
+<font color="#000000">  </font><font color="#717ab3">/* Modify name of Autocompletor implementation as necessary */</font>
+<font color="#000000">  </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><font color="#000000">String</font><font color="#000000"> AUTOCOMPLETOR_CLASS_NAME </font><font color="#000000">=</font><font color="#000000"> BRUTE_AUTOCOMPLETE</font><font color="#000000">;</font>
+<font color="#000000">  </font>
+<font color="#000000">  </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">main</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000">[]</font><font color="#000000"> args</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">    </font><font color="#000000">JFileChooser</font><font color="#000000"> fileChooser </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">JFileChooser</font><font color="#000000">(</font><font color="#0000ff">"."</font><font color="#000000">);</font>
+<font color="#000000">    </font><b><font color="#7f0055">int</font></b><font color="#000000"> retval </font><font color="#000000">=</font><font color="#000000"> fileChooser</font><font color="#000000">.</font><font color="#000000">showOpenDialog</font><font color="#000000">(</font><b><font color="#7f0055">null</font></b><font color="#000000">);</font>
+<font color="#000000">    </font><b><font color="#7f0055">if</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">retval </font><font color="#000000">==</font><font color="#000000"> JFileChooser</font><font color="#000000">.</font><font color="#000000">APPROVE_OPTION</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">      </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><font color="#000000">File</font><font color="#000000"> file </font><font color="#000000">=</font><font color="#000000"> fileChooser</font><font color="#000000">.</font><font color="#000000">getSelectedFile</font><font color="#000000">();</font>
+<font color="#000000">      SwingUtilities</font><font color="#000000">.</font><font color="#000000">invokeLater</font><font color="#000000">(</font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">Runnable</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">        </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">run</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">          </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">AutocompleteGUI</font><font color="#000000">(</font><font color="#000000">file</font><font color="#000000">.</font><font color="#000000">getAbsolutePath</font><font color="#000000">(),</font><font color="#000000"> K</font><font color="#000000">,</font><font color="#000000"> AUTOCOMPLETOR_CLASS_NAME</font><font color="#000000">).</font><font color="#000000">setVisible</font><font color="#000000">(</font><b><font color="#7f0055">true</font></b><font color="#000000">);</font>
+<font color="#000000">        </font><font color="#000000">}</font>
+<font color="#000000">      </font><font color="#000000">}</font><font color="#000000">);</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+
+<font color="#000000">  </font><font color="#000000">}</font>
+<font color="#000000">}</font>
+</tt></pre>
+</body>
+</html>

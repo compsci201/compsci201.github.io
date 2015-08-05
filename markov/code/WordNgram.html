@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>WordNgram.java</title>
+</head>
+<body>
+Link to code: <a href="../highlighted/WordNgram.java">WordNgram.java</a><br>
+<hr>
+<!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><font color="#717ab3">/*</font>
+<font color="#717ab3"> * This class encapsulates N words/strings so that the</font>
+<font color="#717ab3"> * group of N words can be treated as a key in a map or an</font>
+<font color="#717ab3"> * element in a set, or an item to be searched for in an array.</font>
+<font color="#717ab3"> * &lt;P&gt;</font>
+<font color="#717ab3"> * @author YOU,COMPSCI 201 STUDENT</font>
+<font color="#717ab3"> */</font>
+
+<b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">class</font></b><font color="#000000"> </font><font color="#000000">WordNgram</font><font color="#000000"> </font><b><font color="#7f0055">implements</font></b><font color="#000000"> Comparable</font><font color="#000000">&lt;</font><font color="#000000">WordNgram</font><font color="#000000">&gt;</font><font color="#000000">{</font>
+<font color="#000000">    </font>
+<font color="#000000">    </font><b><font color="#7f0055">private</font></b><font color="#000000"> String</font><font color="#000000">[]</font><font color="#000000"> myWords</font><font color="#000000">;</font>
+<font color="#000000">    </font>
+<font color="#000000">    </font><font color="#717ab3">/*</font>
+<font color="#717ab3">     * Store the n words that begin at index start of array list as</font>
+<font color="#717ab3">     * the N words of this N-gram.</font>
+<font color="#717ab3">     * @param list contains at least n words beginning at index start</font>
+<font color="#717ab3">     * @start is the first of the N worsd to be stored in this N-gram</font>
+<font color="#717ab3">     * @n is the number of words to be stored (the n in this N-gram)</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">WordNgram</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000">[]</font><font color="#000000"> list</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> start</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> n</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">        myWords </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> String</font><font color="#000000">[</font><font color="#000000">n</font><font color="#000000">];</font>
+<font color="#000000">        System</font><font color="#000000">.</font><font color="#000000">arraycopy</font><font color="#000000">(</font><font color="#000000">list</font><font color="#000000">,</font><font color="#000000"> start</font><font color="#000000">,</font><font color="#000000"> myWords</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0</font><font color="#000000">,</font><font color="#000000"> n</font><font color="#000000">);</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+<font color="#000000">    </font>
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Return value that meets criteria of compareTo conventions.</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> wg is the WordNgram to which this is compared</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@return</font></b><font color="#717ab3"> appropriate value less than zero, zero, or greater than zero</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> </font><font color="#000000">compareTo</font><font color="#000000">(</font><font color="#000000">WordNgram</font><font color="#000000"> wg</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">        </font><font color="#717ab3">// TODO  implement this method</font>
+<font color="#000000">        </font><b><font color="#7f0055">return</font></b><font color="#000000"> </font><font color="#000000">0</font><font color="#000000">;</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+<font color="#000000">    </font>
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Return true if this N-gram is the same as the parameter: all words the same.</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> o is the WordNgram to which this one is compared</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@return</font></b><font color="#717ab3"> true if o is equal to this N-gram</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">boolean</font></b><font color="#000000"> </font><font color="#000000">equals</font><font color="#000000">(</font><font color="#000000">Object</font><font color="#000000"> o</font><font color="#000000">)</font><font color="#000000">{</font>
+<font color="#000000">        </font><font color="#000000">WordNgram</font><font color="#000000"> wg </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">WordNgram</font><font color="#000000">)</font><font color="#000000"> o</font><font color="#000000">;</font>
+<font color="#000000">        </font><font color="#717ab3">// TODO return correct value</font>
+<font color="#000000">      </font>
+<font color="#000000">        </font><b><font color="#7f0055">return</font></b><font color="#000000"> </font><b><font color="#7f0055">true</font></b><font color="#000000">;</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+<font color="#000000">    </font>
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Returns a good value for this N-gram to be used in hashing.</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@return</font></b><font color="#717ab3"> value constructed from all N words in this N-gram</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> </font><font color="#000000">hashCode</font><font color="#000000">()</font><font color="#000000">{</font>
+<font color="#000000">        </font><font color="#717ab3">// TODO return a better hash value</font>
+<font color="#000000">      </font>
+<font color="#000000">        </font>
+<font color="#000000">        </font><b><font color="#7f0055">return</font></b><font color="#000000"> </font><font color="#000000">15</font><font color="#000000">;</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+<font color="#000000">}</font>
+</tt></pre>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<html>
+<head>
+<title>TestStrand.java</title>
+</head>
+<body>
+Link to code: <a href="../highlighted/TestStrand.java">TestStrand.java</a><br>
+<hr>
+<!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><font color="#3f5fbf">import</font><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> org</font><font color="#000000">.</font><font color="#000000">junit</font><font color="#000000">.</font><font color="#000000">Assert</font><font color="#000000">.*;</font>
+
+<font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">util</font><font color="#000000">.</font><font color="#000000">ArrayList</font><font color="#000000">;</font>
+
+<font color="#3f5fbf">import</font><font color="#000000"> org</font><font color="#000000">.</font><font color="#000000">junit</font><font color="#000000">.*;</font>
+
+
+<font color="#717ab3">/**</font>
+<font color="#717ab3"> * Class for running JUNit tests with different implementations of IDnaStrand. To use</font>
+<font color="#717ab3"> * a different implementation alter the method </font><b><font color="#7f0055">&lt;code&gt;</font></b><font color="#717ab3">getNewStrand</font><b><font color="#7f0055">&lt;/code&gt;</font></b><font color="#717ab3"> since that method</font>
+<font color="#717ab3"> * is called by all JUnit tests to create the IDnaStrand objects being tested.</font>
+<font color="#717ab3"> * </font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">@author</font></b><font color="#717ab3"> ola</font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">@date</font></b><font color="#717ab3"> January 2008, modifed and commented in September 2008</font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">@version</font></b><font color="#717ab3"> 2.0, January 2009, added splice testing</font>
+<font color="#717ab3"> */</font>
+
+<b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">class</font></b><font color="#000000"> </font><font color="#000000">TestStrand</font><font color="#000000"> </font><font color="#000000">{</font>
+
+<font color="#000000">    </font><b><font color="#7f0055">private</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> String</font><font color="#000000">[]</font><font color="#000000"> strs </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">{</font><font color="#000000"> </font><font color="#0000ff">"aggtccg"</font><font color="#000000">,</font><font color="#000000"> </font>
+<font color="#000000">    	                                 </font><font color="#0000ff">"aaagggtttcccaaagggtttccc"</font><font color="#000000">,</font>
+<font color="#000000">                                     </font><font color="#0000ff">"a"</font><font color="#000000">,</font><font color="#000000"> </font><font color="#0000ff">"g"</font><font color="#000000">,</font><font color="#000000"> </font><font color="#0000ff">""</font><font color="#000000">,</font><font color="#000000"> </font>
+<font color="#000000">                                     </font><font color="#0000ff">"aggtccgttccggttaaggagagagagagagttt"</font><font color="#000000"> </font><font color="#000000">}</font><font color="#000000">;</font>
+
+<font color="#000000">    </font>
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Return a strand to test by other JUnit tests</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> s is the string modeled by an IDnaStrand implementation</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@return</font></b><font color="#717ab3"> an IDnaStrand object for testing in this JUnit testing class.</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">IDnaStrand</font><font color="#000000"> </font><font color="#000000">getNewStrand</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> s</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">    	</font><font color="#717ab3">//return new LinkStrand(s);</font>
+<font color="#000000">        </font><b><font color="#7f0055">return</font></b><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">SimpleStrand</font><font color="#000000">(</font><font color="#000000">s</font><font color="#000000">);</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+
+<font color="#000000">    @Test</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">testReverse</font><font color="#000000">()</font><font color="#000000">{</font>
+<font color="#000000">        </font><b><font color="#7f0055">for</font></b><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> s </font><font color="#000000">:</font><font color="#000000"> strs</font><font color="#000000">)</font><font color="#000000">{</font>
+<font color="#000000">            </font><font color="#000000">IDnaStrand</font><font color="#000000"> strand </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">getNewStrand</font><font color="#000000">(</font><font color="#000000">s</font><font color="#000000">);</font>
+<font color="#000000">            </font><font color="#000000">IDnaStrand</font><font color="#000000"> rev </font><font color="#000000">=</font><font color="#000000"> strand</font><font color="#000000">.</font><font color="#000000">reverse</font><font color="#000000">();</font>
+<font color="#000000">            </font><font color="#000000">String</font><font color="#000000"> rs </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">StringBuilder</font><font color="#000000">(</font><font color="#000000">s</font><font color="#000000">).</font><font color="#000000">reverse</font><font color="#000000">().</font><font color="#000000">toString</font><font color="#000000">();</font>
+<font color="#000000">            </font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#0000ff">"reverse fail for "</font><font color="#000000">+</font><font color="#000000">s</font><font color="#000000">,</font><font color="#000000">rev</font><font color="#000000">.</font><font color="#000000">toString</font><font color="#000000">(),</font><font color="#000000">rs</font><font color="#000000">);</font>
+<font color="#000000">        </font><font color="#000000">}</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+<font color="#000000">    </font>
+<font color="#000000">    @Test</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">testSplice</font><font color="#000000">()</font><font color="#000000">{</font>
+<font color="#000000">    	  </font><font color="#000000">String</font><font color="#000000"> r </font><font color="#000000">=</font><font color="#000000"> </font><font color="#0000ff">"gat"</font><font color="#000000">;</font>
+<font color="#000000">    	  </font><font color="#000000">String</font><font color="#000000"> sp </font><font color="#000000">=</font><font color="#000000"> </font><font color="#0000ff">"xxyyzz"</font><font color="#000000">;</font>
+<font color="#000000">          String</font><font color="#000000">[]</font><font color="#000000"> strands </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">{</font><font color="#000000"> </font><font color="#0000ff">"ttgatcc"</font><font color="#000000">,</font><font color="#000000"> </font><font color="#0000ff">"tcgatgatgattc"</font><font color="#000000">,</font><font color="#000000"> </font>
+<font color="#000000">                               </font><font color="#0000ff">"tcgatctgatttccgatcc"</font><font color="#000000">,</font><font color="#000000"> </font><font color="#0000ff">"gat"</font><font color="#000000">,</font>
+<font color="#000000">        		                   </font><font color="#0000ff">"gatctgatctgat"</font><font color="#000000">,</font><font color="#000000"> </font><font color="#0000ff">"gtacc"</font><font color="#000000">,</font><font color="#0000ff">"gatgatgat"</font><font color="#000000"> </font><font color="#000000">}</font><font color="#000000">;</font>
+<font color="#000000">          String</font><font color="#000000">[]</font><font color="#000000"> recombs </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">{</font><font color="#000000"> </font><font color="#0000ff">"ttxxyyzzcc"</font><font color="#000000">,</font><font color="#000000"> </font><font color="#0000ff">"tcxxyyzzxxyyzzxxyyzztc"</font><font color="#000000">,</font><font color="#000000"> </font>
+<font color="#000000">                               </font><font color="#0000ff">"tcxxyyzzctxxyyzzttccxxyyzzcc"</font><font color="#000000">,</font><font color="#000000"> </font><font color="#0000ff">"xxyyzz"</font><font color="#000000">,</font><font color="#000000"> </font>
+<font color="#000000">                               </font><font color="#0000ff">"xxyyzzctxxyyzzctxxyyzz"</font><font color="#000000">,</font><font color="#0000ff">""</font><font color="#000000">,</font><font color="#0000ff">"xxyyzzxxyyzzxxyyzz"</font><font color="#000000"> </font><font color="#000000">}</font><font color="#000000">;</font>
+<font color="#000000">        </font>
+<font color="#000000">          </font><b><font color="#7f0055">for</font></b><font color="#000000"> </font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> k </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">0</font><font color="#000000">;</font><font color="#000000"> k </font><font color="#000000">&lt;</font><font color="#000000"> strands</font><font color="#000000">.</font><font color="#000000">length</font><font color="#000000">;</font><font color="#000000"> k</font><font color="#000000">++)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">              </font><font color="#000000">IDnaStrand</font><font color="#000000"> str </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">getNewStrand</font><font color="#000000">(</font><font color="#000000">strands</font><font color="#000000">[</font><font color="#000000">k</font><font color="#000000">]);</font>
+<font color="#000000">              </font><font color="#000000">String</font><font color="#000000"> bef </font><font color="#000000">=</font><font color="#000000"> str</font><font color="#000000">.</font><font color="#000000">toString</font><font color="#000000">();</font>
+<font color="#000000">              </font><font color="#000000">IDnaStrand</font><font color="#000000"> rec </font><font color="#000000">=</font><font color="#000000"> str</font><font color="#000000">.</font><font color="#000000">cutAndSplice</font><font color="#000000">(</font><font color="#000000">r</font><font color="#000000">,</font><font color="#000000">sp</font><font color="#000000">);</font>
+<font color="#000000">              </font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#0000ff">"splice return fail at "</font><font color="#000000"> </font><font color="#000000">+</font><font color="#000000"> k</font><font color="#000000">,</font><font color="#000000"> recombs</font><font color="#000000">[</font><font color="#000000">k</font><font color="#000000">],</font><font color="#000000"> rec</font><font color="#000000">.</font><font color="#000000">toString</font><font color="#000000">());</font>
+<font color="#000000">              </font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#0000ff">"self alter fail "</font><font color="#000000"> </font><font color="#000000">+</font><font color="#000000"> k</font><font color="#000000">,</font><font color="#000000"> str</font><font color="#000000">.</font><font color="#000000">toString</font><font color="#000000">(),</font><font color="#000000"> bef</font><font color="#000000">);</font>
+<font color="#000000">          </font><font color="#000000">}</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+
+
+<font color="#000000">    @Test</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">testInitialize</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+
+<font color="#000000">        </font><b><font color="#7f0055">for</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> s </font><font color="#000000">:</font><font color="#000000"> strs</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">            </font><font color="#000000">IDnaStrand</font><font color="#000000"> str </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">getNewStrand</font><font color="#000000">(</font><font color="#0000ff">""</font><font color="#000000">);</font>
+<font color="#000000">            str</font><font color="#000000">.</font><font color="#000000">initializeFrom</font><font color="#000000">(</font><font color="#000000">s</font><font color="#000000">);</font>
+<font color="#000000">            </font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#0000ff">"init lengths differ for "</font><font color="#000000"> </font><font color="#000000">+</font><font color="#000000"> s </font><font color="#000000">+</font><font color="#000000"> </font><font color="#0000ff">" : "</font><font color="#000000">,</font><font color="#000000"> s</font><font color="#000000">.</font><font color="#000000">length</font><font color="#000000">(),</font>
+<font color="#000000">                    str</font><font color="#000000">.</font><font color="#000000">size</font><font color="#000000">());</font>
+<font color="#000000">            </font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#0000ff">"init strings differ "</font><font color="#000000">,</font><font color="#000000"> s</font><font color="#000000">,</font><font color="#000000"> str</font><font color="#000000">.</font><font color="#000000">toString</font><font color="#000000">());</font>
+<font color="#000000">        </font><font color="#000000">}</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+
+<font color="#000000">    @Test</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">testSize</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">        </font><b><font color="#7f0055">for</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> s </font><font color="#000000">:</font><font color="#000000"> strs</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">            </font><font color="#000000">IDnaStrand</font><font color="#000000"> str </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">getNewStrand</font><font color="#000000">(</font><font color="#000000">s</font><font color="#000000">);</font>
+<font color="#000000">            </font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#0000ff">"construct lengths differ: "</font><font color="#000000">,</font><font color="#000000"> s</font><font color="#000000">.</font><font color="#000000">length</font><font color="#000000">(),</font><font color="#000000"> str</font><font color="#000000">.</font><font color="#000000">size</font><font color="#000000">());</font>
+<font color="#000000">        </font><font color="#000000">}</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+
+<font color="#000000">    @Test</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">testToString</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">        </font><b><font color="#7f0055">for</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> s </font><font color="#000000">:</font><font color="#000000"> strs</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">            </font><font color="#000000">IDnaStrand</font><font color="#000000"> str </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">getNewStrand</font><font color="#000000">(</font><font color="#000000">s</font><font color="#000000">);</font>
+<font color="#000000">            </font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#0000ff">"toString differs: "</font><font color="#000000">,</font><font color="#000000"> s</font><font color="#000000">,</font><font color="#000000"> str</font><font color="#000000">.</font><font color="#000000">toString</font><font color="#000000">());</font>
+<font color="#000000">            </font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#0000ff">"toString size fail "</font><font color="#000000">+</font><font color="#000000">s</font><font color="#000000">,</font><font color="#000000">s</font><font color="#000000">.</font><font color="#000000">length</font><font color="#000000">(),</font><font color="#000000"> str</font><font color="#000000">.</font><font color="#000000">size</font><font color="#000000">());</font>
+<font color="#000000">        </font><font color="#000000">}</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+
+<font color="#000000">    @Test</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">testAppend</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">        </font><font color="#000000">String</font><font color="#000000"> app </font><font color="#000000">=</font><font color="#000000"> </font><font color="#0000ff">"gggcccaaatttgggcccaaattt"</font><font color="#000000">;</font>
+<font color="#000000">        </font><b><font color="#7f0055">for</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> s </font><font color="#000000">:</font><font color="#000000"> strs</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">            </font><font color="#000000">IDnaStrand</font><font color="#000000"> str </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">getNewStrand</font><font color="#000000">(</font><font color="#000000">s</font><font color="#000000">);</font>
+<font color="#000000">            str</font><font color="#000000">.</font><font color="#000000">append</font><font color="#000000">(</font><font color="#000000">app</font><font color="#000000">);</font>
+<font color="#000000">            </font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#0000ff">"append fail: "</font><font color="#000000">,</font><font color="#000000"> s </font><font color="#000000">+</font><font color="#000000"> app</font><font color="#000000">,</font><font color="#000000"> str</font><font color="#000000">.</font><font color="#000000">toString</font><font color="#000000">());</font>
+<font color="#000000">            </font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#0000ff">"append size fail,"</font><font color="#000000">+</font><font color="#000000">str</font><font color="#000000">,</font><font color="#000000">s</font><font color="#000000">.</font><font color="#000000">length</font><font color="#000000">()+</font><font color="#000000">app</font><font color="#000000">.</font><font color="#000000">length</font><font color="#000000">(),</font><font color="#000000">str</font><font color="#000000">.</font><font color="#000000">size</font><font color="#000000">());</font>
+<font color="#000000">        </font><font color="#000000">}</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+<font color="#000000">    </font>
+<font color="#000000">    @Test</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">testDoubleAppend</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">        </font><font color="#000000">String</font><font color="#000000"> a </font><font color="#000000">=</font><font color="#000000"> </font><font color="#0000ff">"agct"</font><font color="#000000">;</font>
+<font color="#000000">        </font><font color="#000000">IDnaStrand</font><font color="#000000"> str </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">getNewStrand</font><font color="#000000">(</font><font color="#000000">a</font><font color="#000000">);</font>
+<font color="#000000">        str</font><font color="#000000">.</font><font color="#000000">append</font><font color="#000000">(</font><font color="#000000">a</font><font color="#000000">);</font>
+<font color="#000000">        str</font><font color="#000000">.</font><font color="#000000">append</font><font color="#000000">(</font><font color="#000000">a</font><font color="#000000">);</font>
+<font color="#000000">        </font><font color="#000000">String</font><font color="#000000"> trip </font><font color="#000000">=</font><font color="#000000"> a</font><font color="#000000">+</font><font color="#000000">a</font><font color="#000000">+</font><font color="#000000">a</font><font color="#000000">;</font>
+<font color="#000000">        </font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#0000ff">"double append fail"</font><font color="#000000">,</font><font color="#000000">trip</font><font color="#000000">,</font><font color="#000000">str</font><font color="#000000">.</font><font color="#000000">toString</font><font color="#000000">());</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+
+<font color="#000000">    @Test</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">testNodeList</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">    	</font><font color="#000000">IDnaStrand</font><font color="#000000"> checkType </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">getNewStrand</font><font color="#000000">(</font><font color="#0000ff">""</font><font color="#000000">);</font>
+<font color="#000000">    	</font><b><font color="#7f0055">if</font></b><font color="#000000"> </font><font color="#000000">(!(</font><font color="#000000">checkType </font><font color="#000000">instanceof</font><font color="#000000"> LinkStrand</font><font color="#000000">))</font>
+<font color="#000000">    		</font><b><font color="#7f0055">return</font></b><font color="#000000">;</font>
+<font color="#000000">		</font><font color="#000000">ArrayList&lt;String&gt;</font><font color="#000000"> sol </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> ArrayList</font><font color="#000000">&lt;</font><font color="#000000">String</font><font color="#000000">&gt;();</font>
+<font color="#000000">		sol</font><font color="#000000">.</font><font color="#000000">add</font><font color="#000000">(</font><font color="#0000ff">"actg"</font><font color="#000000">);</font>
+<font color="#000000">		</font><font color="#000000">LinkStrand</font><font color="#000000"> sub </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">LinkStrand</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">getNewStrand</font><font color="#000000">(</font><font color="#0000ff">"actg"</font><font color="#000000">);</font>
+<font color="#000000">		</font><b><font color="#7f0055">for</font></b><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> s</font><font color="#000000">:</font><font color="#000000"> strs</font><font color="#000000">)</font><font color="#000000">{</font>
+<font color="#000000">			sol</font><font color="#000000">.</font><font color="#000000">add</font><font color="#000000">(</font><font color="#000000">s</font><font color="#000000">);</font>
+<font color="#000000">			sub</font><font color="#000000">.</font><font color="#000000">append</font><font color="#000000">(</font><font color="#000000">s</font><font color="#000000">);</font>
+<font color="#000000">			</font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#0000ff">"This test checks if nodeList returns the correct "</font>
+<font color="#000000">					</font><font color="#000000">+</font><font color="#000000"> </font><font color="#0000ff">"value"</font><font color="#000000">,</font><font color="#000000"> sol</font><font color="#000000">,</font><font color="#000000"> sub</font><font color="#000000">.</font><font color="#000000">nodeList</font><font color="#000000">());</font>
+<font color="#000000">		</font><font color="#000000">}</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+<font color="#000000">}</font>
+</tt></pre>
+</body>
+</html>

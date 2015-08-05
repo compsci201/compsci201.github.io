@@ -1,0 +1,263 @@
+<html>
+<head>
+<title>SimpleViewer.java</title>
+</head>
+<body>
+Link to code: <a href="../highlighted/SimpleViewer.java">SimpleViewer.java</a><br>
+<hr>
+<!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><font color="#3f5fbf">import</font><font color="#000000"> javax</font><font color="#000000">.</font><font color="#000000">swing</font><font color="#000000">.*;</font>
+<font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">awt</font><font color="#000000">.</font><font color="#000000">BorderLayout</font><font color="#000000">;</font>
+<font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">awt</font><font color="#000000">.</font><font color="#000000">event</font><font color="#000000">.*;</font>
+<font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">util</font><font color="#000000">.*;</font>
+<font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">io</font><font color="#000000">.</font><font color="#000000">File</font><font color="#000000">;</font>
+<font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">io</font><font color="#000000">.</font><font color="#000000">FileInputStream</font><font color="#000000">;</font>
+<font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">io</font><font color="#000000">.</font><font color="#000000">FileNotFoundException</font><font color="#000000">;</font>
+<font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">io</font><font color="#000000">.</font><font color="#000000">IOException</font><font color="#000000">;</font>
+<font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">io</font><font color="#000000">.</font><font color="#000000">InputStream</font><font color="#000000">;</font>
+<font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">io</font><font color="#000000">.</font><font color="#000000">PrintWriter</font><font color="#000000">;</font>
+<font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">io</font><font color="#000000">.</font><font color="#000000">UnsupportedEncodingException</font><font color="#000000">;</font>
+<font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">net</font><font color="#000000">.</font><font color="#000000">MalformedURLException</font><font color="#000000">;</font>
+<font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">net</font><font color="#000000">.</font><font color="#000000">URI</font><font color="#000000">;</font>
+<font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">net</font><font color="#000000">.</font><font color="#000000">URISyntaxException</font><font color="#000000">;</font>
+<font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">net</font><font color="#000000">.</font><font color="#000000">URL</font><font color="#000000">;</font>
+
+<font color="#717ab3">/**</font>
+<font color="#717ab3"> * This is the GUI for the Markov Text Generation Programs </font>
+<font color="#717ab3"> * for Compsci 100. First used in Spring 2008, but based</font>
+<font color="#717ab3"> * on SimpleViewer classes used since 2004.</font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">@author</font></b><font color="#717ab3"> Owen Astrachan</font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">@date</font></b><font color="#717ab3"> Jan 12, 2008</font>
+<font color="#717ab3"> *</font>
+<font color="#717ab3"> */</font>
+
+<font color="#000000">@</font><font color="#000000">SuppressWarnings</font><font color="#000000">(</font><font color="#0000ff">"serial"</font><font color="#000000">)</font>
+<b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">class</font></b><font color="#000000"> </font><font color="#000000">SimpleViewer</font><font color="#000000"> </font><b><font color="#7f0055">extends</font></b><font color="#000000"> JFrame </font><font color="#000000">implements</font><font color="#000000"> IView </font><font color="#000000">{</font>
+<font color="#000000">	</font><b><font color="#7f0055">protected</font></b><font color="#000000"> </font><font color="#000000">JTextField</font><font color="#000000"> myInput</font><font color="#000000">;</font>
+<font color="#000000">	</font><b><font color="#7f0055">protected</font></b><font color="#000000"> </font><font color="#000000">JTextArea</font><font color="#000000"> myOutput</font><font color="#000000">;</font>
+<font color="#000000">	</font><b><font color="#7f0055">protected</font></b><font color="#000000"> </font><font color="#000000">IModel</font><font color="#000000"> myModel</font><font color="#000000">;</font>
+<font color="#000000">	</font><b><font color="#7f0055">protected</font></b><font color="#000000"> </font><font color="#000000">String</font><font color="#000000"> myTitle</font><font color="#000000">;</font>
+<font color="#000000">	</font><b><font color="#7f0055">protected</font></b><font color="#000000"> </font><font color="#000000">String</font><font color="#000000"> myLabelString</font><font color="#000000">;</font>
+<font color="#000000">	</font><b><font color="#7f0055">protected</font></b><font color="#000000"> </font><font color="#000000">JTextField</font><font color="#000000"> myMessage</font><font color="#000000">;</font>
+<font color="#000000">	</font><b><font color="#7f0055">protected</font></b><font color="#000000"> </font><font color="#000000">JButton</font><font color="#000000"> myButton</font><font color="#000000">;</font>
+
+<font color="#000000">	</font><b><font color="#7f0055">protected</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><font color="#000000">JFileChooser</font><font color="#000000"> ourOpenChooser </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">JFileChooser</font><font color="#000000">(</font><font color="#000000">System</font>
+<font color="#000000">			</font><font color="#000000">.</font><font color="#000000">getProperties</font><font color="#000000">().</font><font color="#000000">getProperty</font><font color="#000000">(</font><font color="#0000ff">"user.dir"</font><font color="#000000">));</font>
+<font color="#000000">	</font><b><font color="#7f0055">protected</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><font color="#000000">JFileChooser</font><font color="#000000"> ourSaveChooser </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">JFileChooser</font><font color="#000000">(</font><font color="#000000">System</font>
+<font color="#000000">			</font><font color="#000000">.</font><font color="#000000">getProperties</font><font color="#000000">().</font><font color="#000000">getProperty</font><font color="#000000">(</font><font color="#0000ff">"user.dir"</font><font color="#000000">));</font>
+
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">SimpleViewer</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> title</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">String</font><font color="#000000"> prompt</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><font color="#000000">setDefaultCloseOperation</font><font color="#000000">(</font><font color="#000000">EXIT_ON_CLOSE</font><font color="#000000">);</font>
+
+<font color="#000000">		</font><font color="#000000">JPanel</font><font color="#000000"> panel </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">JPanel</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">getContentPane</font><font color="#000000">();</font>
+<font color="#000000">		panel</font><font color="#000000">.</font><font color="#000000">setLayout</font><font color="#000000">(</font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">BorderLayout</font><font color="#000000">());</font>
+<font color="#000000">		</font><font color="#000000">setTitle</font><font color="#000000">(</font><font color="#000000">title</font><font color="#000000">);</font>
+<font color="#000000">		myTitle </font><font color="#000000">=</font><font color="#000000"> title</font><font color="#000000">;</font>
+<font color="#000000">		myLabelString </font><font color="#000000">=</font><font color="#000000"> prompt</font><font color="#000000">;</font>
+
+<font color="#000000">		</font><b><font color="#7f0055">if</font></b><font color="#000000"> </font><font color="#000000">(!</font><font color="#000000">prompt</font><font color="#000000">.</font><font color="#000000">equals</font><font color="#000000">(</font><font color="#0000ff">""</font><font color="#000000">))</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">			panel</font><font color="#000000">.</font><font color="#000000">add</font><font color="#000000">(</font><font color="#000000">makeInput</font><font color="#000000">(),</font><font color="#000000"> BorderLayout</font><font color="#000000">.</font><font color="#000000">NORTH</font><font color="#000000">);</font>
+<font color="#000000">		</font><font color="#000000">}</font>
+<font color="#000000">		panel</font><font color="#000000">.</font><font color="#000000">add</font><font color="#000000">(</font><font color="#000000">makeOutput</font><font color="#000000">(),</font><font color="#000000"> BorderLayout</font><font color="#000000">.</font><font color="#000000">CENTER</font><font color="#000000">);</font>
+<font color="#000000">		panel</font><font color="#000000">.</font><font color="#000000">add</font><font color="#000000">(</font><font color="#000000">makeMessage</font><font color="#000000">(),</font><font color="#000000"> BorderLayout</font><font color="#000000">.</font><font color="#000000">SOUTH</font><font color="#000000">);</font>
+<font color="#000000">		</font><font color="#000000">makeMenus</font><font color="#000000">();</font>
+<font color="#000000">		</font><font color="#000000">connectEvents</font><font color="#000000">();</font>
+
+<font color="#000000">		</font><font color="#000000">pack</font><font color="#000000">();</font>
+<font color="#000000">		</font><font color="#000000">setSize</font><font color="#000000">(</font><font color="#000000">400</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">400</font><font color="#000000">);</font>
+<font color="#000000">		</font><font color="#000000">setVisible</font><font color="#000000">(</font><b><font color="#7f0055">true</font></b><font color="#000000">);</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">setModel</font><font color="#000000">(</font><font color="#000000">IModel</font><font color="#000000"> model</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		myModel </font><font color="#000000">=</font><font color="#000000"> model</font><font color="#000000">;</font>
+<font color="#000000">		model</font><font color="#000000">.</font><font color="#000000">addView</font><font color="#000000">(</font><b><font color="#7f0055">this</font></b><font color="#000000">);</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><b><font color="#7f0055">protected</font></b><font color="#000000"> </font><font color="#000000">JPanel</font><font color="#000000"> </font><font color="#000000">makeMessage</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><font color="#000000">JPanel</font><font color="#000000"> p </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">JPanel</font><font color="#000000">(</font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">BorderLayout</font><font color="#000000">());</font>
+<font color="#000000">		myMessage </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">JTextField</font><font color="#000000">(</font><font color="#000000">30</font><font color="#000000">);</font>
+<font color="#000000">		p</font><font color="#000000">.</font><font color="#000000">setBorder</font><font color="#000000">(</font><font color="#000000">BorderFactory</font><font color="#000000">.</font><font color="#000000">createTitledBorder</font><font color="#000000">(</font><font color="#0000ff">"message"</font><font color="#000000">));</font>
+<font color="#000000">		p</font><font color="#000000">.</font><font color="#000000">add</font><font color="#000000">(</font><font color="#000000">myMessage</font><font color="#000000">,</font><font color="#000000"> BorderLayout</font><font color="#000000">.</font><font color="#000000">CENTER</font><font color="#000000">);</font>
+<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> p</font><font color="#000000">;</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><b><font color="#7f0055">protected</font></b><font color="#000000"> </font><font color="#000000">JPanel</font><font color="#000000"> </font><font color="#000000">makeInput</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><font color="#000000">JPanel</font><font color="#000000"> p </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">JPanel</font><font color="#000000">(</font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">BorderLayout</font><font color="#000000">());</font>
+<font color="#000000">		</font><font color="#000000">JLabel</font><font color="#000000"> label </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">JLabel</font><font color="#000000">(</font><font color="#000000">myLabelString</font><font color="#000000">);</font>
+<font color="#000000">		myInput </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">JTextField</font><font color="#000000">(</font><font color="#000000">12</font><font color="#000000">);</font>
+<font color="#000000">		myButton </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">JButton</font><font color="#000000">(</font><font color="#0000ff">"GO"</font><font color="#000000">);</font>
+<font color="#000000">		p</font><font color="#000000">.</font><font color="#000000">setBorder</font><font color="#000000">(</font><font color="#000000">BorderFactory</font><font color="#000000">.</font><font color="#000000">createTitledBorder</font><font color="#000000">(</font><font color="#0000ff">"input"</font><font color="#000000">));</font>
+<font color="#000000">		p</font><font color="#000000">.</font><font color="#000000">add</font><font color="#000000">(</font><font color="#000000">label</font><font color="#000000">,</font><font color="#000000"> BorderLayout</font><font color="#000000">.</font><font color="#000000">WEST</font><font color="#000000">);</font>
+<font color="#000000">		p</font><font color="#000000">.</font><font color="#000000">add</font><font color="#000000">(</font><font color="#000000">myInput</font><font color="#000000">,</font><font color="#000000"> BorderLayout</font><font color="#000000">.</font><font color="#000000">CENTER</font><font color="#000000">);</font>
+<font color="#000000">		p</font><font color="#000000">.</font><font color="#000000">add</font><font color="#000000">(</font><font color="#000000">myButton</font><font color="#000000">,</font><font color="#000000"> BorderLayout</font><font color="#000000">.</font><font color="#000000">EAST</font><font color="#000000">);</font>
+<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> p</font><font color="#000000">;</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><b><font color="#7f0055">protected</font></b><font color="#000000"> </font><font color="#000000">JPanel</font><font color="#000000"> </font><font color="#000000">makeOutput</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><font color="#000000">JPanel</font><font color="#000000"> p </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">JPanel</font><font color="#000000">(</font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">BorderLayout</font><font color="#000000">());</font>
+<font color="#000000">		myOutput </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">JTextArea</font><font color="#000000">(</font><font color="#000000">10</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">40</font><font color="#000000">);</font>
+<font color="#000000">		p</font><font color="#000000">.</font><font color="#000000">setBorder</font><font color="#000000">(</font><font color="#000000">BorderFactory</font><font color="#000000">.</font><font color="#000000">createTitledBorder</font><font color="#000000">(</font><font color="#0000ff">"output"</font><font color="#000000">));</font>
+<font color="#000000">		p</font><font color="#000000">.</font><font color="#000000">add</font><font color="#000000">(</font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">JScrollPane</font><font color="#000000">(</font><font color="#000000">myOutput</font><font color="#000000">),</font><font color="#000000"> BorderLayout</font><font color="#000000">.</font><font color="#000000">CENTER</font><font color="#000000">);</font>
+<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> p</font><font color="#000000">;</font>
+
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	@</font><font color="#000000">SuppressWarnings</font><font color="#000000">(</font><font color="#0000ff">"serial"</font><font color="#000000">)</font>
+<font color="#000000">	</font><b><font color="#7f0055">protected</font></b><font color="#000000"> </font><font color="#000000">JMenu</font><font color="#000000"> </font><font color="#000000">makeFileMenu</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><font color="#000000">JMenu</font><font color="#000000"> fileMenu </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">JMenu</font><font color="#000000">(</font><font color="#0000ff">"File"</font><font color="#000000">);</font>
+
+<font color="#000000">		fileMenu</font><font color="#000000">.</font><font color="#000000">add</font><font color="#000000">(</font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">AbstractAction</font><font color="#000000">(</font><font color="#0000ff">"Open File"</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">			</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">actionPerformed</font><font color="#000000">(</font><font color="#000000">ActionEvent</font><font color="#000000"> ev</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">				</font><b><font color="#7f0055">int</font></b><font color="#000000"> retval </font><font color="#000000">=</font><font color="#000000"> ourOpenChooser</font><font color="#000000">.</font><font color="#000000">showOpenDialog</font><font color="#000000">(</font><b><font color="#7f0055">null</font></b><font color="#000000">);</font>
+<font color="#000000">				</font><b><font color="#7f0055">if</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">retval </font><font color="#000000">==</font><font color="#000000"> JFileChooser</font><font color="#000000">.</font><font color="#000000">APPROVE_OPTION</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">					</font><font color="#000000">File</font><font color="#000000"> file </font><font color="#000000">=</font><font color="#000000"> ourOpenChooser</font><font color="#000000">.</font><font color="#000000">getSelectedFile</font><font color="#000000">();</font>
+
+<font color="#000000">					</font><font color="#000000">ProgressMonitorInputStream</font><font color="#000000"> pmis</font><font color="#000000">;</font>
+<font color="#000000">					</font><b><font color="#7f0055">try</font></b><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">						pmis </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">getMonitorableStream</font><font color="#000000">(</font>
+<font color="#000000">								</font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">FileInputStream</font><font color="#000000">(</font><font color="#000000">file</font><font color="#000000">),</font><font color="#000000"> </font><font color="#0000ff">"reading file "</font><font color="#000000"> </font><font color="#000000">+</font><font color="#000000"> file</font><font color="#000000">.</font><font color="#000000">getName</font><font color="#000000">());</font>
+<font color="#000000">					</font><font color="#000000">}</font><font color="#000000"> </font><b><font color="#7f0055">catch</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">FileNotFoundException</font><font color="#000000"> e</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">						</font><font color="#000000">showError</font><font color="#000000">(</font><font color="#0000ff">"error reading "</font><font color="#000000">+</font><font color="#000000">file</font><font color="#000000">.</font><font color="#000000">getName</font><font color="#000000">());</font>
+<font color="#000000">						</font><b><font color="#7f0055">return</font></b><font color="#000000">;</font>
+<font color="#000000">					</font><font color="#000000">}</font>
+<font color="#000000">					</font><font color="#000000">doProcess</font><font color="#000000">(</font><font color="#000000">pmis</font><font color="#000000">,</font><font color="#0000ff">"file: "</font><font color="#000000">+</font><font color="#000000">file</font><font color="#000000">.</font><font color="#000000">getName</font><font color="#000000">());</font>
+<font color="#000000">				</font><font color="#000000">}</font>
+<font color="#000000">			</font><font color="#000000">}</font>
+<font color="#000000">		</font><font color="#000000">}</font><font color="#000000">);</font>
+
+<font color="#000000">		fileMenu</font><font color="#000000">.</font><font color="#000000">add</font><font color="#000000">(</font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">AbstractAction</font><font color="#000000">(</font><font color="#0000ff">"Open URL"</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">			</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">actionPerformed</font><font color="#000000">(</font><font color="#000000">ActionEvent</font><font color="#000000"> ev</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">				</font><font color="#000000">String</font><font color="#000000"> address </font><font color="#000000">=</font><font color="#000000"> JOptionPane</font>
+<font color="#000000">						</font><font color="#000000">.</font><font color="#000000">showInputDialog</font><font color="#000000">(</font><font color="#0000ff">"Please enter URL:"</font><font color="#000000">);</font>
+<font color="#000000">				</font><b><font color="#7f0055">try</font></b><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">					</font><b><font color="#7f0055">if</font></b><font color="#000000"> </font><font color="#000000">(!</font><font color="#000000"> address</font><font color="#000000">.</font><font color="#000000">startsWith</font><font color="#000000">(</font><font color="#0000ff">"http://"</font><font color="#000000">))</font><font color="#000000">{</font>
+<font color="#000000">						address </font><font color="#000000">=</font><font color="#000000"> </font><font color="#0000ff">"http://"</font><font color="#000000">+</font><font color="#000000">address</font><font color="#000000">;</font>
+<font color="#000000">					</font><font color="#000000">}</font>
+<font color="#000000">					</font><font color="#000000">URI</font><font color="#000000"> uri </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">URI</font><font color="#000000">(</font><font color="#000000">address</font><font color="#000000">);</font>
+<font color="#000000">					</font><font color="#000000">URL</font><font color="#000000"> url </font><font color="#000000">=</font><font color="#000000"> uri</font><font color="#000000">.</font><font color="#000000">toURL</font><font color="#000000">();</font>
+<font color="#000000">					</font><b><font color="#7f0055">int</font></b><font color="#000000"> size </font><font color="#000000">=</font><font color="#000000"> url</font><font color="#000000">.</font><font color="#000000">openConnection</font><font color="#000000">().</font><font color="#000000">getContentLength</font><font color="#000000">();</font>
+<font color="#000000">					</font><font color="#000000">ProgressMonitorInputStream</font><font color="#000000"> pmis </font><font color="#000000">=</font><font color="#000000"> </font>
+<font color="#000000">						</font><font color="#000000">getMonitorableStream</font><font color="#000000">(</font><font color="#000000">url</font><font color="#000000">.</font><font color="#000000">openStream</font><font color="#000000">(),</font><font color="#0000ff">"reading url: "</font><font color="#000000">+</font><font color="#000000">address</font><font color="#000000">);</font>
+<font color="#000000">					pmis</font><font color="#000000">.</font><font color="#000000">getProgressMonitor</font><font color="#000000">().</font><font color="#000000">setMaximum</font><font color="#000000">(</font><font color="#000000">size</font><font color="#000000">);</font>
+<font color="#000000">					</font><font color="#000000">doProcess</font><font color="#000000">(</font><font color="#000000">pmis</font><font color="#000000">,</font><font color="#000000"> </font><font color="#0000ff">"url: "</font><font color="#000000">+</font><font color="#000000">url</font><font color="#000000">);</font>
+<font color="#000000">				</font><font color="#000000">}</font><font color="#000000"> </font><b><font color="#7f0055">catch</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">URISyntaxException</font><font color="#000000"> e1</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">					</font><font color="#000000">showError</font><font color="#000000">(</font><font color="#000000">e1</font><font color="#000000">.</font><font color="#000000">getMessage</font><font color="#000000">());</font>
+<font color="#000000">				</font><font color="#000000">}</font><font color="#000000"> </font><b><font color="#7f0055">catch</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">MalformedURLException</font><font color="#000000"> e2</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">					</font><font color="#000000">showError</font><font color="#000000">(</font><font color="#000000">e2</font><font color="#000000">.</font><font color="#000000">getMessage</font><font color="#000000">());</font>
+<font color="#000000">				</font><font color="#000000">}</font><font color="#000000"> </font><b><font color="#7f0055">catch</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">IOException</font><font color="#000000"> e3</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">					</font><font color="#000000">showError</font><font color="#000000">(</font><font color="#0000ff">"error reading from URL: "</font><font color="#000000"> </font><font color="#000000">+</font><font color="#000000"> address</font><font color="#000000">);</font>
+<font color="#000000">				</font><font color="#000000">}</font>
+<font color="#000000">			</font><font color="#000000">}</font>
+<font color="#000000">		</font><font color="#000000">}</font><font color="#000000">);</font>
+<font color="#000000">		</font>
+<font color="#000000">		fileMenu</font><font color="#000000">.</font><font color="#000000">add</font><font color="#000000">(</font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">AbstractAction</font><font color="#000000">(</font><font color="#0000ff">"Save"</font><font color="#000000">)</font><font color="#000000">{</font>
+
+<font color="#000000">			</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">actionPerformed</font><font color="#000000">(</font><font color="#000000">ActionEvent</font><font color="#000000"> e</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">				</font><b><font color="#7f0055">int</font></b><font color="#000000"> retval </font><font color="#000000">=</font><font color="#000000"> ourSaveChooser</font><font color="#000000">.</font><font color="#000000">showSaveDialog</font><font color="#000000">(</font><b><font color="#7f0055">null</font></b><font color="#000000">);</font>
+<font color="#000000">				</font><b><font color="#7f0055">if</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">retval </font><font color="#000000">==</font><font color="#000000"> JFileChooser</font><font color="#000000">.</font><font color="#000000">APPROVE_OPTION</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">					</font><font color="#000000">File</font><font color="#000000"> file </font><font color="#000000">=</font><font color="#000000"> ourSaveChooser</font><font color="#000000">.</font><font color="#000000">getSelectedFile</font><font color="#000000">();</font>
+<font color="#000000">					</font><b><font color="#7f0055">try</font></b><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">						</font><font color="#000000">PrintWriter</font><font color="#000000"> pw </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">PrintWriter</font><font color="#000000">(</font><font color="#000000">file</font><font color="#000000">,</font><font color="#000000"> </font><font color="#0000ff">"UTF8"</font><font color="#000000">);</font>
+<font color="#000000">						String</font><font color="#000000">[]</font><font color="#000000"> lines </font><font color="#000000">=</font><font color="#000000"> myOutput</font><font color="#000000">.</font><font color="#000000">getText</font><font color="#000000">().</font><font color="#000000">split</font><font color="#000000">(</font><font color="#0000ff">"</font><font color="#0000ff">\\</font><font color="#0000ff">n"</font><font color="#000000">);</font>
+<font color="#000000">						</font><b><font color="#7f0055">for</font></b><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> s </font><font color="#000000">:</font><font color="#000000"> lines</font><font color="#000000">)</font><font color="#000000">{</font>
+<font color="#000000">							pw</font><font color="#000000">.</font><font color="#000000">println</font><font color="#000000">(</font><font color="#000000">s</font><font color="#000000">);</font>
+<font color="#000000">						</font><font color="#000000">}</font>
+<font color="#000000">						pw</font><font color="#000000">.</font><font color="#000000">close</font><font color="#000000">();</font>
+<font color="#000000">					</font><font color="#000000">}</font><font color="#000000"> </font><b><font color="#7f0055">catch</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">FileNotFoundException</font><font color="#000000"> e1</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">						SimpleViewer</font><font color="#000000">.</font><b><font color="#7f0055">this</font></b><font color="#000000">.</font><font color="#000000">showError</font><font color="#000000">(</font><font color="#0000ff">"could not open "</font><font color="#000000">+</font><font color="#000000">file</font><font color="#000000">);</font>
+<font color="#000000">						e1</font><font color="#000000">.</font><font color="#000000">printStackTrace</font><font color="#000000">();</font>
+<font color="#000000">					</font><font color="#000000">}</font><font color="#000000"> </font><b><font color="#7f0055">catch</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">UnsupportedEncodingException</font><font color="#000000"> e2</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">						SimpleViewer</font><font color="#000000">.</font><b><font color="#7f0055">this</font></b><font color="#000000">.</font><font color="#000000">showError</font><font color="#000000">(</font><font color="#0000ff">"problem with UTF8 encoding"</font><font color="#000000">);</font>
+<font color="#000000">						e2</font><font color="#000000">.</font><font color="#000000">printStackTrace</font><font color="#000000">();</font>
+<font color="#000000">					</font><font color="#000000">}</font><font color="#000000"> </font>
+<font color="#000000">				</font><font color="#000000">}</font>
+<font color="#000000">			</font><font color="#000000">}</font>
+<font color="#000000">			</font>
+<font color="#000000">		</font><font color="#000000">}</font><font color="#000000">);</font>
+
+<font color="#000000">		fileMenu</font><font color="#000000">.</font><font color="#000000">add</font><font color="#000000">(</font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">AbstractAction</font><font color="#000000">(</font><font color="#0000ff">"Quit"</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">			</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">actionPerformed</font><font color="#000000">(</font><font color="#000000">ActionEvent</font><font color="#000000"> ev</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">				System</font><font color="#000000">.</font><font color="#000000">exit</font><font color="#000000">(</font><font color="#000000">0</font><font color="#000000">);</font>
+<font color="#000000">			</font><font color="#000000">}</font>
+<font color="#000000">		</font><font color="#000000">}</font><font color="#000000">);</font>
+<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> fileMenu</font><font color="#000000">;</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+<font color="#000000">	</font>
+<font color="#000000">	</font><b><font color="#7f0055">protected</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">doProcess</font><font color="#000000">(</font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><font color="#000000">ProgressMonitorInputStream</font><font color="#000000"> pmis</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">String</font><font color="#000000"> message</font><font color="#000000">)</font><font color="#000000">{</font>
+<font color="#000000">		</font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><font color="#000000">ProgressMonitor</font><font color="#000000"> progress </font><font color="#000000">=</font><font color="#000000"> pmis</font><font color="#000000">.</font><font color="#000000">getProgressMonitor</font><font color="#000000">();</font>
+<font color="#000000">		</font><font color="#000000">Thread</font><font color="#000000"> fileReaderThread </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">Thread</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">			</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">run</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">				myModel</font><font color="#000000">.</font><font color="#000000">initialize</font><font color="#000000">(</font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">Scanner</font><font color="#000000">(</font><font color="#000000">pmis</font><font color="#000000">,</font><font color="#0000ff">"UTF-8"</font><font color="#000000">));</font>
+<font color="#000000">				</font><b><font color="#7f0055">if</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">progress</font><font color="#000000">.</font><font color="#000000">isCanceled</font><font color="#000000">())</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">					SimpleViewer</font><font color="#000000">.</font><b><font color="#7f0055">this</font></b>
+<font color="#000000">							</font><font color="#000000">.</font><font color="#000000">showError</font><font color="#000000">(</font><font color="#0000ff">"reading cancelled"</font><font color="#000000">);</font>
+<font color="#000000">				</font><font color="#000000">}</font>
+<font color="#000000">			</font><font color="#000000">}</font>
+<font color="#000000">		</font><font color="#000000">}</font><font color="#000000">;</font>
+<font color="#000000">		</font><font color="#000000">showMessage</font><font color="#000000">(</font><font color="#000000">message</font><font color="#000000">);</font>
+<font color="#000000">		fileReaderThread</font><font color="#000000">.</font><font color="#000000">start</font><font color="#000000">();</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+<font color="#000000">	</font>
+
+<font color="#000000">	</font><b><font color="#7f0055">protected</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">makeMenus</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><font color="#000000">JMenuBar</font><font color="#000000"> bar </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">JMenuBar</font><font color="#000000">();</font>
+<font color="#000000">		bar</font><font color="#000000">.</font><font color="#000000">add</font><font color="#000000">(</font><font color="#000000">makeFileMenu</font><font color="#000000">());</font>
+<font color="#000000">		</font><font color="#000000">setJMenuBar</font><font color="#000000">(</font><font color="#000000">bar</font><font color="#000000">);</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><b><font color="#7f0055">protected</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">connectEvents</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><b><font color="#7f0055">if</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">myInput </font><font color="#000000">==</font><font color="#000000"> </font><b><font color="#7f0055">null</font></b><font color="#000000">)</font>
+<font color="#000000">			</font><b><font color="#7f0055">return</font></b><font color="#000000">;</font>
+
+<font color="#000000">		myInput</font><font color="#000000">.</font><font color="#000000">addActionListener</font><font color="#000000">(</font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">ActionListener</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">			</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">actionPerformed</font><font color="#000000">(</font><font color="#000000">ActionEvent</font><font color="#000000"> ev</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">				myModel</font><font color="#000000">.</font><font color="#000000">process</font><font color="#000000">(</font><font color="#000000">ev</font><font color="#000000">.</font><font color="#000000">getActionCommand</font><font color="#000000">());</font>
+<font color="#000000">			</font><font color="#000000">}</font>
+<font color="#000000">		</font><font color="#000000">}</font><font color="#000000">);</font>
+<font color="#000000">		myButton</font><font color="#000000">.</font><font color="#000000">addActionListener</font><font color="#000000">(</font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">ActionListener</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">			</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">actionPerformed</font><font color="#000000">(</font><font color="#000000">ActionEvent</font><font color="#000000"> ev</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">				myModel</font><font color="#000000">.</font><font color="#000000">process</font><font color="#000000">(</font><font color="#000000">myInput</font><font color="#000000">.</font><font color="#000000">getText</font><font color="#000000">());</font>
+<font color="#000000">			</font><font color="#000000">}</font>
+<font color="#000000">		</font><font color="#000000">}</font><font color="#000000">);</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">clear</font><font color="#000000">()</font><font color="#000000">{</font>
+<font color="#000000">	    myOutput</font><font color="#000000">.</font><font color="#000000">setText</font><font color="#000000">(</font><font color="#0000ff">""</font><font color="#000000">);</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+<font color="#000000">	</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">update</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> s</font><font color="#000000">)</font><font color="#000000">{</font>
+<font color="#000000">		myOutput</font><font color="#000000">.</font><font color="#000000">setLineWrap</font><font color="#000000">(</font><b><font color="#7f0055">true</font></b><font color="#000000">);</font>
+<font color="#000000">		myOutput</font><font color="#000000">.</font><font color="#000000">setWrapStyleWord</font><font color="#000000">(</font><b><font color="#7f0055">true</font></b><font color="#000000">);</font>
+<font color="#000000">		myOutput</font><font color="#000000">.</font><font color="#000000">append</font><font color="#000000">(</font><font color="#000000">s</font><font color="#000000">);</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">showMessage</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> s</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		myMessage</font><font color="#000000">.</font><font color="#000000">setText</font><font color="#000000">(</font><font color="#000000">s</font><font color="#000000">);</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">showError</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> s</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		JOptionPane</font><font color="#000000">.</font><font color="#000000">showMessageDialog</font><font color="#000000">(</font><b><font color="#7f0055">this</font></b><font color="#000000">,</font><font color="#000000"> s</font><font color="#000000">,</font><font color="#000000"> </font><font color="#0000ff">"Model Error"</font><font color="#000000">,</font>
+<font color="#000000">				JOptionPane</font><font color="#000000">.</font><font color="#000000">ERROR_MESSAGE</font><font color="#000000">);</font>
+<font color="#000000">		</font><b><font color="#7f0055">if</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">myInput </font><font color="#000000">!=</font><font color="#000000"> </font><b><font color="#7f0055">null</font></b><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">			myInput</font><font color="#000000">.</font><font color="#000000">setText</font><font color="#000000">(</font><font color="#0000ff">""</font><font color="#000000">);</font>
+<font color="#000000">		</font><font color="#000000">}</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><b><font color="#7f0055">private</font></b><font color="#000000"> </font><font color="#000000">ProgressMonitorInputStream</font><font color="#000000"> </font><font color="#000000">getMonitorableStream</font><font color="#000000">(</font><font color="#000000">InputStream</font><font color="#000000"> stream</font><font color="#000000">,</font>
+<font color="#000000">			</font><font color="#000000">String</font><font color="#000000"> message</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">			</font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><font color="#000000">ProgressMonitorInputStream</font><font color="#000000"> pmis </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">ProgressMonitorInputStream</font><font color="#000000">(</font>
+<font color="#000000">					</font><b><font color="#7f0055">this</font></b><font color="#000000">,</font><font color="#000000"> message</font><font color="#000000">,</font><font color="#000000"> stream</font><font color="#000000">);</font>
+
+<font color="#000000">			</font><font color="#000000">ProgressMonitor</font><font color="#000000"> progress </font><font color="#000000">=</font><font color="#000000"> pmis</font><font color="#000000">.</font><font color="#000000">getProgressMonitor</font><font color="#000000">();</font>
+<font color="#000000">			progress</font><font color="#000000">.</font><font color="#000000">setMillisToDecideToPopup</font><font color="#000000">(</font><font color="#000000">1</font><font color="#000000">);</font>
+<font color="#000000">			progress</font><font color="#000000">.</font><font color="#000000">setMillisToPopup</font><font color="#000000">(</font><font color="#000000">1</font><font color="#000000">);</font>
+
+<font color="#000000">			</font><b><font color="#7f0055">return</font></b><font color="#000000"> pmis</font><font color="#000000">;</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+<font color="#000000">}</font>
+</tt></pre>
+</body>
+</html>

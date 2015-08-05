@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>IView.java</title>
+</head>
+<body>
+Link to code: <a href="../highlighted/IView.java">IView.java</a><br>
+<hr>
+<!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>
+<font color="#000000"> </font>
+<b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">interface</font></b><font color="#000000"> </font><font color="#000000">IView</font>
+<font color="#000000">{</font>
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Display an information message in this view.</font>
+<font color="#717ab3">     * By convention this should not require</font>
+<font color="#717ab3">     * user-interaction, i.e., no modal dialog.</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> s is the message displayed</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">showMessage</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> s</font><font color="#000000">);</font>
+<font color="#000000">    </font>
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Display an error message in this view. For GUI views</font>
+<font color="#717ab3">     * this could pop up an error dialog.</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> s is the error message displayed</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">showError</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> s</font><font color="#000000">);</font>
+<font color="#000000">    </font>
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Clear a view's 'display'</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">clear</font><font color="#000000">();</font>
+<font color="#000000">    </font>
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Display s in some way where s isn't a message and isn't an error.</font>
+<font color="#717ab3">     * Doesn't clear before displaying</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> s is to be displayed</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">update</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> s</font><font color="#000000">);</font>
+<font color="#000000">}</font>
+</tt></pre>
+</body>
+</html>

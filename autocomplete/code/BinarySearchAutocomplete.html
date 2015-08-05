@@ -1,0 +1,125 @@
+<html>
+<head>
+<title>BinarySearchAutocomplete.java</title>
+</head>
+<body>
+Link to code: <a href="../highlighted/BinarySearchAutocomplete.java">BinarySearchAutocomplete.java</a><br>
+<hr>
+<!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">util</font><font color="#000000">.</font><font color="#000000">Arrays</font><font color="#000000">;</font>
+<font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">util</font><font color="#000000">.</font><font color="#000000">Comparator</font><font color="#000000">;</font>
+
+<font color="#717ab3">/**</font>
+<font color="#717ab3"> * </font>
+<font color="#717ab3"> * Using a sorted array of Term objects, this implementation uses binary search to find the</font>
+<font color="#717ab3"> * top term(s).</font>
+<font color="#717ab3"> * </font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">@author</font></b><font color="#717ab3"> Austin Lu, adapted from Kevin Wayne</font>
+<font color="#717ab3"> *</font>
+<font color="#717ab3"> */</font>
+<b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">class</font></b><font color="#000000"> </font><font color="#000000">BinarySearchAutocomplete</font><font color="#000000"> </font><b><font color="#7f0055">implements</font></b><font color="#000000"> Autocompletor </font><font color="#000000">{</font>
+
+<font color="#000000">	Term</font><font color="#000000">[]</font><font color="#000000"> _terms</font><font color="#000000">;</font>
+
+<font color="#000000">	</font><font color="#717ab3">/**</font>
+<font color="#717ab3">	 * Given arrays of words and weights, initialize _terms to a corresponding</font>
+<font color="#717ab3">	 * array of Terms sorted lexicographically.</font>
+<font color="#717ab3">	 * </font>
+<font color="#717ab3">	 * This constructor is written for you, but you may make modifications to </font>
+<font color="#717ab3">	 * it.</font>
+<font color="#717ab3">	 * </font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> terms - A list of words to form terms from</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> weights - A corresponding list of weights, such that</font>
+<font color="#717ab3">	 * terms[i] has weight[i].</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@return</font></b><font color="#717ab3"> a BinarySearchAutocomplete whose _terms object</font>
+<font color="#717ab3">	 * has _terms[i] = a Term with word terms[i] and weight weights[i].</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@throws</font></b><font color="#717ab3"> a NullPointerException if either argument passed in is</font>
+<font color="#717ab3">	 * null</font>
+<font color="#717ab3">	 */</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">BinarySearchAutocomplete</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000">[]</font><font color="#000000"> terms</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">double</font></b><font color="#000000">[]</font><font color="#000000"> weights</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><b><font color="#7f0055">if</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">terms </font><font color="#000000">==</font><font color="#000000"> </font><b><font color="#7f0055">null</font></b><font color="#000000"> </font><font color="#000000">||</font><font color="#000000"> weights </font><font color="#000000">==</font><font color="#000000"> </font><b><font color="#7f0055">null</font></b><font color="#000000">)</font>
+<font color="#000000">			</font><b><font color="#7f0055">throw</font></b><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">NullPointerException</font><font color="#000000">(</font><font color="#0000ff">"One or more arguments null"</font><font color="#000000">);</font>
+<font color="#000000">		_terms </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> Term</font><font color="#000000">[</font><font color="#000000">terms</font><font color="#000000">.</font><font color="#000000">length</font><font color="#000000">];</font>
+<font color="#000000">		</font><b><font color="#7f0055">for</font></b><font color="#000000"> </font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> i </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">0</font><font color="#000000">;</font><font color="#000000"> i </font><font color="#000000">&lt;</font><font color="#000000"> terms</font><font color="#000000">.</font><font color="#000000">length</font><font color="#000000">;</font><font color="#000000"> i</font><font color="#000000">++)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">			_terms</font><font color="#000000">[</font><font color="#000000">i</font><font color="#000000">]</font><font color="#000000"> </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">Term</font><font color="#000000">(</font><font color="#000000">terms</font><font color="#000000">[</font><font color="#000000">i</font><font color="#000000">],</font><font color="#000000"> weights</font><font color="#000000">[</font><font color="#000000">i</font><font color="#000000">]);</font>
+<font color="#000000">		</font><font color="#000000">}</font>
+<font color="#000000">		Arrays</font><font color="#000000">.</font><font color="#000000">sort</font><font color="#000000">(</font><font color="#000000">_terms</font><font color="#000000">);</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><font color="#717ab3">/**Uses binary search to find the index of the first Term in the passed in </font>
+<font color="#717ab3">	 * array which is considered equivalent by a comparator to the given key.</font>
+<font color="#717ab3">	 * This method should not call comparator.compare() more than 1+log n times,</font>
+<font color="#717ab3">	 * where n is the size of a.</font>
+<font color="#717ab3">	 * </font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> a - The array of Terms being searched</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> key - The key being searched for.</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> comparator - A comparator, used to determine equivalency</font>
+<font color="#717ab3">	 * between the values in a and the key.</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@return</font></b><font color="#717ab3"> The first index i for which comparator considers a[i] and key</font>
+<font color="#717ab3">	 * as being equal. If no such index exists, return -1 instead.</font>
+<font color="#717ab3">	 */</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> </font><font color="#000000">firstIndexOf</font><font color="#000000">(</font><font color="#000000">Term</font><font color="#000000">[]</font><font color="#000000"> a</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">Term</font><font color="#000000"> key</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">Comparator&lt;Term&gt;</font><font color="#000000"> comparator</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><font color="#717ab3">//TODO: Implement this method</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><font color="#717ab3">/**The same as firstIndexOf, but instead finding the index of the</font>
+<font color="#717ab3">	 * last Term.</font>
+<font color="#717ab3">	 * </font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> a - The array of Terms being searched</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> key - The key being searched for.</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> comparator - A comparator, used to determine equivalency</font>
+<font color="#717ab3">	 * between the values in a and the key.</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@return</font></b><font color="#717ab3"> The last index i for which comparator considers a[i] and key</font>
+<font color="#717ab3">	 * as being equal. If no such index exists, return -1 instead.</font>
+<font color="#717ab3">	 */</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> </font><font color="#000000">lastIndexOf</font><font color="#000000">(</font><font color="#000000">Term</font><font color="#000000">[]</font><font color="#000000"> a</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">Term</font><font color="#000000"> key</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">Comparator&lt;Term&gt;</font><font color="#000000"> comparator</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><font color="#717ab3">//TODO: Implement this method		</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><font color="#717ab3">/**</font>
+<font color="#717ab3">	 * Required by the Autocompletor interface.</font>
+<font color="#717ab3">	 * Returns an array containing the k words in _terms with the largest weight</font>
+<font color="#717ab3">	 * which match the given prefix, in descending weight order. If less than k</font>
+<font color="#717ab3">	 * words exist matching the given prefix (including if no words exist),</font>
+<font color="#717ab3">	 * then the array instead contains all those words.</font>
+<font color="#717ab3">	 * e.g. If terms is {air:3, bat:2, bell:4, boy:1}, then topKMatches("b", 2)</font>
+<font color="#717ab3">	 * should return {"bell", "bat"}, but topKMatches("a", 2) should return</font>
+<font color="#717ab3">	 * {"air"}</font>
+<font color="#717ab3">	 * </font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> prefix - A prefix which all returned words must start with</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> k - The (maximum) number of words to be returned</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@return</font></b><font color="#717ab3"> An array of the k words with the largest weights among all</font>
+<font color="#717ab3">	 * words starting with prefix, in descending weight order.</font>
+<font color="#717ab3">	 * 	If less than k such words exist, return an array containing all those </font>
+<font color="#717ab3">	 *  words</font>
+<font color="#717ab3">	 * 	If no such words exist, reutrn an empty array</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@throws</font></b><font color="#717ab3"> a NullPointerException if prefix is null</font>
+<font color="#717ab3">	 */</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> String</font><font color="#000000">[]</font><font color="#000000"> </font><font color="#000000">topKMatches</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> prefix</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> k</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><font color="#717ab3">//TODO: Implement this method</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	@Override</font>
+<font color="#000000">	</font><font color="#717ab3">/**</font>
+<font color="#717ab3">	 * Given a prefix, returns the largest-weight word in _terms starting with </font>
+<font color="#717ab3">	 * that prefix. </font>
+<font color="#717ab3">	 * e.g. for {air:3, bat:2, bell:4, boy:1}, topMatch("b") would return "bell".</font>
+<font color="#717ab3">	 * If no such word exists, return an empty String.</font>
+<font color="#717ab3">	 * </font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> prefix - the prefix the returned word should start with</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@return</font></b><font color="#717ab3"> The word from _terms with the largest weight starting with </font>
+<font color="#717ab3">	 * prefix, or an empty string if none exists</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@throws</font></b><font color="#717ab3"> a NullPointerException if the prefix is null</font>
+<font color="#717ab3">	 * </font>
+<font color="#717ab3">	 */</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">String</font><font color="#000000"> </font><font color="#000000">topMatch</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> prefix</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><font color="#717ab3">//TODO: Implement this method</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">}</font>
+</tt></pre>
+</body>
+</html>

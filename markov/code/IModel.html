@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>IModel.java</title>
+</head>
+<body>
+Link to code: <a href="../highlighted/IModel.java">IModel.java</a><br>
+<hr>
+<!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">util</font><font color="#000000">.*;</font>
+
+<font color="#717ab3">/**</font>
+<font color="#717ab3"> * The interface for typical models used in Compsci100.</font>
+<font color="#717ab3"> * The model is typically initialized to start a process,</font>
+<font color="#717ab3"> * e.g., a game or a simulation. The user then interacts</font>
+<font color="#717ab3"> * with the model via the model's process method which most</font>
+<font color="#717ab3"> * likely results in the model notifying all views that</font>
+<font color="#717ab3"> * a change in the model has occurred.</font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">&lt;P&gt;</font></b>
+<font color="#717ab3"> * To set up a model/view typically the client/main code</font>
+<font color="#717ab3"> * looks like this:</font>
+<font color="#717ab3"> * </font>
+<font color="#717ab3">   </font><b><font color="#7f0055">&lt;PRE&gt;</font></b>
+<font color="#717ab3"> </font>
+<font color="#717ab3">   IModel model = new ApplicationModel();</font>
+<font color="#717ab3">   IView  view = new GuiViewForApplication();</font>
+<font color="#717ab3">   model.addView(view);</font>
+<font color="#717ab3"> </font>
+<font color="#717ab3">   </font><b><font color="#7f0055">&lt;/PRE&gt;</font></b>
+<font color="#717ab3"> * In this architecture the control is not part of the model,</font>
+<font color="#717ab3"> * but is typically part of the view (e.g., GUI control)</font>
+<font color="#717ab3"> * and other client code.</font>
+<font color="#717ab3"> * </font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">@author</font></b><font color="#717ab3"> Owen Astrachan</font>
+<font color="#717ab3"> *</font>
+<font color="#717ab3"> */</font>
+
+<b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">interface</font></b><font color="#000000"> </font><font color="#000000">IModel</font>
+<font color="#000000">{</font>
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">      * Initialize the model using a scanner as the source</font>
+<font color="#717ab3">      * of the model's initial data.</font>
+<font color="#717ab3">      * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> s is the Scanner used to initialize</font>
+<font color="#717ab3">      */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">initialize</font><font color="#000000">(</font><font color="#000000">Scanner</font><font color="#000000"> s</font><font color="#000000">);</font>
+
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Add a view to the model, views are updated </font>
+<font color="#717ab3">     * based on application-specific basis.</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> view is added to this model's views</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@see</font></b><font color="#717ab3"> IView</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">addView</font><font color="#000000">(</font><font color="#000000">IView</font><font color="#000000"> view</font><font color="#000000">);</font>
+<font color="#000000">    </font>
+<font color="#000000">   </font>
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Process an Object in some model-specific way. Typically</font>
+<font color="#717ab3">     * the user might interact with the model, making a change</font>
+<font color="#717ab3">     * via the object. Views would be notified if the model</font>
+<font color="#717ab3">     * changes, for example.</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> o is the Object processed by this model</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">process</font><font color="#000000">(</font><font color="#000000">Object</font><font color="#000000"> o</font><font color="#000000">);</font>
+<font color="#000000">    </font>
+<font color="#000000">    </font>
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Notify views with a string to be displayed appropriately.</font>
+<font color="#717ab3">     * The string isn't a message and isn't an error, hence methods for</font>
+<font color="#717ab3">     * displaying those aren't appropriate.</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> s to be shown in views</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">notifyViews</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> s</font><font color="#000000">);</font>
+<font color="#000000">    </font>
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Send a message to each of this model's views.</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> s is the message sent to all views</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">messageViews</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> s</font><font color="#000000">);</font>
+<font color="#000000">    </font>
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Send an error-message to this model's views.</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> s is the error message displayed in each view</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">showViewsError</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> s</font><font color="#000000">);</font>
+<font color="#000000">}</font>
+</tt></pre>
+</body>
+</html>

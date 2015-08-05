@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Autocompletor.java</title>
+</head>
+<body>
+Link to code: <a href="../highlighted/Autocompletor.java">Autocompletor.java</a><br>
+<hr>
+<!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><font color="#717ab3">/**</font>
+<font color="#717ab3"> * An Autocompletor supports returning either the top k best matches, or the single top match, given</font>
+<font color="#717ab3"> * a String prefix.</font>
+<font color="#717ab3"> * </font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">@author</font></b><font color="#717ab3"> Austin Lu</font>
+<font color="#717ab3"> *</font>
+<font color="#717ab3"> */</font>
+<b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">interface</font></b><font color="#000000"> </font><font color="#000000">Autocompletor</font><font color="#000000"> </font><font color="#000000">{</font>
+
+<font color="#000000">  </font><font color="#717ab3">/**</font>
+<font color="#717ab3">   * Returns the top k matching terms in descending order of weight. If there are fewer than k</font>
+<font color="#717ab3">   * matches, return all matching terms in descending order of weight. If there are no matches,</font>
+<font color="#717ab3">   * return an empty array.</font>
+<font color="#717ab3">   */</font>
+<font color="#000000">  </font><b><font color="#7f0055">public</font></b><font color="#000000"> String</font><font color="#000000">[]</font><font color="#000000"> </font><font color="#000000">topKMatches</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> prefix</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> k</font><font color="#000000">);</font>
+
+
+<font color="#000000">  </font><font color="#717ab3">/**</font>
+<font color="#717ab3">   * Returns the single top matching term, or an empty String if there are no matches.</font>
+<font color="#717ab3">   */</font>
+<font color="#000000">  </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">String</font><font color="#000000"> </font><font color="#000000">topMatch</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> prefix</font><font color="#000000">);</font>
+
+<font color="#000000">}</font>
+</tt></pre>
+</body>
+</html>

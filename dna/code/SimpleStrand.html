@@ -1,0 +1,159 @@
+<html>
+<head>
+<title>SimpleStrand.java</title>
+</head>
+<body>
+Link to code: <a href="../highlighted/SimpleStrand.java">SimpleStrand.java</a><br>
+<hr>
+<!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>
+<font color="#717ab3">/**</font>
+<font color="#717ab3"> * Simple but somewhat efficient implementation of IDnaStrand. \</font>
+<font color="#717ab3"> * This implementation uses StringBuilders to represent genomic/DNA data. </font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">@author</font></b><font color="#717ab3"> ola</font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">@date</font></b><font color="#717ab3"> January 2008, modified and commented September 2008</font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">@date</font></b><font color="#717ab3"> October 2011, made myInfo a StringBuilder rather than a String</font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">@date</font></b><font color="#717ab3"> October 2011, modified to add new methods and remove old ones</font>
+<font color="#717ab3"> */</font>
+
+<b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">class</font></b><font color="#000000"> </font><font color="#000000">SimpleStrand</font><font color="#000000"> </font><b><font color="#7f0055">implements</font></b><font color="#000000"> IDnaStrand </font><font color="#000000">{</font>
+<font color="#000000">    </font><b><font color="#7f0055">private</font></b><font color="#000000"> </font><font color="#000000">StringBuilder</font><font color="#000000"> myInfo</font><font color="#000000">;</font>
+<font color="#000000">    </font><b><font color="#7f0055">private</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> myAppends</font><font color="#000000">;</font>
+<font color="#000000">    </font>
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Create a strand representing an empty DNA strand, length of zero.</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">SimpleStrand</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">    	</font><font color="#717ab3">// Syntactic trick: calls the other constructor (the one that</font>
+<font color="#000000">    	</font><font color="#717ab3">// takes a String) with an empty String.</font>
+<font color="#000000">    	</font><b><font color="#7f0055">this</font></b><font color="#000000">(</font><font color="#0000ff">""</font><font color="#000000">);</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Create a strand representing s. No error checking is done to </font>
+<font color="#717ab3">     * see if s represents valid genomic/DNA data.</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> s is the source of cgat data for this strand</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">SimpleStrand</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> s</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">        myInfo </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">StringBuilder</font><font color="#000000">(</font><font color="#000000">s</font><font color="#000000">);</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+<font color="#000000">    </font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">IDnaStrand</font><font color="#000000"> </font><font color="#000000">cutAndSplice</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> enzyme</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">String</font><font color="#000000"> splicee</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">        </font><b><font color="#7f0055">int</font></b><font color="#000000"> pos </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">0</font><font color="#000000">;</font>
+<font color="#000000">        </font><b><font color="#7f0055">int</font></b><font color="#000000"> start </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">0</font><font color="#000000">;</font>
+<font color="#000000">        </font><font color="#000000">StringBuilder</font><font color="#000000"> search </font><font color="#000000">=</font><font color="#000000"> myInfo</font><font color="#000000">;</font>
+<font color="#000000">        </font><b><font color="#7f0055">boolean</font></b><font color="#000000"> first </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">true</font></b><font color="#000000">;</font>
+<font color="#000000">        </font><font color="#000000">SimpleStrand</font><font color="#000000"> ret </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">null</font></b><font color="#000000">;</font>
+<font color="#000000">        </font>
+<font color="#000000">        </font><font color="#717ab3">/*</font>
+<font color="#717ab3">         * The next line is very syntax-dense. .indexOf looks for the </font>
+<font color="#717ab3">         * first index at which enzyme occurs, starting at pos. Saying </font>
+<font color="#717ab3">         * pos = ... assigns the result of that operation to the pos</font>
+<font color="#717ab3">         * variable; the value of pos is then compared against zero.</font>
+<font color="#717ab3">         * </font>
+<font color="#717ab3">         * .indexOf returns -1 if enzyme can't be found. Therefore, this</font>
+<font color="#717ab3">         * line is:</font>
+<font color="#717ab3">         * </font>
+<font color="#717ab3">         * "While I can find enzyme, assign the location where it occurs</font>
+<font color="#717ab3">         * to pos, and then execute the body of the loop."</font>
+<font color="#717ab3">         */</font>
+<font color="#000000">        </font><b><font color="#7f0055">while</font></b><font color="#000000"> </font><font color="#000000">((</font><font color="#000000">pos </font><font color="#000000">=</font><font color="#000000"> search</font><font color="#000000">.</font><font color="#000000">indexOf</font><font color="#000000">(</font><font color="#000000">enzyme</font><font color="#000000">,</font><font color="#000000"> pos</font><font color="#000000">))</font><font color="#000000"> </font><font color="#000000">&gt;=</font><font color="#000000"> </font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">            </font><b><font color="#7f0055">if</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">first</font><font color="#000000">)</font><font color="#000000">{</font>
+<font color="#000000">                ret </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">SimpleStrand</font><font color="#000000">(</font><font color="#000000">search</font><font color="#000000">.</font><font color="#000000">substring</font><font color="#000000">(</font><font color="#000000">start</font><font color="#000000">,</font><font color="#000000"> pos</font><font color="#000000">));</font>
+<font color="#000000">                first </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">false</font></b><font color="#000000">;</font>
+<font color="#000000">            </font><font color="#000000">}</font>
+<font color="#000000">            </font><b><font color="#7f0055">else</font></b><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">                 ret</font><font color="#000000">.</font><font color="#000000">append</font><font color="#000000">(</font><font color="#000000">search</font><font color="#000000">.</font><font color="#000000">substring</font><font color="#000000">(</font><font color="#000000">start</font><font color="#000000">,</font><font color="#000000"> pos</font><font color="#000000">));</font>
+<font color="#000000">                 </font>
+<font color="#000000">            </font><font color="#000000">}</font>
+<font color="#000000">            start </font><font color="#000000">=</font><font color="#000000"> pos </font><font color="#000000">+</font><font color="#000000"> enzyme</font><font color="#000000">.</font><font color="#000000">length</font><font color="#000000">();</font>
+<font color="#000000">            ret</font><font color="#000000">.</font><font color="#000000">append</font><font color="#000000">(</font><font color="#000000">splicee</font><font color="#000000">);</font>
+<font color="#000000">            pos</font><font color="#000000">++;</font>
+<font color="#000000">        </font><font color="#000000">}</font>
+
+<font color="#000000">        </font><b><font color="#7f0055">if</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">start </font><font color="#000000">&lt;</font><font color="#000000"> search</font><font color="#000000">.</font><font color="#000000">length</font><font color="#000000">())</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">        	</font><font color="#717ab3">// NOTE: This is an important special case! If the enzyme</font>
+<font color="#000000">        	</font><font color="#717ab3">// is never found, return an empty String.</font>
+<font color="#000000">        	</font><b><font color="#7f0055">if</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">ret </font><font color="#000000">==</font><font color="#000000"> </font><b><font color="#7f0055">null</font></b><font color="#000000">)</font><font color="#000000">{</font>
+<font color="#000000">        		ret </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">SimpleStrand</font><font color="#000000">(</font><font color="#0000ff">""</font><font color="#000000">);</font>
+<font color="#000000">        	</font><font color="#000000">}</font>
+<font color="#000000">        	</font><b><font color="#7f0055">else</font></b><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">        		ret</font><font color="#000000">.</font><font color="#000000">append</font><font color="#000000">(</font><font color="#000000">search</font><font color="#000000">.</font><font color="#000000">substring</font><font color="#000000">(</font><font color="#000000">start</font><font color="#000000">));</font>
+<font color="#000000">        	</font><font color="#000000">}</font>
+<font color="#000000">        </font><font color="#000000">}</font>
+<font color="#000000">        </font><b><font color="#7f0055">return</font></b><font color="#000000"> ret</font><font color="#000000">;</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Initialize this strand so that it represents the value of source.</font>
+<font color="#717ab3">     * No error checking is performed.</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> source is the source of this enzyme</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">initializeFrom</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> source</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">        myInfo </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">StringBuilder</font><font color="#000000">(</font><font color="#000000">source</font><font color="#000000">);</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Returns the number of nucleotides/base-pairs in this strand.</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">long</font></b><font color="#000000"> </font><font color="#000000">size</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">        </font><b><font color="#7f0055">return</font></b><font color="#000000"> myInfo</font><font color="#000000">.</font><font color="#000000">length</font><font color="#000000">();</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+
+<font color="#000000">    @Override</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">String</font><font color="#000000"> </font><font color="#000000">toString</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">        </font><b><font color="#7f0055">return</font></b><font color="#000000"> myInfo</font><font color="#000000">.</font><font color="#000000">toString</font><font color="#000000">();</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">String</font><font color="#000000"> </font><font color="#000000">strandInfo</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">        </font><b><font color="#7f0055">return</font></b><font color="#000000"> </font><b><font color="#7f0055">this</font></b><font color="#000000">.</font><font color="#000000">getClass</font><font color="#000000">().</font><font color="#000000">getName</font><font color="#000000">();</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Append a strand of DNA to this strand. If the strand being appended</font>
+<font color="#717ab3">     * is represented by a SimpleStrand object then an efficient append is</font>
+<font color="#717ab3">     * performed, otherwise the append is inefficient (even though it </font>
+<font color="#717ab3">     * doesn't have to be).</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> dna is the strand being appended</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">IDnaStrand</font><font color="#000000"> </font><font color="#000000">append</font><font color="#000000">(</font><font color="#000000">IDnaStrand</font><font color="#000000"> dna</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">        </font><b><font color="#7f0055">if</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">dna </font><font color="#000000">instanceof</font><font color="#000000"> SimpleStrand</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">            </font><font color="#000000">SimpleStrand</font><font color="#000000"> ss </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">SimpleStrand</font><font color="#000000">)</font><font color="#000000"> dna</font><font color="#000000">;</font>
+<font color="#000000">            myInfo</font><font color="#000000">.</font><font color="#000000">append</font><font color="#000000">(</font><font color="#000000">ss</font><font color="#000000">.</font><font color="#000000">myInfo</font><font color="#000000">);</font>
+<font color="#000000">            myAppends</font><font color="#000000">++;</font>
+<font color="#000000">            </font><b><font color="#7f0055">return</font></b><font color="#000000"> </font><b><font color="#7f0055">this</font></b><font color="#000000">;</font>
+<font color="#000000">        </font><font color="#000000">}</font><font color="#000000"> </font><b><font color="#7f0055">else</font></b><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">            </font><b><font color="#7f0055">return</font></b><font color="#000000"> </font><font color="#000000">append</font><font color="#000000">(</font><font color="#000000">dna</font><font color="#000000">.</font><font color="#000000">toString</font><font color="#000000">());</font>
+<font color="#000000">        </font><font color="#000000">}</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Simply append a strand of dna data to this strand. No error </font>
+<font color="#717ab3">     * checking is done. This method isn't efficient; it doesn't use a </font>
+<font color="#717ab3">     * StringBuilder or a StringBuffer.</font>
+<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> dna is the String appended to this strand</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">IDnaStrand</font><font color="#000000"> </font><font color="#000000">append</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> dna</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">        myInfo</font><font color="#000000">.</font><font color="#000000">append</font><font color="#000000">(</font><font color="#000000">dna</font><font color="#000000">);</font>
+<font color="#000000">        myAppends</font><font color="#000000">++;</font>
+<font color="#000000">        </font><b><font color="#7f0055">return</font></b><font color="#000000"> </font><b><font color="#7f0055">this</font></b><font color="#000000">;</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+<font color="#000000">    </font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">IDnaStrand</font><font color="#000000"> </font><font color="#000000">reverse</font><font color="#000000">()</font><font color="#000000">{</font>
+<font color="#000000">        </font><font color="#000000">StringBuilder</font><font color="#000000"> copy </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">StringBuilder</font><font color="#000000">(</font><font color="#000000">myInfo</font><font color="#000000">);</font>
+<font color="#000000">        </font><font color="#000000">SimpleStrand</font><font color="#000000"> ss </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">SimpleStrand</font><font color="#000000">();</font>
+<font color="#000000">        ss</font><font color="#000000">.</font><font color="#000000">myInfo </font><font color="#000000">=</font><font color="#000000"> copy</font><font color="#000000">;</font>
+<font color="#000000">        ss</font><font color="#000000">.</font><font color="#000000">myInfo</font><font color="#000000">.</font><font color="#000000">reverse</font><font color="#000000">();</font>
+<font color="#000000">        </font><b><font color="#7f0055">return</font></b><font color="#000000"> ss</font><font color="#000000">;</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">String</font><font color="#000000"> </font><font color="#000000">getStats</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">        </font><b><font color="#7f0055">return</font></b><font color="#000000"> String</font><font color="#000000">.</font><font color="#000000">format</font><font color="#000000">(</font><font color="#0000ff">"# append calls = %d"</font><font color="#000000">,</font><font color="#000000">myAppends</font><font color="#000000">);</font>
+<font color="#000000">    </font><font color="#000000">}</font>
+<font color="#000000">}</font>
+</tt></pre>
+</body>
+</html>
