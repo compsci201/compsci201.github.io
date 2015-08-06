@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>IUnionFind.java</title>
+</head>
+<body>
+Link to code: <a href="../src/IUnionFind.java">IUnionFind.java</a><br>
+<hr>
+<!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><font color="#717ab3">/**</font>
+<font color="#717ab3"> * Interface supported by different implementations of UnionFind algorithms.</font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">@author</font></b><font color="#717ab3"> Kevin Wayne</font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">@author</font></b><font color="#717ab3"> Owen Astrachan</font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">@author</font></b><font color="#717ab3"> Jeff Forbes</font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">@date</font></b><font color="#717ab3"> March 2011</font>
+<font color="#717ab3"> */</font>
+
+<b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">interface</font></b><font color="#000000"> </font><font color="#000000">IUnionFind</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">   </font>
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Instantiate N isolated components in [0,N-1]</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">initialize</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> n</font><font color="#000000">);</font>
+<font color="#000000">    </font>
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Returns number of components (disjoint sets)</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> </font><font color="#000000">components</font><font color="#000000">();</font>
+<font color="#000000">    </font>
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Returns id of component corresponding to element x</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> </font><font color="#000000">find</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> x</font><font color="#000000">);</font>
+
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Returns true iff p and q are in the same set,</font>
+<font color="#717ab3">     * false otherwise</font>
+<font color="#717ab3">      */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">boolean</font></b><font color="#000000"> </font><font color="#000000">connected</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> p</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> q</font><font color="#000000">);</font>
+<font color="#000000">    </font>
+<font color="#000000">    </font><font color="#717ab3">/**</font>
+<font color="#717ab3">     * Replace sets containing p and q with their union</font>
+<font color="#717ab3">     * i.e., merge sets containing p and q</font>
+<font color="#717ab3">     */</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">union</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> p</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> q</font><font color="#000000">);</font>
+<font color="#000000">}</font>
+</tt></pre>
+</body>
+</html>

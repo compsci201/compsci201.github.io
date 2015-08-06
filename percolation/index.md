@@ -11,7 +11,23 @@ Welcome to the Percolation assignment. In this assignment, you will write a prog
 
 [Here](/percolation/printer-friendly) is a printer friendly version of this assignment.
 
-The code for this assignment is available through Snarf (using [Ambient](https://www.cs.duke.edu/csed/ambient/)).
+The code for this assignment is available through Snarf (using [Ambient](https://www.cs.duke.edu/csed/ambient/)), or the equivalent .jar can be downloaded from [here](/percolation/src/percolation.jar).
+
+You can also view/download the individual classes:
+
+[IPercolate.java](/percolation/code/IPercolate.html)
+
+[IUnionFind.java](/percolation/code/IUnionFind.html)
+
+[PercolationDFS.java](/percolation/code/PercolationDFS.html)
+
+[PercolationStats.java](/percolation/code/PercolationStats.html)
+
+[PercolationUF.java](/percolation/code/PercolationUF.html)
+
+[PercolationVisualizer.java](/percolation/code/PercolationVisualizer.html)
+
+[QuickFind.java](/percolation/code/QuickFind.html)
 
 ###Acknowledgements
 
@@ -60,7 +76,7 @@ sites</li>
 
 You need to write code for the following classes:
 
-[PercolationDFS.java](http://www.cs.duke.edu/courses/compsci201/fall14/assign/percolation/code/PercolationDFS.html): This class implements the brute force method for
+PercolationDFS.java: This class implements the brute force method for
 percolation. <b>Please refer to [Section 2.4](http://introcs.cs.princeton.edu/java/24percolation) in the <i>Introduction to Programming in
 Java.</i></b> You will complete the following methods: 
 <ul>
@@ -71,11 +87,11 @@ Java.</i></b> You will complete the following methods:
 implementing recursive scheme depth-first search as discussed in class and
 the textbook  </li></ul>
 
-[PercolationVisualizer.java](http://www.cs.duke.edu/courses/compsci201/fall14/assign/percolation/code/PercolationVisualizer.html): complete main so that it repeatedly calls a
+PercolationVisualizer.java: complete main so that it repeatedly calls a
 percolator (i.e., something that implements `IPercolate` like `PercolationDFS`) to
 declare sites open, draw, and pause until the system percolates 
 
-[PercolationUF.java](http://www.cs.duke.edu/courses/compsci201/fall14/assign/percolation/code/PercolationUF.html): You will implement a more efficient solution that can use
+PercolationUF.java: You will implement a more efficient solution that can use
 any union-find algorithm that implements `IUnionFind` (e.g., `QuickFind.java`). You will complete the following methods:
 
 <ul>
@@ -93,5 +109,5 @@ compression data structure. See the Sedgewick & Wayne [case study](http://algs4.
 reading](http://www.cs.princeton.edu/courses/archive/fall09/cos226/handouts/Algs3Ch1.pdf) for more information. You will need to create this file by adapting
 [WeightedQuickUnionUF.java](http://algs4.cs.princeton.edu/15uf/WeightedQuickUnionUF.java.html) to implement the IUnionFind interface. 
 
-[PercolationStats.java](http://www.cs.duke.edu/courses/compsci201/fall14/assign/percolation/code/PercolationStats.html): A class that prompts for *N* and *T*, performs *T* experiments on an <i>N</i>x<i>N</i>
+PercolationStats.java: A class that prompts for *N* and *T*, performs *T* experiments on an <i>N</i>x<i>N</i>
 grid, and prints the mean, standard deviation, and confidence interval of the percolation threshold, and timings of percolation simulations.

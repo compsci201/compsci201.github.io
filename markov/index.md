@@ -15,7 +15,25 @@ Welcome to the Markov assignment. In this assignment, you will be using the Mark
 
 [Here](/markov/printer-friendly) is a printer friendly version of this assignment.
 
-The code for this assignment is available through Snarf (using [Ambient](https://www.cs.duke.edu/csed/ambient/)).
+The code for this assignment is available through Snarf (using [Ambient](https://www.cs.duke.edu/csed/ambient/)), or the equivalent .jar can be downloaded from [here](/markov/src/Markov.jar).
+
+You can also view/download the individual classes:
+
+[AbstractModel](/markov/code/AbstractModel.html)
+
+[IModel](/markov/code/IModel.html)
+
+[IView](/markov/code/IView.html)
+
+[MarkovMain](/markov/code/MarkovMain.html)
+
+[MarkovModel](/markov/code/MarkovModel.html)
+
+[SimpleViewer](/markov/code/SimpleViewer.html)
+
+[WordNgram](/markov/code/WordNgram.html)
+
+[WordNgramTester](/markov/code/WordNgramTester.html)
 
 ###Acknowledgements
 

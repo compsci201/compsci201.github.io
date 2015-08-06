@@ -9,7 +9,27 @@ assignment: "autocomplete"
 
 Welcome to the Autocomplete assignment. In this assignment, you will be implementing the autocomplete algorithm, which is discussed at length [here](/autocomplete/1-autocomplete-algorithm.html), using binary search and trie traversal. In doing so, you will see some of the advantages of using tries (or more generally, trees/graphs) and sorted arrays over general arrays.
 
-As always, before starting be sure to snarf the assignment via Ambient so you can read along.
+As always, before starting be sure to snarf the assignment via Ambient so you can read along. You can alternatively download the .jar file [here](/autocomplete/src/Autocomplete.jar).
+
+You can also view/download the individual classes:
+
+[AutocompleteGUI.java](/autocomplete/code/AutocompleteGUI.html)
+
+[AutocompleteMain.java](/autocomplete/code/AutocompleteMain.html)
+
+[Autocompletor.java](/autocomplete/code/Autocompletor.html)
+
+[BinarySearchAutocomplete.java](/autocomplete/code/BinarySearchAutocomplete.html)
+
+[BruteAutocomplete.java](/autocomplete/code/BruteAutocomplete.html)
+
+[In.java](/autocomplete/code/In.html)
+
+[Node.java](/autocomplete/code/Node.html)
+
+[Term.java](/autocomplete/code/Term.html)
+
+[TrieAutocomplete.java](/autocomplete/code/TrieAutocomplete.html)
 
 [Here](/autocomplete/printer-friendly.html) is a printer friendly version of this assignment.
 

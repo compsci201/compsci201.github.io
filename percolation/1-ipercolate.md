@@ -6,7 +6,7 @@ assignment: "percolation"
 
 ###IPercolate data type
 To model a percolation system, you will create different implementations of the
-[IPercolate](http://www.cs.duke.edu/courses/compsci201/fall14/assign/percolation/code/IPercolate.html) interface:
+[IPercolate](/percolation/code/IPercolate.html) interface:
 
 <code>
 public interface IPercolate {<br><br>
@@ -21,13 +21,13 @@ public interface IPercolate {<br><br>
 }
 </code>
 
-You will complete brute-force ([PercolationDFS](http://www.cs.duke.edu/courses/compsci201/fall14/assign/percolation/code/PercolationDFS.html)) and union-find ([PercolationUF](http://www.cs.duke.edu/courses/compsci201/fall14/assign/percolation/code/PercolationUF.html)) versions of the IPercolate data type. 
+You will complete brute-force ([PercolationDFS](/percolation/code/PercolationDFS.html)) and union-find ([PercolationUF](/percolation/code/PercolationUF.html)) versions of the IPercolate data type. 
 
 <b>NB</b>: By convention, the indices i and j are integers between 0 and N-1, where (0, 0) is the upper-left cell. Your code must follow this convention in order to pass our tests.
 
 Below are some tips to get you started (not all methods you need to write have tips). Some tips for PercolationUF may be invalid if you are attempting the extra credit.
 
-###[PercolationDFS](http://www.cs.duke.edu/courses/compsci201/fall14/assign/percolation/code/PercolationDFS.html)
+###[PercolationDFS](/percolation/code/PercolationDFS.html)
 
 It may be useful to define and use constants (e.g. globals named <code>OPEN</code>, <code>FULL</code>, <code>BLOCKED</code>, probably ints) to keep track of the state of each cell.
 
@@ -53,7 +53,7 @@ Since the purpose of <code>dfs</code> is to update the status of each cell, and 
 
 For the purposes of analysis - a depth-first-search that visits k sites with m total connections between them takes O(k+m). Here, the sites are the cells in the grid, and the connections are the edges between two adjacent cells. This should let you determine the runtime of calling this method on all the top cells (we can consider all the calls to <code>dfs</code> made from one call to <code>open</code> as one search, since they cumulatively will not visit the same cell twice)
 
-###[PercolationUF](http://www.cs.duke.edu/courses/compsci201/fall14/assign/percolation/code/PercolationUF.html)
+###[PercolationUF](/percolation/code/PercolationUF.html)
 
 Be sure to handle out-of-bounds cases correctly in all methods.
 

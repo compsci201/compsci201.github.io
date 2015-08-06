@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>QuickFind.java</title>
+</head>
+<body>
+Link to code: <a href="../src/QuickFind.java">QuickFind.java</a><br>
+<hr>
+<!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><font color="#717ab3">/**</font>
+<font color="#717ab3"> * Represents a union-find data structure using quick find.</font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">&lt;p&gt;</font></b>
+<font color="#717ab3"> * Initializing a data structure with </font><b><font color="#7f0055">&lt;em&gt;</font></b><font color="#717ab3">N</font><b><font color="#7f0055">&lt;/em&gt;</font></b><font color="#717ab3"> objects takes linear time.</font>
+<font color="#717ab3"> * Afterwards, </font><b><font color="#7f0055">&lt;em&gt;</font></b><font color="#717ab3">find</font><b><font color="#7f0055">&lt;/em&gt;</font></b><font color="#717ab3">, </font><b><font color="#7f0055">&lt;em&gt;</font></b><font color="#717ab3">connected</font><b><font color="#7f0055">&lt;/em&gt;</font></b><font color="#717ab3">, and </font><b><font color="#7f0055">&lt;em&gt;</font></b><font color="#717ab3">count</font><b><font color="#7f0055">&lt;/em&gt;</font></b><font color="#717ab3"> takes O(1)</font>
+<font color="#717ab3"> * time but </font><b><font color="#7f0055">&lt;em&gt;</font></b><font color="#717ab3">union</font><b><font color="#7f0055">&lt;/em&gt;</font></b><font color="#717ab3"> takes O(N) time.</font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">&lt;p&gt;</font></b>
+<font color="#717ab3"> * For additional documentation, see </font><b><font color="#7f0055">&lt;a</font></b>
+<font color="#000000"> * </font><b><font color="#7f0055">href</font></b><font color="#000000">=</font><font color="#0000ff">"http://algs4.cs.princeton.edu/15uf"</font><b><font color="#7f0055">&gt;</font></b><font color="#717ab3">Section 1.5</font><b><font color="#7f0055">&lt;/a&gt;</font></b><font color="#717ab3"> of </font><b><font color="#7f0055">&lt;i&gt;</font></b><font color="#717ab3">Algorithms,</font>
+<font color="#717ab3"> * 4th Edition</font><b><font color="#7f0055">&lt;/i&gt;</font></b><font color="#717ab3"> by Robert Sedgewick and Kevin Wayne.</font>
+<font color="#717ab3"> * </font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">@author</font></b><font color="#717ab3"> jforbes</font>
+<font color="#717ab3"> *</font>
+<font color="#717ab3"> */</font>
+
+<b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">class</font></b><font color="#000000"> </font><font color="#000000">QuickFind</font><font color="#000000"> </font><b><font color="#7f0055">implements</font></b><font color="#000000"> IUnionFind </font><font color="#000000">{</font>
+<font color="#000000">	</font><b><font color="#7f0055">private</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000">[]</font><font color="#000000"> myID</font><font color="#000000">;</font>
+<font color="#000000">	</font><b><font color="#7f0055">private</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> myComponents</font><font color="#000000">;</font>
+
+<font color="#000000">	</font><font color="#717ab3">/**</font>
+<font color="#717ab3">	 * Default constructor</font>
+<font color="#717ab3">	 */</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">QuickFind</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		myID </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">null</font></b><font color="#000000">;</font>
+<font color="#000000">		myComponents </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">0</font><font color="#000000">;</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+<font color="#000000">	</font>
+<font color="#000000">	</font><font color="#717ab3">/**</font>
+<font color="#717ab3">	 * Constructor that creates N isolated components</font>
+<font color="#717ab3">	 */</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">QuickFind</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> N</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><font color="#000000">initialize</font><font color="#000000">(</font><font color="#000000">N</font><font color="#000000">);</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><font color="#717ab3">// instantiate N isolated components 0 through N-1</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">initialize</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> n</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		myComponents </font><font color="#000000">=</font><font color="#000000"> n</font><font color="#000000">;</font>
+<font color="#000000">		myID </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000">[</font><font color="#000000">n</font><font color="#000000">];</font>
+<font color="#000000">		</font><b><font color="#7f0055">for</font></b><font color="#000000"> </font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> i </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">0</font><font color="#000000">;</font><font color="#000000"> i </font><font color="#000000">&lt;</font><font color="#000000"> n</font><font color="#000000">;</font><font color="#000000"> i</font><font color="#000000">++)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">			myID</font><font color="#000000">[</font><font color="#000000">i</font><font color="#000000">]</font><font color="#000000"> </font><font color="#000000">=</font><font color="#000000"> i</font><font color="#000000">;</font>
+<font color="#000000">		</font><font color="#000000">}</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><font color="#717ab3">// return number of connected components</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> </font><font color="#000000">components</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> myComponents</font><font color="#000000">;</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><font color="#717ab3">// return id of component corresponding to element x</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> </font><font color="#000000">find</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> x</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> myID</font><font color="#000000">[</font><font color="#000000">x</font><font color="#000000">];</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><font color="#717ab3">// are elements p and q in the same component?</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">boolean</font></b><font color="#000000"> </font><font color="#000000">connected</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> p</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> q</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> myID</font><font color="#000000">[</font><font color="#000000">p</font><font color="#000000">]</font><font color="#000000"> </font><font color="#000000">==</font><font color="#000000"> myID</font><font color="#000000">[</font><font color="#000000">q</font><font color="#000000">];</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><font color="#717ab3">// merge components containing p and q</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">union</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> p</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> q</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><b><font color="#7f0055">if</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">connected</font><font color="#000000">(</font><font color="#000000">p</font><font color="#000000">,</font><font color="#000000"> q</font><font color="#000000">))</font>
+<font color="#000000">			</font><b><font color="#7f0055">return</font></b><font color="#000000">;</font>
+<font color="#000000">		</font><b><font color="#7f0055">int</font></b><font color="#000000"> pid </font><font color="#000000">=</font><font color="#000000"> myID</font><font color="#000000">[</font><font color="#000000">p</font><font color="#000000">];</font>
+<font color="#000000">		</font><b><font color="#7f0055">for</font></b><font color="#000000"> </font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> i </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">0</font><font color="#000000">;</font><font color="#000000"> i </font><font color="#000000">&lt;</font><font color="#000000"> myID</font><font color="#000000">.</font><font color="#000000">length</font><font color="#000000">;</font><font color="#000000"> i</font><font color="#000000">++)</font>
+<font color="#000000">			</font><b><font color="#7f0055">if</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">myID</font><font color="#000000">[</font><font color="#000000">i</font><font color="#000000">]</font><font color="#000000"> </font><font color="#000000">==</font><font color="#000000"> pid</font><font color="#000000">)</font>
+<font color="#000000">				myID</font><font color="#000000">[</font><font color="#000000">i</font><font color="#000000">]</font><font color="#000000"> </font><font color="#000000">=</font><font color="#000000"> myID</font><font color="#000000">[</font><font color="#000000">q</font><font color="#000000">];</font>
+<font color="#000000">		myComponents </font><font color="#000000">-=</font><font color="#000000"> </font><font color="#000000">1</font><font color="#000000">;</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+<font color="#000000">}</font>
+</tt></pre>
+</body>
+</html>

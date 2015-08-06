@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>PercolationUF.java</title>
+</head>
+<body>
+Link to code: <a href="../src/PercolationUF.java">PercolationUF.java</a><br>
+<hr>
+<!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><font color="#717ab3">/**</font>
+<font color="#717ab3"> * Simulate a system to see its Percolation Threshold, but use a UnionFind</font>
+<font color="#717ab3"> * implementation to determine whether simulation occurs. The main idea is that</font>
+<font color="#717ab3"> * initially all cells of a simulated grid are each part of their own set so</font>
+<font color="#717ab3"> * that there will be n^2 sets in an nxn simulated grid. Finding an open cell</font>
+<font color="#717ab3"> * will connect the cell being marked to its neighbors --- this means that the</font>
+<font color="#717ab3"> * set in which the open cell is 'found' will be unioned with the sets of each</font>
+<font color="#717ab3"> * neighboring cell. The union/find implementation supports the 'find' and</font>
+<font color="#717ab3"> * 'union' typical of UF algorithms.</font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">&lt;P&gt;</font></b>
+<font color="#717ab3"> * </font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">@author</font></b><font color="#717ab3"> Owen Astrachan</font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">@author</font></b><font color="#717ab3"> Jeff Forbes</font>
+<font color="#717ab3"> *</font>
+<font color="#717ab3"> */</font>
+
+<b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">class</font></b><font color="#000000"> </font><font color="#000000">PercolationUF</font><font color="#000000"> </font><b><font color="#7f0055">implements</font></b><font color="#000000"> IPercolate </font><font color="#000000">{</font>
+<font color="#000000">	</font><b><font color="#7f0055">private</font></b><font color="#000000"> </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> OUT_BOUNDS </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">-</font><font color="#000000">1</font><font color="#000000">;</font>
+
+<font color="#000000">	</font><font color="#717ab3">/**</font>
+<font color="#717ab3">	 * Constructs a Percolation object for a nxn grid that uses unionThing to</font>
+<font color="#717ab3">	 * store sets representing the cells and the top/source and bottom/sink</font>
+<font color="#717ab3">	 * virtual cells</font>
+<font color="#717ab3">	 */</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">PercolationUF</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> n</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">IUnionFind</font><font color="#000000"> unionThing</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><font color="#717ab3">// TODO complete PercolationUF constructor</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><font color="#717ab3">/**</font>
+<font color="#717ab3">	 * Return an index that uniquely identifies (row,col), typically an index</font>
+<font color="#717ab3">	 * based on row-major ordering of cells in a two-dimensional grid. However,</font>
+<font color="#717ab3">	 * if (row,col) is out-of-bounds, return OUT_BOUNDS.</font>
+<font color="#717ab3">	 */</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> </font><font color="#000000">getIndex</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> row</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> col</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><font color="#717ab3">// TODO complete getIndex</font>
+<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> OUT_BOUNDS</font><font color="#000000">;</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">open</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> i</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> j</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><font color="#717ab3">// TODO complete open</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">boolean</font></b><font color="#000000"> </font><font color="#000000">isOpen</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> i</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> j</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><font color="#717ab3">// TODO complete isOpen</font>
+<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> </font><b><font color="#7f0055">false</font></b><font color="#000000">;</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">boolean</font></b><font color="#000000"> </font><font color="#000000">isFull</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> i</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> j</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><font color="#717ab3">// TODO complete isFull</font>
+<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> </font><b><font color="#7f0055">false</font></b><font color="#000000">;</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">boolean</font></b><font color="#000000"> </font><font color="#000000">percolates</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><font color="#717ab3">// TODO complete percolates</font>
+<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> </font><b><font color="#7f0055">false</font></b><font color="#000000">;</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><font color="#717ab3">/**</font>
+<font color="#717ab3">	 * Connect new site (row, col) to all adjacent open sites</font>
+<font color="#717ab3">	 */</font>
+<font color="#000000">	</font><b><font color="#7f0055">private</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">connect</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> row</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> col</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><font color="#717ab3">// TODO complete connect</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">}</font>
+</tt></pre>
+</body>
+</html>

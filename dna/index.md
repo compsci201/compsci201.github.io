@@ -9,7 +9,19 @@ assignment: "dna"
 
 Welcome to the page for the DNA assignment. The goal is to help you gain confidence with linked lists, get practice analyzing your code, and understanding tradeoffs, while learning to use important concepts like JUnit tests, inheritance, and much more.
 
-Before we get started, we need the starting skeleton code. It's is available through Snarf (using [Ambient](https://www.cs.duke.edu/csed/ambient/)), as well as the course webpage.
+Before we get started, we need the starting skeleton code. It is available through Snarf (using [Ambient](https://www.cs.duke.edu/csed/ambient/)). You can also download the equivalent .jar file [here](/dna/src/DNA.jar)
+
+You can also view/download the individual classes:
+
+[DNABenchmark.java](/dna/code/DNABenchmark.html)
+
+[IDnaStrand.java](/dna/code/IDnaStrand.html)
+
+[LinkStrand.java](/dna/code/LinkStrand.html)
+
+[SimpleStrand.java](/dna/code/SimpleStrand.html)
+
+[TestStrand.java](/dna/code/TestStrand.html)
 
 [Here](/dna/printer-friendly) is a printer friendly version of this assignment.
 
