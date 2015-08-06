@@ -13,6 +13,8 @@ As always, before starting be sure to snarf the assignment via Ambient so you ca
 
 You can also view/download the individual classes:
 
+[AutocompleteBenchmark.java](/autocomplete/code/AutocompleteBenchmark.html)
+
 [AutocompleteGUI.java](/autocomplete/code/AutocompleteGUI.html)
 
 [AutocompleteMain.java](/autocomplete/code/AutocompleteMain.html)
