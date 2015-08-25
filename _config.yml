@@ -12,6 +12,4 @@ markdown: kramdown
 highlighter: pygments
 
 assignments:
-  - title: dna
-  - title: boggle
-  - title: huffman
+  - title: nbody
