@@ -30,6 +30,4 @@ The printer-friendly page, navbar, and titles will all be taken care of automati
 
 ## TODO
 
--Pagination
--Fix styles
-
+- Pagination
