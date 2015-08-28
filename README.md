@@ -31,3 +31,6 @@ The printer-friendly page, navbar, and titles will all be taken care of automati
 ## TODO
 
 - Pagination
+- Custom domain (cs.duke.edu)
+- Refactor assignment creation and printer-friendly code
+- Clean up & update FAQs
