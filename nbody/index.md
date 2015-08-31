@@ -13,7 +13,7 @@ You can download the skeleton code from the snarf site using Ambient, or the equ
 
 You can also view/download the NBody class here:
 
-[Nbody.java](/nbody/code/Nbody.html)
+[NBody.java](/nbody/code/NBody.html)
 
 We suggest you read the "Equations Behind NBody", "Program Specifications", and "Suggestions/How To" sections before writing any code.
 
