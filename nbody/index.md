@@ -7,7 +7,7 @@ assignment: "nbody"
 ##NBody - Overview
 ---
 
-This assignment and writeup was originally developed by [Kevin Wayne](https://www.cs.princeton.edu/~wayne/contact/) and [Robert Sedgewick](https://www.cs.princeton.edu/~rs/) at Princeton University. It has been slightly modified for the sake of gradability. 
+This assignment and writeup was originally developed by [Kevin Wayne](https://www.cs.princeton.edu/~wayne/) and [Robert Sedgewick](https://www.cs.princeton.edu/~rs/) at Princeton University. 
 
 You can download the skeleton code from the snarf site using Ambient, or the equivalent .jar to import from [here](/nbody/src/NBody.jar). Submit the assignment to the nbody folder. You should only need to submit your README and the NBody.java class. Make sure you submit the latter within the src folder.
 
