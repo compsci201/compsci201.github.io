@@ -12,4 +12,4 @@ markdown: kramdown
 highlighter: pygments
 
 assignments:
-  - title: nbody 
+- title: nbody 
