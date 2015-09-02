@@ -41,8 +41,9 @@ When you’ve finished, you can test if your program works by running it on plan
 
 <img src = "img/planets_example.png" alt = "result">
 
-To make the viewing experience more enjoyable, uncomment the commented line in main to play the theme to 2001: A Space Odyssey using <code>StdAudio</code> and the file 2001.mid. You can have the program instead play the theme to Superman using superman.mid. 
+and should produce [this animation](http://www.cs.duke.edu/courses/cps100e/spring10/assign/nbody/nbody-planets.mov).
 
+To make the viewing experience more enjoyable, uncomment the commented line in main to play the theme to 2001: A Space Odyssey using `StdAudio` and the file 2001.mid. You can have the program instead play the theme to Superman using superman.mid. 
 
 ### Your analysis
 
