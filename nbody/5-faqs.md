@@ -14,7 +14,7 @@ No! This will simultaneously screw up the physics and make your code harder to u
 
 ####I draw the planets, but nothing appears on the screen. Why? 
 
-Use StdDraw.setXscale() and StdDraw.setYscale() to change the coordinate system to use the physics coordinates instead of the unit box.
+Use [StdDraw.setXscale()](http://introcs.cs.princeton.edu/java/stdlib/javadoc/StdDraw.html#setXscale(double, double)) and [StdDraw.setYscale()](http://introcs.cs.princeton.edu/java/stdlib/javadoc/StdDraw.html#setYscale(double, double)) to change the coordinate system to use the physics coordinates instead of the unit box.
 
 ####My planets don't move. 
 
@@ -40,9 +40,9 @@ Make sure that you get the sign right when you apply Newton's law of gravitation
 
 The simplest way is <code>x*x</code>. In Java, the ^ operator means XOR (not exponentiation).
 
-####How should I compute x<sup>.5</sup>/the square root of x? 
+####How should I compute the square root of x? 
 
-Use the built in <code>Math.pow</code>. The return value of <code>Math.pow(a, b)</code> is a<sup>b</sup>.
+Use [Math.sqrt](http://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#sqrt-double-) or [Math.pow](http://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#pow-double-double-). The return value of <code>Math.pow(a, b)</code> is a<sup>b</sup>.
 
 ####What is Δx? 
 
@@ -50,4 +50,4 @@ It's the change in x-coordinate between two bodies (not between a body at time t
 
 ####When I compile NBody.java, it says "cannot resolve symbol StdDraw." Any thoughts? 
 
-Make sure that you import princeton.* and add princeton.jar to your library build path.
+Make sure that you import princeton.* and add princeton.jar [to your library build path](http://www.cs.duke.edu/courses/cps004g/fall07/assign/final/shotgun/addlibrary.html).
