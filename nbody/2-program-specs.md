@@ -40,3 +40,10 @@ When you’ve finished, you can test if your program works by running it on plan
 <img src = "img/planets_example.png" alt = "result">
 
 To make the viewing experience more enjoyable, uncomment the commented line in main to play the theme to 2001: A Space Odyssey using <code>StdAudio</code> and the file 2001.mid. You can have the program instead play the theme to Superman using superman.mid. 
+
+### Your analysis
+
+In your README.txt, you will answer two questions about the simulation of the bodies described in planets.txt.
+
+1. What is the final position of the planets after 1,000,000 seconds with a timestep (i.e. Δt) of 25,000.  
+2. For what values of timeStep (e.g., Δt > T), does the simulation no longer behave correctly? That is, the planets planets no longer follow their orbits around the Sun. Explain how you arrived at your answer.
