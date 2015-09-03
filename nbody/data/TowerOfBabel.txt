@@ -1,0 +1,23 @@
+8
+40.000e10
+
+0.000e00  0.000e00   0.000e00 0.000e00 1.989e30 sun.gif
+ 
+0.000e00  10.000e10 -1.400e04 0.000e00 3.000e15 earth.gif
+0.000e00  20.000e10 -1.400e04 0.000e00 3.000e15 venus.gif
+0.000e00  15.000e10 -1.400e04 0.000e00 3.000e15 mars.gif
+0.000e00  24.000e10 -1.400e04 0.000e00 3.000e15 mercury.gif
+0.000e00  12.000e10 -1.400e04 0.000e00 3.000e15 pluto.gif
+0.000e00  27.000e10 -1.400e04 0.000e00 3.000e15 uranus.gif
+0.000e00  29.000e10 -1.400e04 0.000e00 3.000e15 jupiter.gif
+
+Creator of the Universe:   Liubomir Chiriac:
+
+Explanation: In the solar system each planet has its own language and
+only the Great Sun knows all of them. That is why, every single planet
+wants to approach the sun and talk to him. 
+
+Nevertheless, when a planet gets close enough to the sun so that
+they could speak, other planets get jealous and try to scare the
+"daring planet". In this way, no planet manages to speak properly
+to the sun and thus, a solar "Babel Tower" is observed.   
