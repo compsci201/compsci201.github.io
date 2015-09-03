@@ -5,7 +5,7 @@ assignment: "nbody"
 ---
 
 ###The physics
-t
+
 We review the equations governing the motion of the particles according to Newton's laws of motion and gravitation. Don't worry if your grounding in physics is a bit rusty or even nonexistent; all of the necessary formulas are included below. We'll assume for now that the position <i>(p<sub>x</sub>, p<sub>y</sub>)</i> and velocity <i>(v<sub>x</sub>, v<sub>y</sub>)</i> of each particle is known. In order to model the dynamics of the system, we must know the <em>net force</em> exerted on each particle.
 
 <ul>
