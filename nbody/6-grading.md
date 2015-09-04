@@ -34,11 +34,18 @@ Below is a list of aspects of your code the automated tests will check. Your cod
 <ol>
 <li>Does the force method return the right output?</li>
 <li>Does the distance method return the right output?</li>
-<li>Does the nBodyPositions method return the right output?</li>
-<li>Does the nBodyPositions method process files with comments correctly?</li>
-<li>Does the nBodyPositions method use .next(), .nextInt(), and .nextDouble() to process files?</li>
-<li>Does the nBodyPositions method process universes with only one or two bodies?</li>
-<li>Does the nBodyPositions method handle odd time steps correctly/is the timing for loop written correctly? (e.g. running with timeStep = 25000, and 25001 should both update positions twice using totalTime = 50000, but timeStep = 24999 should update thrice)</li>
-<li>Does the nBodyPositions method process universes with 100+ bodies?</li>
+<li>Does the positions method return the right output?</li>
+<li>Does the positions method process files with comments correctly?</li>
+<li>Does the positions method use .next(), .nextInt(), and .nextDouble() to process files?</li>
+<li>Does the positions method process universes with only one or two bodies?</li>
+<li>Does the positions method handle odd time steps correctly/is the timing for loop written correctly? (e.g. running with timeStep = 25000, and 25001 should both update positions twice using totalTime = 50000, but timeStep = 24999 should update thrice)</li>
+<li>Does the positions method process universes with 100+ bodies?</li>
 <li>Does the nBodyPositions method call StdDraw.show() the correct number of times?</li>
 </ol>
+
+## Point Breakdown
+
+This assignment is worth 25 points. 
+-	85% algorithmic/correctness: for the correctness of your implementation of NBody - based largely on whether it passes our automated tests
+-	5% engineering: for the structure and style of your NBody implementation. Does your solution decompose the problem appropriately? Is your code formatted appropriately? 
+- 10% analysis: your README.txt and answers to the analysis questions
