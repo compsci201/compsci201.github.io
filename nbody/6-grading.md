@@ -47,7 +47,7 @@ Below is a list of aspects of your code the automated tests will check. Your cod
 
 This assignment is worth 25 points. 
 <ul>
-<li>	85% algorithmic/correctness: for the correctness of your implementation of NBody - based largely on whether it passes our automated tests</li>
-<li>	5% engineering: for the structure and style of your NBody implementation. Does your solution decompose the problem appropriately? Is your code formatted appropriately?</li> 
-<li> 10% analysis: your README.txt and answers to the analysis questions</li>
+<li>	<strong>85% algorithmic/correctness:</strong> for the correctness of your implementation of NBody - based largely on whether it passes our automated tests</li>
+<li>	<strong>5% engineering:</strong> for the structure and style of your NBody implementation. Does your solution decompose the problem appropriately? Is your code formatted appropriately?</li> 
+<li> <strong>10% analysis:</strong> your README.txt and answers to the analysis questions</li>
 </ul>
