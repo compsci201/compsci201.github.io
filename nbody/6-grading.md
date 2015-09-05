@@ -40,7 +40,7 @@ Below is a list of aspects of your code the automated tests will check. Your cod
 <li>Does the positions method process universes with only one or two bodies?</li>
 <li>Does the positions method handle odd time steps correctly/is the timing for loop written correctly? (e.g. running with timeStep = 25000, and 25001 should both update positions twice using totalTime = 50000, but timeStep = 24999 should update thrice)</li>
 <li>Does the positions method process universes with 100+ bodies?</li>
-<li>Does the nBodyPositions method call StdDraw.show() the correct number of times?</li>
+<li>Does the positions method call StdDraw.show() the correct number of times?</li>
 </ol>
 
 ## Point Breakdown
