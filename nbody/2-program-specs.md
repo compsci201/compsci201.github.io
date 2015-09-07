@@ -29,7 +29,7 @@ Draw each particle at its current position using the [picture](http://introcs.cs
 <ol>
 <li>draw the background image starfield.jpg, </li>
 <li>redraw all the bodies in their new positions, and </li>
-<li>control the animation speed using [StdDraw.show()](http://www.cs.princeton.edu/introcs/stdlib/javadoc/StdDraw.html#show(int)). </li>
+<li>control the animation speed using <a href="http://www.cs.princeton.edu/introcs/stdlib/javadoc/StdDraw.html#show(int)" target="_blank">StdDraw.show()</a>. </li>
 </ol>
 
 ####Your program
