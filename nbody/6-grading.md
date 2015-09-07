@@ -5,7 +5,7 @@ assignment: "nbody"
 ---
 
 ## Testing your code
-We will be grading your project by calling the method `positions` on test cases, and seeing if the output matches the expected output. You can test whether nBodyPositions is producing the correct array by inserting the following code into your main method:
+We will be grading your project by calling the method `positions` on test cases, and seeing if the output matches the expected output. You can test whether <code>positions</code> is producing the correct array by inserting the following code into your main method:
 
 {% highlight java %}
   double[][] test = myNBody.positions(new Scanner(
@@ -34,13 +34,15 @@ Below is a list of aspects of your code the automated tests will check. Your cod
 <ol>
 <li>Does the force method return the right output?</li>
 <li>Does the distance method return the right output?</li>
-<li>Does the positions method return the right output?</li>
-<li>Does the positions method process files with comments correctly?</li>
-<li>Does the positions method use .next(), .nextInt(), and .nextDouble() to process files?</li>
-<li>Does the positions method process universes with only one or two bodies?</li>
-<li>Does the positions method handle odd time steps correctly/is the timing for loop written correctly? (e.g. running with timeStep = 25000, and 25001 should both update positions twice using totalTime = 50000, but timeStep = 24999 should update thrice)</li>
-<li>Does the positions method process universes with 100+ bodies?</li>
-<li>Does the positions method call StdDraw.show() the correct number of times?</li>
+
+<li>Does the <code>positions</code> method return the right output?</li>
+<li>Does the <code>positions</code> method process files with comments correctly?</li>
+<li>Does the <code>positions</code> method use .next(), .nextInt(), and .nextDouble() to process files?</li>
+<li>Does the <code>positions</code> method process universes with only one or two bodies?</li>
+<li>Does the <code>positions</code> method handle odd time steps correctly/is the timing for loop written correctly? (e.g. running with timeStep = 25000, and 25001 should both update positions twice using totalTime = 50000, but timeStep = 24999 should update thrice)</li>
+<li>Does the <code>positions</code> method process universes with 100+ bodies?</li>
+<li>Does the <code>positions</code> method call StdDraw.show() the correct number of times?</li>
+>>>>>>> Update method name 'NBodyPositions' to 'positions'
 </ol>
 
 ## Point Breakdown
