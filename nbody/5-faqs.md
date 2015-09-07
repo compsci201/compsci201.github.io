@@ -51,3 +51,7 @@ It's the change in x-coordinate between two bodies (not between a body at time t
 ####When I compile NBody.java, it says "cannot resolve symbol StdDraw." Any thoughts? 
 
 Make sure that you import princeton.* and add princeton.jar [to your library build path](http://www.cs.duke.edu/courses/cps004g/fall07/assign/final/shotgun/addlibrary.html).
+
+####When should my planets move?
+
+Since we are doing a leapfrog calculation, you should calculate every net force experienced by the objects in the system before you cause them to move. A leapfrog calculation can be thought of in terms of a snapshot: you take a snapshot of the system with the planets held in place, calculate the force, acceleration, velocity, and position, then you allow the planets to move for the amount of time specified by timeStep. This repeats until the simulation terminates.
