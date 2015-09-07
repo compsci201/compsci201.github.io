@@ -20,13 +20,13 @@ We will be grading your project by calling the method `positions` on test cases,
 
 This should output the following in console:
 
-```
-1.4956294976553436E11 2.2788403506932733E11 
-5.765266792231076E10 330.8671434437699 
-1.0812917648253027E11 2.9798154903465266E9 
-2.409957795285363E9 4.784879361438484E9 
-2.820200096518895 3.499427153160241E9 
-```
+<code>
+1.4956294976553436E11 2.2788403506932733E11<br>
+5.765266792231076E10 330.8671434437699 <br>
+1.0812917648253027E11 2.9798154903465266E9 <br>
+2.409957795285363E9 4.784879361438484E9 <br>
+2.820200096518895 3.499427153160241E9 <br>
+</code>
 
 ## Automated Tests
 Below is a list of aspects of your code the automated tests will check. Your code will still be checked by a TA, and passing all these tests does not guarantee a perfect grade. 

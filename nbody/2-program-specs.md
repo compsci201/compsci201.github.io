@@ -9,15 +9,15 @@ Before you start programming, please read this assignment and the how-to page.
 ####Input Format
 The input file is a text file that contains the information for a particular universe. The first value is an integer N which represents the number of particles. The second value is a real number R which represents the radius of the universe. Finally, there are N rows, and each row contains 6 values. The first two values are the x- and y-coordinates of the initial position; the second two values are the x- and y-coordinates of the initial velocity; the third value is the mass; the last value is a String that is the name of an image file used to display the particle. As an example, the input file planets.txt contains data for the inner planets of our solar system (in SI units):
 
-```
-5
-2.50e11
-1.496e11 0.000e00 0.000e00 2.980e04 5.974e24 earth.gif
-2.279e11 0.000e00 0.000e00 2.410e04 6.419e23 mars.gif
-5.790e10 0.000e00 0.000e00 4.790e04 3.302e23 mercury.gif
-0.000e00 0.000e00 0.000e00 0.000e00 1.989e30 sun.gif
-1.082e11 0.000e00 0.000e00 3.500e04 4.869e24 venus.gif
-```
+<code>
+5<br>
+2.50e11<br>
+1.496e11 0.000e00 0.000e00 2.980e04 5.974e24 earth.gif<br>
+2.279e11 0.000e00 0.000e00 2.410e04 6.419e23 mars.gif<br>
+5.790e10 0.000e00 0.000e00 4.790e04 3.302e23 mercury.gif<br>
+0.000e00 0.000e00 0.000e00 0.000e00 1.989e30 sun.gif<br>
+1.082e11 0.000e00 0.000e00 3.500e04 4.869e24 venus.gif<br>
+</code>
 
 Each text file will be passed to you as a [Scanner](http://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html). Keep in mind that some submissions have comments at the end - be sure you read only N lines of input instead of reading until the end of the file!
 
@@ -29,7 +29,7 @@ Draw each particle at its current position using the [picture](http://introcs.cs
 <ol>
 <li>draw the background image starfield.jpg, </li>
 <li>redraw all the bodies in their new positions, and </li>
-<li>control the animation speed using [StdDraw.show()](http://www.cs.princeton.edu/introcs/stdlib/javadoc/StdDraw.html#show(int)). </li>
+<li>control the animation speed using <a href="http://www.cs.princeton.edu/introcs/stdlib/javadoc/StdDraw.html#show(int)" target="_blank">StdDraw.show()</a>. </li>
 </ol>
 
 ####Your program
