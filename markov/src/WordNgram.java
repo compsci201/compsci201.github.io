@@ -28,8 +28,13 @@ public class WordNgram implements Comparable<WordNgram>{
      * @return appropriate value less than zero, zero, or greater than zero
      */
     public int compareTo(WordNgram wg) {
-        // TODO  implement this method
-        return 0;
+        int diff = (this.myWords.length - wg.myWords.length);
+        for(int i = 0; i < ((diff < 0) ? this.myWords.length : 
+        	wg.myWords.length); i++){
+        	if (this.myWords[i].compareTo(wg.myWords[i]) != 0)
+        		return this.myWords[i].compareTo(wg.myWords[i]);
+        }
+        return diff;
     }
     
     /**
