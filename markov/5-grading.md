@@ -13,7 +13,7 @@ For transparency's sake, below is a list of aspects of your code the automated t
 <li>Do MapMarkovModel and WordMarkovModel's makeNgram take less time to generate text if k and the training text take the same time? </li>
 <li>Do MapMarkovModel and WordMarkovModel handle a change in training text correctly?</li>
 <li>Do MapMarkovModel and WordMarkovModel use static variables unnecessarily?</li>
-<li>Do WordNgram's compareTo, equals, and hashCode methods work as expected?</li>
-<li>Do WordNgram's compareTo and equals handle edge cases? (Like passing a non-WordNgram to equals, or comparing two WordNgrams of different lengths)</li>
+<li>Do WordNgram's equals and hashCode methods work as expected?</li>
+<li>Does WordNgram's equals handle edge cases?</li>
 
 In addition, if your code throws unexpected errors or takes too long to run the tests, you will be considered as failing the tests.

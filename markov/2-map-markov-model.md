@@ -35,13 +35,13 @@ This can be represented as a map of each possible 3gram to the 3grams that follo
 
 <img src="img/abmap_example.png" alt="3gram table">
 
-Or as a state diagram:
+Or as a flow diagram (more formally known as a state diagram):
 
 <img src="img/abgraph_example.png" alt="3gram state diagram" style="width:520px;height:265px">
 
 ####Your Code
 
-In your code you’ll replace the brute-force re-scanning algorithm for generating random text based on characters with code that builds a data structure that you’ll then use to follow the state transitions diagrammed above. Specifically, you’ll create a map to make the operation of creating random text more efficient. 
+In your code you’ll replace the brute-force re-scanning algorithm for generating random text based on characters with code that builds a data structure that you’ll then use to follow the state transitions diagrammed above. Specifically, you’ll create a map containing key-value k-gram pairs to make the operation of creating random text more efficient. 
 
 Keys in the map are k-grams in a k-order Markov model. The value associated with each key is a list of related k-grams. Each different k-gram in the training text will be a key in the map. The value associated with a k-gram key is a list of every k-gram that follows key in the training text. 
 
@@ -66,7 +66,7 @@ repeat N times to generate N random letters<br>
 
 ####Testing Your New Model
 
-To test that your code is doing things faster and not differently you can use the same text file and the same markov-model. If you use the same seed in constructing the random number generator used in your new model, you should get the same text, but your code should be faster. <b>Do not change the given random seed.</b> If you do it may hurt you when your assignment is being graded. You’ll need to time the generation for several text files and several k-orders and record these times with your explanation for them in the Analysis you submit with this assignment. 
+To test that your code is doing things faster and not differently you can use the same text file and the same Markov-model. If you use the same seed in constructing the random number generator used in your new model, you should get the same text, but your code should be faster. <b>Do not change the given random seed.</b> If you do it may hurt you when your assignment is being graded. You’ll need to time the generation for several text files and several k-orders and record these times with your explanation for them in the Analysis you submit with this assignment. 
 
 ####Debugging Your Code
 

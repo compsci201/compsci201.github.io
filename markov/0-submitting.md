@@ -35,9 +35,9 @@ Class: WordMarkovModel<br>
 
 You also must submit your README in order to receive any credit.
 
-If you create any new classes which are required for the above classes to compile, you should submit those as well.
+You may create any new classes required for the above classes to compile but you must submit those as well.
 
-The following classes should be considered "read-only" - if you submit them, the grader will replace them with the unmodified version you snarfed. Thus, you are free to modify them for testing, but the classes you submit should not depend on those modifications in order to be compile/have the correct return values:
+The following classes should be considered "read-only" and not changed - if you submit any of them, the grader will replace them with the unmodified version you snarfed. Thus, you are free to modify them for testing, but the classes you submit should not depend on those modifications in order to be compile/have the correct return values:
 <li> AbstractModel.java </li>
 <li> IModel.java </li>
 <li> IView.java </li>

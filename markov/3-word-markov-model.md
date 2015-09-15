@@ -8,15 +8,15 @@ The only difference between the MapMarkovModel and the WordMarkovModel is that t
 
 ####The WordNgram Class
 
-The WordNgram class has been started for you. You can create new constructors or change the constructor given, though the provided constructor will likely be useful. You can also add instance variables in addition to myWords. 
+The WordNgram class has been started for you. You can create new constructors or change the constructor given, though the provided constructor will likely be useful. You can also add instance variables in addition to myWords.
 
-You’ll need to ensure that .hashCode, .equals, .compareTo and .toString work properly and efficiently. You should compare two WordNgrams like you would two String - go element-by-element, until you find a differing element, and then return a value based on that difference. Here, the elements are Strings instead of words. 
+The .compareTo method has been provided to you (don't modify it). You’ll need to ensure that .hashCode, .equals, and .toString work properly and efficiently. You should compare two WordNgrams like you would two String - go element-by-element, until you find a differing element, and then return a value based on that difference. Here, the elements are Strings instead of words. 
 
 You’ll probably need to implement additional methods to extract state (words) from a WordNgram object. In my code, for example, I had at least two additional methods to get information about the words that are stored in the private state of a WordNgram object. 
 
 To facilitate testing your .equals and .hashcode methods a JUnit testing program is provided. You should use this, and <b>you may want to add more tests to it in testing your implementation</b>. The given tests are a good indication of how well your code works, but as always JUnit tests are not a 100% guarantee. 
 
-Testing with JUnit shows that a method passes some test, but the test may not be complete. For example, your code will be able to pass the the tests for .hashCode without ensuring that objects that are equal yield the same hashvalue. That should be the case, but it’s not tested in the JUnit test suite you’re given. 
+Testing with JUnit shows that a method passes some test, but the test may not be complete. For example, your code will be able to pass the tests for .hashCode without ensuring that objects that are equal yield the same hashvalue. That should be the case, but it’s not tested in the JUnit test suite you’re given. 
 
 ####Using JUnit
 
