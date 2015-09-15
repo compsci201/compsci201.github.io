@@ -47,6 +47,7 @@ Here is the Java code implementation of this brute-force approach to generate up
 &nbsp;&nbsp;&nbsp;&nbsp;}<br>
 &nbsp;&nbsp;&nbsp;&nbsp;return build.toString();<br>
 &nbsp;&nbsp;}
+
 </code>
 
 The code above works, but to generate N letters in a text of size T the code does O(NT) work since it re-scans the text for each generated character (O(NT) means that the running time is cNT, i.e. within a constant factor proportional to N times T).
