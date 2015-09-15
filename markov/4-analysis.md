@@ -23,6 +23,7 @@ How long does it take using the provided, brute force code to generate text if y
 
 3. Provide timings for the WordMarkovModel with different hashcode methods. Time the method you are given and compare the results that you achieve with the better hashcode method that you developed.
 
+4. Select some relatively short text file (i.e. a few thousand characters at most) and some k. Perform and record data on multiple runs of the Markov program using the chosen text and k value. Report the average length of text generated before the end of file is reached, as well as some measure of the spread of the data. (To ensure that your generated text ends at an end-of-file and not because maxLetters is reached, you can use an arbitrarily large maxLetters value).
 
 ####Part B
 
