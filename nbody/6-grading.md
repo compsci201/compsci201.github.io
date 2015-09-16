@@ -5,9 +5,9 @@ assignment: "nbody"
 ---
 
 ## Testing your code
-We will be grading your project by calling the method `positions` on test cases, and seeing if the output matches the expected output. You can test whether nBodyPositions is producing the correct array by inserting the following code into your main method:
+We will be grading your project by calling the method `positions` on test cases, and seeing if the output matches the expected output. You can test whether <code>positions</code> is producing the correct array by inserting the following code into your main method:
 
-```java
+{% highlight java %}
   double[][] test = myNBody.positions(new Scanner(
         new File("data/planets.txt")), 100000, 25000);
   for(int i = 0; i < test.length; i++) {
@@ -16,7 +16,7 @@ We will be grading your project by calling the method `positions` on test cases,
     }
     System.out.println();
   }
-```
+{% endhighlight %}
 
 This should output the following in console:
 
@@ -34,11 +34,22 @@ Below is a list of aspects of your code the automated tests will check. Your cod
 <ol>
 <li>Does the force method return the right output?</li>
 <li>Does the distance method return the right output?</li>
-<li>Does the nBodyPositions method return the right output?</li>
-<li>Does the nBodyPositions method process files with comments correctly?</li>
-<li>Does the nBodyPositions method use .next(), .nextInt(), and .nextDouble() to process files?</li>
-<li>Does the nBodyPositions method process universes with only one or two bodies?</li>
-<li>Does the nBodyPositions method handle odd time steps correctly/is the timing for loop written correctly? (e.g. running with timeStep = 25000, and 25001 should both update positions twice using totalTime = 50000, but timeStep = 24999 should update thrice)</li>
-<li>Does the nBodyPositions method process universes with 100+ bodies?</li>
-<li>Does the nBodyPositions method call StdDraw.show() the correct number of times?</li>
+
+<li>Does the <code>positions</code> method return the right output?</li>
+<li>Does the <code>positions</code> method process files with comments correctly?</li>
+<li>Does the <code>positions</code> method use .next(), .nextInt(), and .nextDouble() to process files?</li>
+<li>Does the <code>positions</code> method process universes with only one or two bodies?</li>
+<li>Does the <code>positions</code> method handle odd time steps correctly/is the timing for loop written correctly? (e.g. running with timeStep = 25000, and 25001 should both update positions twice using totalTime = 50000, but timeStep = 24999 should update thrice)</li>
+<li>Does the <code>positions</code> method process universes with 100+ bodies?</li>
+<li>Does the <code>positions</code> method call StdDraw.show() the correct number of times?</li>
+>>>>>>> Update method name 'NBodyPositions' to 'positions'
 </ol>
+
+## Point Breakdown
+
+This assignment is worth 25 points. 
+<ul>
+<li>	<strong>85% algorithmic/correctness:</strong> for the correctness of your implementation of NBody - based largely on whether it passes our automated tests</li>
+<li>	<strong>5% engineering:</strong> for the structure and style of your NBody implementation. Does your solution decompose the problem appropriately? Is your code formatted appropriately?</li> 
+<li> <strong>10% analysis:</strong> your README.txt and answers to the analysis questions</li>
+</ul>
