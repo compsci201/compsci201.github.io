@@ -69,6 +69,8 @@ repeat N times to generate N random letters
 
 To test that your code is doing things faster and not differently you can use the same text file and the same markov-model. If you use the same seed in constructing the random number generator used in your new model, you should get the same text, but your code should be faster. <b>Do not change the given random seed.</b> If you do it may hurt you when your assignment is being graded. You’ll need to time the generation for several text files and several k-orders and record these times with your explanation for them in the Analysis you submit with this assignment. 
 
+Use the <a href="http://junit.org/">JUnit</a> tests in the  <a href="code/MarkovModelTest.html">MarkovModelTest</a> class to <em>begin</em> testing your code. You will need to change the class being tested (<code>myMark</code>) from <code>MarkovModel</code> to <code>MapMarkovModel</code>.
+
 ####Debugging Your Code
 
 It’s hard enough to debug code without random effects making it harder. In the MarkovModel class you’re given the Random object used for random-number generation is constructed thusly: 
