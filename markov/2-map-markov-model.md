@@ -8,13 +8,14 @@ You’ll implement a class named MapMarkovModel that extends the abstract class 
 
 You can modify MarkovMain to use MapMarkovModel by simply changing one line. 
 
-<code>
-&nbsp;&nbsp;public static void main(String[] args){ <br>
-&nbsp;&nbsp;&nbsp;&nbsp;IModel model = new MapMarkovModel(); //THE ONLY CHANGE <br>
-&nbsp;&nbsp;&nbsp;&nbsp;SimpleViewer view = new SimpleViewer(<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "CompSci 201 Markov Generation", "k count>");<br>
-&nbsp;&nbsp;&nbsp;&nbsp;view.setModel(model);<br>
-&nbsp;&nbsp;}</code>
+<pre><tt>
+<font color="#000000">  </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">main</font><font color="#000000">(</font> <font color="#000000">String</font><font color="#000000">[]</font><font color="#000000"> args</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">            </font><font color="#000000">IModel</font><font color="#000000"> model </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">MapMarkovModel</font><font color="#000000">();</font><font color="#000000"> </font><font color="#717ab3">// THE ONLY CHANGE</font>
+<font color="#000000">            </font><font color="#000000">SimpleViewer</font><font color="#000000"> view </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">SimpleViewer</font><font color="#000000">(</font><font color="#0000ff">"Compsci 201 Markovian Text"</font><font color="#000000"> </font><font color="#000000">+</font>
+<font color="#000000">                                                 </font><font color="#0000ff">" Generation"</font><font color="#000000">,</font><font color="#000000"> </font><font color="#0000ff">"k count&gt;"</font><font color="#000000">);</font>
+<font color="#000000">            view</font><font color="#000000">.</font><font color="#000000">setModel</font><font color="#000000">(</font><font color="#000000">model</font><font color="#000000">);</font>
+<font color="#000000">  </font><font color="#000000">}</font>
+</tt></pre>
 
 Instead of scanning the training text N times to generate N random characters, you’ll first scan the text once to create a structure representing every possible k-gram used in an order-k Markov Model. You may want to build this structure in its own method before generating your N random characters. You should also note that <b>if you generate random text more than once with the same value of k, you will not need to regenerate this structure and doing so will cost you points.</b>
 
@@ -49,18 +50,20 @@ The list of k-grams that constitute a value should be in order of occurrence in 
 
 Just like in the brute method, to generate random text your code should generate an initial seed k-gram at random from the training text, exactly as in the brute-force approach. Then use the pseudo-code outlined below. 
 
-<code>
+<blockquote>
+<pre class="code">
 // (key) --- the initial seed<br>
-seed = random k-character substring (k-gram) from the training text<br> <br>
-repeat N times to generate N random letters<br>
-&nbsp;&nbsp;find the list (value) associated with seed (key) using the map<br>
-&nbsp;&nbsp;next-k-gram = choose a random k-gram from the list (value)<br>
-&nbsp;&nbsp;if next k-gram is EOF <br>
-&nbsp;&nbsp;&nbsp;&nbsp;exit loop<br>
- &nbsp;&nbsp;print or store C, the last character of next-k-gram<br>
- &nbsp;&nbsp;seed = next-k-gram<br>
+seed = random k-character substring (k-gram) from the training text
+repeat N times to generate N random letters
+&nbsp;&nbsp;find the list (value) associated with seed (key) using the map
+&nbsp;&nbsp;next-k-gram = choose a random k-gram from the list (value)
+&nbsp;&nbsp;if next k-gram is EOF 
+&nbsp;&nbsp;&nbsp;&nbsp;exit loop
+ &nbsp;&nbsp;print or store C, the last character of next-k-gram
+ &nbsp;&nbsp;seed = next-k-gram
  &nbsp;&nbsp;// Note this is (last k-1 characters of seed) + C
-</code>
+</pre>
+</blockquote>
 
 <b>Construct the map once — don’t construct the map each time the user tries to generate random text unless the value of k in the order-k Markov model has changed or the training text has changed.</b>
 
