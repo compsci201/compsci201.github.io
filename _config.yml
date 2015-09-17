@@ -13,3 +13,4 @@ highlighter: pygments
 
 assignments:
 - title: nbody 
+- title: markov 
