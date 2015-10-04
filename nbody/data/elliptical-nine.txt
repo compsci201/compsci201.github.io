@@ -1,0 +1,36 @@
+10
+1.70E+11
+0.00E+00 0.00E+00 0.00E+00 0.00E0 1.99E+30 sun.gif
+5.79E+10 0.00E+00 0.00E+00 2.29E4 3.30E+23 mercury.gif
+1.08E+11 0.00E+00 0.00E+00 1.23E4 4.87E+24 venus.gif
+1.10E+11 0.00E+00 0.00E+00 2.20E4 5.97E+24 earth.gif
+1.20E+11 0.00E+00 0.00E+00 2.82E4 6.42E+23 mars.gif
+1.30E+11 0.00E+00 0.00E+00 1.71E4 1.90E+23 jupiter.gif
+1.40E+11 0.00E+00 0.00E+00 2.30E4 5.68E+23 saturn.gif
+1.50E+11 0.00E+00 0.00E+00 1.63E4 8.68E+23 uranus.gif
+1.60E+11 0.00E+00 0.00E+00 1.95E4 1.02E+23 neptune.gif
+1.70E+11 0.00E+00 0.00E+00 1.25E4 1.27E+23 pluto.gif
+
+Creator of universe: Jonathan Lange, COS 126, Fall 2006
+
+    This universe depicts the nine planets revolving around the sun in 
+elliptical orbits.  There are readily visible differences in the distances 
+to aphelion and perihelion (the farthest and closest approaches to the sun), 
+and it is easy to see the various sizes and colors of each celestial body.  
+Also, this model shows how the speed of each orbit changes as the distances 
+from the sun and other planets change.  This is a great example of 
+conservation of angular momentum, and it is the basis for Kepler's laws 
+(all three, but the third is essentially a result of conservation of angular 
+momentum and the first 2 laws.  The first 2 laws are: 
+(1) planetary orbits are ellipses with the sun at a focus, and 
+(2) every orbit sweeps out equal areas in any given time).  One nice touch is 
+that the planets continue their orbits for a long time (as long as I've 
+watched).  It took a lot of trial and error, but I finally got the planets to 
+stay in view and not fly away from the solar system.
+
+In order to find the correct velocities for each planet (which I could not 
+find online), I created a program in java (heavily based on NBody) which 
+calculated the velocities that would keep each body moving in circular motion 
+(based on the physics: gravitational/centripetal acceleration, Gm/r, must 
+equal (v^2)/r).  
+

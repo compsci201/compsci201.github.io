@@ -35,7 +35,7 @@ This can be represented as a map of each possible 3gram to the 3grams that follo
 
 <img src="img/abmap_example.png" alt="3gram table">
 
-Or as a state diagram:
+Or as a flow diagram (more formally known as a state diagram):
 
 <img src="img/abgraph_example.png" alt="3gram state diagram" style="width:520px;height:265px">
 

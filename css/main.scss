@@ -7,10 +7,51 @@
 
 // Our variables
 $base-font-family: Lato, Helvetica, Arial, sans-serif;
-$base-font-size:   12pt;
+$base-font-size:   10pt;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.7;
+
+$spacing-unit:     15pt;
+
+$text-color:       #111;
+$background-color: #fdfdfd;
+$brand-color:      #2a7ae2;
+
+$grey-color:       #828282;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark:  darken($grey-color, 25%);
+
+// Width of the content area
+$content-width:    800px;
+
+$on-palm:          600px;
+$on-laptop:        800px;
+
 $duke-blue-color: #001A57;
+
+
+// Using media queries with like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+        "base",
+        "layout",
+        "syntax-highlighting"
+;
+
 
 html {
 	font-family: $base-font-family;
@@ -21,13 +62,12 @@ html {
 }
 body {
 	font-family: $base-font-family;
-  margin-top:6%;
+  padding-top:6em;
   margin-left: 10%;
   margin-right: 35%;
   margin-bottom:4%;
 }
 li {
-	list-style-type:none;
 }
 .section {
 	font-family: $base-font-family;
@@ -35,28 +75,19 @@ li {
 	line-height: $base-line-height;
 }
 .section p {
+  margin-top:2%;
   margin-bottom:2%;
 }
 .section h1,h2,h3,h4 {
-  color:#001A57;
-  font-weight:100 !important;
+  margin-top:2%;
+  margin-bottom:2%;
+  color: $duke-blue-color;
 }
 .section h1 {
-  font-size:62pt;
+  font-size:50pt;
 }
 .section h2 {
-  font-size:36pt;
-}
-
-.section ul {
-	margin-left: 0%;
-	margin-right: 0%;
-}
-
-.section li {
-	margin-left: 0%;
-	margin-right: 0%;
-	list-style: disc;
+  font-size:30pt;
 }
 
 .section img {
@@ -126,49 +157,3 @@ li {
   }
 }
 
-
-// // Our variables
-// $base-font-family: Helvetica, Arial, sans-serif;
-// $base-font-size:   16px;
-// $small-font-size:  $base-font-size * 0.875;
-// $base-line-height: 1.5;
-
-// $spacing-unit:     30px;
-
-// $text-color:       #111;
-// $background-color: #fdfdfd;
-// $brand-color:      #2a7ae2;
-
-// $grey-color:       #828282;
-// $grey-color-light: lighten($grey-color, 40%);
-// $grey-color-dark:  darken($grey-color, 25%);
-
-// // Width of the content area
-// $content-width:    800px;
-
-// $on-palm:          600px;
-// $on-laptop:        800px;
-
-
-
-// // Using media queries with like this:
-// // @include media-query($on-palm) {
-// //     .wrapper {
-// //         padding-right: $spacing-unit / 2;
-// //         padding-left: $spacing-unit / 2;
-// //     }
-// // }
-// @mixin media-query($device) {
-//     @media screen and (max-width: $device) {
-//         @content;
-//     }
-// }
-
-
-
-// // Import partials from `sass_dir` (defaults to `_sass`)
-// @import
-//         "base",
-//         "layout",
-//         "syntax-highlighting"
-// ;

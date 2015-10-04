@@ -1,0 +1,17 @@
+9
+2.50e11
+0.000e00 0.000e00 0.000e00 0.000e00 5.000e30 sun.gif
+2.000e11 0.000e00 0.000e00 2.000e04 5.000e23 mars.gif
+-2.000e11 0.000e00 0.000e00 -2.000e04 5.000e23 mars.gif
+0.000e00 2.000e11 2.000e04 0.000e00 5.000e23 earth.gif
+0.000e00 -2.000e11 -2.000e04 0.000e00 5.000e23 earth.gif
+1.000e11 1.000e11 2.500e04 -2.500e04 8.000e23 venus.gif
+-1.000e11 -1.000e11 -2.500e04 2.500e04 8.000e23 venus.gif
+1.000e11 -1.000e11 -2.500e04 -2.500e04 8.000e23 neptune.gif
+-1.000e11 1.000e11 2.500e04 2.500e04 8.000e23 neptune.gif
+
+Creator of universe: Sara Oon, COS 126, Fall 2006
+
+This universe consists of 8 planets revolving around the sun, spinning
+dangerously close to the sun before swinging further out. 
+

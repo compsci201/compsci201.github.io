@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>MarkovModelTest.java</title>
+</head>
+<body>
+Link to code: <a href="../src/MarkovModelTest.java">MarkovModelTest.java</a><br>
+<hr>
+<!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><font color="#3f5fbf">import</font><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> org</font><font color="#000000">.</font><font color="#000000">junit</font><font color="#000000">.</font><font color="#000000">Assert</font><font color="#000000">.*;</font>
+<font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">util</font><font color="#000000">.</font><font color="#000000">Scanner</font><font color="#000000">;</font>
+
+<font color="#3f5fbf">import</font><font color="#000000"> org</font><font color="#000000">.</font><font color="#000000">junit</font><font color="#000000">.</font><font color="#000000">Before</font><font color="#000000">;</font>
+<font color="#3f5fbf">import</font><font color="#000000"> org</font><font color="#000000">.</font><font color="#000000">junit</font><font color="#000000">.</font><font color="#000000">Test</font><font color="#000000">;</font>
+
+<b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">class</font></b><font color="#000000"> </font><font color="#000000">MarkovModelTest</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">	</font><font color="#717ab3">// TODO: change to MapMarkovModel</font>
+<font color="#000000">	</font><b><font color="#7f0055">private</font></b><font color="#000000"> </font><font color="#000000">MarkovModel</font><font color="#000000"> myMark</font><font color="#000000">;</font>
+
+<font color="#000000">	@Before</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">setUp</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		myMark </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">MarkovModel</font><font color="#000000">();</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><font color="#717ab3">/**</font>
+<font color="#717ab3">	 * This test checks if MapMarkovModel makes a correct " Ngram using a simple</font>
+<font color="#717ab3">	 * source</font>
+<font color="#717ab3">	 */</font>
+<font color="#000000">	@</font><font color="#000000">Test</font><font color="#000000">(</font><font color="#000000">timeout </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">10000</font><font color="#000000">)</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">testMapMakeNgram</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+
+<font color="#000000">		myMark</font><font color="#000000">.</font><font color="#000000">initialize</font><font color="#000000">(</font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">Scanner</font><font color="#000000">(</font><font color="#0000ff">"aabbaabbaabbaabbaabbaabbaabbaabbaabbaabba"</font>
+<font color="#000000">				</font><font color="#000000">+</font><font color="#000000"> </font><font color="#0000ff">"abbaabbaabbaabbaabbaabbaabbaabbaabbaabbaabbaabbaabbaabb"</font><font color="#000000">));</font>
+<font color="#000000">		myMark</font><font color="#000000">.</font><font color="#000000">process</font><font color="#000000">(</font><font color="#0000ff">"2"</font><font color="#000000">);</font>
+<font color="#000000">		</font><font color="#000000">String</font><font color="#000000"> output </font><font color="#000000">=</font><font color="#000000"> </font><font color="#0000ff">""</font><font color="#000000">;</font>
+<font color="#000000">		</font><b><font color="#7f0055">while</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">output</font><font color="#000000">.</font><font color="#000000">length</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">&lt;</font><font color="#000000"> </font><font color="#000000">8</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">			output </font><font color="#000000">=</font><font color="#000000"> myMark</font><font color="#000000">.</font><font color="#000000">makeNGram</font><font color="#000000">(</font><font color="#000000">2</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">100</font><font color="#000000">);</font>
+<font color="#000000">		</font><font color="#000000">}</font>
+<font color="#000000">		</font><font color="#000000">assertFalse</font><font color="#000000">(</font><font color="#0000ff">"This test checks if MarkovModel makes a correct "</font><font color="#000000"> </font><font color="#000000">+</font>
+<font color="#000000">					</font><font color="#0000ff">"Ngram using a simple source"</font><font color="#000000">,</font>
+<font color="#000000">					output</font><font color="#000000">.</font><font color="#000000">contains</font><font color="#000000">(</font><font color="#0000ff">"aaa"</font><font color="#000000">));</font>
+<font color="#000000">		</font><font color="#000000">assertFalse</font><font color="#000000">(</font><font color="#0000ff">"This test checks if MarkovModel makes a correct "</font><font color="#000000"> </font><font color="#000000">+</font>
+<font color="#000000">					</font><font color="#0000ff">"Ngram using a simple source"</font><font color="#000000">,</font>
+<font color="#000000">					output</font><font color="#000000">.</font><font color="#000000">contains</font><font color="#000000">(</font><font color="#0000ff">"bbb"</font><font color="#000000">));</font>
+<font color="#000000">		</font><font color="#000000">assertFalse</font><font color="#000000">(</font><font color="#0000ff">"This test checks if MarkovModel makes a correct "</font><font color="#000000"> </font><font color="#000000">+</font><font color="#000000"> </font>
+<font color="#000000">					</font><font color="#0000ff">"Ngram using a simple source"</font><font color="#000000">,</font>
+<font color="#000000">					output</font><font color="#000000">.</font><font color="#000000">contains</font><font color="#000000">(</font><font color="#0000ff">"aba"</font><font color="#000000">));</font>
+<font color="#000000">		</font><font color="#000000">assertFalse</font><font color="#000000">(</font><font color="#0000ff">"This test checks if MarkovModel makes a correct "</font><font color="#000000"> </font><font color="#000000">+</font><font color="#000000"> </font>
+<font color="#000000">					</font><font color="#0000ff">"Ngram using a simple source"</font><font color="#000000">,</font>
+<font color="#000000">					output</font><font color="#000000">.</font><font color="#000000">contains</font><font color="#000000">(</font><font color="#0000ff">"bab"</font><font color="#000000">));</font>
+<font color="#000000">		</font><font color="#000000">assertTrue</font><font color="#000000">(</font><font color="#0000ff">"This test checks if MarkovModel makes a correct "</font><font color="#000000"> </font><font color="#000000">+</font><font color="#000000"> </font>
+<font color="#000000">				   </font><font color="#0000ff">"Ngram using a simple source"</font><font color="#000000">,</font>
+<font color="#000000">				   output</font><font color="#000000">.</font><font color="#000000">contains</font><font color="#000000">(</font><font color="#0000ff">"aab"</font><font color="#000000">));</font>
+<font color="#000000">		</font><font color="#000000">assertTrue</font><font color="#000000">(</font><font color="#0000ff">"This test checks if MarkovModel makes a correct "</font><font color="#000000"> </font><font color="#000000">+</font><font color="#000000"> </font>
+<font color="#000000">				   </font><font color="#0000ff">"Ngram using a simple source"</font><font color="#000000">,</font>
+<font color="#000000">				   output</font><font color="#000000">.</font><font color="#000000">contains</font><font color="#000000">(</font><font color="#0000ff">"baa"</font><font color="#000000">));</font>
+<font color="#000000">		</font><font color="#000000">assertTrue</font><font color="#000000">(</font><font color="#0000ff">"This test checks if MarkovModel makes a correct "</font><font color="#000000"> </font><font color="#000000">+</font><font color="#000000"> </font>
+<font color="#000000">				   </font><font color="#0000ff">"Ngram using a simple source"</font><font color="#000000">,</font>
+<font color="#000000">				   output</font><font color="#000000">.</font><font color="#000000">contains</font><font color="#000000">(</font><font color="#0000ff">"abb"</font><font color="#000000">));</font>
+<font color="#000000">		</font><font color="#000000">assertTrue</font><font color="#000000">(</font><font color="#0000ff">"This test checks if MarkovModel makes a correct "</font><font color="#000000"> </font><font color="#000000">+</font><font color="#000000"> </font><font color="#0000ff">"Ngram using a simple source"</font><font color="#000000">,</font>
+<font color="#000000">					output</font><font color="#000000">.</font><font color="#000000">contains</font><font color="#000000">(</font><font color="#0000ff">"bba"</font><font color="#000000">));</font>
+
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><font color="#717ab3">/**</font>
+<font color="#717ab3">	 * This test checks if MarkovModel makes a correct " Ngram when the source</font>
+<font color="#717ab3">	 * contains only one distinct letter</font>
+<font color="#717ab3">	 */</font>
+<font color="#000000">	@</font><font color="#000000">Test</font><font color="#000000">(</font><font color="#000000">timeout </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">10000</font><font color="#000000">)</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">testMapAllRepeats</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		myMark</font><font color="#000000">.</font><font color="#000000">initialize</font><font color="#000000">(</font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">Scanner</font><font color="#000000">(</font><font color="#0000ff">"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"</font><font color="#000000">));</font>
+<font color="#000000">		myMark</font><font color="#000000">.</font><font color="#000000">process</font><font color="#000000">(</font><font color="#0000ff">"1"</font><font color="#000000">);</font>
+<font color="#000000">		</font><font color="#000000">String</font><font color="#000000"> output </font><font color="#000000">=</font><font color="#000000"> </font><font color="#0000ff">""</font><font color="#000000">;</font>
+<font color="#000000">		</font><b><font color="#7f0055">while</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">output</font><font color="#000000">.</font><font color="#000000">length</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">&lt;</font><font color="#000000"> </font><font color="#000000">8</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">			output </font><font color="#000000">=</font><font color="#000000"> myMark</font><font color="#000000">.</font><font color="#000000">makeNGram</font><font color="#000000">(</font><font color="#000000">1</font><font color="#000000">,</font><font color="#000000"> </font>
+<font color="#000000">					 </font><font color="#0000ff">"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"</font><font color="#000000">.</font><font color="#000000">length</font><font color="#000000">());</font>
+<font color="#000000">		</font><font color="#000000">}</font>
+<font color="#000000">		</font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#0000ff">"This test checks if MarkovModel makes a correct "</font><font color="#000000"> </font><font color="#000000">+</font><font color="#000000"> </font>
+<font color="#000000">					 </font><font color="#0000ff">"Ngram when the source contains only one distinct letter"</font><font color="#000000">,</font>
+<font color="#000000">					 output</font><font color="#000000">,</font><font color="#000000"> </font><font color="#0000ff">"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"</font><font color="#000000">.</font><font color="#000000">substring</font><font color="#000000">(</font><font color="#000000">0</font><font color="#000000">,</font><font color="#000000"> output</font><font color="#000000">.</font><font color="#000000">length</font><font color="#000000">()));</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><font color="#717ab3">/**</font>
+<font color="#717ab3">	 * This test checks if MarkovModel makes a correct Ngram when the source</font>
+<font color="#717ab3">	 * contains no repeat letters</font>
+<font color="#717ab3">	 */</font>
+<font color="#000000">	@</font><font color="#000000">Test</font><font color="#000000">(</font><font color="#000000">timeout </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">10000</font><font color="#000000">)</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">testMapNoRepeats</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		myMark</font><font color="#000000">.</font><font color="#000000">initialize</font><font color="#000000">(</font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">Scanner</font><font color="#000000">(</font><font color="#0000ff">"qwertyuiopasdfghjklzxcvbnm"</font><font color="#000000">));</font>
+<font color="#000000">		myMark</font><font color="#000000">.</font><font color="#000000">process</font><font color="#000000">(</font><font color="#0000ff">"1"</font><font color="#000000">);</font>
+<font color="#000000">		</font><font color="#000000">String</font><font color="#000000"> output </font><font color="#000000">=</font><font color="#000000"> myMark</font><font color="#000000">.</font><font color="#000000">makeNGram</font><font color="#000000">(</font><font color="#000000">1</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">100</font><font color="#000000">);</font>
+<font color="#000000">		</font><font color="#000000">assertTrue</font><font color="#000000">(</font>
+<font color="#000000">				</font><font color="#0000ff">"This test checks if MarkovModel makes a correct "</font><font color="#000000"> </font><font color="#000000">+</font><font color="#000000"> </font>
+<font color="#000000">				</font><font color="#0000ff">"Ngram when the source contains no repeat letters"</font><font color="#000000">,</font>
+<font color="#000000">				</font><font color="#0000ff">"qwertyuiopasdfghjklzxcvbnm"</font><font color="#000000">.</font><font color="#000000">contains</font><font color="#000000">(</font><font color="#000000">output</font><font color="#000000">));</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">}</font>
+</tt></pre>
+</body>
+</html>
