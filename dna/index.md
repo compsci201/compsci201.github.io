@@ -7,7 +7,7 @@ assignment: "dna"
 ## DNA - Overview
 ---
 
-Welcome to the page for the DNA assignment. The goal is to help you gain confidence with linked lists, get practice analyzing your code, and understanding tradeoffs, while learning to use important concepts like JUnit tests, inheritance, and much more.
+Welcome to the page for the DNA assignment. The goal is to help you gain confidence with linked lists, get practice analyzing your code, and improve your understanding of tradeoffs, while learning to use important concepts like JUnit tests, inheritance, and much more.
 
 Before we get started, we need the starting skeleton code. It is available through Snarf (using [Ambient](https://www.cs.duke.edu/csed/ambient/)). You can also download the equivalent .jar file [here](/dna/src/DNA.jar)
 
@@ -31,7 +31,7 @@ In this assignment, we will be simulating genetic experiments using code. To und
 
 We are modeling DNA strands using classes implementing the interface IDNAStrand. You are given a naive implementation called SimpleStrand, which stores the DNA strand as a String. We will implement our more sophisticated version in LinkStrand. We can test the correctness of our implementation using LinkStrand using the JUnit tests. We will also benchmark these implementations using the class DNABenchmark.
 
-The first part of our assignment is to benchmark the given code in SimpleStrand.
+The first part of our assignment is to benchmark the given code in SimpleStrand (without changing it).
 
 Then, we'll test the benchmarking by changing the amount of memory required.
 

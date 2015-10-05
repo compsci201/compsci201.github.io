@@ -16,7 +16,7 @@ You’ll need a nested/inner class to represent a Node of
 the	linked list	for	storing	DNA	information. Here is what that should look like:
 <br>
 <code>
-Outer class definition.... <br> 
+//Outer class definition.... <br> 
 public class Node { <br>
 &nbsp;&nbsp;&nbsp;&nbsp; String info; <br>
 &nbsp;&nbsp;&nbsp;&nbsp; Node next; <br>
@@ -34,16 +34,16 @@ private long mySize; //# nucleotides in DNA <br>
 </p>
 
 <p>
-Since the purpose of this assignment is to utilize Linked Lists, your LinkStrand should not use, nor should you need any global variables besides Nodes and primitive types. Using an unnecessary global data structure, such as an array, a StringBuilder, or an ArrayList, may cost you almost all to all of your correctness and engineering points.
+Since the purpose of this assignment is to utilize Linked Lists, your LinkStrand should not use, nor should you need any global variables besides Nodes and primitive types. Using an unnecessary global data structure, such as an array, a StringBuilder, or an ArrayList, may cost you almost all or all of your correctness and engineering points.
 </p>
 
 <p>
-The diagram below shows the results of cutting an original strand of DNA at three points and then splicing-in the strand “GTGATAATTC” at each of the locations at which the original strand was cut. Since splicing into a linked list is a constant-time, O(1) operation this implementation should be more efficient in time and space when compared to the String implementation.
+The diagram below shows the results of cutting an original strand of DNA (represented by "- - - ...")at three points and then splicing-in the strand “GTGATAATTC” at each of the locations at which the original strand was cut. Since splicing into a linked list is a constant-time, O(1) operation this implementation should be more efficient in time and space when compared to the String implementation.
 <br>
 <img src="img/splicediagram.jpg" alt="Node">
 </p>
 
 <h2> How to Test Your Code </h2>
 <p>
-To test your LinkStrand class a JUnit tester has been provided for you. The tester will test individual methods in your class. If you need a refresher on JUnit refer to Recitation 5 Slides and Code. <br>
+To test your LinkStrand class a JUnit tester has been provided for you. The tester will test individual methods in your class. If you need a refresher on JUnit refer to Discussion 4 Slides and Code. <br>
 Note: Passing these tests doesn't guarantee full credit since the tests are about correctness, not efficiency. <br>Implementing LinkStrand is the bulk of the coding work for this assignment. You’ll need to implement every method and use the JUnit tests to help determine if your methods are correctly implemented. </p>
