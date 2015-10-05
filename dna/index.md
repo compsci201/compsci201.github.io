@@ -7,7 +7,7 @@ assignment: "dna"
 ## DNA - Overview
 ---
 
-Welcome to the page for the DNA assignment. The goal is to help you gain confidence with linked lists, get practice analyzing your code, and understanding tradeoffs, while learning to use important concepts like JUnit tests, inheritance, and much more.
+Welcome to the page for the DNA assignment. The goal is to help you gain confidence with linked lists, get practice analyzing your code, and improve your understanding of tradeoffs, while learning to use important concepts like JUnit tests, inheritance, and much more.
 
 Before we get started, we need the starting skeleton code. It is available through Snarf (using [Ambient](https://www.cs.duke.edu/csed/ambient/)). You can also download the equivalent .jar file [here](/dna/src/DNA.jar)
 
