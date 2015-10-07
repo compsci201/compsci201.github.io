@@ -53,8 +53,8 @@ size:
 </ul>
 
 <ul>
-GetStats:
-<li> Make sure this method displays the number of appends like in SimpleStrand, as opposed to the size, number of breaks, or some other statistic. </li>
+getStats:
+<li> Make sure this method displays the number of appends like in SimpleStrand. Just do that. Hint: You can refer to SimpleStrand to see how to implement getStats.</li>
 </ul>
 
 <ul>
