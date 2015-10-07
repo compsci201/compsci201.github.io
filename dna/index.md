@@ -7,8 +7,28 @@ assignment: "dna"
 ## DNA - Overview
 ---
 
-Welcome to the page for the DNA assignment. The goal is to help you gain confidence with linked lists, get practice analyzing your code, and improve your understanding of tradeoffs, while learning to use important concepts like JUnit tests, inheritance, and much more.
+<b>Note: Before you start coding, make sure to thoroughly read this assignment, look at the powerpoint on Sakai and watch the overview done by Arun. It will save you a lot of time. </b>
 
+The goal of this assignment is to help you gain confidence with linked lists, get practice analyzing your code, and improve your understanding of tradeoffs, while learning to use important concepts like JUnit tests, inheritance, and much more.
+
+## ASSIGNMENT OUTLINE:	   
+	   
+In	   this	   assignment	   you	   will	   you	   will	   experiment	   with	   different	   implementations	   of	   a	   simulated	   restriction	    enzyme	   cutting	    (or	    cleaving)	    a	    DNA	    molecule.	    You	    will	   complete	   several	   tasks:	
+
+   
+Benchmark	    the	    given	    code	    in	    SimpleStrand.cutAndSplice().	    This	   can	   be	   done	   with	   the	   DNABenchMark	   class.	   Your	   report	   must	   show	   that	   this	   algorithm/code	   is	   O(N)	   where	   N	   is	   the	   size	   of	   the	   returned	   strand.	
+
+   
+Test	   your	   benchmarking	   by	   running	   out	   of	   memory	   and	   then	   re-­?running	   the	   simulation	   with	   more	   memory.	   This	   will	   be	   in	   the	   report.	
+
+   
+Design,	    code,	    and	    test	    LinkStrand	    that	    implements	    IDnaStrand	    (like	   SimpleStrand).	   It	   should	   pass	   the	   tests	   in	   TestStrand.	   
+
+
+4. Run	    experiments	    to	    show	    that	    LinkStrand	    is	    O(B)	    for	    a	    strand	    with	    B	   breaks	   as	   described	   below.	   
+
+
+	   
 Before we get started, we need the starting skeleton code. It is available through Snarf (using [Ambient](https://www.cs.duke.edu/csed/ambient/)). You can also download the equivalent .jar file [here](/dna/src/DNA.jar)
 
 You can also view/download the individual classes:
