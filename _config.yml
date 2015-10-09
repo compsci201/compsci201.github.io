@@ -1,7 +1,7 @@
 # Site settings
 title: CompSci 201 - Duke University
 email: azhar@cs.duke.edu
-description: This contains the assignments of CompSci 201 at Duke University.
+description: This contains the assignments of CompSci201 at Duke University.
 baseurl:  "" # the subpath of your site, e.g. /blog/
 url: "http://www.cs.duke.edu" # the base hostname & protocol for your site
 # Build settings
