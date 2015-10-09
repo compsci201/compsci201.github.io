@@ -13,7 +13,7 @@ assignment: "dna"
 <h2>Part b</h2>
 <p>You'll notice that when the benchmarking program runs, memory is used to create the recombinant DNA. We're going to determine the largest splicee string (string spliced into the DNA strand) that works without generating an Out Of Memory error:</p>
 <img src="img/sample-benchmark.PNG">
-<p>We're going to first test this for a Java Virtual Machine configured with a 512M heap-size. (If your machine cannot run this, divide all the memory sizes by 2, and make a note in your README.) To change the size of the JVM heap-size in Eclipse, go to <code>Run > Run Configurations</code> and use <code>-Xmx 512M</code>.</p>
+<p>We're going to first test this for a Java Virtual Machine configured with a 512M heap-size. (If your machine cannot run this, divide all the memory sizes by 2, and make a note in your README.) To change the size of the JVM heap-size in Eclipse, go to <code>Run > Run Configurations</code> and use <code>-Xmx512M</code>.</p>
 <p>Your first task is to find the largest string fitting into this heapsize and the time it takes to do so. To make it simpler, <em>only use string lengths that are powers of 2</em>. Use the ecoli.dat input file, which has 645 cut points in an original strand of length 4,639,221 with a restriction enzyme "gaattc".</p>
 <img src="img/run-configurations.PNG">
 <img src="img/vm-arguments.PNG">
