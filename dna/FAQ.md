@@ -46,18 +46,18 @@ Note that DNABenchmark removes non-acgt characters upon loading a new file.
 ###A:
  Unlike every other method, in LinkStrand.cutAndSplice you should not modify/return this - instead, you should create a new instance of LinkStrand which is a copy of this, modify that, and return that instead. So if your original code for cut and splice looks like
 
-
-> methoda();  
-> methodb();  
-> return this;
+<code>
+methoda();<br>
+methodb();<br>
+return this;
+</code>
 
 You instead want
 
-> IDNAStrand ret = new LinkStrand(this.toString()); 
-
-> ret.methoda(); 
-
-> ret.methodb(); 
-
-> return ret; 
+<code>
+IDNAStrand ret = new LinkStrand(this.toString());<br>
+ret.methoda(); <br>
+ret.methodb(); <br>
+return ret; 
+</code>
 

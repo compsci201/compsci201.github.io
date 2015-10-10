@@ -4,7 +4,7 @@ title: "Overview of LinkStrand Methods"
 assignment: "dna"
 ---
 <p>
-Because LinkStrand implements the IDnaStrand interface, all the methods you are overriding are documented with comments, so you should check there if you are wondering how any methods should work. You can also refer to the working methods in SimpleStrand, although they will differ in implementation because they use a StringBuilder instead of a linked list. Make sure you correctly implement every method specified in the interface. Below are some considerations for you as you begin to code:
+Because <code>LinkStrand</code> implements the <code>IDnaStrand</code> interface, all the methods you are overriding are documented with comments, so you should check there if you are wondering how any methods should work. You can also refer to the working methods in <code>SimpleStrand</code>, although they will differ in implementation because they use a StringBuilder instead of a linked list. Make sure you correctly implement every method specified in the interface. Below are some considerations for you as you begin to code:
 </p>
 
 <ul> 
