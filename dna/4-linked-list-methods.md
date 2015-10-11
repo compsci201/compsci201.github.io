@@ -4,7 +4,7 @@ title: "Overview of LinkStrand Methods"
 assignment: "dna"
 ---
 <p>
-Because LinkStrand implements the IDnaStrand interface, all the methods you are overriding are documented with comments, so you should check there if you are wondering how any methods should work. You can also refer to the working methods in SimpleStrand, although they will differ in implementation because they use a StringBuilder instead of a linked list. Make sure you correctly implement every method specified in the interface. Below are some considerations for you as you begin to code:
+Because <code>LinkStrand</code> implements the <code>IDnaStrand</code> interface, all the methods you are overriding are documented with comments, so you should check there if you are wondering how any methods should work. You can also refer to the working methods in <code>SimpleStrand</code>, although they will differ in implementation because they use a StringBuilder instead of a linked list. Make sure you correctly implement every method specified in the interface. Below are some considerations for you as you begin to code:
 </p>
 
 <ul> 
@@ -32,8 +32,11 @@ toString:
 <ul>
 cutandSplice:
 <li> This method is NOT a mutator - the LinkStrand cutAndSplice is called from should be unchanged, and the method should be returning a new instance of LinkStrand. </li>
-<li> You may assume there is only one node (though it may contain a huge String of DNA). If there is more than one node throw an exception, e.g. <code>
-if(myFirst.next != null)) {throw new RuntimeException("link strand has more than one node")}; </code> </li>
+<li> You may assume there is only one node (though it may contain a huge String of DNA). If there is more than one node throw an exception, e.g.<br>
+<code>
+if(myFirst.next != null)) { <br>
+	throw new RuntimeException("link strand has more than one node"); <br>
+} </code> </li>
 <li> The implementation of this method should be virtually identical to the code in SimpleStrand except you'll be creating LinkStrand objects and calling LinkStrand.append to create the recombinant strand.</li>
 <li>Virtually identical means you simply replace SimpleStrand objects with LinkStrand objects and then the code should work. (Refer to the code in SimpleStrand to help you.)</li>
 <li> The diagram below gives an indication as to why the operation of splicing in a new strand will be O(B) for cutting at B places. The string splicee is the same for all of the Nodes being spliced in. Creating the node is therefore O(1) because the String splicee is already created.</li>
