@@ -4,7 +4,7 @@ title: "Analysis"
 assignment: "percolation"
 ---
 
-Implement PercolationUF using the quick find data structure ([QuickFind.java](http://www.cs.duke.edu/courses/compsci201/fall14/assign/percolation/code/QuickFind.html)) and by creating a version using the weighted quick union with path compression data structure.
+Implement <code>PercolationUF</code> using the quick find data structure ([QuickFind.java](http://www.cs.duke.edu/courses/compsci201/fall14/assign/percolation/code/QuickFind.html)) and by creating a version using the weighted quick union with path compression data structure.
 
 Adapt the code from class or [WeightedQuickUnionUF.java](http://algs4.cs.princeton.edu/15uf/WeightedQuickUnionUF.java.html) to create
 <code>QuickUWPC.java</code> which implements the [IUnionFind](http://www.cs.duke.edu/courses/compsci201/fall14/assign/percolation/code/IUnionFind.html) interface. Run
