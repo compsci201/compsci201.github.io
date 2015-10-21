@@ -28,3 +28,21 @@ In addition to the automated tests, we will
 both implementations, and  
 <li> run your PercolationStats to see if it produces the correct results
 </ul>
+
+## Grading
+This assignment is worth 40 points. 
+
+<ul>
+<li> <strong>60% Correctness:</strong> for your implementation of
+PercolationDFS, PercolationUF, PercolationVisualizer, QuickUWPC, and
+PercolationStats and passing the tests described above.</li>
+<li> <strong>25% Analysis:</strong> for your README, answers to the
+questions,  and description of the tradeoffs.
+<li> <strong>15% Engineering:</strong> for your the structure and style of
+your IPercolate implementations. Is your code inefficient? For example, is
+the time required for <tt>percolates</tt> or <tt>open</tt> for PercolationUF proportional to
+N? Do you
+appropriately use decomposition to avoid duplicate code in
+PercolationVisualizer and PercolationStats? </li>
+</ul>
+
