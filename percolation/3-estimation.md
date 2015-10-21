@@ -25,7 +25,7 @@ Assuming T is sufficiently large (say, at least 30), the following provides a 95
 
 <img src = "img/interval_formula.PNG" alt = "Mean and standard deviation formulas">
 
-Write a client program [PercolationStats](/percolation/code/PercolationStats.html) that prompts the user for <i>N</i> and <i>T</i>, performs <i>T</i> independent experiments on an <i>N</i>-by-<i>N</i> grid, and prints out the 95% confidence interval for the percolation threshold. Use [java.util.Random](http://docs.oracle.com/javase/8/docs/api/java/util/Random.html) to generate random numbers and follow steps above to compute the sample mean and standard deviation. Below is an example run with <i>N</i>=200 and <i>T</i>=100.
+You will write a client program, [PercolationStats](/percolation/code/PercolationStats.html), that prompts the user for <i>N</i> and <i>T</i>, performs <i>T</i> independent experiments on an <i>N</i>-by-<i>N</i> grid, and prints out the 95% confidence interval for the percolation threshold. Use [java.util.Random](http://docs.oracle.com/javase/8/docs/api/java/util/Random.html) to generate random numbers and follow steps above to compute the sample mean and standard deviation. Below is an example run with <i>N</i>=200 and <i>T</i>=100.
 
 <code>
 mean percolation threshold = 0.5921<br>

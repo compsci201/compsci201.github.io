@@ -21,14 +21,16 @@ import princeton.*;
 public class PercolationDFS implements IPercolate {
 	// possible instance variable for storing grid state
 	public int[][] myGrid;
-    /**
-     * Initialize a grid so that all cells are blocked.
-     * @param n is the size of the simulated (square) grid
-     */
-    public PercolationDFS(int n) {
-        // TODO complete constructor and add necessary instance variables
-    }
 
+	/**
+	 * Initialize a grid so that all cells are blocked.
+	 * 
+	 * @param n
+	 *            is the size of the simulated (square) grid
+	 */
+	public PercolationDFS(int n) {
+		// TODO complete constructor and add necessary instance variables
+	}
 
 	public void open(int i, int j) {
 		// TODO complete open
@@ -44,20 +46,22 @@ public class PercolationDFS implements IPercolate {
 		return false;
 	}
 
-    public boolean percolates() {
-        // TODO: run DFS to find all full sites
-        return false;
-    }
+	public boolean percolates() {
+		// TODO: run DFS to find all full sites
+		return false;
+	}
 
-    /**
-     * Private helper method to mark all cells that are open and reachable
-     * from (row,col).
-     * @param row is the row coordinate of the cell being checked/marked
-     * @param col is the col coordinate of the cell being checked/marked
-     */
-    private void dfs(int row, int col) {
-        // TODO: complete dfs
-    }
-
+	/**
+	 * Private helper method to mark all cells that are open and reachable from
+	 * (row,col).
+	 * 
+	 * @param row
+	 *            is the row coordinate of the cell being checked/marked
+	 * @param col
+	 *            is the col coordinate of the cell being checked/marked
+	 */
+	private void dfs(int row, int col) {
+		// TODO: complete dfs
+	}
 
 }

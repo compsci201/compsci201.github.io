@@ -5,15 +5,17 @@ assignment: "percolation"
 ---
 
 The following classes must be submitted in order to be graded:
+<ul>
 <li> PercolationDFS.java </li>
 <li> PercolationStats.java </li>
 <li> PercolationUF.java </li>
 <li> PercolationVisualizer.java </li>
 <li> QuickUWPC.java </li>
+</ul>
 
 Make sure when you submit, all of the following are present and functional:
 
-<code>
+<pre>
 Class: PercolationDFS<br>
  Constructor: PercolationDFS(int)<br>
  Method: public void open(int, int)<br>
@@ -36,7 +38,7 @@ Class: QuickUWPC<br>
  Method: public int find(int)<br>
  Method: public boolean connected(int, int)<br>
  Method: public void union(int, int)<br>
-</code>
+</pre>
 
 You also must submit your README in order to receive any credit.
 

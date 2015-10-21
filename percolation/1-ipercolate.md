@@ -8,22 +8,25 @@ assignment: "percolation"
 To model a percolation system, you will create different implementations of the
 [IPercolate](/percolation/code/IPercolate.html) interface:
 
-<code>
-public interface IPercolate {<br><br>
-&nbsp;&nbsp;// Opens site at (row i, col j) if it is not already open<br>
-&nbsp;&nbsp;public abstract void open(int i, int j);<br><br>
-&nbsp;&nbsp;// Returns true if and only if site (row i, col j) is OPEN<br>
-&nbsp;&nbsp;public abstract boolean isOpen(int i, int j);<br><br>
-&nbsp;&nbsp;// Returns true if and only if site (row i, col j) is FULL<br>
-&nbsp;&nbsp;public boolean isFull(int i, int j);<br><br>
-&nbsp;&nbsp;// Returns true iff the simulated system percolates<br>
-&nbsp;&nbsp;public abstract boolean percolates();<br><br>
-}
-</code>
+<pre><tt><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">interface</font></b><font color="#000000"> </font><font color="#000000">IPercolate</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">	</font><font color="#717ab3">// Opens site at (row i, col j) if it is not already open</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">abstract</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">open</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> i</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> j</font><font color="#000000">);</font><font color="#000000"> </font>
+<font color="#000000">	</font><font color="#717ab3">// Returns true if and only if site (row i, col j) is OPEN</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">abstract</font></b><font color="#000000"> </font><b><font color="#7f0055">boolean</font></b><font color="#000000"> </font><font color="#000000">isOpen</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> i</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> j</font><font color="#000000">);</font>
+<font color="#000000">	</font><font color="#717ab3">// Returns true if and only if site (row i, col j) is FULL</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">boolean</font></b><font color="#000000"> </font><font color="#000000">isFull</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> i</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> j</font><font color="#000000">);</font><font color="#000000"> </font>
+<font color="#000000">	</font><font color="#717ab3">// Returns true iff the simulated system percolates</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">abstract</font></b><font color="#000000"> </font><b><font color="#7f0055">boolean</font></b><font color="#000000"> </font><font color="#000000">percolates</font><font color="#000000">();</font>
+<font color="#000000">}</font></tt></pre>
+
 
 You will complete brute-force ([PercolationDFS](/percolation/code/PercolationDFS.html)) and union-find ([PercolationUF](/percolation/code/PercolationUF.html)) versions of the IPercolate data type. 
 
-<b>NB</b>: By convention, the indices i and j are integers between 0 and N-1, where (0, 0) is the upper-left cell. Your code must follow this convention in order to pass our tests.
+<b>NB</b>
+<ol>
+<li> By convention, the indices i and j are integers between 0 and N-1, where (0, 0) is the upper-left cell. Your code must follow this convention in order to pass our tests.
+<li> The methods can be called in any order. That is, you could call <tt>percolates</tt> twice in a row and then <tt>isFull</tt>, so make sure that your methods will return the correct value given the current state of your <tt>IPercolate</tt> object.
+</tt>
 
 Below are some tips to get you started (not all methods you need to write have tips). Some tips for PercolationUF may be invalid if you are attempting the extra credit.
 
@@ -72,3 +75,4 @@ This may seem confusing, but it makes writing PercolationDFS and PercolationUF r
 ####Percolates
 
 This should now be an O(1), one line method. 
+
