@@ -23,10 +23,10 @@ For transparency's sake, below is a list of aspects of your code the automated t
 
 In addition to the automated tests, we will 
 <ul>
-<li> time your IPercolate implementations, 
+<li> time your IPercolate implementations,</li> 
 <li> test whether your PercolationVisualizer draws the grid correctly for
-both implementations, and  
-<li> run your PercolationStats to see if it produces the correct results
+both implementations, and  </li>
+<li> run your PercolationStats to see if it produces the correct results.</li>
 </ul>
 
 <h2>Grading Breakdown</h2>
