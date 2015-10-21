@@ -29,7 +29,7 @@ both implementations, and
 <li> run your PercolationStats to see if it produces the correct results
 </ul>
 
-## Grading
+<h2>Grading Breakdown</h2>
 This assignment is worth 40 points. 
 
 <ul>
