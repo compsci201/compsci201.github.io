@@ -8,13 +8,13 @@ assignment: "percolation"
 
 Most of the code in this assignment comes from discussion in the text and supplementary reading. Please review the following:
 <ul>
-<li> [Section 2.4](http://introcs.cs.princeton.edu/24percolation/) in <em>Introduction to Programming in Java</em> by Robert Sedgewick & Kevin Wayne</li>
+<li> <a href="http://introcs.cs.princeton.edu/24percolation/">Section 2.4</a> in <em>Introduction to Programming in Java</em> by Robert Sedgewick & Kevin Wayne</li>
 
-<li>Sedgewick & Wayne's [union-find case study](http://algs4.cs.princeton.edu/15uf/) or the [following excerpt](http://www.cs.princeton.edu/courses/archive/fall09/cos226/handouts/Algs3Ch1.pdf) from <em>Algorithms</em>, 3rd Edition</li>
+<li>Sedgewick & Wayne's <a href="http://algs4.cs.princeton.edu/15uf/">union-find case study</a> or the <a href="http://www.cs.princeton.edu/courses/archive/fall09/cos226/handouts/Algs3Ch1.pdf">following excerpt</a> from <em>Algorithms</em>, 3rd Edition</li>
 
-<li> API documentation for [princeton.StdDraw](http://introcs.cs.princeton.edu/java/stdlib/javadoc/StdDraw.html)
+<li> API documentation for <a href="http://introcs.cs.princeton.edu/java/stdlib/javadoc/StdDraw.html">princeton.StdDraw</a>
 
-<li> Optional: If you'd like to understand the theory behind the complexity of union-find operations in detail, read [these notes](http://www.cs.princeton.edu/courses/archive/fall10/cos226/precepts/15UnionFind-Tarjan.pdf) from Robert Tarjan
+<li> Optional: If you'd like to understand the theory behind the complexity of union-find operations in detail, read <a href="http://www.cs.princeton.edu/courses/archive/fall10/cos226/precepts/15UnionFind-Tarjan.pdf">these notes from Robert Tarjan</a>
 </ul>
 
 ####What should stddev() return if T equals 1? 
