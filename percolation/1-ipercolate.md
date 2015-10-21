@@ -25,7 +25,7 @@ You will complete brute-force ([PercolationDFS](/percolation/code/PercolationDFS
 
 <b>NB</b>: By convention, the indices i and j are integers between 0 and N-1, where (0, 0) is the upper-left cell. Your code must follow this convention in order to pass our tests.
 
-Below are some tips to get you started (not all methods you need to write have tips). Some tips for PercolationUF may be invalid if you are attempting the extra credit.
+Below are some tips to get you started (not all methods you need to write have tips). Some tips for <code>PercolationUF</code> may be invalid if you are attempting the extra credit.
 
 ###[PercolationDFS](/percolation/code/PercolationDFS.html)
 
@@ -41,7 +41,7 @@ See DFS below
 
 ####IsOpen and IsFull
 
-These should both be one-line, O(1) methods. For our solution, cells which are full are not considered open by isOpen. That is, isFull(i, j) and isOpen(i, j) cannot both be true at the same time. 
+These should both be one-line, O(1) methods. For our solution, cells which are full are not considered open by <code>isOpen</code>. That is, <code>isFull(i, j)</code> and <code>isOpen(i, j)</code> cannot both be true at the same time. 
 
 ####DFS
 
@@ -57,7 +57,7 @@ For the purposes of analysis - a depth-first-search that visits k sites with m t
 
 Be sure to handle out-of-bounds cases correctly in all methods.
 
-Your IUnionFind object should have two additional elements besides those representing cells - a virtual source and virtual sink representing the top and bottom of the Percolation object. Be sure to use a consistent value for the index of these (constants may help here).
+Your <code>IUnionFind</code> object should have two additional elements besides those representing cells - a virtual source and virtual sink representing the top and bottom of the <code>Percolation</code> object. Be sure to use a consistent value for the index of these (constants may help here).
 
 ####Open
 
@@ -65,9 +65,9 @@ You should be making union calls in this method or in a helper method called by 
 
 ####isOpen and isFull
 
-These should both be one-line, O(1) methods. <b> Unlike PercolationDFS, for our solution, cells which are considered full by isFull are also considered open by isOpen. That is, if isFull(i, j) is true, then isOpen(i, j) must be true.</b> 
+These should both be one-line, O(1) methods. <b> Unlike PercolationDFS, for our solution, cells which are considered full by <code>isFull</code> are also considered open by <code>isOpen</code>. That is, if <code>isFull(i, j)</code> is true, then <code>isOpen(i, j)</code> must be true.</b> 
 
-This may seem confusing, but it makes writing PercolationDFS and PercolationUF respectively much easier - for DFS, not being able to consider cells open and full at the same time is more convenient, but for union-find, the opposite is more convenient.
+This may seem confusing, but it makes writing <code>PercolationDFS</code> and <code>PercolationUF</code> respectively much easier - for DFS, not being able to consider cells open and full at the same time is more convenient, but for union-find, the opposite is more convenient.
 
 ####Percolates
 
