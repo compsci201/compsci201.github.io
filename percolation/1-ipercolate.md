@@ -26,7 +26,7 @@ You will complete brute-force ([PercolationDFS](/percolation/code/PercolationDFS
 <ol>
 <li> By convention, the indices i and j are integers between 0 and N-1, where (0, 0) is the upper-left cell. Your code must follow this convention in order to pass our tests.
 <li> The methods can be called in any order. That is, you could call <tt>percolates</tt> twice in a row and then <tt>isFull</tt>, so make sure that your methods will return the correct value given the current state of your <tt>IPercolate</tt> object.
-</tt>
+</ol>
 
 Below are some tips to get you started (not all methods you need to write have tips). Some tips for PercolationUF may be invalid if you are attempting the extra credit.
 
