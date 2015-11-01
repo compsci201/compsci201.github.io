@@ -12,10 +12,10 @@ Most of the code in this assignment comes from discussion in the text and supple
 
 <li>Sedgewick & Wayne's <a href="http://algs4.cs.princeton.edu/15uf/">union-find case study</a> or the <a href="http://www.cs.princeton.edu/courses/archive/fall09/cos226/handouts/Algs3Ch1.pdf">following excerpt</a> from <em>Algorithms</em>, 3rd Edition</li>
 
-<li> API documentation for <a href="http://introcs.cs.princeton.edu/java/stdlib/javadoc/StdDraw.html">princeton.StdDraw</a></li>
+<li> API documentation for <a href="http://introcs.cs.princeton.edu/java/stdlib/javadoc/StdDraw.html">princeton.StdDraw</a>
 
-<li> Optional: If you'd like to understand the theory behind the complexity of union-find operations in detail, read <a href="http://www.cs.princeton.edu/courses/archive/fall10/cos226/precepts/15UnionFind-Tarjan.pdf">these notes from Robert Tarjan</a></li>
-</ul>
+<li> Optional: If you'd like to understand the theory behind the complexity of union-find operations in detail, read <a href="http://www.cs.princeton.edu/courses/archive/fall10/cos226/precepts/15UnionFind-Tarjan.pdf">these notes from Robert Tarjan</a>
+>>>>>>> development
 
 
 ####What should stddev() return if T equals 1? 
