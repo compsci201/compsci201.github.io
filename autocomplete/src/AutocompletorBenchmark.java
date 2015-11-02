@@ -50,22 +50,6 @@ public class AutocompletorBenchmark {
 		return result;
 	}
 
-	public static File openFileFromDialog() {
-		File file = null;
-		System.out.println("Opening file dialog.");
-		JFileChooser openChooser = new JFileChooser(System.getProperties().getProperty("user.dir"));
-		int retval = openChooser.showOpenDialog(null);
-		if (retval == JFileChooser.APPROVE_OPTION) {
-			file = openChooser.getSelectedFile();
-			if (file.canRead()) {
-				System.out.println("Opening - " + file.getName() + ".");
-			} else {
-				System.out.println("Could not open selected file.");
-			}
-		} else
-			System.out.println("File open canceled.");
-		return file;
-	}
 
 	public static void main(String[] args) {
 		

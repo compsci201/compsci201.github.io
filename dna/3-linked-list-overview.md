@@ -4,15 +4,15 @@ title: "Linked List Overview"
 assignment: "dna"
 ---
 <p>
-You’ll be creating a class LinkStrand that implements a Java interface IDnaStrand. The class simulates cutting a strand of DNA with a restriction enzyme and appending/splicing-in a new strand.
+You’ll be creating a class <code>LinkStrand</code> that implements a Java interface <code>IDnaStrand</code>. The class simulates cutting a strand of DNA with a restriction enzyme and appending/splicing-in a new strand.
 </p>
 
 <p>
-You must use a linked-list to support the operations — specifically the class LinkStrand should maintain pointers to a linked list used to represent a DNA strand. You should maintain a pointer to the first Node of the linked list and to the last Node of the linked list. These pointers are maintained as class invariants. A class invariant is a property that must hold true after the constructor is finished and at the entry and exit of all public member functions. In this case the property of pointing to  first/last nodes must hold after any method in the class executes (and thus before any  method in the class executes). A Strand of DNA is initially represented by a linked list   with one Node; the Node stores one string representing the entire strand of DNA. Thus,  initially the instance variables myFirst and myLast will point to the same node. If any nodes are appended,	the	value of myLast must be	updated	to ensure that it correctly	points to the last node	of the new list.
+You must use a linked-list to support the operations — specifically the class <code>LinkStrand</code> should maintain pointers to a linked list used to represent a DNA strand. You should maintain a pointer to the first Node of the linked list and to the last Node of the linked list. These pointers are maintained as class invariants. A class invariant is a property that must hold true after the constructor is finished and at the entry and exit of all public member functions. In this case the property of pointing to  first/last nodes must hold after any method in the class executes (and thus before any  method in the class executes). A Strand of DNA is initially represented by a linked list   with one Node; the Node stores one string representing the entire strand of DNA. Thus,  initially the instance variables <code>myFirst</code> and <code>myLast</code> will point to the same node. If any nodes are appended, the value of <code>myLast</code> must be updated to ensure that it correctly points to the last node of the new list.
 </p>
 
 <p>
-You’ll need a nested/inner class to represent a Node of	
+You’ll need a nested/inner class to represent a <code>Node</code> of	
 the	linked list	for	storing	DNA	information. Here is what that should look like:
 <br>
 <code>
@@ -34,7 +34,7 @@ private long mySize; //# nucleotides in DNA <br>
 </p>
 
 <p>
-Since the purpose of this assignment is to utilize Linked Lists, your LinkStrand should not use, nor should you need any global variables besides Nodes and primitive types. Using an unnecessary global data structure, such as an array, a StringBuilder, or an ArrayList, may cost you almost all or all of your correctness and engineering points.
+Since the purpose of this assignment is to utilize Linked Lists, your <code>LinkStrand</code> should not use, nor should you need any global variables besides Nodes and primitive types. Using an unnecessary global data structure, such as an array, a <code>StringBuilder</code>, or an <code>ArrayList</code>, may cost you almost all or all of your correctness and engineering points.
 </p>
 
 <p>
