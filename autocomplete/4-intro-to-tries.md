@@ -12,19 +12,15 @@ A trie is simply a special version of a tree. In some trees, each node has a def
 
 So, while a node in a Java binary tree might be defined as 
 
-<pre><tt>
-public class Node{
+<pre><tt>public class Node{
     Node myLeft, myRight;
-}
-</tt></pre>
+}</tt></pre>
 
 A node in a Java trie might look like
 
-<code>
-public class Node{
-    Map<Character, Node> children;
-}
-</code>
+<pre><tt>public class Node {
+    Map&lt;Character, Node&gt; children;
+}</tt><pre>
 
 (Note that the <code><a href="code/Node.html">Node</a></code> class given to you has much more information than this)
 
@@ -32,7 +28,7 @@ The keys of the map will also correspond to some value. For example, for a trie 
 
 <img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Trie_example.svg/400px-Trie_example.svg.png">
 
->######From the [Wikipedia page on Tries](https://en.wikipedia.org/wiki/Trie)
+######From the <a href="https://en.wikipedia.org/wiki/Trie">Wikipedia article on Tries</a>
 
 The top node is the root. It has three children, and to get to these children we have to use the keys t, A, and i. The word each node represents is the concatenation of the keys of pointers you have to take from the root to get to that node. So, to get to "tea" from the root, we have to follow the root's t pointer, then the e pointer, then the a pointer. 
 
