@@ -90,8 +90,8 @@ on your <code><a href="code/Autocompletor.html">Autocompletor</a></code> impleme
 <code><a
 href="code/TestBinarySearchAutocomplete.html">TestBinarySearchAutocomplete</a></code>,
 and <code><a href="code/TestTrieAutocomplete.html">TestTrieAutocomplete</a></code> to test the
-<em>correctness</em>; and 
-<li> <code><a href="code/AutocompleteBenchmark.html">AutocompleteBenchmark</a></code> to analyze the efficiency.
+<em>correctness</em>; and</li>
+<li> <code><a href="code/AutocompleteBenchmark.html">AutocompleteBenchmark</a></code> to analyze the efficiency.</li>
 </ul>
 
 The incomplete methods come with headers detailing what the inputs and
