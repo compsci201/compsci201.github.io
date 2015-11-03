@@ -27,4 +27,19 @@ This may appear to be a large number of tests, but if you follow the guidelines 
 <li>Do BinarySearchAutocomplete's firstIndexOf and lastIndexOf change the value of their arguments when they shoudn't?</li>
 <li>Does TrieAutocomplete's add generate the trie correctly?</li>
 <li>Does TrieAutocomplete's add handle calls to the same word twice correctly?</li>
-<li>Do TrieAutocomplete's topMatch and topKMatches avoid exploring more nodes than needed?</li>
+<li>Do TrieAutocomplete's topMatch and topKMatches avoid exploring more
+nodes than needed?</li>
+
+## Grading
+This assignment is worth 40 points. 
+
+<ul>
+<li> <strong>70% Correctness:</strong> for your implementation of
+Term, BinarySearchAutocomplete, and
+TrieAutocomplete and passing the tests described above.</li>
+<li> <strong>17.5% Analysis:</strong> for your README, data from
+AutocompleteBenchmark. answers to the
+questions,  and description of the tradeoffs.
+<li> <strong>12.5% Engineering:</strong> for your the structure and style of
+your Autcompletor implementations. Is your code inefficient? </li>
+</ul>
