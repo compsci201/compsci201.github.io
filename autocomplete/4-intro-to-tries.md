@@ -20,7 +20,7 @@ A node in a Java trie might look like
 
 <pre><tt>public class Node {
     Map&lt;Character, Node&gt; children;
-}</tt><pre>
+}</tt></pre>
 
 (Note that the <code><a href="code/Node.html">Node</a></code> class given to you has much more information than this)
 
