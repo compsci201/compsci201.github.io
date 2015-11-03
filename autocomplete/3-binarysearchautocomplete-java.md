@@ -33,7 +33,7 @@ order - if one of your methods changes the array of Terms, or if methods
 fail because the first method call did not preserve sorted order for the
 second, you might lose points.
 
-###firstIndexOf and ;astIndexOf
+###firstIndexOf and lastIndexOf
 You should be comfortable with the binary search algorithm already. We will be implementing two more specific versions of it in the methods firstIndexOf and lastIndexOf. firstIndexOf and lastIndexOf are different from typical binary search algorithms in two ways: 
 <ol>
 <li>firstIndexOf and lastIndexOf should not check for exact equality, but rather for equality according to the Comparator argument. This is so that we can use PrefixOrder (which has a very loose definition of equality) in conjunction with binary search to narrow down the list of terms.</li>
@@ -42,7 +42,7 @@ You should be comfortable with the binary search algorithm already. We will be i
 
 <strong>As a performance requirement, firstIndexOf and lastIndexOf should
 use at most 1 + &lceil;log<sub>2</sub><i>N</i>&rceil; compare calls for an
-N-element array</stromng>. The methods should return -1 if no matching
+N-element array</strong>. The methods should return -1 if no matching
 element exists, including the case where the input array is empty.
 
 ###topMatch and topKMatches
@@ -61,9 +61,8 @@ methods run in these times.
 
 One may notice that topMatch is simply a special case of topKMatches where
 k = 1 and be tempted to have topMatch simply call 
-<pre><tt>
-  topKMatches(prefix,1).
-</tt></pre>
+<pre><tt>  topKMatches(prefix,1)</tt></pre>
+
 **Do not do this** – the optimal timing for topKMatches is worse than
 topMatch’s optimal timing, meaning calling topKMatches with k = 1 will
 never be as fast as properly implementing topMatch if written correctly. If
