@@ -6,8 +6,8 @@ assignment: "autocomplete"
 
 Autocomplete is an algorithm used in many modern software applications. In all of these applications, the user types text and the application suggests possible completions for that text:
 
-<img src="img/browser_example.png" alt="Splice">
-<img src="img/google_example.png" alt="Splice">
+<img src="img/browser_example.png" alt="Browser complete">
+<img src="img/google_example.png" alt="Google autocomplete">
 
 While finding terms that contain a query is trivial, these applications need some way to select only the most useful terms to display (since users will likely not comb through thousands of terms, nor will obscure terms like "antidisestablishmentarianism" be useful to most users). Thus, autocomplete algorithms not only need a way to find terms that start with or contain the prefix, but a way of determining how likely each one is to be useful to the user and filtering out only the most useful ones.
 

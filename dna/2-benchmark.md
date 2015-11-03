@@ -4,6 +4,7 @@ title: "Benchmarking Part 1"
 assignment: "dna"
 ---
 <p>Let's see how well our SimpleStrand runs.</p>
+
 <p>After snarfing the code, examine SimpleStrand's <code>cutAndSplice</code> method. The cutAndSplice method finds all occurrences of a restriction enzyme like “gaattc” and splices in a new strand of DNA, represented by parameter <code>splicee</code> to create a recombinant strand. The strand <code>splicee</code> replaces the enzyme. In the simulation the enzyme is removed each time it occurs/finds a binding site. The characters representing the enzyme are replaced by <code>splicee</code>. (This simulates the process of splitting the original DNA by the restriction enzyme, leaving sticky/blunt ends, and binding the new DNA to the split site. However, in the simulation the restriction enzyme is removed.) </p>
 <p>The simulate DNA, which is represented by the instance variable <code>myInfo</code>, is the target of a sequence of calls to <code>indexOf</code> that repeatedly searches for the next occurrence of the string parameter enzyme. As a special case, if the restriction enzyme is NOT found an empty strand is returned. In all cases the original strand is unchanged.</p>
 <p>The code in the class <code>DNABenchmark</code> can be used to benchmark the <code>cutAndSplice</code> method. When you run it, you can select a text file that contains a DNA strand. You are given <code>ecolimed.dat</code> (a smaller strand) and <code>ecoli.dat</code> (a larger one).</p>
@@ -49,5 +50,6 @@ at DNABenchMark.main(DNABenchMark.java:95)
 <p>Your first task is to find the largest string fitting into this heapsize and the time it takes to do so. To make it simpler, <em>only use string lengths that are powers of 2</em>. Use the ecoli.dat input file, which has 645 cut points in an original strand of length 4,639,221 with a restriction enzyme "gaattc".</p>
 
 
+>>>>>>> c2d1b9525a073278370f9ba1ef32b6e5ad7dce90
 <p>Do the same thing with 1024M of heap-size. Can you fit in the next power-of-two string? How long does it take?</p>
 <p>In your Analysis, describe how you determined the power-of-two string you can use in both memory sizes, what it is, and the amount of time it took.</p>
