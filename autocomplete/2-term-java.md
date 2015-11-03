@@ -46,8 +46,6 @@ BruteAutocomplete only uses Term.WeightOrder, so getting the above result does n
 
 Since the Comparators are inner classes, to initialize them in other classes, use the following syntax:
 
-<pre><tt>
-new Term.WeightOrder();<br>
+<pre><tt>new Term.WeightOrder();<br>
 new Term.ReverseWeightOrder();<br>
-new Term.PrefixOrder(r);<br>
-</tt></pre>
+new Term.PrefixOrder(r);</tt></pre>
