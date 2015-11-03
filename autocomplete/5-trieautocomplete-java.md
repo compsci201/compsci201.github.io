@@ -78,4 +78,8 @@ Fortunately, once add is written topMatch() becomes very simple. As noted in the
 ###TopKMatches
 topKMatches() is similar, but not quite the same as topMatch(). We will still be taking advantage of mySubtreeMaxWeight to quickly navigate to high-weight nodes, but this time, we will have to go down multiple branches instead of just one.
 
-To find the top k matches as quickly as possible, we suggest you use a modified version of breadth-first-search, starting from the root. However, instead of using a queue to track what nodes to visit next, use a priority queue sorted by mySubtreeMaxWeight (see Node's built-in Comparators). Whenever a visited node is a word, add it to a weight-sorted list of words. When this list has k words with weight greater than the largest mySubtreeMaxWeight in our priority queue, we know none of the nodes we have yet to explore can have a larger weight than the k words we have found. At that point, we can stop searching and return those k words.
+To find the top k matches as quickly as possible, we will use what is known as a search algorithm - keep a PriorityQueue of Nodes, sorted by mySubtreeMaxWeight. Start with just the root in the PriorityQueue, and pop Nodes off the PriorityQueue one by one. 
+
+Anytime we pop a node off the PriorityQueue, or "visit" it, we will add all its children to the PriorityQueue. Whenever a visited node is a word, add it to a weight-sorted list of words. 
+
+When this list has k words with weight greater than the largest mySubtreeMaxWeight in our priority queue, we know none of the nodes we have yet to explore can have a larger weight than the k words we have found. At that point, we can stop searching and return those k words. If we run out of nodes in the PriorityQueue before we find k words, that means there are not k words in the trie.
