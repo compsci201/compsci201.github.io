@@ -70,7 +70,7 @@ where mySize returns the number of nucleotides in the LinkStrand (do not confuse
 You can test correctness with the JUnit tests in TestStrand. You will also benchmark these implementations using the class DNABenchmark. We will then run more benchmarking experiments to show that our new version really is more efficient.
 Here is the code for cutAndSplice for SimpleStrand with comments. You must fully understand how this method works for SimpleStrand to be able to implement it for LinkStrand
 <img src = "img/cutAndSplice.png" alt="First and Last" style="width:400px;heigh:300px">
-The following classes should be considered <b>READ-ONLY! <\b> Please do NOT modify the following classes unless specified later:
+The following classes should be considered <b>READ-ONLY! </b> Please do NOT modify the following classes unless specified later:
 <li> SimpleStrand.java : Do not change this class at all.</li>
 <li> DNABenchmark.java : Only change it for benchmarking part 2. </li>
 <li> IDnaStrand.java : Please do not change this at all. </li>
