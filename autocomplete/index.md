@@ -78,8 +78,8 @@ the GUI for this project. You can ignore this class.</li>
 
 You are responsible for completing the following classes:
 
-<ul><
-li><code><a href="code/Term.html">Term</a></code> – a class used to encapsulate individual search terms and their weights, which includes several methods of comparing terms. You need to complete these class in order for BruteAutocomplete to be usable with AutocompleteMain.</li>
+<ul>
+<li><code><a href="code/Term.html">Term</a></code> – a class used to encapsulate individual search terms and their weights, which includes several methods of comparing terms. You need to complete these class in order for BruteAutocomplete to be usable with AutocompleteMain.</li>
 <li><code><a href="code/BinarySearchAutocomplete.html">BinarySearchAutocomplete</a></code> – an implementation of Autocompletor which performs the autocomplete algorithm using binary search.</li>
 <li><code><a href="code/TrieAutocomplete.html">TrieAutocomplete</a></code> – an implementation of Autocompletor which performs the autocomplete algorithm using trie exploration.</li></ul>
 </ul>
@@ -92,8 +92,8 @@ on your <code><a href="code/Autocompletor.html">Autocompletor</a></code> impleme
 <code><a
 href="code/TestBinarySearchAutocomplete.html">TestBinarySearchAutocomplete</a></code>,
 and <code><a href="code/TestTrieAutocomplete.html">TestTrieAutocomplete</a></code> to test the
-<em>correctness</em>; and 
-<li> <code><a href="code/AutocompleteBenchmark.html">AutocompleteBenchmark</a></code> to analyze the efficiency.
+<em>correctness</em>; and</li>
+<li> <code><a href="code/AutocompleteBenchmark.html">AutocompleteBenchmark</a></code> to analyze the efficiency.</li>
 </ul>
 
 The incomplete methods come with headers detailing what the inputs and
