@@ -6,14 +6,14 @@ import java.util.PriorityQueue;
  */
 public class BruteAutocomplete implements Autocompletor {
 
-  Term[] _terms;
+  Term[] myTerms;
 
   public BruteAutocomplete(String[] terms, double[] weights) {
 		if (terms == null || weights == null)
 			throw new NullPointerException("One or more arguments null");
-    _terms = new Term[terms.length];
+    myTerms = new Term[terms.length];
     for (int i = 0; i < terms.length; i++) {
-      _terms[i] = new Term(terms[i], weights[i]);
+      myTerms[i] = new Term(terms[i], weights[i]);
     }
   }
 
@@ -21,7 +21,7 @@ public class BruteAutocomplete implements Autocompletor {
   public String[] topKMatches(String prefix, int k) {
     // maintain pq of size k
     PriorityQueue<Term> pq = new PriorityQueue<Term>(k, new Term.WeightOrder());
-    for (Term t : _terms) {
+    for (Term t : myTerms) {
       if(!t.getWord().startsWith(prefix)) continue;
       if (pq.size() < k) {
         pq.add(t);
@@ -42,7 +42,7 @@ public class BruteAutocomplete implements Autocompletor {
   public String topMatch(String prefix) {
     String maxTerm = "";
     double maxWeight = -1;
-    for (Term t : _terms) {
+    for (Term t : myTerms) {
       if (t.getWeight() > maxWeight && t.getWord().startsWith(prefix)) {
         maxTerm = t.getWord();
       }
