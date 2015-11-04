@@ -16,12 +16,12 @@ public class PercolationStats {
 
 	public static void main(String[] args) {
 		int N, T;
-		if (args.length == 2) { // use command-line arguments for testing/grading
+		if (args.length == 2) { // use command-line arguments for
+								// testing/grading
 			N = Integer.parseInt(args[0]);
 			T = Integer.parseInt(args[1]);
 		} else {
-			String input = JOptionPane.showInputDialog("Enter N and T",
-					"20 100");
+			String input = JOptionPane.showInputDialog("Enter N and T", "20 100");
 			// TODO: parse N and T from input
 		}
 

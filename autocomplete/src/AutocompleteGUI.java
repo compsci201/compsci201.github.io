@@ -23,6 +23,8 @@
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URI;
@@ -110,31 +112,40 @@ public class AutocompleteGUI extends JFrame {
       super();
 
       // read in the data
-      In in = new In(filename);
-      int N = Integer.parseInt(in.readLine());
-      String[] terms = new String[N];
-      double[] weights = new double[N];
-      casingMap = new HashMap<String, String>();
-      for (int i = 0; i < N; i++) {
-        String line = in.readLine();
-        int tab = line.indexOf('\t');
-        weights[i] = Double.parseDouble(line.substring(0, tab).trim());
-        casingMap.put(line.substring(tab + 1).toLowerCase(),
-        		line.substring(tab + 1));
-        terms[i] = line.substring(tab + 1).toLowerCase();
-      }
+      Scanner in;
+	try {
+		in = new Scanner(new File(filename));
+	      int N = Integer.parseInt(in.nextLine());
+	      String[] terms = new String[N];
+	      double[] weights = new double[N];
+	      casingMap = new HashMap<String, String>();
+	      for (int i = 0; i < N; i++) {
+	        String line = in.nextLine();
+	        int tab = line.indexOf('\t');
+	        weights[i] = Double.parseDouble(line.substring(0, tab).trim());
+	        casingMap.put(line.substring(tab + 1).toLowerCase(),
+	        		line.substring(tab + 1));
+	        terms[i] = line.substring(tab + 1).toLowerCase();
+	        // create the autocomplete object
+	        try {
+	          auto =
+	              (Autocompletor) Class.forName(autocompletorClassName)
+	                  .getDeclaredConstructor(String[].class, double[].class).newInstance(terms, weights);
+	        } catch (InstantiationException | IllegalAccessException | ClassNotFoundException
+	            | IllegalArgumentException | InvocationTargetException | NoSuchMethodException
+	            | SecurityException e1) {
+	          e1.printStackTrace();
+	          System.exit(1);
+	        }
 
-      // create the autocomplete object
-      try {
-        auto =
-            (Autocompletor) Class.forName(autocompletorClassName)
-                .getDeclaredConstructor(String[].class, double[].class).newInstance(terms, weights);
-      } catch (InstantiationException | IllegalAccessException | ClassNotFoundException
-          | IllegalArgumentException | InvocationTargetException | NoSuchMethodException
-          | SecurityException e1) {
-        e1.printStackTrace();
-        System.exit(1);
-      }
+	      }
+
+	} catch (FileNotFoundException e2) {
+		System.out.println("Cannot read file "+ filename);
+		   System.exit(1);
+
+	}
+
       GroupLayout layout = new GroupLayout(this);
       this.setLayout(layout);
       searchText = new JTextField(DEF_COLUMNS);

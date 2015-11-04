@@ -51,7 +51,8 @@ public class BinarySearchAutocomplete implements Autocompletor {
 	 * as being equal. If no such index exists, return -1 instead.
 	 */
 	public static int firstIndexOf(Term[] a, Term key, Comparator<Term> comparator) {
-		//TODO: Implement this method
+		//TODO: Implement firstIndexOf
+		return -1;
 	}
 
 	/**The same as firstIndexOf, but instead finding the index of the
@@ -65,7 +66,8 @@ public class BinarySearchAutocomplete implements Autocompletor {
 	 * as being equal. If no such index exists, return -1 instead.
 	 */
 	public static int lastIndexOf(Term[] a, Term key, Comparator<Term> comparator) {
-		//TODO: Implement this method		
+		//TODO: Implement lastIndexOf	
+		return -1;
 	}
 
 	/**
@@ -88,7 +90,8 @@ public class BinarySearchAutocomplete implements Autocompletor {
 	 * @throws a NullPointerException if prefix is null
 	 */
 	public String[] topKMatches(String prefix, int k) {
-		//TODO: Implement this method
+		//TODO: Implement topKMatches
+		return null;
 	}
 
 	@Override
@@ -105,7 +108,8 @@ public class BinarySearchAutocomplete implements Autocompletor {
 	 * 
 	 */
 	public String topMatch(String prefix) {
-		//TODO: Implement this method
+		//TODO: Implement topMatch
+		return null;
 	}
 
 }

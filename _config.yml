@@ -15,3 +15,5 @@ assignments:
 - title: nbody 
 - title: markov
 - title: dna
+- title: percolation
+- title: autocomplete
