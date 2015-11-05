@@ -19,7 +19,7 @@ In	   this	   assignment	   you	   will	   you	   will	   experiment	   with	   
 Benchmark	    the	    given	    code	    in	    SimpleStrand.cutAndSplice().	    This	   can	   be	   done	   with	   the	   DNABenchMark	   class.	   Your	   report	   must	   show	   that	   this	   algorithm/code	   is	   O(N)	   where	   N	   is	   the	   size	   of	   the	   returned	   strand.	
 
    
-Test	   your	   benchmarking	   by	   running	   out	   of	   memory	   and	   then	   re-­?running	   the	   simulation	   with	   more	   memory.	   This	   will	   be	   in	   the	   report.	
+Test	   your	   benchmarking	   by	   running	   out	   of	   memory	   and	   then	   re-Â­?running	   the	   simulation	   with	   more	   memory.	   This	   will	   be	   in	   the	   report.	
 
    
 Design,	    code,	    and	    test	    LinkStrand	    that	    implements	    IDnaStrand	    (like	   SimpleStrand).	   It	   should	   pass	   the	   tests	   in	   TestStrand.	   
@@ -31,12 +31,12 @@ Design,	    code,	    and	    test	    LinkStrand	    that	    implements	    ID
 	   
 ### Introduction to DNA
 
-In this assignment, we will be simulating restriction enzyme cutting of a DNA strand using code. To understand the theory behind this process, it is recommended (but not required) to read  [this](/dna/theory.html).
+In this assignment, we will be simulating restriction enzyme cutting of a DNA strand using code. To understand the theory behind this process, it is recommended (but not required) to readÂ  [this](/dna/theory.html).
 
 We are modeling DNA strands using classes implementing the interface IDnaStrand. See [IDnaStrand.java](/dna/code/IDnaStrand.html)
 for more information on this interface. 
 
-You are given a naive implementation called SimpleStrand, which stores the DNA strand as a String. The first part of the assignment is to benchmark the given code in SimpleStrand without writing any new code. This can be done with the DNABenchmark class. Then, we’ll test the benchmarking by changing the amount of memory required.
+You are given a naive implementation called SimpleStrand, which stores the DNA strand as a String. The first part of the assignment is to benchmark the given code in SimpleStrand without writing any new code. This can be done with the DNABenchmark class. Then, weâ€™ll test the benchmarking by changing the amount of memory required.
 
 The main part of the project will be to implement LinkStrand, a more sophisticated version of a DNA strand that uses linked lists. This will include a nested node class as shown below: 
 
@@ -70,7 +70,7 @@ where mySize returns the number of nucleotides in the LinkStrand (do not confuse
 You can test correctness with the JUnit tests in TestStrand. You will also benchmark these implementations using the class DNABenchmark. We will then run more benchmarking experiments to show that our new version really is more efficient.
 Here is the code for cutAndSplice for SimpleStrand with comments. You must fully understand how this method works for SimpleStrand to be able to implement it for LinkStrand
 <img src = "img/cutAndSplice.png" alt="First and Last" style="width:400px;heigh:300px">
-The following classes should be considered <b>READ-ONLY! <\b> Please do NOT modify the following classes unless specified later:
+The following classes should be considered <b>READ-ONLY! </b> Please do NOT modify the following classes unless specified later:
 <li> SimpleStrand.java : Do not change this class at all.</li>
 <li> DNABenchmark.java : Only change it for benchmarking part 2. </li>
 <li> IDnaStrand.java : Please do not change this at all. </li>
@@ -84,9 +84,12 @@ The following classes should be considered <b>READ-ONLY! <\b> Please do NOT modi
 
 In this assignment you will experiment with different implementations of a simulated restriction enzyme cutting (or cleaving) a DNA molecule. Refer to the [background theory](/dna/theory.html) for more information. You will complete four tasks:
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> c2d1b9525a073278370f9ba1ef32b6e5ad7dce90
 >>>>>>> dbe963c3d6ab2052e339faa81e6360318113fb13
+=======
+>>>>>>> 0b8b557215b49ea466b88d98b41ed7136cc01242
 
 <ol>
 <li> Benchmark the given code in <code><a href="code/SimpleStrand.html">SimpleStrand</a>.cutAndSplice()</code>. This can be	done with the DNABenchMark class. Your report must show that this algorithm/code is O(N) where N is the	size of the returned strand.</li>

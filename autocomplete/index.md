@@ -25,8 +25,6 @@ You can also view/download the individual classes:
 
 [BruteAutocomplete.java](/autocomplete/code/BruteAutocomplete.html)
 
-[In.java](/autocomplete/code/In.html)
-
 [Node.java](/autocomplete/code/Node.html)
 
 [Term.java](/autocomplete/code/Term.html)
