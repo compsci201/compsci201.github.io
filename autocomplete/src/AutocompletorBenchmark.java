@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -8,7 +9,8 @@ import javax.swing.JFileChooser;
 public class AutocompletorBenchmark {
 
 	public static Random ourRandom = new Random(1234);
-
+	public static final String CHARSET = "UTF-8";
+	public static final Locale LOCALE = Locale.US;
 	public static Autocompletor getInstance(String[] words, double[] weights) {
 		return new BruteAutocomplete(words, weights);
 	}
@@ -34,7 +36,9 @@ public class AutocompletorBenchmark {
 					System.out.println("Could not open selected file.");
 					return null;
 				}
-				s = new Scanner(f);
+				s = new Scanner(f, CHARSET);
+				s.useLocale(LOCALE);
+				
 			} catch (IOException e) {
 				return null;
 			}
@@ -50,24 +54,7 @@ public class AutocompletorBenchmark {
 		return result;
 	}
 
-	public static File openFileFromDialog() {
-		File file = null;
-		System.out.println("Opening file dialog.");
-		JFileChooser openChooser = new JFileChooser(System.getProperties().getProperty("user.dir"));
-		int retval = openChooser.showOpenDialog(null);
-		if (retval == JFileChooser.APPROVE_OPTION) {
-			file = openChooser.getSelectedFile();
-			if (file.canRead()) {
-				System.out.println("Opening - " + file.getName() + ".");
-			} else {
-				System.out.println("Could not open selected file.");
-			}
-		} else
-			System.out.println("File open canceled.");
-		return file;
-	}
-
-	public static void main(String[] args) {
+		public static void main(String[] args) {
 		
 		Scanner in = null;
 		do {
