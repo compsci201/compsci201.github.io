@@ -31,7 +31,7 @@ Design,	    code,	    and	    test	    LinkStrand	    that	    implements	    ID
 	   
 ### Introduction to DNA
 
-In this assignment, we will be simulating restriction enzyme cutting of a DNA strand using code. To understand the theory behind this process, it is recommended (but not required) to read  [this](/dna/theory.html).
+In this assignment, we will be simulating restriction enzyme cutting of a DNA strand using code. To understand the theory behind this process, it is recommended (but not required) to read  [this](/dna/theory.html).
 
 We are modeling DNA strands using classes implementing the interface IDnaStrand. See [IDnaStrand.java](/dna/code/IDnaStrand.html)
 for more information on this interface. 
@@ -83,13 +83,6 @@ The following classes should be considered <b>READ-ONLY! </b> Please do NOT modi
 ### Assignment Overview
 
 In this assignment you will experiment with different implementations of a simulated restriction enzyme cutting (or cleaving) a DNA molecule. Refer to the [background theory](/dna/theory.html) for more information. You will complete four tasks:
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c2d1b9525a073278370f9ba1ef32b6e5ad7dce90
->>>>>>> dbe963c3d6ab2052e339faa81e6360318113fb13
-=======
->>>>>>> 0b8b557215b49ea466b88d98b41ed7136cc01242
 
 <ol>
 <li> Benchmark the given code in <code><a href="code/SimpleStrand.html">SimpleStrand</a>.cutAndSplice()</code>. This can be	done with the DNABenchMark class. Your report must show that this algorithm/code is O(N) where N is the	size of the returned strand.</li>
