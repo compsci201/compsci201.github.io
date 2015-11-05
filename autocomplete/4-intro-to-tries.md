@@ -12,19 +12,15 @@ A trie is simply a special version of a tree. In some trees, each node has a def
 
 So, while a node in a Java binary tree might be defined as 
 
-<pre><tt>
-public class Node{
+<pre><tt>public class Node{
     Node myLeft, myRight;
-}
-</tt></pre>
+}</tt></pre>
 
 A node in a Java trie might look like
 
-<code>
-public class Node{
-    Map<Character, Node> children;
-}
-</code>
+<pre><tt>public class Node {
+    Map&lt;Character, Node&gt; children;
+}</tt></pre>
 
 (Note that the <code><a href="code/Node.html">Node</a></code> class given to you has much more information than this)
 
@@ -32,18 +28,16 @@ The keys of the map will also correspond to some value. For example, for a trie 
 
 <img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Trie_example.svg/400px-Trie_example.svg.png">
 
->######From the [Wikipedia page on Tries](https://en.wikipedia.org/wiki/Trie)
+######From the <a href="https://en.wikipedia.org/wiki/Trie">Wikipedia article on Tries</a>
 
 The top node is the root. It has three children, and to get to these children we have to use the keys t, A, and i. The word each node represents is the concatenation of the keys of pointers you have to take from the root to get to that node. So, to get to "tea" from the root, we have to follow the root's t pointer, then the e pointer, then the a pointer. 
 
 More generally, to get to a node representing a word in the String str, given a root pointer we might use the following code loop:
 
-<pre><tt>
-<font color="#000000">    </font><font color="#000000">Node</font><font color="#000000"> curr </font><font color="#000000">=</font><font color="#000000"> root</font><font color="#000000">;</font>
+<pre><tt><font color="#000000">    </font><font color="#000000">Node</font><font color="#000000"> curr </font><font color="#000000">=</font><font color="#000000"> root</font><font color="#000000">;</font>
 <font color="#000000">    </font><b><font color="#7f0055">for</font></b><font color="#000000"> </font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> k </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">0</font><font color="#000000">;</font><font color="#000000"> k </font><font color="#000000">&lt;</font><font color="#000000"> str</font><font color="#000000">.</font><font color="#000000">length</font><font color="#000000">();</font><font color="#000000"> k</font><font color="#000000">++)</font><font color="#000000"> </font><font color="#000000">{</font>
 <font color="#000000">        </font><font color="#000000">curr </font><font color="#000000">=</font><font color="#000000"> curr</font><font color="#000000">.</font><font color="#000000">children</font><font color="#000000">.</font><font color="#000000">get</font><font color="#000000">(</font><font color="#000000"> str</font><font color="#000000">.</font><font color="#000000">charAt</font><font color="#000000">(</font><font color="#000000">k</font><font color="#000000">)<font color="#000000">);</font>
-<font color="#000000">    </font><font color="#000000">}</font>
-</tt></pre>
+<font color="#000000">    </font><font color="#000000">}</font></tt></pre>
 
 ###Trie Functionality And Utility
 
@@ -55,8 +49,7 @@ In creating a trie, we will of course have to add values to it. Adding a value t
 <font color="#000000">                curr</font><font color="#000000">.</font><font color="#000000">children</font><font color="#000000">.</font><font color="#000000">put</font><font color="#000000">(</font><font color="#000000">str</font><font color="#000000">.</font><font color="#000000">charAt</font><font color="#000000">(</font><font color="#000000">i</font><font color="#000000">),</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">Node</font><font color="#000000">());</font>
 <font color="#000000">            </font><font color="#000000">}</font>
 <font color="#000000">            curr </font><font color="#000000">=</font><font color="#000000"> curr</font><font color="#000000">.</font><font color="#000000">children</font><font color="#000000">.</font><font color="#000000">get</font><font color="#000000">(</font><font color="#000000">str</font><font color="#000000">.</font><font color="#000000">charAt</font><font color="#000000">(</font><font color="#000000">i</font><font color="#000000">));</font>
-<font color="#000000">        </font><font color="#000000">}</font>
-</tt></pre>
+<font color="#000000">        </font><font color="#000000">}</font></tt></pre>
 
 (Again, please note that the Node class given to you is more detailed and this code alone is not a solution to this assignment)
 
