@@ -52,13 +52,13 @@ In this assignment, you will:
 <li> Complete a datatype <code><a href="code/Term.html">Term</a></code> that represents an autocomplete
 term: a query string and an associated real weight.
 <li> Write a class, <code><a
-href="code/BinarySearchAutoComplete.html">BinarySearchAutoComplete</a></code>
+href="code/BinarySearchAutocomplete.html">BinarySearchAutocomplete</a></code>
 that impletements autocomplete
 functionality  by using <em>binary search</em>
 to find the all query strings that start with a given prefix; and sort the
 matching terms in descending order by weight. 
 <li> Write a class, <code><a
-href="code/TrieAutoComplete.html">TrieAutoComplete</a></code> to implement
+href="code/TrieAutocomplete.html">TrieAutocomplete</a></code> to implement
 Autcocomplete functionality using a Trie data structure.
 </ol>
 
