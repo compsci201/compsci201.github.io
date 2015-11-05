@@ -15,7 +15,8 @@ Most of the code in this assignment comes from discussion in the text and supple
 <li> API documentation for <a href="http://introcs.cs.princeton.edu/java/stdlib/javadoc/StdDraw.html">princeton.StdDraw</a>
 
 <li> Optional: If you'd like to understand the theory behind the complexity of union-find operations in detail, read <a href="http://www.cs.princeton.edu/courses/archive/fall10/cos226/precepts/15UnionFind-Tarjan.pdf">these notes from Robert Tarjan</a>
-</ul>
+>>>>>>> development
+
 
 ####What should stddev() return if T equals 1? 
 

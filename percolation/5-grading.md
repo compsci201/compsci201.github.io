@@ -3,6 +3,7 @@ layout: page
 title: "Grading Criteria"
 assignment: "percolation"
 ---
+<h2>Automated Tests</h2>
 
 For transparency's sake, below is a list of aspects of your code the automated tests will check. Your code will still be checked by a TA, and passing all these tests does not guarantee a perfect grade. <b> Make sure you follow the conventions for <tt>isOpen</tt> and <tt>isFull</tt> in PercolationDFS and PercolationUF outlined in this writeup. We test your IPercolate implementations by seeing if they produce the same grid ours do, so if yours differ from ours you will fail many tests. </b> 
 
@@ -23,13 +24,13 @@ For transparency's sake, below is a list of aspects of your code the automated t
 
 In addition to the automated tests, we will 
 <ul>
-<li> time your IPercolate implementations, 
+<li> time your IPercolate implementations,</li> 
 <li> test whether your PercolationVisualizer draws the grid correctly for
-both implementations, and  
-<li> run your PercolationStats to see if it produces the correct results
+both implementations, and  </li>
+<li> run your PercolationStats to see if it produces the correct results.</li>
 </ul>
 
-## Grading
+<h2>Grading Breakdown</h2>
 This assignment is worth 40 points. 
 
 <ul>
