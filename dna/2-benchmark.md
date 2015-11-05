@@ -4,10 +4,7 @@ title: "Benchmarking Part 1"
 assignment: "dna"
 ---
 <p>Let's see how well our SimpleStrand runs.</p>
-<<<<<<< HEAD
-=======
 
->>>>>>> dbe963c3d6ab2052e339faa81e6360318113fb13
 <p>After snarfing the code, examine SimpleStrand's <code>cutAndSplice</code> method. The cutAndSplice method finds all occurrences of a restriction enzyme like “gaattc” and splices in a new strand of DNA, represented by parameter <code>splicee</code> to create a recombinant strand. The strand <code>splicee</code> replaces the enzyme. In the simulation the enzyme is removed each time it occurs/finds a binding site. The characters representing the enzyme are replaced by <code>splicee</code>. (This simulates the process of splitting the original DNA by the restriction enzyme, leaving sticky/blunt ends, and binding the new DNA to the split site. However, in the simulation the restriction enzyme is removed.) </p>
 <p>The simulate DNA, which is represented by the instance variable <code>myInfo</code>, is the target of a sequence of calls to <code>indexOf</code> that repeatedly searches for the next occurrence of the string parameter enzyme. As a special case, if the restriction enzyme is NOT found an empty strand is returned. In all cases the original strand is unchanged.</p>
 <p>The code in the class <code>DNABenchmark</code> can be used to benchmark the <code>cutAndSplice</code> method. When you run it, you can select a text file that contains a DNA strand. You are given <code>ecolimed.dat</code> (a smaller strand) and <code>ecoli.dat</code> (a larger one).</p>
