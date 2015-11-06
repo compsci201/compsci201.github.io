@@ -31,7 +31,7 @@ Design,	    code,	    and	    test	    LinkStrand	    that	    implements	    ID
 	   
 ### Introduction to DNA
 
-In this assignment, we will be simulating restriction enzyme cutting of a DNA strand using code. To understand the theory behind this process, it is recommended (but not required) to read  [this](/dna/theory.html).
+In this assignment, we will be simulating restriction enzyme cutting of a DNA strand using code. To understand the theory behind this process, it is recommended (but not required) to read  [this](/dna/theory.html).
 
 We are modeling DNA strands using classes implementing the interface IDnaStrand. See [IDnaStrand.java](/dna/code/IDnaStrand.html)
 for more information on this interface. 
