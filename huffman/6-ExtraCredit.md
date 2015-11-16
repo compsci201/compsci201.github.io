@@ -68,11 +68,11 @@ Next up is the Move-To-Front transformation.  The hardest part about the Move-To
 
 You're going to use the compress method that you already wrote for `HuffProcessor` so you need to create the input/output streams for the parameters.  The `BitOutputStream` should be the same as the one given as a parameter, so just pass that one along.  However, you do need a new `BitInputStream`.  Fortunately this is fairly simple.  You should use the following code:
 
-	```
-		BitInputStream temp = new BitInputStream(new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
+		byte[] source = output.toByteArray();
+		ByteArrayInputStream stream = new ByteArrayInputStream(source);
+		BitInputStream temp = new BitInputStream(stream);
 		new HuffProcessor().compress(temp, out);
 		temp.close();
-	```
 
 This will compress the `String` that you just created the same way the `HuffProcessor` compresses a normal file.  You have now completed compress.  You can try running it to make sure that it works, but until you finish decompress it's unlikely you will be able to draw any conclusive results.
 
@@ -81,7 +81,6 @@ In order to receive the extra credit for Burrows-Wheeler, you must also be able 
 
 Similar to compression, you need a while loop which will continue to read bits until there aren't any left since you don't know how many blocks make up the compressed file.  Inside the while loop, the first thing you need to do for each block is read the 32 bits you wrote that tell you which index in the table the original `String` is located; you'll need this later.  Next, undo the Huffman compression.  You can do this using the following code.
 
-	```
 		ByteArrayOutputStream storage = new ByteArrayOutputStream();
 		BitOutputStream temp = new BitOutputStream(storage);
 		new HuffProcessor().decompress(in, temp);
@@ -91,7 +90,6 @@ Similar to compression, you need a while loop which will continue to read bits u
 			block += (char) b;
 		}
 		temp.close();
-	```
 
 You can use the same input stream since the decompression algorithm you already wrote will automatically stop at the pseudo-EOF.  Since the output of this decompress operation is an unprocessed `String` however, you don't want to output it immediately to final output file, hence the creation of a temporary `byte[]` and a new `BitOutputStream`.  Now you need to undo the Move-To-Front transformation.  You will manipulate the alphabet in the same way as the compress algorithm; every time you use a character, move it to the front.  The only difference is that instead of searching for the character and recording the index, you will go to the index and record the character for decompress.</p>
 
