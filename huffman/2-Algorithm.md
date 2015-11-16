@@ -50,7 +50,6 @@ As you can see, by trading 1 bit from the more frequent characters to the less f
 | e                  | 0110          |
 | r                  | 0111          |
 | s                  | 000           |
-|`                  `|`             `|
 
 The important thing about binary trees for Huffman coding is the *prefix property*.  When every internal-node contains exactly two children, each leaf-node contains a character, and the code generation conventions outlined above are followed, two related properties are fulfilled.
 
