@@ -23,5 +23,5 @@ First, you need to write the `HUFF_NUMBER`.  Writing bits is done by calling `wr
 `0 0 0 1 --S-- 1 --_-- 0 0 1 --P-- 1 --H-- 0 1 --E-- 1 --R-- 0 1 --G-- 1 --O--`
 The space are added for readability, and the --x--s correspond to the 9-bit version of the ASCII codes for each character.
 
-##Writing the Body</h4>
+##Writing the Body
 You're nearly done with compression; all that's left is writing the encoded body of the file.  Similar to when you first read the file while counting character frequencies, you need to read `BITS_PER_WORD` bits at a time to isolate each character.  For each character, use your `Map` or `array` to obtain the Huffman code.  You will call `writeBits()` again, using the length of the `String` as the first parameter (or the value from the secondary `Map`/`array` holding the length if you made that choice) and the `int` value of the `String` as the second parameter.  You can use `Integer.parseInt(String value, int radix)` to do this.  The `String` value you obtain from the `Map`/`array` and the radix should be 2 since the number represented by the `String` is in binary.  Once you have written out every character from the original file, make one last `writeBits()` call using the `PSEUDO_EOF` entry in your `Map` or `array` to complete the compression process.
