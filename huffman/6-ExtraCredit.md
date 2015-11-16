@@ -20,39 +20,39 @@ Next, you take the output of the Burrows-Wheeler transformation and apply a Move
 
 Let's walk through the whole process with "go go gophers".  First apply the Burrows-Wheeler transformation.
 
-| Original      | Rotations      | Sorted         | Output        |
-|---------------|----------------|----------------|---------------|
-|               | go go gophers  | _ go gophersgo |               |
-|               | o go gophersg  | _ gophersgo go |               |
-|               | _ go gophersgo | ersgo go goph  |               |
-|               | go gophersgo_  | go go gophers  |               |
-|               | o gophersgo g  | go gophersgo_  |               |
-|               | _ gophersgo go | gophersgo go_  |               |
-| go go gophers | gophersgo go_  | hersgo go gop  | oohs  pgggoer |
-|               | ophersgo go g  | o go gophersg  |               |
-|               | phersgo go go  | o gophersgo g  |               |
-|               | hersgo go gop  | ophersgo go g  |               |
-|               | ersgo go goph  | phersgo go go  |               |
-|               | rsgo go gophe  | rsgo go gophe  |               |
-|               | sgo go gopher  | sgo go gopher  |               |
+| Original         | Rotations         | Sorted            | Output           |
+|:----------------:|:-----------------:|:-----------------:|:----------------:|
+|                  | go go gophers     | _ go gophersgo    |                  |
+|                  | o go gophersg     | _ gophersgo go    |                  |
+|                  | _go gophersgo     | ersgo go goph     |                  |
+|                  | go gophersgo_     | go go gophers     |                  |
+|                  | o gophersgo g     | go gophersgo_     |                  |
+|                  | _ gophersgo go    | gophersgo go_     |                  |
+| go go gophers    | gophersgo go_     | hersgo go gop     | oohs  pgggoer    |
+|                  | ophersgo go g     | o go gophersg     |                  |
+|                  | phersgo go go     | o gophersgo g     |                  |
+|                  | hersgo go gop     | ophersgo go g     |                  |
+|                  | ersgo go goph     | phersgo go go     |                  |
+|                  | rsgo go gophe     | rsgo go gophe     |                  |
+|                  | sgo go gopher     | sgo go gopher     |                  |
 
 Now we apply the Move-toFront transformation.
 
-| Input | Alphabet                    | Output  |
-|-------|-----------------------------|---------|
-| o     | abcdefghijklmnopqrstuvwxyz_ | 14 -> o |
-| o     | oabcdefghijklmnpqrstuvwxyz_ | 0  -> a |
-| h     | oabcdefghijklmnpqrstuvwxyz_ | 8  -> i |
-| s     | hoabcdefgijklmnpqrstuvwxyz_ | 18 -> s |
-| _     | shoabcdefgijklmnpqrtuvwxyz_ | 26 -> _ |
-| _     | _shoabcdefgijklmnpqrtuvwxyz | 0  -> a |
-| p     | _shoabcdefgijklmnpqrtuvwxyz | 17 -> r |
-| g     | p_shoabcdefgijklmnqrtuvwxyz | 11 -> l |
-| g     | gp_shoabcdefijklmnqrtuvwxyz | 0  -> a |
-| g     | gp_shoabcdefijklmnqrtuvwxyz | 0  -> a |
-| o     | gp_shoabcdefijklmnqrtuvwxyz | 5  -> f |
-| e     | ogp_shabcdefijklmnqrtuvwxyz | 10 -> k |
-| r     | eogp_shabcdfijklmnqrtuvwxyz | 19 -> t |
+| Input    | Alphabet                       | Output     |
+|:--------:|:------------------------------:|:----------:|
+| o        | abcdefghijklmnopqrstuvwxyz_    | 14 -> o    |
+| o        | oabcdefghijklmnpqrstuvwxyz_    | 0  -> a    |
+| h        | oabcdefghijklmnpqrstuvwxyz_    | 8  -> i    |
+| s        | hoabcdefgijklmnpqrstuvwxyz_    | 18 -> s    |
+| _        | shoabcdefgijklmnpqrtuvwxyz_    | 26 -> _    |
+| _        | _shoabcdefgijklmnpqrtuvwxyz    | 0  -> a    |
+| p        | _shoabcdefgijklmnpqrtuvwxyz    | 17 -> r    |
+| g        | p_shoabcdefgijklmnqrtuvwxyz    | 11 -> l    |
+| g        | gp_shoabcdefijklmnqrtuvwxyz    | 0  -> a    |
+| g        | gp_shoabcdefijklmnqrtuvwxyz    | 0  -> a    |
+| o        | gp_shoabcdefijklmnqrtuvwxyz    | 5  -> f    |
+| e        | ogp_shabcdefijklmnqrtuvwxyz    | 10 -> k    |
+| r        | eogp_shabcdfijklmnqrtuvwxyz    | 19 -> t    |
 
 Now you're ready to try to implement Burrows-Wheeler with code.  Create a new class called `BWTProcessor` which implements `HuffProcessor`.  Just like regular Huffman compression, before you do anything else you need to write out a `Huff_NUMBER` which tells decompress that it is able to process the following bits.  You don't want to use the same `HUFF_NUMBER` as `HuffProcessor` however.  By using a different `HUFF_NUMBER`, the two different implementations will be easily discernable from the file alone so that the right decompressor is used on each file.  Add the line `public static final int BWT_NUMBER = HUFF_NUMBER | 2;` in `Processor` right beneath the line where `HUFF_NUMBER` is declared.  Return to `BWTProcessor` and write the `BWT_NUMBER` to the file using the provided `BitOutputStream` just like you did for regular compression.
 
@@ -97,43 +97,43 @@ You can use the same input stream since the decompression algorithm you already 
 
 The only challenging part of Burrows-Wheeler remaining is undoing the Burrows-Wheeler transformation.  Since the actual algorithm is entirely unintuitive, first consider an example before implementing the algorithm with code.  The goal of this algorithm is to undo the Burrows-Wheeler transformation by recreating the table without ever creating a physical manifestation of the table in code.  You won't have to worry about the table at all once you move on to implementation, but for now imagine what the table might look like/pretend that you do indeed have the table ahead of time.  For this example, use the simple `String` "banana" as the source.  The table should look something like the following.
 
-| Original | Rotations | Sorted | Output |
-|----------|-----------|--------|--------|
-|          | banana    | abanan |        |
-|          | ananab    | anaban |        |
-| banana   | nanaba    | ananab | nnbaaa |
-|          | anaban    | banana |        |
-|          | nabana    | nabana |        |
-|          | abanan    | nanaba |        |
+| Original    | Rotations    | Sorted    | Output    |
+|:-----------:|:------------:|:---------:|:---------:|
+|             | banana       | abanan    |           |
+|             | ananab       | anaban    |           |
+| banana      | nanaba       | ananab    | nnbaaa    |
+|             | anaban       | banana    |           |
+|             | nabana       | nabana    |           |
+|             | abanan       | nanaba    |           |
 
 Take note that the original input is at index 3.  Using only index 3 and the output, you can easily deduce that the last letter of the input must be the 3rd (0 based) letter in the key nnbaaa.  Thus, so far you know that the input looks something like -----a based on the length of the `String` and the index of the original `String` in the table.  The next step is to identify the second to last character.  Hopefully, you can quickly agree that the corresponding table entry for the next to last letter begins with the last letter (based on rotations).  This substantially narrows our search to just the first three entries.  Furthermore, since the characters are alphabetically sorted, the choices will always be consecutive entries.  By parsing the key ahead of time, you can also calculate the number of letters in the `String` that lexigraphically come before each character in the `String`.  Because of this, you can index directly to the first potential entry in the group of possible (and consecutive) entries.  In this case, since 'a' occurs before 'b' and 'n', the first possible entry is the 0th one.  The next step is non-trivial and confusing; please take time to assure yourself of its actuality.  Because of the combination of rotations and sorting, the order in which a's appear in the last column is the same order as the first column.  Look at the characters around the a's first to establish that it is true in this case first.  Now, this fact must be true since the sorted order of the entries that begin with 'a' depend on the characters directly following the specific 'a' all the way to the end of the `String`.  Once rotated, the same sequence of characters is now at the beginning of the `String`.  Since the a's do not affect the sorted order either at the beginning or the end, the order is based solely on the other characters which are the same in both cases.  Thus, for each like character, the order in which the instances of the character occur in the last column exactly matches the order of the first column.  Again, by pre-processing the key to compile the number of like characters that occur before each character, you can access this information as you loop through the `String`.  The combination of the two numbers you found exactly indexes the table entry which is rotated one character to the right.  You know the final character of this entry from the key and also that it must be the next to last character.  Using the same information with the new character, you can find the third to last character and so on, until you complete the entire original `String`.  Here is an entire walk through of "banana" in case you're still wary.
 
 Table A:
-| Character | Like Chars Before |
-|-----------|------------------:|
-| n         | 0                 |
-| n         | 1                 |
-| b         | 0                 |
-| a         | 0                 |
-| a         | 1                 |
-| a         | 2                 |
+| Character    | Like Chars Before    |
+|:------------:| --------------------:|
+| n            | 0                    |
+| n            | 1                    |
+| b            | 0                    |
+| a            | 0                    |
+| a            | 1                    |
+| a            | 2                    |
 
 Table B:
-| Character | Any Chars Before |
-|-----------|-----------------:|
-| a         | 0                |
-| b         | 3                |
-| n         | 4                |
+| Character    | Any Chars Before    |
+|:------------:| -------------------:|
+| a            | 0                   |
+| b            | 3                   |
+| n            | 4                   |
 
 key: nnbaaa
-| Current String | Table A | Table B | Next Index | Next Char |
-|----------------|--------:|--------:|-----------:|-----------|
-| -----a         | 0       | 0       | 0          | n         |
-| ----na         | 0       | 4       | 4          | a         |
-| ---ana         | 1       | 0       | 1          | n         |
-| --nana         | 1       | 4       | 5          | a         |
-| -anana         | 2       | 0       | 2          | b         |
-| banana         |         |         |            |           |
+| Current String    | Table A    | Table B    | Next Index    | Next Char    |
+|:-----------------:| ----------:| ----------:| -------------:|:------------:|
+| -----a            | 0          | 0          | 0             | n            |
+| ----na            | 0          | 4          | 4             | a            |
+| ---ana            | 1          | 0          | 1             | n            |
+| --nana            | 1          | 4          | 5             | a            |
+| -anana            | 2          | 0          | 2             | b            |
+| banana            |            |            |               |              |
 
 Remember that the first character comes from the index you stored in the compressed file.  There are two steps to implementing this algorithm: pre-processing and reconstructing.  Within pre-processing there are two steps.  The first is to loop through each character in the `String` and determine how many like characters have occurred before the current character so far.  Use a `Map` of `Character`s to `Integer`s to keep track of the counts of each character.  At each index in the `String`, record a value in an `int[]` equal to the number of the same character that have already occurred, a value which you get from the `Map`.  Be sure to update the `Map` with the new addition.  This gives you the first of two tables that you need for reconstructing.  Because you recorded the frequency of each character with a `Map` for the first table, constructing the second table should be particularly easy.  Simple set up an `int` to store the accumulated frequencies as you go and loop through each entry in the `Map`.  For each key value pair in the `Map`, put a new entry in a separate `Map` with the character as a key and the accumulated frequency as a value.  Be sure to increment the accumulated frequency by the value of the first `Map` before moving on.</p>
 
