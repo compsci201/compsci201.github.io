@@ -68,7 +68,7 @@ Next up is the Move-To-Front transformation.  The hardest part about the Move-To
 
 You're going to use the compress method that you already wrote for `HuffProcessor` so you need to create the input/output streams for the parameters.  The `BitOutputStream` should be the same as the one given as a parameter, so just pass that one along.  However, you do need a new `BitInputStream`.  Fortunately this is fairly simple.  You should use the following code:
 
-```java
+```
 BitInputStream temp = new BitInputStream(new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
 new HuffProcessor().compress(temp, out);
 temp.close();
@@ -81,7 +81,7 @@ In order to receive the extra credit for Burrows-Wheeler, you must also be able 
 
 Similar to compression, you need a while loop which will continue to read bits until there aren't any left since you don't know how many blocks make up the compressed file.  Inside the while loop, the first thing you need to do for each block is read the 32 bits you wrote that tell you which index in the table the original `String` is located; you'll need this later.  Next, undo the Huffman compression.  You can do this using the following code.
 
-```java
+```
 ByteArrayOutputStream storage = new ByteArrayOutputStream();
 BitOutputStream temp = new BitOutputStream(storage);
 new HuffProcessor().decompress(in, temp);
@@ -111,7 +111,7 @@ Take note that the original input is at index 3.  Using only index 3 and the out
 Table A:
 
 | Character    | Like Chars Before    |
-|:------------:| --------------------:|
+|:------------:|:--------------------:|
 | n            | 0                    |
 | n            | 1                    |
 | b            | 0                    |
@@ -122,7 +122,7 @@ Table A:
 Table B:
 
 | Character    | Any Chars Before    |
-|:------------:| -------------------:|
+|:------------:|:-------------------:|
 | a            | 0                   |
 | b            | 3                   |
 | n            | 4                   |
@@ -130,7 +130,7 @@ Table B:
 key: nnbaaa
 
 | Current String    | Table A    | Table B    | Next Index    | Next Char    |
-|:-----------------:| ----------:| ----------:| -------------:|:------------:|
+|:-----------------:|:----------:|:----------:|:-------------:|:------------:|
 | -----a            | 0          | 0          | 0             | n            |
 | ----na            | 0          | 4          | 4             | a            |
 | ---ana            | 1          | 0          | 1             | n            |
