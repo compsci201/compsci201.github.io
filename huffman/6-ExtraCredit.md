@@ -109,6 +109,7 @@ The only challenging part of Burrows-Wheeler remaining is undoing the Burrows-Wh
 Take note that the original input is at index 3.  Using only index 3 and the output, you can easily deduce that the last letter of the input must be the 3rd (0 based) letter in the key nnbaaa.  Thus, so far you know that the input looks something like -----a based on the length of the `String` and the index of the original `String` in the table.  The next step is to identify the second to last character.  Hopefully, you can quickly agree that the corresponding table entry for the next to last letter begins with the last letter (based on rotations).  This substantially narrows our search to just the first three entries.  Furthermore, since the characters are alphabetically sorted, the choices will always be consecutive entries.  By parsing the key ahead of time, you can also calculate the number of letters in the `String` that lexigraphically come before each character in the `String`.  Because of this, you can index directly to the first potential entry in the group of possible (and consecutive) entries.  In this case, since 'a' occurs before 'b' and 'n', the first possible entry is the 0th one.  The next step is non-trivial and confusing; please take time to assure yourself of its actuality.  Because of the combination of rotations and sorting, the order in which a's appear in the last column is the same order as the first column.  Look at the characters around the a's first to establish that it is true in this case first.  Now, this fact must be true since the sorted order of the entries that begin with 'a' depend on the characters directly following the specific 'a' all the way to the end of the `String`.  Once rotated, the same sequence of characters is now at the beginning of the `String`.  Since the a's do not affect the sorted order either at the beginning or the end, the order is based solely on the other characters which are the same in both cases.  Thus, for each like character, the order in which the instances of the character occur in the last column exactly matches the order of the first column.  Again, by pre-processing the key to compile the number of like characters that occur before each character, you can access this information as you loop through the `String`.  The combination of the two numbers you found exactly indexes the table entry which is rotated one character to the right.  You know the final character of this entry from the key and also that it must be the next to last character.  Using the same information with the new character, you can find the third to last character and so on, until you complete the entire original `String`.  Here is an entire walk through of "banana" in case you're still wary.
 
 Table A:
+
 | Character    | Like Chars Before    |
 |:------------:| --------------------:|
 | n            | 0                    |
@@ -119,6 +120,7 @@ Table A:
 | a            | 2                    |
 
 Table B:
+
 | Character    | Any Chars Before    |
 |:------------:| -------------------:|
 | a            | 0                   |
@@ -126,6 +128,7 @@ Table B:
 | n            | 4                   |
 
 key: nnbaaa
+
 | Current String    | Table A    | Table B    | Next Index    | Next Char    |
 |:-----------------:| ----------:| ----------:| -------------:|:------------:|
 | -----a            | 0          | 0          | 0             | n            |
