@@ -52,6 +52,6 @@ One may notice that topMatch is simply a special case of topKMatches where k = 1
 ###After BinarySearchAutocomplete Is Written
 
 You can test BinarySearchAutocomplete similar to how you tested Term - set <code>AUTOCOMPLETOR_CLASS_NAME</code> to <code>BINARY_SEARCH_AUTOCOMPLETE</code> from AutocompleteMain, and run it using words-333333.txt as the source and "auto" as the query. The results
-should be the same as the ones shown on the [previous page](/autocomplete/2-term-java.html). In general, <code><a href="code/BruteAutocomplete.html">BruteAutocomplete</a></code> and <code><ahref="code/BinarySearchAutocomplete.html">BinarySearchAutocomplete</a></code> (and <code><a href="code/TrieAutocomplete.html">TrieAutocomplete</a></code>) should always produce the same output for <code>topMatch</code> and <code>topKMatches</code>.
+should be the same as the ones shown on the [previous page](/autocomplete/2-term-java.html). In general, <code><a href="code/BruteAutocomplete.html">BruteAutocomplete</a></code> and <code><a href="code/BinarySearchAutocomplete.html">BinarySearchAutocomplete</a></code> (and <code><a href="code/TrieAutocomplete.html">TrieAutocomplete</a></code>) should always produce the same output for <code>topMatch</code> and <code>topKMatches</code>.
 
 Keep in mind that if your BruteAutocomplete works but BinarySearchAutocomplete does not, it may be a problem with Term instead of with BinarySearchAutocomplete - BruteAutocomplete only uses Term.WeightOrder, whereas BinarySearchAutocomplete could potentially use all of Term's Comparable/Comparators.
