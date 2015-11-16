@@ -2,29 +2,21 @@
 layout: page
 title: "Huffman"
 assignment: "huffman"
-
 ---
 
+Welcome to Huffman coding, your final programming assignment of the semester.  Your task for this programming assignment will be to implement a fully functional Huffman coding suite equipped with methods to both compress and decompress files.  Additionally for extra credit, you may opt to additionally implement the Burrows-Wheeler/Move-To-Front transformations which substantially increases the effectiveness of the Huffman Algorithm.  This assignment specification/guide should be sufficient to walk you through both Huffman coding and Burrows-Wheeler step-by-step.  However, if you run into any difficulties or are having trouble understanding exactly how Huffman coding works, then feel free to check out the [Wikipedia article](https://en.wikipedia.org/wiki/Huffman_coding) on Huffman coding, or, as always, the teaching staff will be available both at helper hours and on piazza to assist you as well.
 
-Welcome to Huffman, your final programming assignment. It will be imperative that you have an understanding of the concepts before you code. READ THE ENTIRE ASSIGNMENT BEFORE YOU START TO CODE. Create helper methods to reduce reduncy in code. 
+To begin, you'll need the user interface code available through snarf or below; you should have these files.
 
-We cannot stress enough how important it is to develop your program a few steps at a time. At each step, you should have a functioning program, although it may not do everything the first time it's run. By developing in stages, you may find it easier to isolate bugs and you will be more likely to get a program working faster. In other words, do not write hundreds of lines of code before compiling and testing
+- [BitInputStream.java](https://cs.duke.edu/courses/compsci201/fall15/snarf/huffman/BitInputStream.java) - Reads bits from file system
+- [BitOutputStream.java](https://cs.duke.edu/courses/compsci201/fall15/snarf/huffman/BitOutputStream.java) - Writes bits to file system
+- [HuffException.java](https://cs.duke.edu/courses/compsci201/fall15/snarf/huffman/HuffException.java) - Flags errors specific to the Huffman algorithm
+- [HuffNode.java](https://cs.duke.edu/courses/compsci201/fall15/snarf/huffman/HuffNode.java) - Used for building Huffman trees
+- [HuffMain.java](https://cs.duke.edu/courses/compsci201/fall15/snarf/huffman/HuffMain.java) - Launches the user interface
+- [HuffViewer.java](https://cs.duke.edu/courses/compsci201/fall15/snarf/huffman/HuffViewer.java) - Contains the user interface code
+- [Processor.java](https://cs.duke.edu/courses/compsci201/fall15/snarf/huffman/Processor.java) - Interface that all compression algorithms must implement (compress and decompress)
+- [TestHuff.java](https://cs.duke.edu/courses/compsci201/fall15/snarf/huffman/TestHuff.java) - Simple test cases
 
-Before we get started, we need the starting skeleton code. It's is available through Snarf (using [Ambient](https://www.cs.duke.edu/csed/ambient/)), as well as at [the course webpage](https://www.cs.duke.edu/courses/spring15/compsci201/snarf/).
+Additionally, you should have a [data](https://cs.duke.edu/courses/compsci201/fall15/snarf/huffman/data) folder which contains three standard compression corpi that are commonly used to test the effectiveness of compression algorithms.  Both the calgary and canterbury corpi offer a cash prize for every byte of improvement over the previous record, although unfortunately standard Huffman coding won't be quite enough to claim any sort of prize.  More importantly, you've also been given two text files (kjv10.txt and melville.txt) along with a binary file (lena.tif) as well as compressed versions of these files using our implementation of the Huffman algorithm.  You should use these files to test your own implementation by comparing your own compressed files to these either through the user interface or with `TestHuff`.  In order to receive full credit, you will need to be able to both compress the original files into an exact match of our compressed files and also decompress our compressed files into an exact match of the original files.  Remember that these criteria alone will not guarantee full credit, but merely suggest that you're on the right track.
 
-This is a partner project. When submitting, please only submit one project, but include both net-ids in your **README.txt**. Also submit your partner name  [on the google form](http://goo.gl/forms/rVVQ4VFn6k) so that we can automate transfer of your grades.
-
-##Background
-
-This coding assignment was developed in the mid 90s for use at Duke, and has many adoptions in similar courses elsewhere. [Huff-Old](http://www.cs.duke.edu/csed/poop/huff/info/) is a complete description of an older version of the assignment. It may be useful in understanding the assignment, as it provides detailed examples. 
-
-There are many techniques used to compress digital data. This assignment covers the Huffman coding algorithm. Several algorithms for data compression have been patented, e.g., to use the MP3 codec to compress audio (which uses Huffman encoding as one of the steps in the algorithm). 
-
-Huffman coding was invented by David Huffman while he was a graduate student at MIT in 1950 when given the option of a term paper or a final exam. For details see [this 1991 Scientific American Article](http://www.huffmancoding.com/my-uncle/scientific-american). 
-
-In this assignment you'll implement a complete program to compress and uncompress data using Huffman coding. Refer to notes from class, previous readings, and recitation to make sure you are familiar with Huffman encoding. 
-
-
-
-
-
+You only need to implement and submit a single file for Huffman: `HuffProcessor.java`.  It should implement `Processor`, and the rest of the assignment will be devoted to elaborating on how to fill in the two required methods to get full credit.  Please note that unlike some previous semesters this is NOT a partner project so please work alone and submit your own work.
