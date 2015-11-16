@@ -11,7 +11,7 @@ Entropy encoding algorithms work mainly by utilizing variable length codes combi
 Option A: use standard ASCII codes
 
 | Character          | Frequency          | Bits          | Total          |
-|:------------------:| ------------------:| -------------:| --------------:|
+|:------------------:|:------------------:|:-------------:|:--------------:|
 | g                  | 3                  | 8             | 24             |
 | o                  | 3                  | 8             | 24             |
 | _                  | 2                  | 8             | 16             |
@@ -25,7 +25,7 @@ Option A: use standard ASCII codes
 Option B: use alternative codes based on character frequencies
 
 | Character          | Frequency          | Bits          | Total          |
-|:------------------:| ------------------:| -------------:| --------------:|
+|:------------------:|:------------------:|:-------------:|:--------------:|
 | g                  | 3                  | 7             | 21             |
 | o                  | 3                  | 7             | 21             |
 | _                  | 2                  | 7             | 14             |
@@ -41,7 +41,7 @@ As you can see, by trading 1 bit from the more frequent characters to the less f
 ![](http://www.cs.duke.edu/csed/poop/huff/info/gohuff.jpg)
 
 | Character          | Code          |
-|:------------------:| -------------:|
+|:------------------:|:-------------:|
 | g                  | 10            |
 | o                  | 11            |
 | _                  | 001           |
