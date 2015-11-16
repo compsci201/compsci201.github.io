@@ -41,7 +41,7 @@ As you can see, by trading 1 bit from the more frequent characters to the less f
 ![](http://www.cs.duke.edu/csed/poop/huff/info/gohuff.jpg)
 
 | Character          | Code          |
-|:------------------:| -------------:|
+|:-------------------------------------------------:| -------------:|
 | g                  | 10            |
 | o                  | 11            |
 | _                  | 001           |
