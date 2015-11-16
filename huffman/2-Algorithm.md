@@ -9,21 +9,21 @@ Compression algorithms work by reformatting data to use fewer bits.  By default,
 Entropy encoding algorithms work mainly by utilizing variable length codes combined with character frequencies.  Characters that occur a lot get shorter codes while lesser used characters get longer codes.  In some cases, longer codes may even exceed the 8-bit length of the standard ASCII codes.  While this may seem counter-intuitive, it actually allows for more bits to be saved on higher frequency characters.  Consider the following using the `String` "go go gophers" as an example.
 
 Option A: use standard ASCII codes
-| Character | Frequency | Bits | Total |
-|-----------|----------:|-----:|------:|
-| g         | 3         | 8    | 24    |
-| o         | 3         | 8    | 24    |
-| _         | 2         | 8    | 16    |
-| p         | 1         | 8    | 8     |
-| h         | 1         | 8    | 8     |
-| e         | 1         | 8    | 8     |
-| r         | 1         | 8    | 8     |
-| s         | 1         | 8    | 8     |
-| Total     |           |      | 104   |
+| Character    | Frequency    | Bits   | Total |
+|--------------|--------------|--------|-------|
+| g            | 3            | 8      | 24    |
+| o            | 3            | 8      | 24    |
+| _            | 2            | 8      | 16    |
+| p            | 1            | 8      | 8     |
+| h            | 1            | 8      | 8     |
+| e            | 1            | 8      | 8     |
+| r            | 1            | 8      | 8     |
+| s            | 1            | 8      | 8     |
+| Total        |              |        | 104   |
 
 Option B: use alternative codes based on character frequencies
 | Character | Frequency | Bits | Total |
-|-----------|----------:|-----:|------:|
+|-----------|-----------|------|-------|
 | g         | 3         | 7    | 21    |
 | o         | 3         | 7    | 21    |
 | _         | 2         | 7    | 14    |
