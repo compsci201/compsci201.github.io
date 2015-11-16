@@ -10,46 +10,46 @@ Entropy encoding algorithms work mainly by utilizing variable length codes combi
 
 Option A: use standard ASCII codes
 
-| Character    | Frequency    | Bits    | Total    |
-|:------------:| ------------:| -------:| --------:|
-| g            | 3            | 8       | 24       |
-| o            | 3            | 8       | 24       |
-| _            | 2            | 8       | 16       |
-| p            | 1            | 8       | 8        |
-| h            | 1            | 8       | 8        |
-| e            | 1            | 8       | 8        |
-| r            | 1            | 8       | 8        |
-| s            | 1            | 8       | 8        |
-| Total        |              |         | 104      |
+| Character          | Frequency          | Bits          | Total          |
+|:------------------:| ------------------:| -------------:| --------------:|
+| g                  | 3                  | 8             | 24             |
+| o                  | 3                  | 8             | 24             |
+| _                  | 2                  | 8             | 16             |
+| p                  | 1                  | 8             | 8              |
+| h                  | 1                  | 8             | 8              |
+| e                  | 1                  | 8             | 8              |
+| r                  | 1                  | 8             | 8              |
+| s                  | 1                  | 8             | 8              |
+| Total              |                    |               | 104            |
 
 Option B: use alternative codes based on character frequencies
 
-| Character    | Frequency    | Bits    | Total    |
-|:------------:| ------------:| -------:| --------:|
-| g            | 3            | 7       | 21       |
-| o            | 3            | 7       | 21       |
-| _            | 2            | 7       | 14       |
-| p            | 1            | 8       | 8        |
-| h            | 1            | 8       | 8        |
-| e            | 1            | 9       | 9        |
-| r            | 1            | 9       | 9        |
-| s            | 1            | 9       | 9        |
-| Total        |              |         | 99       |
+| Character          | Frequency          | Bits          | Total          |
+|:------------------:| ------------------:| -------------:| --------------:|
+| g                  | 3                  | 7             | 21             |
+| o                  | 3                  | 7             | 21             |
+| _                  | 2                  | 7             | 14             |
+| p                  | 1                  | 8             | 8              |
+| h                  | 1                  | 8             | 8              |
+| e                  | 1                  | 9             | 9              |
+| r                  | 1                  | 9             | 9              |
+| s                  | 1                  | 9             | 9              |
+| Total              |                    |               | 99             |
 
 As you can see, by trading 1 bit from the more frequent characters to the less frequent characters, the alternative solution created some codes that were longer than 8 bits but still saved bits overall.  The goal of Huffman and other entropy encoding algorithms is to quickly generate these alternative codes in a predictable and guaranteed way.  As it turns out, binary trees turn out to be excellent data structures for storing characters and generating character codes.  Provided that every internal-node in the tree has two children, binary trees provide a perfect way to translate a sequence of binary digits into characters.  Each binary digit directs you how to traverse down the tree. A 0 indicates that the current node should be updated to the left sub-child while a 1 indicates the right sub-child.  Each leaf-node represents a character, and since each leaf-node has a unique path from the root-node, each character has a unique code.  This should remind you of tries; in fact Huffman trees are sometimes also referred to as Huffman tries.  Variable length codes are even really easy to construct using a binary tree, just imagine a really unbalanced tree (but remember that each internal node still always needs two children).  Here's a sample Huffman binary tree of "go go gophers" and the corresponding codes.
 
 ![](http://www.cs.duke.edu/csed/poop/huff/info/gohuff.jpg)
 
-| Character    | Code    |
-|:------------:| -------:|
-| g            | 10      |
-| o            | 11      |
-| _            | 001     |
-| p            | 0100    |
-| h            | 0101    |
-| e            | 0110    |
-| r            | 0111    |
-| s            | 000     |
+| Character          | Code          |
+|:------------------:| -------------:|
+| g                  | 10            |
+| o                  | 11            |
+| _                  | 001           |
+| p                  | 0100          |
+| h                  | 0101          |
+| e                  | 0110          |
+| r                  | 0111          |
+| s                  | 000           |
 
 The important thing about binary trees for Huffman coding is the *prefix property*.  When every internal-node contains exactly two children, each leaf-node contains a character, and the code generation conventions outlined above are followed, two related properties are fulfilled.
 
