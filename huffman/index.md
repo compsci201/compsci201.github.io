@@ -6,7 +6,7 @@ assignment: "huffman"
 
 Welcome to Huffman coding, your final programming assignment of the semester.  Your task for this programming assignment will be to implement a fully functional Huffman coding suite equipped with methods to both compress and decompress files.  Additionally for extra credit, you may opt to additionally implement the Burrows-Wheeler/Move-To-Front transformations which substantially increases the effectiveness of the Huffman Algorithm.  This assignment specification/guide should be sufficient to walk you through both Huffman coding and Burrows-Wheeler step-by-step.  However, if you run into any difficulties or are having trouble understanding exactly how Huffman coding works, then feel free to check out the [Wikipedia article](https://en.wikipedia.org/wiki/Huffman_coding) on Huffman coding, or, as always, the teaching staff will be available both at helper hours and on piazza to assist you as well.
 
-The printer friendly version can be accessed from the navigation bar or [here](https://compsci201.github.io/huffman/printer-friendly.html).
+The printer friendly version can be accessed from the navigation bar or [here](printer-friendly.html).
 
 To begin, you'll need the user interface code available through snarf or below; you should have these files.
 
