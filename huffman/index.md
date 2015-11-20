@@ -10,7 +10,7 @@ The printer friendly version can be accessed from the navigation bar or [here](c
 
 To begin, you'll need the user interface code available through snarf or below; you should have these files.
 
-- [BitInputStream.java]() - Reads bits from file system
+- [BitInputStream.java](compsci201.github.io/huffman/code/BitInputStream.java) - Reads bits from file system
 - [BitOutputStream.java]() - Writes bits to file system
 - [HuffException.java]() - Flags errors specific to the Huffman algorithm
 - [HuffNode.java]() - Used for building Huffman trees
