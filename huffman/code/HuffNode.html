@@ -1,41 +1,61 @@
+<html>
+<head>
+<title>HuffNode.java</title>
+</head>
+<body>
+Link to code: <a href="../src/HuffNode.java">HuffNode.java</a><br>
+<hr>
+<!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><font color="#717ab3">/**                                                                                                                                      </font>
+<font color="#717ab3"> * Utility binary-tree (Huffman tree) node for Huffman coding.                                                                           </font>
+<font color="#717ab3"> * This is a simple, standard binary-tree node implementing                                                                              </font>
+<font color="#717ab3"> * the comparable interface based on weight.                                                                                             </font>
+<font color="#717ab3"> *                                                                                                                                       </font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">@author</font></b><font color="#717ab3"> Brian Lavallee                                                                                                                </font>
+<font color="#717ab3"> */</font>
 
-public class HuffNode implements Comparable<HuffNode> {
-	
-	private int value, weight;
-	private HuffNode left, right;
-	
-	public HuffNode(int value, int weight) {
-		this(value, weight, null, null);
-	}
-	
-	public HuffNode(int value, int weight, HuffNode left, HuffNode right) {
-		this.value = value;
-		this.weight = weight;
-		this.left = left;
-		this.right= right;
-	}
-	
-	public int compareTo(HuffNode other) {
-		return weight - other.weight;
-	}
-	
-	public int value() {
-		return value;
-	}
-	
-	public int weight() {
-		return weight;
-	}
-	
-	public HuffNode left() {
-		return left;
-	}
-	
-	public HuffNode right() {
-		return right;
-	}
-	
-	public String toString() {
-		return value + "";
-	}
-}
+<b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">class</font></b><font color="#000000"> </font><font color="#000000">HuffNode</font><font color="#000000"> </font><b><font color="#7f0055">implements</font></b><font color="#000000"> Comparable</font><font color="#000000">&lt;</font><font color="#000000">HuffNode</font><font color="#000000">&gt;</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">	</font>
+<font color="#000000">	</font><b><font color="#7f0055">private</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> myValue</font><font color="#000000">,</font><font color="#000000"> myWeight</font><font color="#000000">;</font>
+<font color="#000000">	</font><b><font color="#7f0055">private</font></b><font color="#000000"> </font><font color="#000000">HuffNode</font><font color="#000000"> myLeft</font><font color="#000000">,</font><font color="#000000"> myRight</font><font color="#000000">;</font>
+<font color="#000000">	</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">HuffNode</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> value</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> weight</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><b><font color="#7f0055">this</font></b><font color="#000000">(</font><font color="#000000">value</font><font color="#000000">,</font><font color="#000000"> weight</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">null</font></b><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">null</font></b><font color="#000000">);</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+<font color="#000000">	</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">HuffNode</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> value</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> weight</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">HuffNode</font><font color="#000000"> left</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">HuffNode</font><font color="#000000"> right</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		myValue </font><font color="#000000">=</font><font color="#000000"> value</font><font color="#000000">;</font>
+<font color="#000000">		myWeight </font><font color="#000000">=</font><font color="#000000"> weight</font><font color="#000000">;</font>
+<font color="#000000">		myLeft </font><font color="#000000">=</font><font color="#000000"> left</font><font color="#000000">;</font>
+<font color="#000000">		myRight</font><font color="#000000">=</font><font color="#000000"> right</font><font color="#000000">;</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+<font color="#000000">	</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> </font><font color="#000000">compareTo</font><font color="#000000">(</font><font color="#000000">HuffNode</font><font color="#000000"> other</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> myWeight </font><font color="#000000">-</font><font color="#000000"> other</font><font color="#000000">.</font><font color="#000000">myWeight</font><font color="#000000">;</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+<font color="#000000">	</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> </font><font color="#000000">value</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> myValue</font><font color="#000000">;</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+<font color="#000000">	</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> </font><font color="#000000">weight</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> myWeight</font><font color="#000000">;</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+<font color="#000000">	</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">HuffNode</font><font color="#000000"> </font><font color="#000000">left</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> myLeft</font><font color="#000000">;</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+<font color="#000000">	</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">HuffNode</font><font color="#000000"> </font><font color="#000000">right</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> myRight</font><font color="#000000">;</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+<font color="#000000">	</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">String</font><font color="#000000"> </font><font color="#000000">toString</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> myValue </font><font color="#000000">+</font><font color="#000000"> </font><font color="#0000ff">""</font><font color="#000000">;</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+<font color="#000000">}</font></tt></pre>
+</body>
+</html>

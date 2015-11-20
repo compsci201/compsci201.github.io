@@ -1,34 +1,48 @@
-/**
- *	Launches the user interface for the Huffman assignment.
- *
- *	@author Brian Lavallee
- *	@since 6 November 2015
- */
+<html>
+<head>
+<title>HuffMain.java</title>
+</head>
+<body>
+Link to code: <a href="../src/HuffMain.java">HuffMain.java</a><br>
+<hr>
+<!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>
+<font color="#717ab3">/**</font>
+<font color="#717ab3"> *	Launches the user interface for the Huffman assignment.</font>
+<font color="#717ab3"> *</font>
+<font color="#717ab3"> *	</font><b><font color="#7f0055">@author</font></b><font color="#717ab3"> Brian Lavallee</font>
+<font color="#717ab3"> *	</font><b><font color="#7f0055">@since</font></b><font color="#717ab3"> 6 November 2015</font>
+<font color="#717ab3"> */</font>
 
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+<font color="#3f5fbf">import</font><font color="#000000"> javafx</font><font color="#000000">.</font><font color="#000000">application</font><font color="#000000">.</font><font color="#000000">Application</font><font color="#000000">;</font>
+<font color="#3f5fbf">import</font><font color="#000000"> javafx</font><font color="#000000">.</font><font color="#000000">scene</font><font color="#000000">.</font><font color="#000000">Scene</font><font color="#000000">;</font>
+<font color="#3f5fbf">import</font><font color="#000000"> javafx</font><font color="#000000">.</font><font color="#000000">stage</font><font color="#000000">.</font><font color="#000000">Stage</font><font color="#000000">;</font>
 
-public class HuffMain extends Application {
-	
-	public static final String PROCESSOR = "HuffProcessor";
-	
-	public static final double WIDTH = 600;
-	public static final double HEIGHT = 600;
-	
-	public static void main(String[] args) {
-		launch(args);
-	}
-	
-	public void start(Stage window) {
-		window.setWidth(WIDTH);
-		window.setHeight(HEIGHT);
-		window.setResizable(false);
-		window.setTitle("Huffman");
-		
-		HuffViewer viewer = new HuffViewer(PROCESSOR);
-		window.setScene(new Scene(viewer.createLayout(WIDTH, HEIGHT), WIDTH, HEIGHT));
-		
-		window.show();
-	}
-}
+<b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">class</font></b><font color="#000000"> </font><font color="#000000">HuffMain</font><font color="#000000"> </font><b><font color="#7f0055">extends</font></b><font color="#000000"> Application </font><font color="#000000">{</font>
+
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><font color="#000000">String</font><font color="#000000"> PROCESSOR </font><font color="#000000">=</font><font color="#000000"> </font><font color="#0000ff">"HuffProcessor"</font><font color="#000000">;</font>
+
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><b><font color="#7f0055">double</font></b><font color="#000000"> WIDTH </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">600</font><font color="#000000">;</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><b><font color="#7f0055">double</font></b><font color="#000000"> HEIGHT </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">600</font><font color="#000000">;</font>
+
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">main</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000">[]</font><font color="#000000"> args</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><font color="#000000">launch</font><font color="#000000">(</font><font color="#000000">args</font><font color="#000000">);</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">start</font><font color="#000000">(</font><font color="#000000">Stage</font><font color="#000000"> window</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		window</font><font color="#000000">.</font><font color="#000000">setWidth</font><font color="#000000">(</font><font color="#000000">WIDTH</font><font color="#000000">);</font>
+<font color="#000000">		window</font><font color="#000000">.</font><font color="#000000">setHeight</font><font color="#000000">(</font><font color="#000000">HEIGHT</font><font color="#000000">);</font>
+<font color="#000000">		window</font><font color="#000000">.</font><font color="#000000">setResizable</font><font color="#000000">(</font><b><font color="#7f0055">false</font></b><font color="#000000">);</font>
+<font color="#000000">		window</font><font color="#000000">.</font><font color="#000000">setTitle</font><font color="#000000">(</font><font color="#0000ff">"Huffman"</font><font color="#000000">);</font>
+
+<font color="#000000">		</font><font color="#000000">HuffViewer</font><font color="#000000"> viewer </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">HuffViewer</font><font color="#000000">(</font><font color="#000000">PROCESSOR</font><font color="#000000">);</font>
+<font color="#000000">		window</font><font color="#000000">.</font><font color="#000000">setScene</font><font color="#000000">(</font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">Scene</font><font color="#000000">(</font><font color="#000000">viewer</font><font color="#000000">.</font><font color="#000000">createLayout</font><font color="#000000">(</font><font color="#000000">WIDTH</font><font color="#000000">,</font><font color="#000000"> HEIGHT</font><font color="#000000">),</font><font color="#000000"> WIDTH</font><font color="#000000">,</font><font color="#000000"> HEIGHT</font><font color="#000000">));</font>
+
+<font color="#000000">		window</font><font color="#000000">.</font><font color="#000000">show</font><font color="#000000">();</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+<font color="#000000">}</font></tt></pre>
+</body>
+</html>
