@@ -8,8 +8,7 @@ Answer the following questions  You do not need to write several pages, but
 you should provide thoughtful answers backed by data and analysis.
 
 1. Benchmark your code on the given *calgary* and *waterloo*
-directories. Refer to  [this reference for comparisons on the Calgary
-Corpus][http://www.data-compression.info/Comparisons/index.htm]. Develop a
+directories. Refer to  [this reference for comparisons on the Calgary Corpus](http://www.data-compression.info/Comparisons/index.htm). Develop a
 hypothesis for how the *compression rate* and *time elapsed* vary with the
 length of the file (in bits), the size of the alphabet (i.e., the number of
 leaves in the tree), and any other factors. 
