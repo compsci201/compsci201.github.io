@@ -11,7 +11,7 @@ The printer friendly version can be accessed from the navigation bar or [here](p
 To begin, you'll need the user interface code available through snarf or below; you should have these files.
 
 - [BitInputStream.java](code/BitInputStream.html) - Reads bits from file system
-- [BitOutputStream.java](code/BitOutputputStream.html) - Writes bits to file system
+- [BitOutputStream.java](code/BitOutputStream.html) - Writes bits to file system
 - [HuffException.java](code/HuffException.html) - Flags errors specific to the Huffman algorithm
 - [HuffNode.java](code/HuffNode.html) - Used for building Huffman trees
 - [HuffMain.java](code/HuffMain.html) - Launches the user interface
