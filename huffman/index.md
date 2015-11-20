@@ -4,11 +4,13 @@ title: "Huffman"
 assignment: "huffman"
 ---
 
-Welcome to Huffman coding, your final programming assignment of the semester.  Your task for this programming assignment will be to implement a fully functional Huffman coding suite equipped with methods to both compress and decompress files.  Additionally for extra credit, you may opt to additionally implement the Burrows-Wheeler/Move-To-Front transformations which substantially increases the effectiveness of the Huffman Algorithm.  This assignment specification/guide should be sufficient to walk you through both Huffman coding and Burrows-Wheeler step-by-step.  However, if you run into any difficulties or are having trouble understanding exactly how Huffman coding works, then feel free to check out the [Wikipedia article](https://en.wikipedia.org/wiki/Huffman_coding) on Huffman coding, or, as always, the teaching staff will be available both at helper hours and on piazza to assist you as well.
+Welcome to Huffman coding, your final programming assignment of the semester.  Your task for this programming assignment will be to implement a fully functional Huffman coding suite equipped with methods to both compress and decompress files.  Additionally for *extra credit*, you may opt to additionally implement the Burrows-Wheeler/Move-To-Front transformations which substantially increases the effectiveness of the Huffman Algorithm.  This assignment specification/guide should be sufficient to walk you through both Huffman coding and Burrows-Wheeler step-by-step.  However, if you run into any difficulties or are having trouble understanding exactly how Huffman coding works, then feel free to check out the [Wikipedia article](https://en.wikipedia.org/wiki/Huffman_coding) on Huffman coding, or, as always, the teaching staff will be available both at helper hours and on Piazza to assist you as well.
 
 The printer friendly version can be accessed from the navigation bar or [here](printer-friendly.html).
 
-To begin, you'll need the user interface code available through snarf or below; you should have these files.
+To begin, you'll need the user interface code available through snarf or
+below; you should have these files. You should consider these file
+read-only.
 
 - [BitInputStream.java](code/BitInputStream.html) - Reads bits from file system
 - [BitOutputStream.java](code/BitOutputStream.html) - Writes bits to file system
@@ -25,6 +27,8 @@ Additionally, you should have a data folder which contains three standard compre
 
 You only need to implement and submit a single file for Huffman: `HuffProcessor.java`.  In order to get full credit, you should thoroughly read and reference this assignment write-up and follow these steps.
 
+###Assignment Overview
+
 1. Create the class `HuffProcessor` which should implement `Processor`.
 2. Complete the compress method
     1. Count the character frequencies
@@ -39,7 +43,6 @@ You only need to implement and submit a single file for Huffman: `HuffProcessor.
     2. Re-buid the Huffman tree from the header
     3. Traverse the tree bit-by-bit until the `PSEUDO_EOF` is found
     4. Write out a character each time a leaf node is encountered
-4. Answer the analysis quesions
-5. Submit!
+4. Benchmark your code and answer the analysis quesions
 
 Please note that unlike some previous semesters this is NOT a partner project so please work alone and submit your own work.
