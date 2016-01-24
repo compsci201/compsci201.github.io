@@ -4,7 +4,7 @@ title: "Submitting"
 assignment: "nbody"
 ---
 
-The only file you need to submit is NBody.java. If for some reason you create other classes NBody depends on (this is neither necessary nor recommended), submit those as well.
+The only files you need to submit are NBody.java and README.txt. If for some reason you create other classes NBody depends on (this is neither necessary nor recommended), submit those as well.
 
 Make sure when you submit, all of the following are present and functional:
 
@@ -15,4 +15,4 @@ Class: NBody<br>
 &nbsp;Method: public double[][] positions(Scanner, int, int)<br>
 </code>
 
-You also must submit your README in order to receive any credit.
+Make sure to submit your README in order to receive any credit.
