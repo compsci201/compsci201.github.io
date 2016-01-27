@@ -52,7 +52,7 @@ We suggest you implement the algorithm for `positions` in the following steps.
 
 and should produce [this animation](http://www.cs.duke.edu/courses/cps100e/spring10/assign/nbody/nbody-planets.mov).</p></li>
 
-<li>To make the viewing experience more enjoyable, uncomment the commented line in <code>main()</code> to play the theme to 2001: A Space Odyssey using <code>StdAudio</code> and the file 2001.mid. You can also have the program instead play the theme to Superman using superman.mid. </li>
+<li>To make the viewing experience more enjoyable, uncomment the commented line in <code>start()</code> to play the theme to 2001: A Space Odyssey using <code>StdAudio</code> and the file 2001.mid. You can also have the program instead play the theme to Superman using superman.mid. </li>
 
 </ol>
 
