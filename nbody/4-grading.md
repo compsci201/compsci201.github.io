@@ -8,13 +8,13 @@ assignment: "nbody"
 We will be grading your project by calling the method `positions` on test cases, and seeing if your output matches the expected output. You can test whether <code>positions</code> is producing the correct array by inserting the following code into your main method:
 
 ```
-  double[][] test = myNBody.positions(new Scanner(new File("data/planets.txt")), 100000, 25000);
-      for(int i = 0; i < test.length; i++) {
-          for(int j = 0; j < test[i].length; j++) {
-              System.out.print(test[i][j]+" ");
-          }
-          System.out.println();
-      }
+double[][] test = myNBody.positions(new Scanner(new File("data/planets.txt")), 100000, 25000);
+for(int i = 0; i < test.length; i++) {
+    for(int j = 0; j < test[i].length; j++) {
+        System.out.print(test[i][j]+" ");
+    }
+    System.out.println();
+}
 ```
 
 This should output the following in console:
