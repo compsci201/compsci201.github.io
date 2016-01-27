@@ -61,7 +61,7 @@ public class NBody extends Application {
      */
     public double[][] positions(Scanner info, int totalTime, int timeStep) {
         //TODO: Complete positions
-        double[][] output = new double[2][0]; //Replace 0 with the number of
+        double[][] output = new double[0][2]; //Replace 0 with the number of
                                               //bodies, read from the file
 
         return output;
@@ -77,9 +77,15 @@ public class NBody extends Application {
     	int dt = 25000;
     	
     	if (info != null) {
-	        //StdAudio.play("data/2001.mid");
+    		//StdAudio.play("data/2001.mid");
 	        NBody myNBody = new NBody();
-	        myNBody.positions(info, time, dt);
+	        double[][] results = myNBody.positions(info, time, dt);
+	        for(int i = 0; i < results.length; i++) {
+	            for(int j = 0; j < results[i].length; j++) {
+	                System.out.print(results[i][j]+" ");
+	            }
+	            System.out.println();
+	        }
 	        StdDraw.clear();
 	        StdAudio.close();
     	}
