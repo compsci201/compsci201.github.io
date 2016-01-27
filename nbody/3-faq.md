@@ -14,7 +14,7 @@ No! This will simultaneously screw up the physics and make your code harder to u
 
 ####I draw the planets, but nothing appears on the screen. Why? 
 
-Use <code>[StdDraw.setXscale()](http://introcs.cs.princeton.edu/java/stdlib/javadoc/StdDraw.html#setXscale(double, double))</code> and <code>[StdDraw.setYscale()](http://introcs.cs.princeton.edu/java/stdlib/javadoc/StdDraw.html#setYscale(double, double))</code> to change the coordinate system to use the physics coordinates instead of the unit box.
+Use [StdDraw.setXscale()](http://introcs.cs.princeton.edu/java/stdlib/javadoc/StdDraw.html#setXscale(double, double)) and [StdDraw.setYscale()](http://introcs.cs.princeton.edu/java/stdlib/javadoc/StdDraw.html#setYscale(double, double)) to change the coordinate system to use the physics coordinates instead of the unit box.
 
 ####My planets don't move. 
 
@@ -34,7 +34,7 @@ The simplest way is <code>x*x</code>. In Java, the ^ operator means XOR or "excl
 
 ####How should I compute the square root of x? 
 
-Use <code>[Math.sqrt](http://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#sqrt-double-)</code> or <code>[Math.pow](http://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#pow-double-double-)</code>. The return value of <code>Math.pow(a, b)</code> is a<sup>b</sup>.
+Use [Math.sqrt](http://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#sqrt-double-) or [Math.pow](http://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#pow-double-double-). The return value of <code>Math.pow(a, b)</code> is a<sup>b</sup>.
 
 ####What is Δx? 
 
