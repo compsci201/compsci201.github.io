@@ -62,4 +62,3 @@ In your README.txt, you will answer two questions about the simulation of the bo
 <li>What is the final position of the planets after 1,000,000 seconds with a timestep (i.e. Δt) of 25,000?  </li>
 <li>For what values of <code>timeStep</code> (e.g., Δt > T), does the simulation no longer behave correctly? That is, the planets planets no longer follow their orbits around the Sun. Explain how you arrived at your answer.</li>
 </ol>
-
