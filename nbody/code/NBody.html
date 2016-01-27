@@ -5,128 +5,123 @@
 <body>
 Link to code: <a href="../src/NBody.java">NBody.java</a><br>
 <hr>
-<!-- Generator: GNU source-highlight 3.1.1
-by Lorenzo Bettini
-http://www.lorenzobettini.it
-http://www.gnu.org/software/src-highlite -->
-<pre><tt><font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">io</font><font color="#000000">.*;</font>
-<font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">util</font><font color="#000000">.*;</font>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.io.File</span><span style="color: #333333">;</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.io.FileNotFoundException</span><span style="color: #333333">;</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.util.Scanner</span><span style="color: #333333">;</span>
 
-<font color="#3f5fbf">import</font><font color="#000000"> javax</font><font color="#000000">.</font><font color="#000000">swing</font><font color="#000000">.</font><font color="#000000">JFileChooser</font><font color="#000000">;</font>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">javafx.application.Application</span><span style="color: #333333">;</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">javafx.stage.FileChooser</span><span style="color: #333333">;</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">javafx.stage.Stage</span><span style="color: #333333">;</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">princeton.StdAudio</span><span style="color: #333333">;</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">princeton.StdDraw</span><span style="color: #333333">;</span>
 
-<font color="#3f5fbf">import</font><font color="#000000"> princeton</font><font color="#000000">.</font><font color="#000000">StdAudio</font><font color="#000000">;</font>
-<font color="#3f5fbf">import</font><font color="#000000"> princeton</font><font color="#000000">.</font><font color="#000000">StdDraw</font><font color="#000000">;</font>
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">NBody</span> <span style="color: #008800; font-weight: bold">extends</span> Application <span style="color: #333333">{</span>
+	
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #008800; font-weight: bold">final</span> <span style="color: #333399; font-weight: bold">double</span> G <span style="color: #333333">=</span> <span style="color: #6600EE; font-weight: bold">6.67</span>E<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">11</span><span style="color: #333333">;</span>
 
-<b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">class</font></b><font color="#000000"> </font><font color="#000000">NBody</font><font color="#000000"> </font><font color="#000000">{</font>
-<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><b><font color="#7f0055">double</font></b><font color="#000000"> G </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">6.67E-11</font><font color="#000000">;</font>
-<font color="#000000">    </font>
-<font color="#000000">    </font><font color="#717ab3">/**</font>
-<font color="#717ab3">     * Displays file chooser for browsing in the project directory. and opens</font>
-<font color="#717ab3">     * the selected file</font>
-<font color="#717ab3">     *</font>
-<font color="#717ab3">     * </font><b><font color="#7f0055">@return</font></b><font color="#717ab3"> a new Scanner that produces values scanned from the selected</font>
-<font color="#717ab3">     *         file. null if file could not be opened or was not selected</font>
-<font color="#717ab3">     */</font>
-<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><font color="#000000">Scanner</font><font color="#000000"> </font><font color="#000000">openFileFromDialog</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
-<font color="#000000">        </font><font color="#000000">Scanner</font><font color="#000000"> scan </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">null</font></b><font color="#000000">;</font>
-<font color="#000000">        System</font><font color="#000000">.</font><font color="#000000">out</font><font color="#000000">.</font><font color="#000000">println</font><font color="#000000">(</font><font color="#0000ff">"Opening file dialog."</font><font color="#000000">);</font>
-<font color="#000000">        </font><font color="#000000">JFileChooser</font><font color="#000000"> openChooser </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">JFileChooser</font><font color="#000000">(</font><font color="#000000">System</font><font color="#000000">.</font><font color="#000000">getProperties</font><font color="#000000">()</font>
-<font color="#000000">                                                    </font><font color="#000000">.</font><font color="#000000">getProperty</font><font color="#000000">(</font><font color="#0000ff">"user.dir"</font><font color="#000000">));</font>
-<font color="#000000">        </font><b><font color="#7f0055">int</font></b><font color="#000000"> retval </font><font color="#000000">=</font><font color="#000000"> openChooser</font><font color="#000000">.</font><font color="#000000">showOpenDialog</font><font color="#000000">(</font><b><font color="#7f0055">null</font></b><font color="#000000">);</font>
-<font color="#000000">        </font><b><font color="#7f0055">if</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">retval </font><font color="#000000">==</font><font color="#000000"> JFileChooser</font><font color="#000000">.</font><font color="#000000">APPROVE_OPTION</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
-<font color="#000000">            </font><font color="#000000">File</font><font color="#000000"> file </font><font color="#000000">=</font><font color="#000000"> openChooser</font><font color="#000000">.</font><font color="#000000">getSelectedFile</font><font color="#000000">();</font>
-<font color="#000000">            </font><b><font color="#7f0055">try</font></b><font color="#000000"> </font><font color="#000000">{</font>
-<font color="#000000">                scan </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">Scanner</font><font color="#000000">(</font><font color="#000000">file</font><font color="#000000">);</font>
-<font color="#000000">                System</font><font color="#000000">.</font><font color="#000000">out</font><font color="#000000">.</font><font color="#000000">println</font><font color="#000000">(</font><font color="#0000ff">"Opening: "</font><font color="#000000"> </font><font color="#000000">+</font><font color="#000000"> file</font><font color="#000000">.</font><font color="#000000">getName</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">+</font><font color="#000000"> </font><font color="#0000ff">"."</font><font color="#000000">);</font>
-<font color="#000000">            </font><font color="#000000">}</font>
-<font color="#000000">            </font><b><font color="#7f0055">catch</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">FileNotFoundException</font><font color="#000000"> e</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
-<font color="#000000">                System</font><font color="#000000">.</font><font color="#000000">out</font><font color="#000000">.</font><font color="#000000">println</font><font color="#000000">(</font><font color="#0000ff">"Could not open selected file."</font><font color="#000000">);</font>
-<font color="#000000">                e</font><font color="#000000">.</font><font color="#000000">printStackTrace</font><font color="#000000">();</font>
-<font color="#000000">            </font><font color="#000000">}</font>
-<font color="#000000">        </font><font color="#000000">}</font>
-<font color="#000000">        </font><b><font color="#7f0055">else</font></b><font color="#000000"> </font><font color="#000000">{</font>
-<font color="#000000">            System</font><font color="#000000">.</font><font color="#000000">out</font><font color="#000000">.</font><font color="#000000">println</font><font color="#000000">(</font><font color="#0000ff">"File open canceled."</font><font color="#000000">);</font><font color="#000000">            </font>
-<font color="#000000">        </font><font color="#000000">}</font>
-<font color="#000000">        </font><b><font color="#7f0055">return</font></b><font color="#000000"> scan</font><font color="#000000">;</font>
-<font color="#000000">    </font><font color="#000000">}</font>
-
-<font color="#000000">    </font><font color="#717ab3">/**</font>
-<font color="#717ab3">     * returns Euclidean distance between (x1, y1) and (x2, y2)</font>
-<font color="#717ab3">     *</font>
-<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> x1</font>
-<font color="#717ab3">     *            x-coordinate of point 1</font>
-<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> y1</font>
-<font color="#717ab3">     *            y-coordinate of point 1</font>
-<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> x2</font>
-<font color="#717ab3">     *            x-coordinate of point 2</font>
-<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> y2</font>
-<font color="#717ab3">     *            y-coordinate of point 2</font>
-<font color="#717ab3">     * </font><b><font color="#7f0055">@return</font></b><font color="#717ab3"> Euclidean distance between (x1, y1) and (x2, y2)</font>
-<font color="#717ab3">     */</font>
-<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">double</font></b><font color="#000000"> </font><font color="#000000">distance</font><font color="#000000">(</font><b><font color="#7f0055">double</font></b><font color="#000000"> x1</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">double</font></b><font color="#000000"> y1</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">double</font></b><font color="#000000"> x2</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">double</font></b><font color="#000000"> y2</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font><font color="#000000">          </font><font color="#717ab3">//TODO: Complete distance</font>
-<font color="#000000">        </font><b><font color="#7f0055">return</font></b><font color="#000000"> </font><font color="#000000">0</font><font color="#000000">;</font>
-<font color="#000000">    </font><font color="#000000">}</font>
-<font color="#000000">    </font>
-<font color="#000000">    </font>
-<font color="#000000">    </font><font color="#717ab3">/**</font>
-<font color="#717ab3">     * return the magnitude of the gravitational force between two bodies of</font>
-<font color="#717ab3">     * mass m1 and m2 that are distance r apart</font>
-<font color="#717ab3">     *</font>
-<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> m1</font>
-<font color="#717ab3">     *            mass of body 1 in kg</font>
-<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> m2</font>
-<font color="#717ab3">     *            mass of body 2 in kg</font>
-<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> r</font>
-<font color="#717ab3">     *            distance in m</font>
-<font color="#717ab3">     * </font><b><font color="#7f0055">@return</font></b><font color="#717ab3"> force between m1 and m2 that are distance r apart</font>
-<font color="#717ab3">     */</font>
-<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">double</font></b><font color="#000000"> </font><font color="#000000">force</font><font color="#000000">(</font><b><font color="#7f0055">double</font></b><font color="#000000"> m1</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">double</font></b><font color="#000000"> m2</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">double</font></b><font color="#000000"> r</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
-<font color="#000000">        </font><font color="#717ab3">//TODO: Complete force</font>
-<font color="#000000">        </font><b><font color="#7f0055">return</font></b><font color="#000000"> </font><font color="#000000">0</font><font color="#000000">;</font>
-<font color="#000000">    </font><font color="#000000">}</font>
+    <span style="color: #888888">/**</span>
+<span style="color: #888888">     * returns Euclidean distance between (x1, y1) and (x2, y2)</span>
+<span style="color: #888888">     *</span>
+<span style="color: #888888">     * @param x1</span>
+<span style="color: #888888">     *            x-coordinate of point 1</span>
+<span style="color: #888888">     * @param y1</span>
+<span style="color: #888888">     *            y-coordinate of point 1</span>
+<span style="color: #888888">     * @param x2</span>
+<span style="color: #888888">     *            x-coordinate of point 2</span>
+<span style="color: #888888">     * @param y2</span>
+<span style="color: #888888">     *            y-coordinate of point 2</span>
+<span style="color: #888888">     * @return Euclidean distance between (x1, y1) and (x2, y2)</span>
+<span style="color: #888888">     */</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">double</span> <span style="color: #0066BB; font-weight: bold">distance</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">double</span> x1<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">double</span> y1<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">double</span> x2<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">double</span> y2<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+    	<span style="color: #888888">//TODO: Complete distance</span>
+        <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span>
+    <span style="color: #333333">}</span>
+    
+    
+    <span style="color: #888888">/**</span>
+<span style="color: #888888">     * return the magnitude of the gravitational force between two bodies of</span>
+<span style="color: #888888">     * mass m1 and m2 that are distance r apart</span>
+<span style="color: #888888">     *</span>
+<span style="color: #888888">     * @param m1</span>
+<span style="color: #888888">     *            mass of body 1 in kg</span>
+<span style="color: #888888">     * @param m2</span>
+<span style="color: #888888">     *            mass of body 2 in kg</span>
+<span style="color: #888888">     * @param r</span>
+<span style="color: #888888">     *            distance in m</span>
+<span style="color: #888888">     * @return force between m1 and m2 that are distance r apart</span>
+<span style="color: #888888">     */</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">double</span> <span style="color: #0066BB; font-weight: bold">force</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">double</span> m1<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">double</span> m2<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">double</span> r<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+        <span style="color: #888888">//TODO: Complete force</span>
+        <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span>
+    <span style="color: #333333">}</span>
 
 
-<font color="#000000">    </font><font color="#717ab3">/**</font>
-<font color="#717ab3">     * Returns the x positions and y positions of bodies</font>
-<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> totalTime The total amount of universe time to run for</font>
-<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> timeStep The value of delta t in the equations to calculate position</font>
-<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> info The scanner with info about the initial conditions of the</font>
-<font color="#717ab3">     * bodies</font>
-<font color="#717ab3">     * </font><b><font color="#7f0055">@return</font></b><font color="#717ab3"> an array whose first element is the x positions of the bodies,</font>
-<font color="#717ab3">     * and whose second element is the y positions of the bodies at time</font>
-<font color="#717ab3">     * t = totalTime</font>
-<font color="#717ab3">     */</font>
-<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">double</font></b><font color="#000000">[][]</font><font color="#000000"> </font><font color="#000000">positions</font><font color="#000000">(</font><font color="#000000">Scanner</font><font color="#000000"> info</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> totalTime</font><font color="#000000">,</font>
-<font color="#000000">                                </font><b><font color="#7f0055">int</font></b><font color="#000000"> timeStep</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
-<font color="#000000">        </font><font color="#717ab3">//TODO: Complete positions</font>
-<font color="#000000">        </font><b><font color="#7f0055">double</font></b><font color="#000000">[][]</font><font color="#000000"> output </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><b><font color="#7f0055">double</font></b><font color="#000000">[</font><font color="#000000">2</font><font color="#000000">][</font><font color="#000000">0</font><font color="#000000">];</font><font color="#000000"> </font><font color="#717ab3">//Replace 0 with the number of</font>
-<font color="#000000">                                              </font><font color="#717ab3">//bodies, read from the file</font>
+    <span style="color: #888888">/**</span>
+<span style="color: #888888">     * Returns the x positions and y positions of bodies</span>
+<span style="color: #888888">     * @param totalTime The total amount of universe time to run for</span>
+<span style="color: #888888">     * @param timeStep The value of delta t in the equations to calculate position</span>
+<span style="color: #888888">     * @param info The scanner with info about the initial conditions of the</span>
+<span style="color: #888888">     * bodies</span>
+<span style="color: #888888">     * @return an array whose first element is the x positions of the bodies,</span>
+<span style="color: #888888">     * and whose second element is the y positions of the bodies at time</span>
+<span style="color: #888888">     * t = totalTime</span>
+<span style="color: #888888">     */</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">double</span><span style="color: #333333">[][]</span> <span style="color: #0066BB; font-weight: bold">positions</span><span style="color: #333333">(</span>Scanner info<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">int</span> totalTime<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">int</span> timeStep<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+        <span style="color: #888888">//TODO: Complete positions</span>
+        <span style="color: #333399; font-weight: bold">double</span><span style="color: #333333">[][]</span> output <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> <span style="color: #333399; font-weight: bold">double</span><span style="color: #333333">[</span><span style="color: #0000DD; font-weight: bold">2</span><span style="color: #333333">][</span><span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">];</span> <span style="color: #888888">//Replace 0 with the number of</span>
+                                              <span style="color: #888888">//bodies, read from the file</span>
 
-<font color="#000000">        </font><b><font color="#7f0055">return</font></b><font color="#000000"> output</font><font color="#000000">;</font>
-<font color="#000000">    </font><font color="#000000">}</font>
+        <span style="color: #008800; font-weight: bold">return</span> output<span style="color: #333333">;</span>
+    <span style="color: #333333">}</span>
 
-<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">main</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000">[]</font><font color="#000000"> args</font><font color="#000000">)</font><font color="#000000"> </font><b><font color="#7f0055">throws</font></b><font color="#000000"> FileNotFoundException </font><font color="#000000">{</font>
-<font color="#000000">        </font><font color="#000000">Scanner</font><font color="#000000"> info</font><font color="#000000">;</font>
-<font color="#000000">        </font><b><font color="#7f0055">int</font></b><font color="#000000"> time</font><font color="#000000">,</font><font color="#000000"> dt</font><font color="#000000">;</font>
-<font color="#000000">        </font><b><font color="#7f0055">if</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">args</font><font color="#000000">.</font><font color="#000000">length </font><font color="#000000">==</font><font color="#000000"> </font><font color="#000000">3</font><font color="#000000">)</font><font color="#000000">{</font>
-<font color="#000000">            info </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">Scanner</font><font color="#000000">(</font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">File</font><font color="#000000">(</font><font color="#0000ff">"data/"</font><font color="#000000">+</font><font color="#000000">args</font><font color="#000000">[</font><font color="#000000">0</font><font color="#000000">]));</font>
-<font color="#000000">            time </font><font color="#000000">=</font><font color="#000000"> Integer</font><font color="#000000">.</font><font color="#000000">parseInt</font><font color="#000000">(</font><font color="#000000">args</font><font color="#000000">[</font><font color="#000000">1</font><font color="#000000">]);</font>
-<font color="#000000">            dt </font><font color="#000000">=</font><font color="#000000"> Integer</font><font color="#000000">.</font><font color="#000000">parseInt</font><font color="#000000">(</font><font color="#000000">args</font><font color="#000000">[</font><font color="#000000">2</font><font color="#000000">]);</font>
-<font color="#000000">        </font><font color="#000000">}</font>
-<font color="#000000">        </font><b><font color="#7f0055">else</font></b><font color="#000000">{</font>
-<font color="#000000">            info </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">openFileFromDialog</font><font color="#000000">();</font>
-<font color="#000000">            time </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">10000000</font><font color="#000000">;</font>
-<font color="#000000">            dt </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">25000</font><font color="#000000">;</font>
-<font color="#000000">        </font><font color="#000000">}</font>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">main</span><span style="color: #333333">(</span>String<span style="color: #333333">[]</span> args<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+    	launch<span style="color: #333333">(</span>args<span style="color: #333333">);</span>
+    <span style="color: #333333">}</span>
+    
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">start</span><span style="color: #333333">(</span>Stage stage<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+    	Scanner info <span style="color: #333333">=</span> openFile<span style="color: #333333">();</span>
+    	<span style="color: #333399; font-weight: bold">int</span> time <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">10000000</span><span style="color: #333333">;</span>
+    	<span style="color: #333399; font-weight: bold">int</span> dt <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">25000</span><span style="color: #333333">;</span>
+    	
+    	<span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>info <span style="color: #333333">!=</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">)</span> <span style="color: #333333">{</span>
+	        <span style="color: #888888">//StdAudio.play(&quot;data/2001.mid&quot;);</span>
+	        NBody myNBody <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> NBody<span style="color: #333333">();</span>
+	        myNBody<span style="color: #333333">.</span><span style="color: #0000CC">positions</span><span style="color: #333333">(</span>info<span style="color: #333333">,</span> time<span style="color: #333333">,</span> dt<span style="color: #333333">);</span>
+	        StdDraw<span style="color: #333333">.</span><span style="color: #0000CC">clear</span><span style="color: #333333">();</span>
+	        StdAudio<span style="color: #333333">.</span><span style="color: #0000CC">close</span><span style="color: #333333">();</span>
+    	<span style="color: #333333">}</span>
+    <span style="color: #333333">}</span>
+    
+    <span style="color: #888888">/**</span>
+<span style="color: #888888">     * Displays file chooser for browsing in the project directory. and opens</span>
+<span style="color: #888888">     * the selected file</span>
+<span style="color: #888888">     *</span>
+<span style="color: #888888">     * @return a new Scanner that produces values scanned from the selected</span>
+<span style="color: #888888">     *         file. null if file could not be opened or was not selected</span>
+<span style="color: #888888">     */</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> Scanner <span style="color: #0066BB; font-weight: bold">openFile</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+        System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Opening file chooser&quot;</span><span style="color: #333333">);</span>
+        FileChooser chooser <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> FileChooser<span style="color: #333333">();</span>
+        chooser<span style="color: #333333">.</span><span style="color: #0000CC">setTitle</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Open Configuration File&quot;</span><span style="color: #333333">);</span>
+        chooser<span style="color: #333333">.</span><span style="color: #0000CC">setInitialDirectory</span><span style="color: #333333">(</span><span style="color: #008800; font-weight: bold">new</span> File<span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;data&quot;</span><span style="color: #333333">));</span>
+        File file <span style="color: #333333">=</span> chooser<span style="color: #333333">.</span><span style="color: #0000CC">showOpenDialog</span><span style="color: #333333">(</span><span style="color: #008800; font-weight: bold">new</span> Stage<span style="color: #333333">());</span>
+        
+        <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>file <span style="color: #333333">!=</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">)</span> <span style="color: #333333">{</span>
+            <span style="color: #008800; font-weight: bold">try</span> <span style="color: #333333">{</span>
+                System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Opening: &quot;</span> <span style="color: #333333">+</span> file<span style="color: #333333">.</span><span style="color: #0000CC">getName</span><span style="color: #333333">()</span> <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;&quot;</span><span style="color: #333333">);</span>
+                <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">new</span> <span style="color: #0066BB; font-weight: bold">Scanner</span><span style="color: #333333">(</span>file<span style="color: #333333">);</span>
+            <span style="color: #333333">}</span>
+            <span style="color: #008800; font-weight: bold">catch</span> <span style="color: #333333">(</span>FileNotFoundException fnf<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+                <span style="color: #008800; font-weight: bold">throw</span> <span style="color: #008800; font-weight: bold">new</span> <span style="color: #0066BB; font-weight: bold">RuntimeException</span><span style="color: #333333">(</span>fnf<span style="color: #333333">);</span>
+            <span style="color: #333333">}</span>
+        <span style="color: #333333">}</span>
+        <span style="color: #008800; font-weight: bold">else</span> <span style="color: #333333">{</span>
+            System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;File open canceled&quot;</span><span style="color: #333333">);</span>    
+            <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">;</span>
+        <span style="color: #333333">}</span>
+    <span style="color: #333333">}</span>
+<span style="color: #333333">}</span>
+</pre></div>
 
-<font color="#000000">        </font><font color="#717ab3">//StdAudio.play("data/2001.mid");</font>
-<font color="#000000">        </font><font color="#000000">NBody</font><font color="#000000"> myNBody </font><font color="#000000">=</font><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">NBody</font><font color="#000000">();</font>
-<font color="#000000">        myNBody</font><font color="#000000">.</font><font color="#000000">positions</font><font color="#000000">(</font><font color="#000000">info</font><font color="#000000">,</font><font color="#000000"> time</font><font color="#000000">,</font><font color="#000000"> dt</font><font color="#000000">);</font>
-<font color="#000000">        StdDraw</font><font color="#000000">.</font><font color="#000000">clear</font><font color="#000000">();</font>
-<font color="#000000">        StdAudio</font><font color="#000000">.</font><font color="#000000">close</font><font color="#000000">();</font>
-<font color="#000000">    </font><font color="#000000">}</font>
-<font color="#000000">}</font>
-
-</tt></pre>
 </body>
 </html>

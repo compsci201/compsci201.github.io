@@ -1,43 +1,16 @@
-import java.io.*;
-import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
-import javax.swing.JFileChooser;
-
+import javafx.application.Application;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import princeton.StdAudio;
 import princeton.StdDraw;
 
-public class NBody {
+public class NBody extends Application {
+	
     public static final double G = 6.67E-11;
-    
-    /**
-     * Displays file chooser for browsing in the project directory. and opens
-     * the selected file
-     *
-     * @return a new Scanner that produces values scanned from the selected
-     *         file. null if file could not be opened or was not selected
-     */
-    public static Scanner openFileFromDialog() {
-        Scanner scan = null;
-        System.out.println("Opening file dialog.");
-        JFileChooser openChooser = new JFileChooser(System.getProperties()
-                                                    .getProperty("user.dir"));
-        int retval = openChooser.showOpenDialog(null);
-        if (retval == JFileChooser.APPROVE_OPTION) {
-            File file = openChooser.getSelectedFile();
-            try {
-                scan = new Scanner(file);
-                System.out.println("Opening: " + file.getName() + ".");
-            }
-            catch (FileNotFoundException e) {
-                System.out.println("Could not open selected file.");
-                e.printStackTrace();
-            }
-        }
-        else {
-            System.out.println("File open canceled.");            
-        }
-        return scan;
-    }
 
     /**
      * returns Euclidean distance between (x1, y1) and (x2, y2)
@@ -52,7 +25,8 @@ public class NBody {
      *            y-coordinate of point 2
      * @return Euclidean distance between (x1, y1) and (x2, y2)
      */
-    public double distance(double x1, double y1, double x2, double y2) {          //TODO: Complete distance
+    public double distance(double x1, double y1, double x2, double y2) {
+    	//TODO: Complete distance
         return 0;
     }
     
@@ -85,8 +59,7 @@ public class NBody {
      * and whose second element is the y positions of the bodies at time
      * t = totalTime
      */
-    public double[][] positions(Scanner info, int totalTime,
-                                int timeStep) {
+    public double[][] positions(Scanner info, int totalTime, int timeStep) {
         //TODO: Complete positions
         double[][] output = new double[2][0]; //Replace 0 with the number of
                                               //bodies, read from the file
@@ -94,25 +67,50 @@ public class NBody {
         return output;
     }
 
-    public static void main(String[] args) throws FileNotFoundException {
-        Scanner info;
-        int time, dt;
-        if (args.length == 3){
-            info = new Scanner(new File("data/"+args[0]));
-            time = Integer.parseInt(args[1]);
-            dt = Integer.parseInt(args[2]);
+    public static void main(String[] args) {
+    	launch(args);
+    }
+    
+    public void start(Stage stage) {
+    	Scanner info = openFile();
+    	int time = 10000000;
+    	int dt = 25000;
+    	
+    	if (info != null) {
+	        //StdAudio.play("data/2001.mid");
+	        NBody myNBody = new NBody();
+	        myNBody.positions(info, time, dt);
+	        StdDraw.clear();
+	        StdAudio.close();
+    	}
+    }
+    
+    /**
+     * Displays file chooser for browsing in the project directory. and opens
+     * the selected file
+     *
+     * @return a new Scanner that produces values scanned from the selected
+     *         file. null if file could not be opened or was not selected
+     */
+    public static Scanner openFile() {
+        System.out.println("Opening file chooser");
+        FileChooser chooser = new FileChooser();
+        chooser.setTitle("Open Configuration File");
+        chooser.setInitialDirectory(new File("data"));
+        File file = chooser.showOpenDialog(new Stage());
+        
+        if (file != null) {
+            try {
+                System.out.println("Opening: " + file.getName() + "");
+                return new Scanner(file);
+            }
+            catch (FileNotFoundException fnf) {
+                throw new RuntimeException(fnf);
+            }
         }
-        else{
-            info = openFileFromDialog();
-            time = 10000000;
-            dt = 25000;
+        else {
+            System.out.println("File open canceled");    
+            return null;
         }
-
-        //StdAudio.play("data/2001.mid");
-        NBody myNBody = new NBody();
-        myNBody.positions(info, time, dt);
-        StdDraw.clear();
-        StdAudio.close();
     }
 }
-
