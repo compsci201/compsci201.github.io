@@ -26,7 +26,7 @@ We suggest you implement the algorithm for `positions` in the following steps.
 
 <p><strong>Do not even think of continuing until you have checked that you read in the data correctly</strong>. To test, print the information back out using <code>System.out.println()</code>.</p></li>
 
-<li> <p>Plot the background starfield.jpg image. Note that <code>StdDraw.picture(x, y, file)</code> centers the picture on (x, y). Use <code>StdDraw.setXscale(-R, R)</code> and <code>StdDraw.setYscale(-R, R)</code> to set the boundaries of the simulation. Test that it works. Now, write a loop to plot the N bodies. If all goes correctly, you should see the four stationary planets and the sun. Now, go and test it on another data file.</p></li>
+<li> <p>Plot the background starfield.jpg image. Note that <code>StdDraw.picture(x, y, file)</code> centers the picture on (x, y). Use <code>StdDraw.setXscale(-R, R)</code> and <code>StdDraw.setYscale(-R, R)</code> to set the boundaries of the simulation. Test that it works. Now, write a loop to plot the N bodies following your <code>Scanner</code> code from step 1. If all goes correctly, you should see the four stationary planets and the sun. Now, go and test it on another data file.  This bit of code forms the central basis for your simulation.  In the next few steps, you will add code around it and before it to simulate movement and forces.</p></li>
 
 <li><p>Write a loop to calculate the new velocity and position for each body using <code>timeStep</code> (This code goes before the plotting code you wrote in the previous step). Since we haven't yet incorporated gravity, assume the acceleration acting on each planet is zero. </p>
 </li>
