@@ -12,7 +12,6 @@ We suggest you implement the algorithm for `positions` in the following steps.
 
 <p>Each input file contains the information for a particular universe. The first value is an integer N which represents the number of particles. The second value is a real number R which represents the radius of the universe. Finally, there are N rows, and each row contains 6 values. The first two values are the x- and y-coordinates of the initial position; the second two values are the x- and y-coordinates of the initial velocity; the next value is the mass; the last value is a String that is the name of an image file used to display the particle. As an example, the input file planets.txt contains data for the inner planets of our solar system (in SI units):</p>
 <p>
-<code>
 5 <br>
 2.50e11 <br>
 1.496e11 0.000e00 0.000e00 2.980e04 5.974e24 earth.gif <br>
@@ -20,7 +19,6 @@ We suggest you implement the algorithm for `positions` in the following steps.
 5.790e10 0.000e00 0.000e00 4.790e04 3.302e23 mercury.gif <br>
 0.000e00 0.000e00 0.000e00 0.000e00 1.989e30 sun.gif <br>
 1.082e11 0.000e00 0.000e00 3.500e04 4.869e24 venus.gif <br>
-</code>
 </p>
 <p>Let <code>px[i], py[i], vx[i], vy[i]</code>, and <code>mass[i]</code> be real numbers which store the current position (x and y coordinates), velocity (x and y components), and mass of planet i. Let <code>image[i]</code> be a string which represents the filename of the image used to display planet i. Keep in mind that some submissions have comments at the end - be sure you read only N lines of input instead of reading until the end of the file.</p></li>
 
