@@ -8,7 +8,7 @@ assignment: "nbody"
 
 Use <code>StdDraw.show(30)</code> to turn on the animation mode of standard draw. Call it once at the end of each time step, not after each drawing command.
 
-####Can I combine all the steps from the [Equations Behind NBody](/nbody/1-physics) page into one large for loop?
+####Can I combine all the steps from the [physics](/nbody/1-physics) page into one large for loop?
 
 No! This will simultaneously screw up the physics and make your code harder to understand and debug.
 
