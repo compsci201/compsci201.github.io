@@ -8,7 +8,7 @@ assignment: "nbody"
 We suggest you implement the algorithm for `positions` in the following steps.
 
 <ol>
-<li>Read in the data file planets.txt using a <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html">Scanner</a> and store the information in six arrays. Use Scanner's <code>next()</code> method to get the next word, <code>nextInt()</code> to get the next integer, and <code>nextDouble()</code> to get the next real number.</p>
+<li>Read in the data file planets.txt using the <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html">Scanner</a> provided by the method arguments and store the information in six arrays. Use Scanner's <code>next()</code> method to get the next word, <code>nextInt()</code> to get the next integer, and <code>nextDouble()</code> to get the next real number.</p>
 
 <p>Each input file contains the information for a particular universe. The first value is an integer N which represents the number of particles. The second value is a real number R which represents the radius of the universe. Finally, there are N rows, and each row contains 6 values. The first two values are the x- and y-coordinates of the initial position; the second two values are the x- and y-coordinates of the initial velocity; the next value is the mass; the last value is a String that is the name of an image file used to display the particle. As an example, the input file planets.txt contains data for the inner planets of our solar system (in SI units):</p>
 
