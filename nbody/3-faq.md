@@ -22,7 +22,7 @@ Make sure that you are using a large enough value of Δt (we specify 25000, but 
 
 ####My planets move, but leave images of themselves behind.
 
-Make sure you redraw starfield.jpg once per loop before drawing all your planets, instead of just once for the entire simulation.
+Make sure you redraw starfield.jpg once per loop before drawing all your planets, instead of just once for the entire simulation.  If your simulation begins to lag, you may also want to clear all of the images on each iteration.
 
 ####My planets repel each other instead of attracting each other.
 
@@ -30,7 +30,7 @@ Make sure that you get the sign right when you apply Newton's law of gravitation
 
 ####How should I compute x<sup>2</sup>? 
 
-The simplest way is <code>x*x</code>. In Java, the ^ operator means XOR (not exponentiation).
+The simplest way is <code>x*x</code>. In Java, the ^ operator means XOR or "exclusive or" rather than exponentation.
 
 ####How should I compute the square root of x? 
 
