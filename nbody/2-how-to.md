@@ -56,6 +56,7 @@ and should produce [this animation](http://www.cs.duke.edu/courses/cps100e/sprin
 
 </ol>
 
+<p></p>
 ###Your analysis
 
 In your README.txt, you will answer two questions about the simulation of the bodies described in planets.txt.
