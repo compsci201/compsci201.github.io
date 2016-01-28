@@ -22,7 +22,7 @@ We suggest you implement the algorithm for `positions` in the following steps.
 1.082e11 0.000e00 0.000e00 3.500e04 4.869e24 venus.gif <br>
 </samp>
 
-<p>Let <code>px[i], py[i], vx[i], vy[i]</code>, and <code>mass[i]</code> be real numbers which store the current position (x and y coordinates), velocity (x and y components), and mass of planet i. Let <code>image[i]</code> be a string which represents the filename of the image used to display planet i. Keep in mind that some submissions have comments at the end - be sure you read only N lines of input instead of reading until the end of the file.</p></li>
+<p>Let <code>px[i], py[i], vx[i], vy[i]</code>, and <code>mass[i]</code> be real numbers which store the current position (x and y coordinates), velocity (x and y components), and mass of planet i. Let <code>image[i]</code> be a string which represents the filename of the image used to display planet i. Keep in mind that some submissions have comments at the end - be sure you read only N lines of input instead of reading until the end of the file.</p>
 
 <p><strong>Do not even think of continuing until you have checked that you read in the data correctly</strong>. To test, print the information back out using <code>System.out.println()</code>.</p></li>
 
