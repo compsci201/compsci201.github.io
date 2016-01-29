@@ -55,8 +55,7 @@ public class NBody extends Application {
      * @param timeStep The value of delta t in the equations to calculate position
      * @param info The scanner with info about the initial conditions of the
      * bodies
-     * @return an array whose first element is the x positions of the bodies,
-     * and whose second element is the y positions of the bodies at time
+     * @return an array whose first element is the x and y position of the first body, and so on
      * t = totalTime
      */
     public double[][] positions(Scanner info, int totalTime, int timeStep) {
@@ -86,7 +85,6 @@ public class NBody extends Application {
 	            }
 	            System.out.println();
 	        }
-	        StdDraw.clear();
 	        StdAudio.close();
     	}
     }

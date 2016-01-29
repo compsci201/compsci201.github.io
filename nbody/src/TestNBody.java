@@ -84,7 +84,7 @@ public class TestNBody {
 		for(int x = 0; x < values.length; x++) {
 			for(int y = 0; y < values.length; y++) {
 				for(int r = 0; r < values.length; r++) {
-					assertEquals(forces[count++], submission.force(values[x], values[y], values[r]), .0001);
+					assertEquals(forces[count], submission.force(values[x], values[y], values[r]), Math.abs(forces[count++]) * .0001);
 				}
 			}
 		}
@@ -98,8 +98,8 @@ public class TestNBody {
 		double[] y = {1, 2, 3, 1, 2, 3, 1, 2, 3, 4.5, 1E7};
 		for(int case1 = 0; case1 < x.length; case1++)
 			for(int case2 = 0; case2 < y.length; case2++){
-				assertEquals(distances[count++],
-						submission.distance(x[case1], y[case1], x[case2], y[case2]), .0001);
+				assertEquals(distances[count],
+						submission.distance(x[case1], y[case1], x[case2], y[case2]), Math.abs(distances[count++]) * .0001);
 			}
 	}
 
@@ -119,7 +119,7 @@ public class TestNBody {
 			for(int i = 0; i < answer.length; i++){
 				assertEquals(subResults[i].length, answer[i].length);
 				for (int j = 0; j < answer[i].length; j++) {
-					assertEquals(subResults[i][j], answer[i][j], .0001);
+					assertEquals(subResults[i][j], answer[i][j], Math.abs(answer[i][j]) * .0001);
 				}
 			}
 		}
