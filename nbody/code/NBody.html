@@ -62,8 +62,7 @@ Link to code: <a href="../src/NBody.java">NBody.java</a><br>
 <span style="color: #408080; font-style: italic">     * @param timeStep The value of delta t in the equations to calculate position</span>
 <span style="color: #408080; font-style: italic">     * @param info The scanner with info about the initial conditions of the</span>
 <span style="color: #408080; font-style: italic">     * bodies</span>
-<span style="color: #408080; font-style: italic">     * @return an array whose first element is the x positions of the bodies,</span>
-<span style="color: #408080; font-style: italic">     * and whose second element is the y positions of the bodies at time</span>
+<span style="color: #408080; font-style: italic">     * @return an array whose first element is the x and y position of the first body, and so on</span>
 <span style="color: #408080; font-style: italic">     * t = totalTime</span>
 <span style="color: #408080; font-style: italic">     */</span>
     <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">double</span><span style="color: #666666">[][]</span> <span style="color: #0000FF">positions</span><span style="color: #666666">(</span>Scanner info<span style="color: #666666">,</span> <span style="color: #B00040">int</span> totalTime<span style="color: #666666">,</span> <span style="color: #B00040">int</span> timeStep<span style="color: #666666">)</span> <span style="color: #666666">{</span>
@@ -93,7 +92,6 @@ Link to code: <a href="../src/NBody.java">NBody.java</a><br>
                 <span style="color: #666666">}</span>
                 System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">println</span><span style="color: #666666">();</span>
             <span style="color: #666666">}</span>
-            StdDraw<span style="color: #666666">.</span><span style="color: #7D9029">clear</span><span style="color: #666666">();</span>
             StdAudio<span style="color: #666666">.</span><span style="color: #7D9029">close</span><span style="color: #666666">();</span>
         <span style="color: #666666">}</span>
     <span style="color: #666666">}</span>
@@ -128,7 +126,6 @@ Link to code: <a href="../src/NBody.java">NBody.java</a><br>
     <span style="color: #666666">}</span>
 <span style="color: #666666">}</span>
 </pre></div>
-
 
 </body>
 </html>
