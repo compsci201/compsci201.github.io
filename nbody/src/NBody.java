@@ -2,13 +2,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import javafx.application.Application;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
+import javax.swing.JFileChooser;
+
 import princeton.StdAudio;
 import princeton.StdDraw;
 
-public class NBody extends Application {
+public class NBody{
 	
     public static final double G = 6.67E-11;
 
@@ -27,6 +26,7 @@ public class NBody extends Application {
      */
     public double distance(double x1, double y1, double x2, double y2) {
     	//TODO: Complete distance
+    	
         return 0;
     }
     
@@ -45,6 +45,7 @@ public class NBody extends Application {
      */
     public double force(double m1, double m2, double r) {
         //TODO: Complete force
+    	
         return 0;
     }
 
@@ -63,32 +64,27 @@ public class NBody extends Application {
         double[][] output = new double[0][2]; //Replace 0 with the number of
                                               //bodies, read from the file
 
-        return output;
+        return output;	
     }
 
     public static void main(String[] args) {
-    	launch(args);
+        Scanner info = openFile();
+        int time = 10000000;
+        int dt = 25000;
+        
+        if (info != null) {
+            //StdAudio.play("data/2001.mid");
+            NBody myNBody = new NBody();
+            double[][] results = myNBody.positions(info, time, dt);
+            for(int i = 0; i < results.length; i++) {
+                for(int j = 0; j < results[i].length; j++) {
+                    System.out.print(results[i][j]+" ");
+                }
+                System.out.println();
+            }
+            StdAudio.close();
+        }
     }
-    
-    public void start(Stage stage) {
-    	Scanner info = openFile();
-    	int time = 10000000;
-    	int dt = 25000;
-    	
-    	if (info != null) {
-    		//StdAudio.play("data/2001.mid");
-	        NBody myNBody = new NBody();
-	        double[][] results = myNBody.positions(info, time, dt);
-	        for(int i = 0; i < results.length; i++) {
-	            for(int j = 0; j < results[i].length; j++) {
-	                System.out.print(results[i][j]+" ");
-	            }
-	            System.out.println();
-	        }
-	        StdAudio.close();
-    	}
-    }
-    
     /**
      * Displays file chooser for browsing in the project directory. and opens
      * the selected file
@@ -96,25 +92,29 @@ public class NBody extends Application {
      * @return a new Scanner that produces values scanned from the selected
      *         file. null if file could not be opened or was not selected
      */
+    
     public static Scanner openFile() {
-        System.out.println("Opening file chooser");
-        FileChooser chooser = new FileChooser();
-        chooser.setTitle("Open Configuration File");
-        chooser.setInitialDirectory(new File("data"));
-        File file = chooser.showOpenDialog(new Stage());
+        Scanner scan = null;
+        System.out.println("Opening file dialog.");
+        JFileChooser openChooser = new JFileChooser(System.getProperties()
+                                                    .getProperty("user.dir"));
         
-        if (file != null) {
+        int retval = openChooser.showOpenDialog(null);
+        if (retval == JFileChooser.APPROVE_OPTION) {
+            File file = openChooser.getSelectedFile();
+            System.out.println(file.getAbsolutePath());
             try {
-                System.out.println("Opening: " + file.getName() + "");
-                return new Scanner(file);
+                scan = new Scanner(file);
+                System.out.println("Opening: " + file.getName() + ".");
+            } catch (FileNotFoundException e) {
+                System.out.println("Could not open selected file.");
+                e.printStackTrace();
             }
-            catch (FileNotFoundException fnf) {
-                throw new RuntimeException(fnf);
-            }
+        } else {
+            System.out.println("File open canceled.");
+            System.exit(0);
         }
-        else {
-            System.out.println("File open canceled");    
-            return null;
-        }
+        
+        return scan;
     }
 }

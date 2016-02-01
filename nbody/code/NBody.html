@@ -9,14 +9,13 @@ Link to code: <a href="../src/NBody.java">NBody.java</a><br>
 <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">java.io.FileNotFoundException</span><span style="color: #666666">;</span>
 <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">java.util.Scanner</span><span style="color: #666666">;</span>
 
-<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">javafx.application.Application</span><span style="color: #666666">;</span>
-<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">javafx.stage.FileChooser</span><span style="color: #666666">;</span>
-<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">javafx.stage.Stage</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">javax.swing.JFileChooser</span><span style="color: #666666">;</span>
+
 <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">princeton.StdAudio</span><span style="color: #666666">;</span>
 <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">princeton.StdDraw</span><span style="color: #666666">;</span>
 
-<span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">NBody</span> <span style="color: #008000; font-weight: bold">extends</span> Application <span style="color: #666666">{</span>
-    
+<span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">NBody</span><span style="color: #666666">{</span>
+	
     <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #008000; font-weight: bold">final</span> <span style="color: #B00040">double</span> G <span style="color: #666666">=</span> <span style="color: #666666">6.67</span>E<span style="color: #666666">-11;</span>
 
     <span style="color: #408080; font-style: italic">/**</span>
@@ -33,7 +32,8 @@ Link to code: <a href="../src/NBody.java">NBody.java</a><br>
 <span style="color: #408080; font-style: italic">     * @return Euclidean distance between (x1, y1) and (x2, y2)</span>
 <span style="color: #408080; font-style: italic">     */</span>
     <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">double</span> <span style="color: #0000FF">distance</span><span style="color: #666666">(</span><span style="color: #B00040">double</span> x1<span style="color: #666666">,</span> <span style="color: #B00040">double</span> y1<span style="color: #666666">,</span> <span style="color: #B00040">double</span> x2<span style="color: #666666">,</span> <span style="color: #B00040">double</span> y2<span style="color: #666666">)</span> <span style="color: #666666">{</span>
-        <span style="color: #408080; font-style: italic">//TODO: Complete distance</span>
+    	<span style="color: #408080; font-style: italic">//TODO: Complete distance</span>
+    	
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0;</span>
     <span style="color: #666666">}</span>
     
@@ -52,6 +52,7 @@ Link to code: <a href="../src/NBody.java">NBody.java</a><br>
 <span style="color: #408080; font-style: italic">     */</span>
     <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">double</span> <span style="color: #0000FF">force</span><span style="color: #666666">(</span><span style="color: #B00040">double</span> m1<span style="color: #666666">,</span> <span style="color: #B00040">double</span> m2<span style="color: #666666">,</span> <span style="color: #B00040">double</span> r<span style="color: #666666">)</span> <span style="color: #666666">{</span>
         <span style="color: #408080; font-style: italic">//TODO: Complete force</span>
+    	
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0;</span>
     <span style="color: #666666">}</span>
 
@@ -70,14 +71,10 @@ Link to code: <a href="../src/NBody.java">NBody.java</a><br>
         <span style="color: #B00040">double</span><span style="color: #666666">[][]</span> output <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">double</span><span style="color: #666666">[0][2];</span> <span style="color: #408080; font-style: italic">//Replace 0 with the number of</span>
                                               <span style="color: #408080; font-style: italic">//bodies, read from the file</span>
 
-        <span style="color: #008000; font-weight: bold">return</span> output<span style="color: #666666">;</span>
+        <span style="color: #008000; font-weight: bold">return</span> output<span style="color: #666666">;</span>	
     <span style="color: #666666">}</span>
 
     <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">main</span><span style="color: #666666">(</span>String<span style="color: #666666">[]</span> args<span style="color: #666666">)</span> <span style="color: #666666">{</span>
-        launch<span style="color: #666666">(</span>args<span style="color: #666666">);</span>
-    <span style="color: #666666">}</span>
-    
-    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">start</span><span style="color: #666666">(</span>Stage stage<span style="color: #666666">)</span> <span style="color: #666666">{</span>
         Scanner info <span style="color: #666666">=</span> openFile<span style="color: #666666">();</span>
         <span style="color: #B00040">int</span> time <span style="color: #666666">=</span> <span style="color: #666666">10000000;</span>
         <span style="color: #B00040">int</span> dt <span style="color: #666666">=</span> <span style="color: #666666">25000;</span>
@@ -95,7 +92,6 @@ Link to code: <a href="../src/NBody.java">NBody.java</a><br>
             StdAudio<span style="color: #666666">.</span><span style="color: #7D9029">close</span><span style="color: #666666">();</span>
         <span style="color: #666666">}</span>
     <span style="color: #666666">}</span>
-    
     <span style="color: #408080; font-style: italic">/**</span>
 <span style="color: #408080; font-style: italic">     * Displays file chooser for browsing in the project directory. and opens</span>
 <span style="color: #408080; font-style: italic">     * the selected file</span>
@@ -103,29 +99,34 @@ Link to code: <a href="../src/NBody.java">NBody.java</a><br>
 <span style="color: #408080; font-style: italic">     * @return a new Scanner that produces values scanned from the selected</span>
 <span style="color: #408080; font-style: italic">     *         file. null if file could not be opened or was not selected</span>
 <span style="color: #408080; font-style: italic">     */</span>
+    
     <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> Scanner <span style="color: #0000FF">openFile</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
-        System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">println</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;Opening file chooser&quot;</span><span style="color: #666666">);</span>
-        FileChooser chooser <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> FileChooser<span style="color: #666666">();</span>
-        chooser<span style="color: #666666">.</span><span style="color: #7D9029">setTitle</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;Open Configuration File&quot;</span><span style="color: #666666">);</span>
-        chooser<span style="color: #666666">.</span><span style="color: #7D9029">setInitialDirectory</span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">new</span> File<span style="color: #666666">(</span><span style="color: #BA2121">&quot;data&quot;</span><span style="color: #666666">));</span>
-        File file <span style="color: #666666">=</span> chooser<span style="color: #666666">.</span><span style="color: #7D9029">showOpenDialog</span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">new</span> Stage<span style="color: #666666">());</span>
+        Scanner scan <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">;</span>
+        System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">println</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;Opening file dialog.&quot;</span><span style="color: #666666">);</span>
+        JFileChooser openChooser <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> JFileChooser<span style="color: #666666">(</span>System<span style="color: #666666">.</span><span style="color: #7D9029">getProperties</span><span style="color: #666666">()</span>
+                                                    <span style="color: #666666">.</span><span style="color: #7D9029">getProperty</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;user.dir&quot;</span><span style="color: #666666">));</span>
         
-        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>file <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #B00040">int</span> retval <span style="color: #666666">=</span> openChooser<span style="color: #666666">.</span><span style="color: #7D9029">showOpenDialog</span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">);</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>retval <span style="color: #666666">==</span> JFileChooser<span style="color: #666666">.</span><span style="color: #7D9029">APPROVE_OPTION</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            File file <span style="color: #666666">=</span> openChooser<span style="color: #666666">.</span><span style="color: #7D9029">getSelectedFile</span><span style="color: #666666">();</span>
+            System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">println</span><span style="color: #666666">(</span>file<span style="color: #666666">.</span><span style="color: #7D9029">getAbsolutePath</span><span style="color: #666666">());</span>
             <span style="color: #008000; font-weight: bold">try</span> <span style="color: #666666">{</span>
-                System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">println</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;Opening: &quot;</span> <span style="color: #666666">+</span> file<span style="color: #666666">.</span><span style="color: #7D9029">getName</span><span style="color: #666666">()</span> <span style="color: #666666">+</span> <span style="color: #BA2121">&quot;&quot;</span><span style="color: #666666">);</span>
-                <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #0000FF">Scanner</span><span style="color: #666666">(</span>file<span style="color: #666666">);</span>
+                scan <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Scanner<span style="color: #666666">(</span>file<span style="color: #666666">);</span>
+                System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">println</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;Opening: &quot;</span> <span style="color: #666666">+</span> file<span style="color: #666666">.</span><span style="color: #7D9029">getName</span><span style="color: #666666">()</span> <span style="color: #666666">+</span> <span style="color: #BA2121">&quot;.&quot;</span><span style="color: #666666">);</span>
+            <span style="color: #666666">}</span> <span style="color: #008000; font-weight: bold">catch</span> <span style="color: #666666">(</span>FileNotFoundException e<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">println</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;Could not open selected file.&quot;</span><span style="color: #666666">);</span>
+                e<span style="color: #666666">.</span><span style="color: #7D9029">printStackTrace</span><span style="color: #666666">();</span>
             <span style="color: #666666">}</span>
-            <span style="color: #008000; font-weight: bold">catch</span> <span style="color: #666666">(</span>FileNotFoundException fnf<span style="color: #666666">)</span> <span style="color: #666666">{</span>
-                <span style="color: #008000; font-weight: bold">throw</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #0000FF">RuntimeException</span><span style="color: #666666">(</span>fnf<span style="color: #666666">);</span>
-            <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span> <span style="color: #008000; font-weight: bold">else</span> <span style="color: #666666">{</span>
+            System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">println</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;File open canceled.&quot;</span><span style="color: #666666">);</span>
+            System<span style="color: #666666">.</span><span style="color: #7D9029">exit</span><span style="color: #666666">(0);</span>
         <span style="color: #666666">}</span>
-        <span style="color: #008000; font-weight: bold">else</span> <span style="color: #666666">{</span>
-            System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">println</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;File open canceled&quot;</span><span style="color: #666666">);</span>    
-            <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">;</span>
-        <span style="color: #666666">}</span>
+        
+        <span style="color: #008000; font-weight: bold">return</span> scan<span style="color: #666666">;</span>
     <span style="color: #666666">}</span>
 <span style="color: #666666">}</span>
 </pre></div>
+
 
 </body>
 </html>
