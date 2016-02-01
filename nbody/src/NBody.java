@@ -68,22 +68,27 @@ public class NBody{
     }
 
     public static void main(String[] args) {
-        Scanner info = openFile();
-        int time = 10000000;
-        int dt = 25000;
-        
-        if (info != null) {
-            //StdAudio.play("data/2001.mid");
-            NBody myNBody = new NBody();
-            double[][] results = myNBody.positions(info, time, dt);
-            for(int i = 0; i < results.length; i++) {
-                for(int j = 0; j < results[i].length; j++) {
-                    System.out.print(results[i][j]+" ");
-                }
-                System.out.println();
-            }
-            StdAudio.close();
-        }
+
+    	launch(args);
+    }
+    
+    public void start(Stage stage) {
+    	Scanner info = openFile();
+    	int time = 10000000;
+    	int dt = 25000;
+    	
+    	if (info != null) {
+    		//StdAudio.play("data/2001.mid");
+	        NBody myNBody = new NBody();
+	        double[][] results = myNBody.positions(info, time, dt);
+	        for(int i = 0; i < results.length; i++) {
+	            for(int j = 0; j < results[i].length; j++) {
+	                System.out.print(results[i][j]+" ");
+	            }
+	            System.out.println();
+	        }
+	        StdAudio.close();
+    	}
     }
     /**
      * Displays file chooser for browsing in the project directory. and opens
