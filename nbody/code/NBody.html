@@ -1,120 +1,121 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.io.File</span><span style="color: #333333">;</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.io.FileNotFoundException</span><span style="color: #333333">;</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.util.Scanner</span><span style="color: #333333">;</span>
 
-import javax.swing.JFileChooser;
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">javax.swing.JFileChooser</span><span style="color: #333333">;</span>
 
-import princeton.StdAudio;
-import princeton.StdDraw;
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">princeton.StdAudio</span><span style="color: #333333">;</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">princeton.StdDraw</span><span style="color: #333333">;</span>
 
-public class NBody{
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">NBody</span><span style="color: #333333">{</span>
 	
     public static final double G = 6.67E-11;
 
-    /**
-     * returns Euclidean distance between (x1, y1) and (x2, y2)
-     *
-     * @param x1
-     *            x-coordinate of point 1
-     * @param y1
-     *            y-coordinate of point 1
-     * @param x2
-     *            x-coordinate of point 2
-     * @param y2
-     *            y-coordinate of point 2
-     * @return Euclidean distance between (x1, y1) and (x2, y2)
-     */
-    public double distance(double x1, double y1, double x2, double y2) {
-    	//TODO: Complete distance
+    <span style="color: #888888">/**</span>
+<span style="color: #888888">     * returns Euclidean distance between (x1, y1) and (x2, y2)</span>
+<span style="color: #888888">     *</span>
+<span style="color: #888888">     * @param x1</span>
+<span style="color: #888888">     *            x-coordinate of point 1</span>
+<span style="color: #888888">     * @param y1</span>
+<span style="color: #888888">     *            y-coordinate of point 1</span>
+<span style="color: #888888">     * @param x2</span>
+<span style="color: #888888">     *            x-coordinate of point 2</span>
+<span style="color: #888888">     * @param y2</span>
+<span style="color: #888888">     *            y-coordinate of point 2</span>
+<span style="color: #888888">     * @return Euclidean distance between (x1, y1) and (x2, y2)</span>
+<span style="color: #888888">     */</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">double</span> <span style="color: #0066BB; font-weight: bold">distance</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">double</span> x1<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">double</span> y1<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">double</span> x2<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">double</span> y2<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+    	<span style="color: #888888">//TODO: Complete distance</span>
     	
-        return 0;
-    }
+        <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span>
+    <span style="color: #333333">}</span>
     
     
-    /**
-     * return the magnitude of the gravitational force between two bodies of
-     * mass m1 and m2 that are distance r apart
-     *
-     * @param m1
-     *            mass of body 1 in kg
-     * @param m2
-     *            mass of body 2 in kg
-     * @param r
-     *            distance in m
-     * @return force between m1 and m2 that are distance r apart
-     */
-    public double force(double m1, double m2, double r) {
-        //TODO: Complete force
+    <span style="color: #888888">/**</span>
+<span style="color: #888888">     * return the magnitude of the gravitational force between two bodies of</span>
+<span style="color: #888888">     * mass m1 and m2 that are distance r apart</span>
+<span style="color: #888888">     *</span>
+<span style="color: #888888">     * @param m1</span>
+<span style="color: #888888">     *            mass of body 1 in kg</span>
+<span style="color: #888888">     * @param m2</span>
+<span style="color: #888888">     *            mass of body 2 in kg</span>
+<span style="color: #888888">     * @param r</span>
+<span style="color: #888888">     *            distance in m</span>
+<span style="color: #888888">     * @return force between m1 and m2 that are distance r apart</span>
+<span style="color: #888888">     */</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">double</span> <span style="color: #0066BB; font-weight: bold">force</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">double</span> m1<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">double</span> m2<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">double</span> r<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+        <span style="color: #888888">//TODO: Complete force</span>
     	
-        return 0;
-    }
+        <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span>
+    <span style="color: #333333">}</span>
 
 
-    /**
-     * Returns the x positions and y positions of bodies
-     * @param totalTime The total amount of universe time to run for
-     * @param timeStep The value of delta t in the equations to calculate position
-     * @param info The scanner with info about the initial conditions of the
-     * bodies
-     * @return an array whose first element is the x and y position of the first body, and so on
-     * t = totalTime
-     */
-    public double[][] positions(Scanner info, int totalTime, int timeStep) {
-        //TODO: Complete positions
-        double[][] output = new double[0][2]; //Replace 0 with the number of
-                                              //bodies, read from the file
+    <span style="color: #888888">/**</span>
+<span style="color: #888888">     * Returns the x positions and y positions of bodies</span>
+<span style="color: #888888">     * @param totalTime The total amount of universe time to run for</span>
+<span style="color: #888888">     * @param timeStep The value of delta t in the equations to calculate position</span>
+<span style="color: #888888">     * @param info The scanner with info about the initial conditions of the</span>
+<span style="color: #888888">     * bodies</span>
+<span style="color: #888888">     * @return an array whose first element is the x and y position of the first body, and so on</span>
+<span style="color: #888888">     * t = totalTime</span>
+<span style="color: #888888">     */</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">double</span><span style="color: #333333">[][]</span> <span style="color: #0066BB; font-weight: bold">positions</span><span style="color: #333333">(</span>Scanner info<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">int</span> totalTime<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">int</span> timeStep<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+        <span style="color: #888888">//TODO: Complete positions</span>
+        <span style="color: #333399; font-weight: bold">double</span><span style="color: #333333">[][]</span> output <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> <span style="color: #333399; font-weight: bold">double</span><span style="color: #333333">[</span><span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">][</span><span style="color: #0000DD; font-weight: bold">2</span><span style="color: #333333">];</span> <span style="color: #888888">//Replace 0 with the number of</span>
+                                              <span style="color: #888888">//bodies, read from the file</span>
 
-        return output;	
-    }
+        <span style="color: #008800; font-weight: bold">return</span> output<span style="color: #333333">;</span>	
+    <span style="color: #333333">}</span>
 
-    public static void main(String[] args) {
-        Scanner info = openFile();
-        int time = 10000000;
-        int dt = 25000;
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">main</span><span style="color: #333333">(</span>String<span style="color: #333333">[]</span> args<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+        Scanner info <span style="color: #333333">=</span> openFile<span style="color: #333333">();</span>
+        <span style="color: #333399; font-weight: bold">int</span> time <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">10000000</span><span style="color: #333333">;</span>
+        <span style="color: #333399; font-weight: bold">int</span> dt <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">25000</span><span style="color: #333333">;</span>
         
-        if (info != null) {
-            //StdAudio.play("data/2001.mid");
-            NBody myNBody = new NBody();
-            double[][] results = myNBody.positions(info, time, dt);
-            for(int i = 0; i < results.length; i++) {
-                for(int j = 0; j < results[i].length; j++) {
-                    System.out.print(results[i][j]+" ");
-                }
-                System.out.println();
-            }
-            StdAudio.close();
-        }
-    }
-    /**
-     * Displays file chooser for browsing in the project directory. and opens
-     * the selected file
-     *
-     * @return a new Scanner that produces values scanned from the selected
-     *         file. null if file could not be opened or was not selected
-     */
+        <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>info <span style="color: #333333">!=</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">)</span> <span style="color: #333333">{</span>
+            <span style="color: #888888">//StdAudio.play(&quot;data/2001.mid&quot;);</span>
+            NBody myNBody <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> NBody<span style="color: #333333">();</span>
+            <span style="color: #333399; font-weight: bold">double</span><span style="color: #333333">[][]</span> results <span style="color: #333333">=</span> myNBody<span style="color: #333333">.</span><span style="color: #0000CC">positions</span><span style="color: #333333">(</span>info<span style="color: #333333">,</span> time<span style="color: #333333">,</span> dt<span style="color: #333333">);</span>
+            <span style="color: #008800; font-weight: bold">for</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> i <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span> i <span style="color: #333333">&lt;</span> results<span style="color: #333333">.</span><span style="color: #0000CC">length</span><span style="color: #333333">;</span> i<span style="color: #333333">++)</span> <span style="color: #333333">{</span>
+                <span style="color: #008800; font-weight: bold">for</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> j <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span> j <span style="color: #333333">&lt;</span> results<span style="color: #333333">[</span>i<span style="color: #333333">].</span><span style="color: #0000CC">length</span><span style="color: #333333">;</span> j<span style="color: #333333">++)</span> <span style="color: #333333">{</span>
+                    System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">print</span><span style="color: #333333">(</span>results<span style="color: #333333">[</span>i<span style="color: #333333">][</span>j<span style="color: #333333">]+</span><span style="background-color: #fff0f0">&quot; &quot;</span><span style="color: #333333">);</span>
+                <span style="color: #333333">}</span>
+                System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">();</span>
+            <span style="color: #333333">}</span>
+            StdAudio<span style="color: #333333">.</span><span style="color: #0000CC">close</span><span style="color: #333333">();</span>
+        <span style="color: #333333">}</span>
+    <span style="color: #333333">}</span>
+    <span style="color: #888888">/**</span>
+<span style="color: #888888">     * Displays file chooser for browsing in the project directory. and opens</span>
+<span style="color: #888888">     * the selected file</span>
+<span style="color: #888888">     *</span>
+<span style="color: #888888">     * @return a new Scanner that produces values scanned from the selected</span>
+<span style="color: #888888">     *         file. null if file could not be opened or was not selected</span>
+<span style="color: #888888">     */</span>
     
-    public static Scanner openFile() {
-        Scanner scan = null;
-        System.out.println("Opening file dialog.");
-        JFileChooser openChooser = new JFileChooser(System.getProperties()
-                                                    .getProperty("user.dir"));
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> Scanner <span style="color: #0066BB; font-weight: bold">openFile</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+        Scanner scan <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">;</span>
+        System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Opening file dialog.&quot;</span><span style="color: #333333">);</span>
+        JFileChooser openChooser <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> JFileChooser<span style="color: #333333">(</span>System<span style="color: #333333">.</span><span style="color: #0000CC">getProperties</span><span style="color: #333333">()</span>
+                                                    <span style="color: #333333">.</span><span style="color: #0000CC">getProperty</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;user.dir&quot;</span><span style="color: #333333">));</span>
         
-        int retval = openChooser.showOpenDialog(null);
-        if (retval == JFileChooser.APPROVE_OPTION) {
-            File file = openChooser.getSelectedFile();
-            System.out.println(file.getAbsolutePath());
-            try {
-                scan = new Scanner(file);
-                System.out.println("Opening: " + file.getName() + ".");
-            } catch (FileNotFoundException e) {
-                System.out.println("Could not open selected file.");
-                e.printStackTrace();
-            }
-        } else {
-            System.out.println("File open canceled.");
-            System.exit(0);
-        }
+        <span style="color: #333399; font-weight: bold">int</span> retval <span style="color: #333333">=</span> openChooser<span style="color: #333333">.</span><span style="color: #0000CC">showOpenDialog</span><span style="color: #333333">(</span><span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">);</span>
+        <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>retval <span style="color: #333333">==</span> JFileChooser<span style="color: #333333">.</span><span style="color: #0000CC">APPROVE_OPTION</span><span style="color: #333333">)</span> <span style="color: #333333">{</span>
+            File file <span style="color: #333333">=</span> openChooser<span style="color: #333333">.</span><span style="color: #0000CC">getSelectedFile</span><span style="color: #333333">();</span>
+            System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span>file<span style="color: #333333">.</span><span style="color: #0000CC">getAbsolutePath</span><span style="color: #333333">());</span>
+            <span style="color: #008800; font-weight: bold">try</span> <span style="color: #333333">{</span>
+                scan <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Scanner<span style="color: #333333">(</span>file<span style="color: #333333">);</span>
+                System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Opening: &quot;</span> <span style="color: #333333">+</span> file<span style="color: #333333">.</span><span style="color: #0000CC">getName</span><span style="color: #333333">()</span> <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;.&quot;</span><span style="color: #333333">);</span>
+            <span style="color: #333333">}</span> <span style="color: #008800; font-weight: bold">catch</span> <span style="color: #333333">(</span>FileNotFoundException e<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+                System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Could not open selected file.&quot;</span><span style="color: #333333">);</span>
+                e<span style="color: #333333">.</span><span style="color: #0000CC">printStackTrace</span><span style="color: #333333">();</span>
+            <span style="color: #333333">}</span>
+        <span style="color: #333333">}</span> <span style="color: #008800; font-weight: bold">else</span> <span style="color: #333333">{</span>
+            System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;File open canceled.&quot;</span><span style="color: #333333">);</span>
+            System<span style="color: #333333">.</span><span style="color: #0000CC">exit</span><span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">);</span>
+        <span style="color: #333333">}</span>
         
-        return scan;
-    }
-}
+        <span style="color: #008800; font-weight: bold">return</span> scan<span style="color: #333333">;</span>
+    <span style="color: #333333">}</span>
+<span style="color: #333333">}</span>
+</pre></div>
