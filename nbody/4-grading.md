@@ -7,26 +7,25 @@ assignment: "nbody"
 ## Testing your code
 We will be grading your project by calling the method `positions` on test cases, and seeing if your output matches the expected output. You can test whether <code>positions</code> is producing the correct array by inserting the following code into your main method:
 
-{% highlight java %}
-  double[][] test = myNBody.positions(new Scanner(
-        new File("data/planets.txt")), 100000, 25000);
-  for(int i = 0; i < test.length; i++) {
+<pre><code>
+double[][] test = myNBody.positions(new Scanner(new File("data/planets.txt")), 100000, 25000);
+for(int i = 0; i < test.length; i++) {
     for(int j = 0; j < test[i].length; j++) {
-      System.out.print(test[i][j]+" ");
+        System.out.print(test[i][j]+" ");
     }
     System.out.println();
-  }
-{% endhighlight %}
+}
+</code></pre>
 
 This should output the following in console:
 
-<code>
-1.4956294976553436E11 2.2788403506932733E11 <br>
-5.765266792231076E10 330.8671434437699 <br>
-1.0812917648253027E11 2.9798154903465266E9 <br>
-2.409957795285363E9 4.784879361438484E9 <br>
-2.820200096518895 3.499427153160241E9 <br>
-</code>
+<samp>
+1.4956294976553436E11 2.9798154903465266E9 <br>
+2.2788403506932733E11 2.409957795285363E9 <br>
+5.765266792231076E10 4.784879361438483E9 <br>
+330.8671434437699 2.820200096518896 <br>
+1.0812917648253027E11 3.499427153160241E9 <br>
+</samp>
 
 ## Automated Tests
 Below is a list of aspects of your code the automated tests will check. Your code will still be checked by a TA, and passing all these tests does not guarantee a perfect grade. 

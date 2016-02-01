@@ -7,7 +7,7 @@ import javax.swing.JFileChooser;
 import princeton.StdAudio;
 import princeton.StdDraw;
 
-public class NBody{
+public class NBody {
 	
     public static final double G = 6.67E-11;
 
@@ -85,6 +85,7 @@ public class NBody{
             StdAudio.close();
         }
     }
+
     /**
      * Displays file chooser for browsing in the project directory. and opens
      * the selected file

@@ -12,9 +12,4 @@ markdown: kramdown
 highlighter: pygments
 
 assignments:
-- title: nbody 
-- title: markov
-- title: dna
-- title: percolation
-- title: autocomplete
-- title: huffman
+- title: nbody

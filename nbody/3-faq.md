@@ -8,13 +8,13 @@ assignment: "nbody"
 
 Use <code>StdDraw.show(30)</code> to turn on the animation mode of standard draw. Call it once at the end of each time step, not after each drawing command.
 
-####Can I combine all the steps from the [Equations Behind NBody](/nbody/1-physics) page into one large for loop?
+####Can I combine all the steps from the [physics](http://compsci201.github.io/nbody/1-physics.html) page into one large for loop?
 
 No! This will simultaneously screw up the physics and make your code harder to understand and debug.
 
 ####I draw the planets, but nothing appears on the screen. Why? 
 
-Use <code>[StdDraw.setXscale()](http://introcs.cs.princeton.edu/java/stdlib/javadoc/StdDraw.html#setXscale(double, double))</code> and <code>[StdDraw.setYscale()](http://introcs.cs.princeton.edu/java/stdlib/javadoc/StdDraw.html#setYscale(double, double))</code> to change the coordinate system to use the physics coordinates instead of the unit box.
+Use [StdDraw.setXscale()](http://introcs.cs.princeton.edu/java/stdlib/javadoc/StdDraw.html#setXscale(double, double)) and [StdDraw.setYscale()](http://introcs.cs.princeton.edu/java/stdlib/javadoc/StdDraw.html#setYscale(double, double)) to change the coordinate system to use the physics coordinates instead of the unit box.
 
 ####My planets don't move. 
 
@@ -22,7 +22,7 @@ Make sure that you are using a large enough value of Δt (we specify 25000, but 
 
 ####My planets move, but leave images of themselves behind.
 
-Make sure you redraw starfield.jpg once per loop before drawing all your planets, instead of just once for the entire simulation.
+Make sure you redraw starfield.jpg once per loop before drawing all your planets, instead of just once for the entire simulation.  If your simulation begins to lag, you may also want to clear all of the images on each iteration.
 
 ####My planets repel each other instead of attracting each other.
 
@@ -30,11 +30,11 @@ Make sure that you get the sign right when you apply Newton's law of gravitation
 
 ####How should I compute x<sup>2</sup>? 
 
-The simplest way is <code>x*x</code>. In Java, the ^ operator means XOR (not exponentiation).
+The simplest way is <code>x*x</code>. In Java, the ^ operator means XOR or "exclusive or" rather than exponentation.
 
 ####How should I compute the square root of x? 
 
-Use <code>[Math.sqrt](http://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#sqrt-double-)</code> or <code>[Math.pow](http://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#pow-double-double-)</code>. The return value of <code>Math.pow(a, b)</code> is a<sup>b</sup>.
+Use [Math.sqrt](http://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#sqrt-double-) or [Math.pow](http://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#pow-double-double-). The return value of <code>Math.pow(a, b)</code> is a<sup>b</sup>.
 
 ####What is Δx? 
 
