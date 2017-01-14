@@ -12,7 +12,7 @@ Submit your code and README.txt using either the <a href="https://www.cs.duke.ed
 <h2> Rubric </h2>
 <ul>
 This assignment is worth 35 points:
-<li> 45% Correctness: for your implementation of LinkStrand and passing the tests for this assignment (see <a href="8-grading">Grading</a>). </li>
-<li> 45% Analysis: for your README and Analysis.pdf. </li>
+<li> 30% Correctness: for your implementation of LinkStrand and passing the tests for this assignment (see [Grading](/dna/8-grading)). </li>
+<li> 60% Analysis: for your README and Analysis.pdf. </li>
 <li> 10% Engineering: for your the structure and style of your code and the implementation of the WordNgram class and its associated model. Do you appropriately use decomposition and inheritance to avoid duplicate code? </li>
 </ul>

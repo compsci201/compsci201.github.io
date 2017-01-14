@@ -12,10 +12,42 @@ assignment: "dna"
 <p>We're going to benchmark SimpleStrand's cutAndSplice. Our algorithm is O(N) where N is the size of the recombined strand returned. Your task is to <em>generate data that displays this behavior</em>, <em>describe your process that led to this data</em>, and <em>explain your results</em>. Record your results in your Analysis.</p>
 <h2>Part b</h2>
 <p>You'll notice that when the benchmarking program runs, memory is used to create the recombinant DNA. We're going to determine the largest splicee string (string spliced into the DNA strand) that works without generating an Out Of Memory error:</p>
-<img src="img/sample-benchmark.PNG">
-<p>We're going to first test this for a Java Virtual Machine configured with a 512M heap-size. (If your machine cannot run this, divide all the memory sizes by 2, and make a note in your README.) To change the size of the JVM heap-size in Eclipse, go to <code>Run > Run Configurations</code> and use <code>-Xmx 512M</code>.</p>
+
+<pre>
+dna length = 4,639,221
+cutting at enzyme gaattc
+-----
+Class                splicee      recomb    time
+-----
+SimpleStrand:            256      4,800,471 0.127   # append calls = 1290
+SimpleStrand:            512      4,965,591 0.127   # append calls = 1290
+SimpleStrand:          1,024      5,295,831 0.102   # append calls = 1290
+SimpleStrand:          2,048      5,956,311 0.123   # append calls = 1290
+SimpleStrand:          4,096      7,277,271 0.117   # append calls = 1290
+SimpleStrand:          8,192      9,919,191 0.104   # append calls = 1290
+SimpleStrand:         16,384     15,203,031 0.180   # append calls = 1290
+SimpleStrand:         32,768     25,770,711 0.314   # append calls = 1290
+SimpleStrand:         65,536     46,906,071 0.588   # append calls = 1290
+SimpleStrand:        131,072     89,176,791 1.029   # append calls = 1290
+Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+at java.util.Arrays.copyOf(Arrays.java:2882)
+at
+java.lang.AbstractStringBuilder.expandCapacity(AbstractStringBuilder.java:100)
+at
+java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:390)
+at java.lang.StringBuilder.append(StringBuilder.java:119)
+at SimpleStrand.append(SimpleStrand.java:111)
+at SimpleStrand.cutAndSplice(SimpleStrand.java:46)
+at DNABenchMark.strandSpliceBenchmark(DNABenchMark.java:56)
+at DNABenchMark.main(DNABenchMark.java:95)
+</pre>
+
+<p>We're going to first test this for a Java Virtual Machine configured with a 512M heap-size. (If your machine cannot run this, divide all the memory sizes by 2, and make a note in your README.) To change the size of the JVM heap-size in Eclipse, go to <code>Run > Run Configurations</code>  and use <code>-Xmx512M</code>.</p>
+
+<p><img align="left" src="http://www.cs.duke.edu/courses/cps100/fall11/assign/dna/runconfig.jpg"><img align="right" src="http://www.cs.duke.edu/courses/cps100/fall11/assign/dna/choosexmx.jpg"></p>
+
 <p>Your first task is to find the largest string fitting into this heapsize and the time it takes to do so. To make it simpler, <em>only use string lengths that are powers of 2</em>. Use the ecoli.dat input file, which has 645 cut points in an original strand of length 4,639,221 with a restriction enzyme "gaattc".</p>
-<img src="img/run-configurations.PNG">
-<img src="img/vm-arguments.PNG">
+
+
 <p>Do the same thing with 1024M of heap-size. Can you fit in the next power-of-two string? How long does it take?</p>
 <p>In your Analysis, describe how you determined the power-of-two string you can use in both memory sizes, what it is, and the amount of time it took.</p>
