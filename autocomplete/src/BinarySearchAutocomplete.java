@@ -11,10 +11,10 @@ import java.util.Comparator;
  */
 public class BinarySearchAutocomplete implements Autocompletor {
 
-	Term[] _terms;
+	Term[] myTerms;
 
 	/**
-	 * Given arrays of words and weights, initialize _terms to a corresponding
+	 * Given arrays of words and weights, initialize myTerms to a corresponding
 	 * array of Terms sorted lexicographically.
 	 * 
 	 * This constructor is written for you, but you may make modifications to 
@@ -23,19 +23,19 @@ public class BinarySearchAutocomplete implements Autocompletor {
 	 * @param terms - A list of words to form terms from
 	 * @param weights - A corresponding list of weights, such that
 	 * terms[i] has weight[i].
-	 * @return a BinarySearchAutocomplete whose _terms object
-	 * has _terms[i] = a Term with word terms[i] and weight weights[i].
+	 * @return a BinarySearchAutocomplete whose myTerms object
+	 * has myTerms[i] = a Term with word terms[i] and weight weights[i].
 	 * @throws a NullPointerException if either argument passed in is
 	 * null
 	 */
 	public BinarySearchAutocomplete(String[] terms, double[] weights) {
 		if (terms == null || weights == null)
 			throw new NullPointerException("One or more arguments null");
-		_terms = new Term[terms.length];
+		myTerms = new Term[terms.length];
 		for (int i = 0; i < terms.length; i++) {
-			_terms[i] = new Term(terms[i], weights[i]);
+			myTerms[i] = new Term(terms[i], weights[i]);
 		}
-		Arrays.sort(_terms);
+		Arrays.sort(myTerms);
 	}
 
 	/**Uses binary search to find the index of the first Term in the passed in 
@@ -51,7 +51,8 @@ public class BinarySearchAutocomplete implements Autocompletor {
 	 * as being equal. If no such index exists, return -1 instead.
 	 */
 	public static int firstIndexOf(Term[] a, Term key, Comparator<Term> comparator) {
-		//TODO: Implement this method
+		//TODO: Implement firstIndexOf
+		return -1;
 	}
 
 	/**The same as firstIndexOf, but instead finding the index of the
@@ -65,12 +66,13 @@ public class BinarySearchAutocomplete implements Autocompletor {
 	 * as being equal. If no such index exists, return -1 instead.
 	 */
 	public static int lastIndexOf(Term[] a, Term key, Comparator<Term> comparator) {
-		//TODO: Implement this method		
+		//TODO: Implement lastIndexOf	
+		return -1;
 	}
 
 	/**
 	 * Required by the Autocompletor interface.
-	 * Returns an array containing the k words in _terms with the largest weight
+	 * Returns an array containing the k words in myTerms with the largest weight
 	 * which match the given prefix, in descending weight order. If less than k
 	 * words exist matching the given prefix (including if no words exist),
 	 * then the array instead contains all those words.
@@ -88,24 +90,26 @@ public class BinarySearchAutocomplete implements Autocompletor {
 	 * @throws a NullPointerException if prefix is null
 	 */
 	public String[] topKMatches(String prefix, int k) {
-		//TODO: Implement this method
+		//TODO: Implement topKMatches
+		return null;
 	}
 
 	@Override
 	/**
-	 * Given a prefix, returns the largest-weight word in _terms starting with 
+	 * Given a prefix, returns the largest-weight word in myTerms starting with 
 	 * that prefix. 
 	 * e.g. for {air:3, bat:2, bell:4, boy:1}, topMatch("b") would return "bell".
 	 * If no such word exists, return an empty String.
 	 * 
 	 * @param prefix - the prefix the returned word should start with
-	 * @return The word from _terms with the largest weight starting with 
+	 * @return The word from myTerms with the largest weight starting with 
 	 * prefix, or an empty string if none exists
 	 * @throws a NullPointerException if the prefix is null
 	 * 
 	 */
 	public String topMatch(String prefix) {
-		//TODO: Implement this method
+		//TODO: Implement topMatch
+		return null;
 	}
 
 }

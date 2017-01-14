@@ -11,7 +11,7 @@ The following classes must be submitted in order to be graded:
 
 Make sure when you submit, all of the following are present and functional:
 
-<code>
+<pre><tt>
 Class: BinarySearchAutocomplete<br>
 &nbsp;Constructor: BinarySearchAutocomplete(String[], double[])<br>
 &nbsp;Method: public String topMatch(String)<br>
@@ -36,7 +36,7 @@ Class: Term<br>
  &nbsp;Constructor: Term(String, double)<br>
  &nbsp;Method: public String toString()<br>
  &nbsp;Method: public int compareTo(Term)<br>
- </code>
+</tt> </pre>
 
 
 You also must submit your README in order to receive any credit.

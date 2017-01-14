@@ -15,7 +15,7 @@ You can also view/download the NBody class here:
 
 [NBody.java](/nbody/code/NBody.html)
 
-We suggest you read the "Equations Behind NBody", "Program Specifications", and "Suggestions/How To" sections before writing any code.
+We suggest you read the "Equations Behind NBody" and "Suggestions/How To" sections before writing any code.
 
 [Here](/nbody/printer-friendly) is a printer friendly version of this assignment.
 

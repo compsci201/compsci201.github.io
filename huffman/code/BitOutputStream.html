@@ -1,0 +1,179 @@
+<html>
+<head>
+<title>BitOutputStream.java</title>
+</head>
+<body>
+Link to code: <a href="../src/BitOutputStream.java">BitOutputStream.java</a><br>
+<hr>
+<!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>
+<font color="#717ab3">/**</font>
+<font color="#717ab3"> *	Modified and updated slightly from previous versions written by</font>
+<font color="#717ab3"> *	Owen Astrachan for earlier versions of the Huffman Assignment.</font>
+<font color="#717ab3"> *	Allows users to write a specified number of bits at a time (e.g. 1)</font>
+<font color="#717ab3"> *	as opposed to entire bytes at time by buffering values until there</font>
+<font color="#717ab3"> *	are enough to write using the underlying OutputStream. Re-throws</font>
+<font color="#717ab3"> *	exceptions as RuntimeExceptions so user does not have to handle them</font>
+<font color="#717ab3"> *	in there own code. Take note, user must call flush() or close() after</font>
+<font color="#717ab3"> *	using a BitOutputStream to ensure that buffer is properly written to</font>
+<font color="#717ab3"> *	the output.</font>
+<font color="#717ab3"> *</font>
+<font color="#717ab3"> *	</font><b><font color="#7f0055">@author</font></b><font color="#717ab3"> Owen Astrachan</font>
+<font color="#717ab3"> *	</font><b><font color="#7f0055">@contributor</font></b><font color="#717ab3"> Brian Lavallee</font>
+<font color="#717ab3"> *	</font><b><font color="#7f0055">@since</font></b><font color="#717ab3"> 5 November 2015</font>
+<font color="#717ab3"> */</font>
+
+<font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">io</font><font color="#000000">.</font><font color="#000000">File</font><font color="#000000">;</font>
+<font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">io</font><font color="#000000">.</font><font color="#000000">FileNotFoundException</font><font color="#000000">;</font>
+<font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">io</font><font color="#000000">.</font><font color="#000000">FileOutputStream</font><font color="#000000">;</font>
+<font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">io</font><font color="#000000">.</font><font color="#000000">IOException</font><font color="#000000">;</font>
+<font color="#3f5fbf">import</font><font color="#000000"> java</font><font color="#000000">.</font><font color="#000000">io</font><font color="#000000">.</font><font color="#000000">OutputStream</font><font color="#000000">;</font>
+
+<b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">class</font></b><font color="#000000"> </font><font color="#000000">BitOutputStream</font><font color="#000000"> </font><b><font color="#7f0055">extends</font></b><font color="#000000"> OutputStream </font><font color="#000000">{</font>
+
+<font color="#000000">	</font><b><font color="#7f0055">private</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> BYTE_SIZE </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">8</font><font color="#000000">;</font>
+
+<font color="#000000">	</font><b><font color="#7f0055">private</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> bmask</font><font color="#000000">[]</font><font color="#000000"> </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">{</font><font color="#000000"> </font><font color="#000000">0x00</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0x01</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0x03</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0x07</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0x0f</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0x1f</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0x3f</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0x7f</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0xff</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0x1ff</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0x3ff</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0x7ff</font><font color="#000000">,</font>
+<font color="#000000">			</font><font color="#000000">0xfff</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0x1fff</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0x3fff</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0x7fff</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0xffff</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0x1ffff</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0x3ffff</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0x7ffff</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0xfffff</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0x1fffff</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0x3fffff</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0x7fffff</font><font color="#000000">,</font>
+<font color="#000000">			</font><font color="#000000">0xffffff</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0x1ffffff</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0x3ffffff</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0x7ffffff</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0xfffffff</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0x1fffffff</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0x3fffffff</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0x7fffffff</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">0xffffffff</font><font color="#000000"> </font><font color="#000000">}</font><font color="#000000">;</font>
+
+<font color="#000000">	</font><b><font color="#7f0055">private</font></b><font color="#000000"> </font><font color="#000000">OutputStream</font><font color="#000000"> output</font><font color="#000000">;</font>
+
+<font color="#000000">	</font><b><font color="#7f0055">private</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> buffer</font><font color="#000000">;</font>
+<font color="#000000">	</font><b><font color="#7f0055">private</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> bitsToGo</font><font color="#000000">;</font>
+
+<font color="#000000">	</font><b><font color="#7f0055">private</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> bitsWritten</font><font color="#000000">;</font>
+
+<font color="#000000">	</font><font color="#717ab3">/**</font>
+<font color="#717ab3">	 * Constructs a one-bit-at-a-time OutputStream from a file. (creates File</font>
+<font color="#717ab3">	 * and calls alternative constructor)</font>
+<font color="#717ab3">	 *</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> filePath</font>
+<font color="#717ab3">	 *            Location of the output in the user's file system.</font>
+<font color="#717ab3">	 */</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">BitOutputStream</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> filePath</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><b><font color="#7f0055">this</font></b><font color="#000000">(</font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">File</font><font color="#000000">(</font><font color="#000000">filePath</font><font color="#000000">));</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><font color="#717ab3">/**</font>
+<font color="#717ab3">	 * Constructs a one-bit-at-a-time OutputStream from a file. Re-throws</font>
+<font color="#717ab3">	 * FileNotFoundException as a RuntimeException so that the user does not</font>
+<font color="#717ab3">	 * have to catch and handle it in their own code.</font>
+<font color="#717ab3">	 *</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> source</font>
+<font color="#717ab3">	 *            File that the BitOutputStream will write to.</font>
+<font color="#717ab3">	 */</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">BitOutputStream</font><font color="#000000">(</font><font color="#000000">File</font><font color="#000000"> source</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><b><font color="#7f0055">try</font></b><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">			</font><font color="#000000">initialize</font><font color="#000000">(</font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">FileOutputStream</font><font color="#000000">(</font><font color="#000000">source</font><font color="#000000">));</font>
+<font color="#000000">		</font><font color="#000000">}</font><font color="#000000"> </font><b><font color="#7f0055">catch</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">FileNotFoundException</font><font color="#000000"> fnf</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">			</font><b><font color="#7f0055">throw</font></b><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">RuntimeException</font><font color="#000000">(</font><font color="#0000ff">"Could not open file "</font><font color="#000000"> </font><font color="#000000">+</font><font color="#000000"> fnf</font><font color="#000000">);</font>
+<font color="#000000">		</font><font color="#000000">}</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><font color="#717ab3">/**</font>
+<font color="#717ab3">	 * Constructs a one-bit-at-a-time OutputStream from another implementation</font>
+<font color="#717ab3">	 * of OutputStream.</font>
+<font color="#717ab3">	 *</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> out</font>
+<font color="#717ab3">	 *            The alternative OutputStream to use as the output destination.</font>
+<font color="#717ab3">	 */</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">BitOutputStream</font><font color="#000000">(</font><font color="#000000">OutputStream</font><font color="#000000"> out</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><font color="#000000">initialize</font><font color="#000000">(</font><font color="#000000">out</font><font color="#000000">);</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><font color="#717ab3">/*</font>
+<font color="#717ab3">	 * Initializes instance variables.</font>
+<font color="#717ab3">	 */</font>
+<font color="#000000">	</font><b><font color="#7f0055">private</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">initialize</font><font color="#000000">(</font><font color="#000000">OutputStream</font><font color="#000000"> out</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		output </font><font color="#000000">=</font><font color="#000000"> out</font><font color="#000000">;</font>
+<font color="#000000">		bitsWritten </font><font color="#000000">=</font><font color="#000000"> buffer </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">0</font><font color="#000000">;</font>
+<font color="#000000">		bitsToGo </font><font color="#000000">=</font><font color="#000000"> BYTE_SIZE</font><font color="#000000">;</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><font color="#717ab3">/**</font>
+<font color="#717ab3">	 * Allows to user to access the total number of bits written by the</font>
+<font color="#717ab3">	 * OutputStream without counting themselves.</font>
+<font color="#717ab3">	 *</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@return</font></b><font color="#717ab3"> bitsWritten which is incremented on every writeBits() call.</font>
+<font color="#717ab3">	 */</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> </font><font color="#000000">getBitsWritten</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> bitsWritten</font><font color="#000000">;</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><font color="#717ab3">/**</font>
+<font color="#717ab3">	 * Writes any bits remaining in the buffer out to the file.</font>
+<font color="#717ab3">	 */</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">flush</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><b><font color="#7f0055">if</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">bitsToGo </font><font color="#000000">!=</font><font color="#000000"> BYTE_SIZE</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">			</font><font color="#000000">write</font><font color="#000000">((</font><font color="#000000">buffer </font><font color="#000000">&lt;&lt;</font><font color="#000000"> bitsToGo</font><font color="#000000">));</font>
+<font color="#000000">			buffer </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">0</font><font color="#000000">;</font>
+<font color="#000000">			bitsToGo </font><font color="#000000">=</font><font color="#000000"> BYTE_SIZE</font><font color="#000000">;</font>
+<font color="#000000">		</font><font color="#000000">}</font>
+
+<font color="#000000">		</font><b><font color="#7f0055">try</font></b><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">			output</font><font color="#000000">.</font><font color="#000000">flush</font><font color="#000000">();</font>
+<font color="#000000">		</font><font color="#000000">}</font><font color="#000000"> </font><b><font color="#7f0055">catch</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">IOException</font><font color="#000000"> ioe</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">			</font><b><font color="#7f0055">throw</font></b><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">RuntimeException</font><font color="#000000">(</font><font color="#0000ff">"Error on flush "</font><font color="#000000"> </font><font color="#000000">+</font><font color="#000000"> ioe</font><font color="#000000">);</font>
+<font color="#000000">		</font><font color="#000000">}</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><font color="#717ab3">/**</font>
+<font color="#717ab3">	 * Flushes remaining bits in buffer. Additional functionality depends on</font>
+<font color="#717ab3">	 * implementation of underlying OutputStream.</font>
+<font color="#717ab3">	 */</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">close</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><font color="#000000">flush</font><font color="#000000">();</font>
+<font color="#000000">		</font><b><font color="#7f0055">try</font></b><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">			output</font><font color="#000000">.</font><font color="#000000">close</font><font color="#000000">();</font>
+<font color="#000000">		</font><font color="#000000">}</font><font color="#000000"> </font><b><font color="#7f0055">catch</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">IOException</font><font color="#000000"> ioe</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">			</font><b><font color="#7f0055">throw</font></b><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">RuntimeException</font><font color="#000000">(</font><font color="#0000ff">"Error closing BitOutputStream "</font><font color="#000000"> </font><font color="#000000">+</font><font color="#000000"> ioe</font><font color="#000000">);</font>
+<font color="#000000">		</font><font color="#000000">}</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><font color="#717ab3">/**</font>
+<font color="#717ab3">	 * Overridden abstract method from OutputStream. Calls writeBits() which</font>
+<font color="#717ab3">	 * should be used as the primary writing method for users.</font>
+<font color="#717ab3">	 */</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">write</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> b</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><font color="#000000">writeBits</font><font color="#000000">(</font><font color="#000000">BYTE_SIZE</font><font color="#000000">,</font><font color="#000000"> b</font><font color="#000000">);</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+
+<font color="#000000">	</font><font color="#717ab3">/**</font>
+<font color="#717ab3">	 * Writes numBits bits to the OutputStream. Uses a buffer to store extra</font>
+<font color="#717ab3">	 * bits until there are enough to write a full byte.</font>
+<font color="#717ab3">	 *</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> numBits</font>
+<font color="#717ab3">	 *            The number of bits the user wants to write.</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> value</font>
+<font color="#717ab3">	 *            The int value of the bits to write.</font>
+<font color="#717ab3">	 */</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">writeBits</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> numBits</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> value</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		bitsWritten </font><font color="#000000">+=</font><font color="#000000"> numBits</font><font color="#000000">;</font>
+<font color="#000000">		value </font><font color="#000000">&amp;=</font><font color="#000000"> bmask</font><font color="#000000">[</font><font color="#000000">numBits</font><font color="#000000">];</font>
+
+<font color="#000000">		</font><b><font color="#7f0055">while</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">numBits </font><font color="#000000">&gt;=</font><font color="#000000"> bitsToGo</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">			buffer </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">buffer </font><font color="#000000">&lt;&lt;</font><font color="#000000"> bitsToGo</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">|</font><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">value </font><font color="#000000">&gt;&gt;&gt;</font><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">numBits </font><font color="#000000">-</font><font color="#000000"> bitsToGo</font><font color="#000000">));</font>
+<font color="#000000">			</font><b><font color="#7f0055">try</font></b><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">				output</font><font color="#000000">.</font><font color="#000000">write</font><font color="#000000">(</font><font color="#000000">buffer</font><font color="#000000">);</font>
+<font color="#000000">			</font><font color="#000000">}</font><font color="#000000"> </font><b><font color="#7f0055">catch</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">IOException</font><font color="#000000"> ioe</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">				</font><b><font color="#7f0055">throw</font></b><font color="#000000"> </font><b><font color="#7f0055">new</font></b><font color="#000000"> </font><font color="#000000">RuntimeException</font><font color="#000000">(</font><font color="#0000ff">"Error writing bits "</font><font color="#000000"> </font><font color="#000000">+</font><font color="#000000"> ioe</font><font color="#000000">);</font>
+<font color="#000000">			</font><font color="#000000">}</font>
+
+<font color="#000000">			value </font><font color="#000000">&amp;=</font><font color="#000000"> bmask</font><font color="#000000">[</font><font color="#000000">numBits </font><font color="#000000">-</font><font color="#000000"> bitsToGo</font><font color="#000000">];</font>
+<font color="#000000">			numBits </font><font color="#000000">-=</font><font color="#000000"> bitsToGo</font><font color="#000000">;</font>
+<font color="#000000">			bitsToGo </font><font color="#000000">=</font><font color="#000000"> BYTE_SIZE</font><font color="#000000">;</font>
+<font color="#000000">			buffer </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">0</font><font color="#000000">;</font>
+<font color="#000000">		</font><font color="#000000">}</font>
+
+<font color="#000000">		</font><b><font color="#7f0055">if</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">numBits </font><font color="#000000">&gt;</font><font color="#000000"> </font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">			buffer </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">buffer </font><font color="#000000">&lt;&lt;</font><font color="#000000"> numBits</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">|</font><font color="#000000"> value</font><font color="#000000">;</font>
+<font color="#000000">			bitsToGo </font><font color="#000000">-=</font><font color="#000000"> numBits</font><font color="#000000">;</font>
+<font color="#000000">		</font><font color="#000000">}</font>
+<font color="#000000">	</font><font color="#000000">}</font>
+<font color="#000000">}</font></tt></pre>
+</body>
+</html>

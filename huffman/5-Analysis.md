@@ -1,22 +1,29 @@
 ---
 layout: page
-title: "Analysis"
+title: "Analysis and Grading"
 assignment: "huffman"
-
 ---
 
+Answer the following questions  You do not need to write several pages, but
+you should provide thoughtful answers backed by data and analysis.
 
+1. Benchmark your code on the given *calgary* and *waterloo*
+directories. Refer to  [this reference for comparisons on the Calgary Corpus](http://www.data-compression.info/Comparisons/index.html). Develop a
+hypothesis for how the *compression rate* and *time elapsed* vary with the
+length of the file (in bits), the size of the alphabet (i.e., the number of
+leaves in the tree), and any other factors. 
+2. Do text files or binary (image) files compress more (compare the calgary (text) and waterloo (image) folders)?  Explain why.
+3. How much additional compression can you achieve by compressing an already compressed file?
 
-You should run the program `HuffMark` which will read the files in a directory and compress it to another file in the same directory with a '.hf' suffix. You may want to modify this benchmarking program to print more data than it currently does, and to run it on both the calgary directory which represents the **Calgary Corpus**, a standard compression suite of files for empirical analysis, you can see this reference for comparisons on the Calgary Corpus and on the waterloo directory which is a collection of .tiff images used in some compression benchmarking. You can, of course, run your code on other data/collections. Be sure to check whether the file you compress and uncompress is the same as the original using `Diff`.
+## Grading
+This assignment is worth 50 points. 
 
-When you compress a file, the suffix .hf will be added. If you uncompress the .hf file, the suffix .unhf will be added. When you run `Diff` you must select two files, you should select the original file you compressed, and the .unhf version of that file. Then `Diff` will tell you if the files differ anywhere, if your program works properly the original file and the .unhf file should be the same. 
-
-
-In your analysis you should use empirical data and logical reasoning to answer the following questions: 
-
-Which compresses more, binary or text files? (Use the calgary files and the waterloo files to compare)
-
-How much additional compression do you get by compressing an already compressed file? When does this become ineffective?
-
-Can a file be designed that should compress a lot? When is it no longer worthwhile to keep compressing that file?
+- **65% Correctness:** for your implementation of
+HuffProcessor. We will run your code on a number of files and
+checked the results of the compression and decompression.
+- **15% Analysis:** for your README, data from
+your  AutocompleteBenchmark. answers to the
+questions,  and description of the tradeoffs.
+- **20% Engineering:** for your the structure and style of
+your HuffProcessor implementation. Is your code inefficient?
 

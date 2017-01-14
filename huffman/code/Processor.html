@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Processor.java</title>
+</head>
+<body>
+Link to code: <a href="../src/Processor.java">Processor.java</a><br>
+<hr>
+<!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><font color="#717ab3">/**</font>
+<font color="#717ab3"> * Interface that all compression suites must implement. That is they must be</font>
+<font color="#717ab3"> * able to compress a file and also reverse/decompress that process.</font>
+<font color="#717ab3"> * </font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">@author</font></b><font color="#717ab3"> Brian Lavallee</font>
+<font color="#717ab3"> * </font><b><font color="#7f0055">@since</font></b><font color="#717ab3"> 5 November 2015</font>
+<font color="#717ab3"> */</font>
+<b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">interface</font></b><font color="#000000"> </font><font color="#000000">Processor</font><font color="#000000"> </font><font color="#000000">{</font>
+
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> BITS_PER_WORD </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">8</font><font color="#000000">;</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> BITS_PER_INT </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">32</font><font color="#000000">;</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> ALPH_SIZE </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">1</font><font color="#000000"> </font><font color="#000000">&lt;&lt;</font><font color="#000000"> BITS_PER_WORD</font><font color="#000000">);</font><font color="#000000"> </font><font color="#717ab3">// or 256</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> PSEUDO_EOF </font><font color="#000000">=</font><font color="#000000"> ALPH_SIZE</font><font color="#000000">;</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> HUFF_NUMBER </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">0xface8200</font><font color="#000000">;</font>
+
+<font color="#000000">	</font><font color="#717ab3">/**</font>
+<font color="#717ab3">	 * Compresses a file. Process must be reversible and loss-less.</font>
+<font color="#717ab3">	 *</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> in</font>
+<font color="#717ab3">	 *            Buffered bit stream of the file to be compressed.</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> out</font>
+<font color="#717ab3">	 *            Buffered bit stream writing to the output file.</font>
+<font color="#717ab3">	 */</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">compress</font><font color="#000000">(</font><font color="#000000">BitInputStream</font><font color="#000000"> in</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">BitOutputStream</font><font color="#000000"> out</font><font color="#000000">);</font>
+
+<font color="#000000">	</font><font color="#717ab3">/**</font>
+<font color="#717ab3">	 * Decompresses a file. Output file must be identical bit-by-bit to the</font>
+<font color="#717ab3">	 * original.</font>
+<font color="#717ab3">	 *</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> in</font>
+<font color="#717ab3">	 *            Buffered bit stream of the file to be decompressed.</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> out</font>
+<font color="#717ab3">	 *            Buffered bit stream writing to the output file.</font>
+<font color="#717ab3">	 */</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">decompress</font><font color="#000000">(</font><font color="#000000">BitInputStream</font><font color="#000000"> in</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">BitOutputStream</font><font color="#000000"> out</font><font color="#000000">);</font>
+<font color="#000000">}</font></tt></pre>
+</body>
+</html>

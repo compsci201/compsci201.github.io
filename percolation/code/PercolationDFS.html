@@ -32,14 +32,16 @@ http://www.gnu.org/software/src-highlite -->
 <b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">class</font></b><font color="#000000"> </font><font color="#000000">PercolationDFS</font><font color="#000000"> </font><b><font color="#7f0055">implements</font></b><font color="#000000"> IPercolate </font><font color="#000000">{</font>
 <font color="#000000">	</font><font color="#717ab3">// possible instance variable for storing grid state</font>
 <font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000">[][]</font><font color="#000000"> myGrid</font><font color="#000000">;</font>
-<font color="#000000">    </font><font color="#717ab3">/**</font>
-<font color="#717ab3">     * Initialize a grid so that all cells are blocked.</font>
-<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> n is the size of the simulated (square) grid</font>
-<font color="#717ab3">     */</font>
-<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">PercolationDFS</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> n</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
-<font color="#000000">        </font><font color="#717ab3">// TODO complete constructor and add necessary instance variables</font>
-<font color="#000000">    </font><font color="#000000">}</font>
 
+<font color="#000000">	</font><font color="#717ab3">/**</font>
+<font color="#717ab3">	 * Initialize a grid so that all cells are blocked.</font>
+<font color="#717ab3">	 * </font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> n</font>
+<font color="#717ab3">	 *            is the size of the simulated (square) grid</font>
+<font color="#717ab3">	 */</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">PercolationDFS</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> n</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><font color="#717ab3">// TODO complete constructor and add necessary instance variables</font>
+<font color="#000000">	</font><font color="#000000">}</font>
 
 <font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">open</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> i</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> j</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
 <font color="#000000">		</font><font color="#717ab3">// TODO complete open</font>
@@ -55,21 +57,23 @@ http://www.gnu.org/software/src-highlite -->
 <font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> </font><b><font color="#7f0055">false</font></b><font color="#000000">;</font>
 <font color="#000000">	</font><font color="#000000">}</font>
 
-<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">boolean</font></b><font color="#000000"> </font><font color="#000000">percolates</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
-<font color="#000000">        </font><font color="#717ab3">// TODO: run DFS to find all full sites</font>
-<font color="#000000">        </font><b><font color="#7f0055">return</font></b><font color="#000000"> </font><b><font color="#7f0055">false</font></b><font color="#000000">;</font>
-<font color="#000000">    </font><font color="#000000">}</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">boolean</font></b><font color="#000000"> </font><font color="#000000">percolates</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><font color="#717ab3">// TODO: run DFS to find all full sites</font>
+<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> </font><b><font color="#7f0055">false</font></b><font color="#000000">;</font>
+<font color="#000000">	</font><font color="#000000">}</font>
 
-<font color="#000000">    </font><font color="#717ab3">/**</font>
-<font color="#717ab3">     * Private helper method to mark all cells that are open and reachable</font>
-<font color="#717ab3">     * from (row,col).</font>
-<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> row is the row coordinate of the cell being checked/marked</font>
-<font color="#717ab3">     * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> col is the col coordinate of the cell being checked/marked</font>
-<font color="#717ab3">     */</font>
-<font color="#000000">    </font><b><font color="#7f0055">private</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">dfs</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> row</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> col</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
-<font color="#000000">        </font><font color="#717ab3">// TODO: complete dfs</font>
-<font color="#000000">    </font><font color="#000000">}</font>
-
+<font color="#000000">	</font><font color="#717ab3">/**</font>
+<font color="#717ab3">	 * Private helper method to mark all cells that are open and reachable from</font>
+<font color="#717ab3">	 * (row,col).</font>
+<font color="#717ab3">	 * </font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> row</font>
+<font color="#717ab3">	 *            is the row coordinate of the cell being checked/marked</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> col</font>
+<font color="#717ab3">	 *            is the col coordinate of the cell being checked/marked</font>
+<font color="#717ab3">	 */</font>
+<font color="#000000">	</font><b><font color="#7f0055">private</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">dfs</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> row</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> col</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">		</font><font color="#717ab3">// TODO: complete dfs</font>
+<font color="#000000">	</font><font color="#000000">}</font>
 
 <font color="#000000">}</font>
 </tt></pre>

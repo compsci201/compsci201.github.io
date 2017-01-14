@@ -11,10 +11,10 @@ http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
 <pre><tt><font color="#717ab3">/**</font>
 <font color="#717ab3"> * This interface encapsulates what a class used in Percolation Threshold</font>
-<font color="#717ab3"> * simulations should support. By varying the implementations you can</font>
-<font color="#717ab3"> * experiment with different approaches in analyzing not only what the </font>
-<font color="#717ab3"> * Percolation Threshold constants are for different grids, but how efficiently</font>
-<font color="#717ab3"> * these constants can be determined via simulation.</font>
+<font color="#717ab3"> * simulations should support. By varying the implementations you can experiment</font>
+<font color="#717ab3"> * with different approaches in analyzing not only what the Percolation</font>
+<font color="#717ab3"> * Threshold constants are for different grids, but how efficiently these</font>
+<font color="#717ab3"> * constants can be determined via simulation.</font>
 <font color="#717ab3"> * </font>
 <font color="#717ab3"> * </font><b><font color="#7f0055">@author</font></b><font color="#717ab3"> Owen Astrachan</font>
 <font color="#717ab3"> * </font><b><font color="#7f0055">@author</font></b><font color="#717ab3"> Jeff Forbes</font>
@@ -26,43 +26,53 @@ http://www.gnu.org/software/src-highlite -->
 <b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">interface</font></b><font color="#000000"> </font><font color="#000000">IPercolate</font><font color="#000000"> </font><font color="#000000">{</font>
 
 <font color="#000000">	</font><font color="#717ab3">// Possible states for a grid cell are BLOCKED, OPEN, and FULL</font>
-<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> BLOCKED </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">0</font><font color="#000000">;</font>
-<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> OPEN </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">1</font><font color="#000000">;</font>
-<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> FULL </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">2</font><font color="#000000">;</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> BLOCKED </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">0</font><font color="#000000">;</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> OPEN </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">1</font><font color="#000000">;</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> FULL </font><font color="#000000">=</font><font color="#000000"> </font><font color="#000000">2</font><font color="#000000">;</font>
 
 <font color="#000000">	</font><font color="#717ab3">/**</font>
-<font color="#717ab3">	 * Open site (row i, col j) if it is not already open.</font>
-<font color="#717ab3">	 * By convention, (0, 0) is the upper-left site</font>
-<font color="#717ab3">	 *   </font>
-<font color="#717ab3">     * The method modifies internal state so that determining</font>
-<font color="#717ab3">     * if percolation occurs could change after taking a step in</font>
-<font color="#717ab3">     * the simulation.</font>
-<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> i row index in range [0,N-1]</font>
-<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> j column index in range [0,N-1]</font>
+<font color="#717ab3">	 * Open site (row i, col j) if it is not already open. By convention, (0, 0)</font>
+<font color="#717ab3">	 * is the upper-left site</font>
+<font color="#717ab3">	 * </font>
+<font color="#717ab3">	 * The method modifies internal state so that determining if percolation</font>
+<font color="#717ab3">	 * occurs could change after taking a step in the simulation.</font>
+<font color="#717ab3">	 * </font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> i</font>
+<font color="#717ab3">	 *            row index in range [0,N-1]</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> j</font>
+<font color="#717ab3">	 *            column index in range [0,N-1]</font>
 <font color="#717ab3">	 */</font>
-<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">abstract</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">open</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> i</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> j</font><font color="#000000">);</font><font color="#000000"> </font>
-<font color="#000000">	</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">abstract</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">open</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> i</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> j</font><font color="#000000">);</font>
+
 <font color="#000000">	</font><font color="#717ab3">/**</font>
 <font color="#717ab3">	 * Returns true if and only if site (row i, col j) is OPEN</font>
-<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> i row index in range [0,N-1]</font>
-<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> j column index in range [0,N-1]</font>
+<font color="#717ab3">	 * </font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> i</font>
+<font color="#717ab3">	 *            row index in range [0,N-1]</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> j</font>
+<font color="#717ab3">	 *            column index in range [0,N-1]</font>
 <font color="#717ab3">	 */</font>
 <font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">abstract</font></b><font color="#000000"> </font><b><font color="#7f0055">boolean</font></b><font color="#000000"> </font><font color="#000000">isOpen</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> i</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> j</font><font color="#000000">);</font>
 
 <font color="#000000">	</font><font color="#717ab3">/**</font>
 <font color="#717ab3">	 * Returns true if and only if site (row i, col j) is FULL</font>
-<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> i row index in range [0,N-1]</font>
-<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> j column index in range [0,N-1]</font>
+<font color="#717ab3">	 * </font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> i</font>
+<font color="#717ab3">	 *            row index in range [0,N-1]</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> j</font>
+<font color="#717ab3">	 *            column index in range [0,N-1]</font>
 <font color="#717ab3">	 */</font>
-<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">boolean</font></b><font color="#000000"> </font><font color="#000000">isFull</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> i</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> j</font><font color="#000000">);</font><font color="#000000"> </font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">boolean</font></b><font color="#000000"> </font><font color="#000000">isFull</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> i</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> j</font><font color="#000000">);</font>
 
-<font color="#000000">    </font><font color="#717ab3">/**</font>
-<font color="#717ab3">     * Returns true if the simulated percolation actually percolates. What it means to</font>
-<font color="#717ab3">     * percolate could depend on the system being simulated, but returning true</font>
-<font color="#717ab3">     * typically means there's a connected path from top-to-bottom.</font>
-<font color="#717ab3">     * </font><b><font color="#7f0055">@return</font></b><font color="#717ab3"> true iff the simulated system percolates</font>
-<font color="#717ab3">     */</font>
-<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">abstract</font></b><font color="#000000"> </font><b><font color="#7f0055">boolean</font></b><font color="#000000"> </font><font color="#000000">percolates</font><font color="#000000">();</font>
+<font color="#000000">	</font><font color="#717ab3">/**</font>
+<font color="#717ab3">	 * Returns true if the simulated percolation actually percolates. What it</font>
+<font color="#717ab3">	 * means to percolate could depend on the system being simulated, but</font>
+<font color="#717ab3">	 * returning true typically means there's a connected path from</font>
+<font color="#717ab3">	 * top-to-bottom.</font>
+<font color="#717ab3">	 * </font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@return</font></b><font color="#717ab3"> true iff the simulated system percolates</font>
+<font color="#717ab3">	 */</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">abstract</font></b><font color="#000000"> </font><b><font color="#7f0055">boolean</font></b><font color="#000000"> </font><font color="#000000">percolates</font><font color="#000000">();</font>
 <font color="#000000">}</font></tt></pre>
 </body>
 </html>

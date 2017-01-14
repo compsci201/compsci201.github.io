@@ -21,25 +21,32 @@ http://www.gnu.org/software/src-highlite -->
 
 <b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">class</font></b><font color="#000000"> </font><font color="#000000">Term</font><font color="#000000"> </font><b><font color="#7f0055">implements</font></b><font color="#000000"> Comparable</font><font color="#000000">&lt;</font><font color="#000000">Term</font><font color="#000000">&gt;</font><font color="#000000"> </font><font color="#000000">{</font>
 
-<font color="#000000">	</font><b><font color="#7f0055">private</font></b><font color="#000000"> </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><font color="#000000">String</font><font color="#000000"> word</font><font color="#000000">;</font>
-<font color="#000000">	</font><b><font color="#7f0055">private</font></b><font color="#000000"> </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><b><font color="#7f0055">double</font></b><font color="#000000"> weight</font><font color="#000000">;</font>
+<font color="#000000">	</font><b><font color="#7f0055">private</font></b><font color="#000000"> </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><font color="#000000">String</font><font color="#000000"> myWord</font><font color="#000000">;</font>
+<font color="#000000">	</font><b><font color="#7f0055">private</font></b><font color="#000000"> </font><b><font color="#7f0055">final</font></b><font color="#000000"> </font><b><font color="#7f0055">double</font></b><font color="#000000"> myWeight</font><font color="#000000">;</font>
 
 <font color="#000000">	</font><font color="#717ab3">/**</font>
-<font color="#717ab3">	 * The constructor for the Term class. Should set the values of word and </font>
+<font color="#717ab3">	 * The constructor for the Term class. Should set the values of word and</font>
 <font color="#717ab3">	 * weight to the inputs, and throw the exceptions listed below</font>
-<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> word The word this term consists of</font>
-<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> weight The weight of this word in the Autocomplete algorithm</font>
-<font color="#717ab3">	 * </font><b><font color="#7f0055">@throws</font></b><font color="#717ab3"> NullPointerException if word is null</font>
-<font color="#717ab3">	 * </font><b><font color="#7f0055">@throws</font></b><font color="#717ab3"> IllegalArgumentException if weight is negative</font>
+<font color="#717ab3">	 * </font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> word</font>
+<font color="#717ab3">	 *            The word this term consists of</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> weight</font>
+<font color="#717ab3">	 *            The weight of this word in the Autocomplete algorithm</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@throws</font></b><font color="#717ab3"> NullPointerException</font>
+<font color="#717ab3">	 *             if word is null</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@throws</font></b><font color="#717ab3"> IllegalArgumentException</font>
+<font color="#717ab3">	 *             if weight is negative</font>
 <font color="#717ab3">	 */</font>
 <font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">Term</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> word</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">double</font></b><font color="#000000"> weight</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
-<font color="#000000">		</font><font color="#717ab3">//TODO: Write this constructor</font>
+<font color="#000000">		</font><font color="#717ab3">// TODO: Complete Term constructor</font>
+<font color="#000000">		myWord </font><font color="#000000">=</font><font color="#000000"> word</font><font color="#000000">;</font>
+<font color="#000000">		myWeight </font><font color="#000000">=</font><font color="#000000"> weight</font><font color="#000000">;</font>
 <font color="#000000">	</font><font color="#000000">}</font>
 
 <font color="#000000">	</font><font color="#717ab3">/**</font>
-<font color="#717ab3">	 * A Comparator for comparing Terms using a set number of the letters</font>
-<font color="#717ab3">	 * they start with. This Comparator may be useful in writing your</font>
-<font color="#717ab3">	 * implementations of Autocompletors.</font>
+<font color="#717ab3">	 * A Comparator for comparing Terms using a set number of the letters they</font>
+<font color="#717ab3">	 * start with. This Comparator may be useful in writing your implementations</font>
+<font color="#717ab3">	 * of Autocompletors.</font>
 <font color="#717ab3">	 *</font>
 <font color="#717ab3">	 */</font>
 <font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">class</font></b><font color="#000000"> </font><font color="#000000">PrefixOrder</font><font color="#000000"> </font><b><font color="#7f0055">implements</font></b><font color="#000000"> Comparator</font><font color="#000000">&lt;</font><font color="#000000">Term</font><font color="#000000">&gt;</font><font color="#000000"> </font><font color="#000000">{</font>
@@ -49,43 +56,45 @@ http://www.gnu.org/software/src-highlite -->
 <font color="#000000">			</font><b><font color="#7f0055">this</font></b><font color="#000000">.</font><font color="#000000">r </font><font color="#000000">=</font><font color="#000000"> r</font><font color="#000000">;</font>
 <font color="#000000">		</font><font color="#000000">}</font>
 
-<font color="#000000">		</font><font color="#717ab3">/**Compares v and w lexicographically using only their first r letters. </font>
+<font color="#000000">		</font><font color="#717ab3">/**</font>
+<font color="#717ab3">		 * Compares v and w lexicographically using only their first r letters.</font>
 <font color="#717ab3">		 * If the first r letters are the same, then v and w should be</font>
-<font color="#717ab3">		 * considered equal. </font>
-<font color="#717ab3">		 * This method should take O(r) to run, and be independent</font>
-<font color="#717ab3">		 * of the length of v and w's length.</font>
-<font color="#717ab3">		 * You can access the Strings to compare using v.word and w.word.</font>
-<font color="#717ab3">		 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> v/w - Two Terms whose words are being compared</font>
+<font color="#717ab3">		 * considered equal. This method should take O(r) to run, and be</font>
+<font color="#717ab3">		 * independent of the length of v and w's length. You can access the</font>
+<font color="#717ab3">		 * Strings to compare using v.word and w.word.</font>
+<font color="#717ab3">		 * </font>
+<font color="#717ab3">		 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> v/w</font>
+<font color="#717ab3">		 *            - Two Terms whose words are being compared</font>
 <font color="#717ab3">		 */</font>
 <font color="#000000">		</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> </font><font color="#000000">compare</font><font color="#000000">(</font><font color="#000000">Term</font><font color="#000000"> v</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">Term</font><font color="#000000"> w</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
-<font color="#000000">			</font><font color="#717ab3">//TODO: Implement this method</font>
+<font color="#000000">			</font><font color="#717ab3">// TODO: Implement compare</font>
+<font color="#000000">			</font><b><font color="#7f0055">return</font></b><font color="#000000"> </font><font color="#000000">0</font><font color="#000000">;</font>
 <font color="#000000">		</font><font color="#000000">}</font>
 <font color="#000000">	</font><font color="#000000">}</font>
 
 <font color="#000000">	</font><font color="#717ab3">/**</font>
 <font color="#717ab3">	 * A Comparator for comparing Terms using only their weights, in descending</font>
-<font color="#717ab3">	 * order.</font>
-<font color="#717ab3">	 * This Comparator may be useful in writing your</font>
-<font color="#717ab3">	 * implementations of Autocompletor</font>
+<font color="#717ab3">	 * order. This Comparator may be useful in writing your implementations of</font>
+<font color="#717ab3">	 * Autocompletor</font>
 <font color="#717ab3">	 *</font>
 <font color="#717ab3">	 */</font>
 <font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">class</font></b><font color="#000000"> </font><font color="#000000">ReverseWeightOrder</font><font color="#000000"> </font><b><font color="#7f0055">implements</font></b><font color="#000000"> Comparator</font><font color="#000000">&lt;</font><font color="#000000">Term</font><font color="#000000">&gt;</font><font color="#000000"> </font><font color="#000000">{</font>
 <font color="#000000">		</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> </font><font color="#000000">compare</font><font color="#000000">(</font><font color="#000000">Term</font><font color="#000000"> v</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">Term</font><font color="#000000"> w</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
-<font color="#000000">			</font><font color="#717ab3">//TODO: Implement this method			</font>
+<font color="#000000">			</font><font color="#717ab3">// TODO: Implement ReverseWeightOrder.compare</font>
+<font color="#000000">			</font><b><font color="#7f0055">return</font></b><font color="#000000"> </font><font color="#000000">0</font><font color="#000000">;</font>
 <font color="#000000">		</font><font color="#000000">}</font>
 <font color="#000000">	</font><font color="#000000">}</font>
 
-
 <font color="#000000">	</font><font color="#717ab3">/**</font>
 <font color="#717ab3">	 * A Comparator for comparing Terms using only their weights, in ascending</font>
-<font color="#717ab3">	 * order.</font>
-<font color="#717ab3">	 * This Comparator may be useful in writing your</font>
-<font color="#717ab3">	 * implementations of Autocompletor</font>
+<font color="#717ab3">	 * order. This Comparator may be useful in writing your implementations of</font>
+<font color="#717ab3">	 * Autocompletor</font>
 <font color="#717ab3">	 *</font>
 <font color="#717ab3">	 */</font>
 <font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">static</font></b><font color="#000000"> </font><b><font color="#7f0055">class</font></b><font color="#000000"> </font><font color="#000000">WeightOrder</font><font color="#000000"> </font><b><font color="#7f0055">implements</font></b><font color="#000000"> Comparator</font><font color="#000000">&lt;</font><font color="#000000">Term</font><font color="#000000">&gt;</font><font color="#000000"> </font><font color="#000000">{</font>
 <font color="#000000">		</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> </font><font color="#000000">compare</font><font color="#000000">(</font><font color="#000000">Term</font><font color="#000000"> v</font><font color="#000000">,</font><font color="#000000"> </font><font color="#000000">Term</font><font color="#000000"> w</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
-<font color="#000000">			</font><font color="#717ab3">//TODO: Implement this method			</font>
+<font color="#000000">			</font><font color="#717ab3">// TODO: Implement WeightOrder.compare</font>
+<font color="#000000">			</font><b><font color="#7f0055">return</font></b><font color="#000000"> </font><font color="#000000">0</font><font color="#000000">;</font>
 <font color="#000000">		</font><font color="#000000">}</font>
 <font color="#000000">	</font><font color="#000000">}</font>
 
@@ -93,22 +102,22 @@ http://www.gnu.org/software/src-highlite -->
 <font color="#717ab3">	 * The default sorting of Terms is lexicographical ordering.</font>
 <font color="#717ab3">	 */</font>
 <font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> </font><font color="#000000">compareTo</font><font color="#000000">(</font><font color="#000000">Term</font><font color="#000000"> that</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
-<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> word</font><font color="#000000">.</font><font color="#000000">compareTo</font><font color="#000000">(</font><font color="#000000">that</font><font color="#000000">.</font><font color="#000000">word</font><font color="#000000">);</font>
+<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> myWord</font><font color="#000000">.</font><font color="#000000">compareTo</font><font color="#000000">(</font><font color="#000000">that</font><font color="#000000">.</font><font color="#000000">myWord</font><font color="#000000">);</font>
 <font color="#000000">	</font><font color="#000000">}</font>
 
 <font color="#000000">	</font><font color="#717ab3">/**</font>
 <font color="#717ab3">	 * Getter methods, use these in other classes which use Term</font>
 <font color="#717ab3">	 */</font>
 <font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">String</font><font color="#000000"> </font><font color="#000000">getWord</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
-<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> word</font><font color="#000000">;</font>
+<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> myWord</font><font color="#000000">;</font>
 <font color="#000000">	</font><font color="#000000">}</font>
 
 <font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">double</font></b><font color="#000000"> </font><font color="#000000">getWeight</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
-<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> weight</font><font color="#000000">;</font>
+<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> myWeight</font><font color="#000000">;</font>
 <font color="#000000">	</font><font color="#000000">}</font>
 
 <font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">String</font><font color="#000000"> </font><font color="#000000">toString</font><font color="#000000">()</font><font color="#000000"> </font><font color="#000000">{</font>
-<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> String</font><font color="#000000">.</font><font color="#000000">format</font><font color="#000000">(</font><font color="#0000ff">"%14.1f</font><font color="#0000ff">\t</font><font color="#0000ff">%s"</font><font color="#000000">,</font><font color="#000000"> weight</font><font color="#000000">,</font><font color="#000000"> word</font><font color="#000000">);</font>
+<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> String</font><font color="#000000">.</font><font color="#000000">format</font><font color="#000000">(</font><font color="#0000ff">"%14.1f</font><font color="#0000ff">\t</font><font color="#0000ff">%s"</font><font color="#000000">,</font><font color="#000000"> myWeight</font><font color="#000000">,</font><font color="#000000"> myWord</font><font color="#000000">);</font>
 <font color="#000000">	</font><font color="#000000">}</font>
 <font color="#000000">}</font>
 </tt></pre>

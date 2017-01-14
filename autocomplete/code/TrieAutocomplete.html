@@ -23,13 +23,16 @@ http://www.gnu.org/software/src-highlite -->
 <font color="#000000">	</font><b><font color="#7f0055">protected</font></b><font color="#000000"> </font><font color="#000000">Node</font><font color="#000000"> myRoot</font><font color="#000000">;</font>
 
 <font color="#000000">	</font><font color="#717ab3">/**</font>
-<font color="#717ab3">	 * Constructor method for TrieAutocomplete. Should initialize</font>
-<font color="#717ab3">	 * the trie rooted at myRoot, as well as add all nodes necessary to </font>
-<font color="#717ab3">	 * represent the words in terms.</font>
-<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> terms - The words we will autocomplete from</font>
-<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> weights - Their weights, such that terms[i] has weight</font>
-<font color="#717ab3">	 * weights[i].</font>
-<font color="#717ab3">	 * </font><b><font color="#7f0055">@throws</font></b><font color="#717ab3"> a NullPointerException if either argument is null</font>
+<font color="#717ab3">	 * Constructor method for TrieAutocomplete. Should initialize the trie</font>
+<font color="#717ab3">	 * rooted at myRoot, as well as add all nodes necessary to represent the</font>
+<font color="#717ab3">	 * words in terms.</font>
+<font color="#717ab3">	 * </font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> terms</font>
+<font color="#717ab3">	 *            - The words we will autocomplete from</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> weights</font>
+<font color="#717ab3">	 *            - Their weights, such that terms[i] has weight weights[i].</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@throws</font></b><font color="#717ab3"> a</font>
+<font color="#717ab3">	 *             NullPointerException if either argument is null</font>
 <font color="#717ab3">	 */</font>
 <font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">TrieAutocomplete</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000">[]</font><font color="#000000"> terms</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">double</font></b><font color="#000000">[]</font><font color="#000000"> weights</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
 <font color="#000000">		</font><b><font color="#7f0055">if</font></b><font color="#000000"> </font><font color="#000000">(</font><font color="#000000">terms </font><font color="#000000">==</font><font color="#000000"> </font><b><font color="#7f0055">null</font></b><font color="#000000"> </font><font color="#000000">||</font><font color="#000000"> weights </font><font color="#000000">==</font><font color="#000000"> </font><b><font color="#7f0055">null</font></b><font color="#000000">)</font>
@@ -43,62 +46,69 @@ http://www.gnu.org/software/src-highlite -->
 <font color="#000000">	</font><font color="#000000">}</font>
 
 <font color="#000000">	</font><font color="#717ab3">/**</font>
-<font color="#717ab3">	 * Add the word with given weight to the trie. </font>
-<font color="#717ab3">	 * If word already exists in the trie, no new nodes should be created, </font>
-<font color="#717ab3">	 * but the weight of word should be updated.</font>
+<font color="#717ab3">	 * Add the word with given weight to the trie. If word already exists in the</font>
+<font color="#717ab3">	 * trie, no new nodes should be created, but the weight of word should be</font>
+<font color="#717ab3">	 * updated.</font>
 <font color="#717ab3">	 * </font>
-<font color="#717ab3">	 * In adding a word, this method should do the following:</font>
-<font color="#717ab3">	 * 	Create any necessary intermediate nodes if they do not exist.</font>
-<font color="#717ab3">	 *  Update the subtreeMaxWeight of all nodes in the path from root to</font>
-<font color="#717ab3">	 *  the node representing word.</font>
-<font color="#717ab3">	 *  Set the value of myWord, myWeight, isWord, and mySubtreeMaxWeight of </font>
-<font color="#717ab3">	 *  the node corresponding to the added word to the correct values</font>
-<font color="#717ab3">	 *  </font>
-<font color="#717ab3">	 * </font><b><font color="#7f0055">@throws</font></b><font color="#717ab3"> a NullPointerException if word is null</font>
-<font color="#717ab3">	 * </font><b><font color="#7f0055">@throws</font></b><font color="#717ab3"> an IllegalArgumentException if weight is negative.</font>
+<font color="#717ab3">	 * In adding a word, this method should do the following: Create any</font>
+<font color="#717ab3">	 * necessary intermediate nodes if they do not exist. Update the</font>
+<font color="#717ab3">	 * subtreeMaxWeight of all nodes in the path from root to the node</font>
+<font color="#717ab3">	 * representing word. Set the value of myWord, myWeight, isWord, and</font>
+<font color="#717ab3">	 * mySubtreeMaxWeight of the node corresponding to the added word to the</font>
+<font color="#717ab3">	 * correct values</font>
+<font color="#717ab3">	 * </font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@throws</font></b><font color="#717ab3"> a</font>
+<font color="#717ab3">	 *             NullPointerException if word is null</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@throws</font></b><font color="#717ab3"> an</font>
+<font color="#717ab3">	 *             IllegalArgumentException if weight is negative.</font>
 <font color="#717ab3">	 * </font>
 <font color="#717ab3">	 */</font>
 <font color="#000000">	</font><b><font color="#7f0055">private</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">add</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> word</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">double</font></b><font color="#000000"> weight</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
-<font color="#000000">		</font><font color="#717ab3">//TODO: Implement this method</font>
+<font color="#000000">		</font><font color="#717ab3">// TODO: Implement add</font>
 <font color="#000000">	</font><font color="#000000">}</font>
 
 <font color="#000000">	@Override</font>
 <font color="#000000">	</font><font color="#717ab3">/**</font>
-<font color="#717ab3">	 * Required by the Autocompletor interface.</font>
-<font color="#717ab3">	 * Returns an array containing the k words in the trie with the largest weight</font>
-<font color="#717ab3">	 * which match the given prefix, in descending weight order. If less than k</font>
-<font color="#717ab3">	 * words exist matching the given prefix (including if no words exist),</font>
-<font color="#717ab3">	 * then the array instead contains all those words.</font>
-<font color="#717ab3">	 * e.g. If terms is {air:3, bat:2, bell:4, boy:1}, then topKMatches("b", 2)</font>
-<font color="#717ab3">	 * should return {"bell", "bat"}, but topKMatches("a", 2) should return</font>
-<font color="#717ab3">	 * {"air"}</font>
+<font color="#717ab3">	 * Required by the Autocompletor interface. Returns an array containing the</font>
+<font color="#717ab3">	 * k words in the trie with the largest weight which match the given prefix,</font>
+<font color="#717ab3">	 * in descending weight order. If less than k words exist matching the given</font>
+<font color="#717ab3">	 * prefix (including if no words exist), then the array instead contains all</font>
+<font color="#717ab3">	 * those words. e.g. If terms is {air:3, bat:2, bell:4, boy:1}, then</font>
+<font color="#717ab3">	 * topKMatches("b", 2) should return {"bell", "bat"}, but topKMatches("a",</font>
+<font color="#717ab3">	 * 2) should return {"air"}</font>
 <font color="#717ab3">	 * </font>
-<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> prefix - A prefix which all returned words must start with</font>
-<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> k - The (maximum) number of words to be returned</font>
-<font color="#717ab3">	 * </font><b><font color="#7f0055">@return</font></b><font color="#717ab3"> An array of the k words with the largest weights among all</font>
-<font color="#717ab3">	 * words starting with prefix, in descending weight order.</font>
-<font color="#717ab3">	 * 	If less than k such words exist, return an array containing all those </font>
-<font color="#717ab3">	 *  words</font>
-<font color="#717ab3">	 * 	If no such words exist, return an empty array</font>
-<font color="#717ab3">	 * </font><b><font color="#7f0055">@throws</font></b><font color="#717ab3"> a NullPointerException if prefix is null</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> prefix</font>
+<font color="#717ab3">	 *            - A prefix which all returned words must start with</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> k</font>
+<font color="#717ab3">	 *            - The (maximum) number of words to be returned</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@return</font></b><font color="#717ab3"> An array of the k words with the largest weights among all words</font>
+<font color="#717ab3">	 *         starting with prefix, in descending weight order. If less than k</font>
+<font color="#717ab3">	 *         such words exist, return an array containing all those words If</font>
+<font color="#717ab3">	 *         no such words exist, return an empty array</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@throws</font></b><font color="#717ab3"> a</font>
+<font color="#717ab3">	 *             NullPointerException if prefix is null</font>
 <font color="#717ab3">	 */</font>
 <font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> String</font><font color="#000000">[]</font><font color="#000000"> </font><font color="#000000">topKMatches</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> prefix</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> k</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
-<font color="#000000">		</font><font color="#717ab3">//TODO: Implement this method</font>
+<font color="#000000">		</font><font color="#717ab3">// TODO: Implement topKMatches</font>
+<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> </font><b><font color="#7f0055">null</font></b><font color="#000000">;</font>
 <font color="#000000">	</font><font color="#000000">}</font>
 
 <font color="#000000">	@Override</font>
 <font color="#000000">	</font><font color="#717ab3">/**</font>
-<font color="#717ab3">	 * Given a prefix, returns the largest-weight word in the trie starting with </font>
-<font color="#717ab3">	 * that prefix. </font>
+<font color="#717ab3">	 * Given a prefix, returns the largest-weight word in the trie starting with</font>
+<font color="#717ab3">	 * that prefix.</font>
 <font color="#717ab3">	 * </font>
-<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> prefix - the prefix the returned word should start with</font>
-<font color="#717ab3">	 * </font><b><font color="#7f0055">@return</font></b><font color="#717ab3"> The word from _terms with the largest weight starting with </font>
-<font color="#717ab3">	 * prefix, or an empty string if none exists</font>
-<font color="#717ab3">	 * </font><b><font color="#7f0055">@throws</font></b><font color="#717ab3"> a NullPointerException if the prefix is null</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@param</font></b><font color="#717ab3"> prefix</font>
+<font color="#717ab3">	 *            - the prefix the returned word should start with</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@return</font></b><font color="#717ab3"> The word from _terms with the largest weight starting with</font>
+<font color="#717ab3">	 *         prefix, or an empty string if none exists</font>
+<font color="#717ab3">	 * </font><b><font color="#7f0055">@throws</font></b><font color="#717ab3"> a</font>
+<font color="#717ab3">	 *             NullPointerException if the prefix is null</font>
 <font color="#717ab3">	 * </font>
 <font color="#717ab3">	 */</font>
 <font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><font color="#000000">String</font><font color="#000000"> </font><font color="#000000">topMatch</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000"> prefix</font><font color="#000000">)</font><font color="#000000"> </font><font color="#000000">{</font>
-<font color="#000000">		</font><font color="#717ab3">//TODO: Implement this method</font>
+<font color="#000000">		</font><font color="#717ab3">// TODO: Implement topMatch</font>
+<font color="#000000">		</font><b><font color="#7f0055">return</font></b><font color="#000000"> </font><b><font color="#7f0055">null</font></b><font color="#000000">;</font>
 <font color="#000000">	</font><font color="#000000">}</font>
 
 <font color="#000000">}</font>

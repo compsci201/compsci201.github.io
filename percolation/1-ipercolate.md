@@ -8,24 +8,27 @@ assignment: "percolation"
 To model a percolation system, you will create different implementations of the
 [IPercolate](/percolation/code/IPercolate.html) interface:
 
-<code>
-public interface IPercolate {<br><br>
-&nbsp;&nbsp;// Opens site at (row i, col j) if it is not already open<br>
-&nbsp;&nbsp;public abstract void open(int i, int j);<br><br>
-&nbsp;&nbsp;// Returns true if and only if site (row i, col j) is OPEN<br>
-&nbsp;&nbsp;public abstract boolean isOpen(int i, int j);<br><br>
-&nbsp;&nbsp;// Returns true if and only if site (row i, col j) is FULL<br>
-&nbsp;&nbsp;public boolean isFull(int i, int j);<br><br>
-&nbsp;&nbsp;// Returns true iff the simulated system percolates<br>
-&nbsp;&nbsp;public abstract boolean percolates();<br><br>
-}
-</code>
+<pre><tt><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">interface</font></b><font color="#000000"> </font><font color="#000000">IPercolate</font><font color="#000000"> </font><font color="#000000">{</font>
+<font color="#000000">	</font><font color="#717ab3">// Opens site at (row i, col j) if it is not already open</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">abstract</font></b><font color="#000000"> </font><b><font color="#7f0055">void</font></b><font color="#000000"> </font><font color="#000000">open</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> i</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> j</font><font color="#000000">);</font><font color="#000000"> </font>
+<font color="#000000">	</font><font color="#717ab3">// Returns true if and only if site (row i, col j) is OPEN</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">abstract</font></b><font color="#000000"> </font><b><font color="#7f0055">boolean</font></b><font color="#000000"> </font><font color="#000000">isOpen</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> i</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> j</font><font color="#000000">);</font>
+<font color="#000000">	</font><font color="#717ab3">// Returns true if and only if site (row i, col j) is FULL</font>
+<font color="#000000">	</font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">boolean</font></b><font color="#000000"> </font><font color="#000000">isFull</font><font color="#000000">(</font><b><font color="#7f0055">int</font></b><font color="#000000"> i</font><font color="#000000">,</font><font color="#000000"> </font><b><font color="#7f0055">int</font></b><font color="#000000"> j</font><font color="#000000">);</font><font color="#000000"> </font>
+<font color="#000000">	</font><font color="#717ab3">// Returns true iff the simulated system percolates</font>
+<font color="#000000">    </font><b><font color="#7f0055">public</font></b><font color="#000000"> </font><b><font color="#7f0055">abstract</font></b><font color="#000000"> </font><b><font color="#7f0055">boolean</font></b><font color="#000000"> </font><font color="#000000">percolates</font><font color="#000000">();</font>
+<font color="#000000">}</font></tt></pre>
+
 
 You will complete brute-force ([PercolationDFS](/percolation/code/PercolationDFS.html)) and union-find ([PercolationUF](/percolation/code/PercolationUF.html)) versions of the IPercolate data type. 
 
-<b>NB</b>: By convention, the indices i and j are integers between 0 and N-1, where (0, 0) is the upper-left cell. Your code must follow this convention in order to pass our tests.
+<b>NB</b>
+<ol>
+<li> By convention, the indices i and j are integers between 0 and N-1, where (0, 0) is the upper-left cell. Your code must follow this convention in order to pass our tests.</li>
+<li> The methods can be called in any order. That is, you could call <tt>percolates</tt> twice in a row and then <tt>isFull</tt>, so make sure that your methods will return the correct value given the current state of your <tt>IPercolate</tt> object.</li>
+</ol>
 
-Below are some tips to get you started (not all methods you need to write have tips). Some tips for PercolationUF may be invalid if you are attempting the extra credit.
+Below are some tips to get you started (not all methods you need to write have tips). Some tips for <code>PercolationUF</code> may be invalid if you are attempting the extra credit.
 
 ###[PercolationDFS](/percolation/code/PercolationDFS.html)
 
@@ -41,7 +44,7 @@ See DFS below
 
 ####IsOpen and IsFull
 
-These should both be one-line, O(1) methods. For our solution, cells which are full are not considered open by isOpen. That is, isFull(i, j) and isOpen(i, j) cannot both be true at the same time. 
+These should both be one-line, O(1) methods. For our solution, cells which are full are not considered open by <code>isOpen</code>. That is, <code>isFull(i, j)</code> and <code>isOpen(i, j)</code> cannot both be true at the same time. 
 
 ####DFS
 
@@ -57,7 +60,7 @@ For the purposes of analysis - a depth-first-search that visits k sites with m t
 
 Be sure to handle out-of-bounds cases correctly in all methods.
 
-Your IUnionFind object should have two additional elements besides those representing cells - a virtual source and virtual sink representing the top and bottom of the Percolation object. Be sure to use a consistent value for the index of these (constants may help here).
+Your <code>IUnionFind</code> object should have two additional elements besides those representing cells - a virtual source and virtual sink representing the top and bottom of the <code>Percolation</code> object. Be sure to use a consistent value for the index of these (constants may help here).
 
 ####Open
 
@@ -65,10 +68,11 @@ You should be making union calls in this method or in a helper method called by 
 
 ####isOpen and isFull
 
-These should both be one-line, O(1) methods. <b> Unlike PercolationDFS, for our solution, cells which are considered full by isFull are also considered open by isOpen. That is, if isFull(i, j) is true, then isOpen(i, j) must be true.</b> 
+These should both be one-line, O(1) methods. <b> Unlike PercolationDFS, for our solution, cells which are considered full by <code>isFull</code> are also considered open by <code>isOpen</code>. That is, if <code>isFull(i, j)</code> is true, then <code>isOpen(i, j)</code> must be true.</b> 
 
-This may seem confusing, but it makes writing PercolationDFS and PercolationUF respectively much easier - for DFS, not being able to consider cells open and full at the same time is more convenient, but for union-find, the opposite is more convenient.
+This may seem confusing, but it makes writing <code>PercolationDFS</code> and <code>PercolationUF</code> respectively much easier - for DFS, not being able to consider cells open and full at the same time is more convenient, but for union-find, the opposite is more convenient.
 
 ####Percolates
 
 This should now be an O(1), one line method. 
+
