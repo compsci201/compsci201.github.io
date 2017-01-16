@@ -8,7 +8,8 @@ url: "http://www.cs.duke.edu" # the base hostname & protocol for your site
 markdown: kramdown
 
 ### NOTE: GitHub Pages requires Pygments, so switch the two lines when pushing ###
-# highlighter: rouge
-highlighter: pygments
+highlighter: rouge
+# pygments is currently unsupported
+#highlighter: pygments
 
 assignments:
